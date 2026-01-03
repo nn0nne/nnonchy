@@ -29,7 +29,9 @@
 .notification {
   border-radius: 12px;
   margin: 6px 12px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.3),
+    0 1px 3px 1px rgba(0, 0, 0, 0.7),
     0 2px 6px 2px rgba(0, 0, 0, 0.3);
   padding: 0;
 }
@@ -58,6 +60,7 @@
   background: transparent;
   padding: 6px;
   border-radius: 12px;
+  min-height: 60px; /* Gives it a baseline */
 }
 
 .close-button {
@@ -182,6 +185,10 @@
   background: transparent;
   color: @text-color;
   text-shadow: none;
+  white-space: normal;
+  text-overflow: clip;
+  word-wrap: break-word;
+  -gtk-ellipsize: none;
 }
 
 .control-center {
@@ -277,17 +284,17 @@
   background-color: @noti-bg;
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button{
+.widget-buttons-grid > flowbox > flowboxchild > button {
   background: @noti-bg;
   border-radius: 12px;
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
   background: @noti-bg-hover;
 }
 
 /* Menubar widget */
-.widget-menubar>box>.menu-button-bar>button {
+.widget-menubar > box > .menu-button-bar > button {
   border: none;
   background: transparent;
 }
@@ -308,7 +315,8 @@
   background-color: @noti-bg-hover;
 } */
 
-.topbar-buttons>button { /* Name defined in config after # */
+.topbar-buttons > button {
+  /* Name defined in config after # */
   border: none;
   background: transparent;
 }
@@ -322,7 +330,7 @@
   border-radius: 12px;
 }
 
-.widget-volume>box>button {
+.widget-volume > box > button {
   background: transparent;
   border: none;
 }
@@ -331,7 +339,7 @@
   background-color: @noti-bg-alt;
   padding: 4px 8px 8px 8px;
   margin: 0px 8px 8px 8px;
-  border-radius: 12px
+  border-radius: 12px;
 }
 
 /* Backlight widget */

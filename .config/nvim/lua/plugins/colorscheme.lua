@@ -1,7 +1,33 @@
 return {
-  -- add gruvbox
-  { "ellisonleao/gruvbox.nvim" },
-
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({
+        terminal_colors = true,
+        undercurl = true,
+        underline = true,
+        bold = true,
+        italic = {
+          strings = true,
+          emphasis = true,
+          comments = true,
+          operators = false,
+          folds = true,
+        },
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        inverse = true,
+        contrast = "", -- can be "hard", "soft" or empty string
+        palette_overrides = {},
+        overrides = {},
+        dim_inactive = false,
+        transparent_mode = false,
+      })
+    end,
+  },
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
@@ -10,35 +36,3 @@ return {
     },
   },
 }
---
--- return { { "Everblush/nvim", name = "everblush" }, { "LazyVim/LazyVim", opts = {
---   colorscheme = "everblush",
--- } } }
---
--- return {
---   {
---     "rebelot/kanagawa.nvim",
---     name = "kanagawa",
---     opts = {
---       theme = "dragon",
---     },
---   },
---   { "LazyVim/LazyVim", opts = {
---     colorscheme = "kanagawa",
---   } },
--- }
--- return {
---   {
---     "sainnhe/gruvbox-material",
---     name = "gruvbox-material",
---     config = function()
---       vim.g.gruvbox_material_foreground = "original"
---     end,
---   },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "gruvbox-material",
---     },
---   },
--- }

@@ -1,0 +1,160 @@
+{
+  // "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  "height": 30, // Waybar height (to be removed for auto height)
+  // "width": 1280, // Waybar width
+  "spacing": 4, // Gaps between modules (4px)
+  // Choose the order of the modules
+  "modules-left": [
+    "ext/workspaces",
+    "dwl/window"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "disk",
+    "temperature",
+    "backlight",
+    "battery",
+    "power-profiles-daemon",
+    "idle_inhibitor",
+    "clock"
+  ],
+  // Modules configuration
+  "disk": {
+    "interval": 30,
+    "format": "{percentage_used}% - {path}",
+    "path": "/",
+    "unit": "GB"
+  },
+  "ext/workspaces": {
+    "format": "{icon}",
+    "ignore-hidden": true,
+    "on-click": "activate",
+    "on-click-right": "deactivate",
+    "sort-by-id": true
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "<span font='14'></span>",
+      "deactivated": "<span font='14'></span>"
+    },
+    "icon-size": 14
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "power profile: {profile}\ndriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "<span font='14'></span>",
+      "performance": "<span font='14'></span>",
+      "balanced": "<span font='14'></span>",
+      "power-saver": "<span font='14'></span>"
+    }
+  },
+  "dwl/window": {
+    "format": "[{layout}] {title}"
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+  "clock": {
+    // "timezone": "America/New_York",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "cpu": {
+    "format": "{usage}% <span font='14'></span>",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{}% <span font='14'></span>"
+  },
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C <span font='14'>{icon}</span>",
+    "format": "{temperatureC}°C <span font='14'>{icon}</span>",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{percent}% <span font='14'>{icon}</span>",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip": false
+  },
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% <span font='14'>{icon}</span>",
+    "format-charging": "{capacity}% <span font='14'>󰂄</span>",
+    "format-plugged": "{capacity}% <span font='14'></span>",
+    "format-alt": "{time} <span font='14'>{icon}</span>",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "<span font='14'></span>",
+    "tooltip-format": "nmtui",
+    "format-disconnected": "<span font='14'>󰖪</span>",
+    "format-alt": "{essid}"
+  },
+  "pulseaudio": {
+    "format": "{volume}% <span font='14'>{icon}</span>",
+    "format-bluetooth": "{volume}% <span font='14'>{icon}</span> <span font='14'></span>",
+    "format-muted": "<span font='14'></span>",
+    "format-source": "{volume}% <span font='14'></span>",
+    "format-source-muted": "<span font='14'></span>",
+    "format-icons": {
+      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  }
+}

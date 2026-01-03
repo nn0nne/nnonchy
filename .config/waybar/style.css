@@ -1,13 +1,13 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: FiraCode Nerd Font Mono;
+  font-family: JetBrainsMono Nerd Font Mono;
   font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
-  background: rgba(40, 40, 40, 0);
+  background: rgba(40, 40, 40, 0.4);
   color: #fbf1c7;
 }
 
@@ -25,13 +25,16 @@ tooltip label {
 
 #workspaces {
   background: #282828;
+  border-radius: 10px;
+  padding: 0 5px;
 }
 
 #workspaces button {
-  padding: 0 5px;
   background: transparent;
   color: #fbf1c7;
   border-radius: 10px;
+  border-bottom: 2px solid transparent;
+  padding: 0 5px;
 }
 
 #workspaces button.focused {
@@ -39,15 +42,42 @@ tooltip label {
   border-bottom: 3px solid #fbf1c7;
 }
 
+/* Active tag (viewed) */
+#workspaces button.active {
+  color: #282828;
+  background-color: #ddca9e;
+  border-radius: 4px;
+}
+
+/* Tag with windows but not focused */
+#workspaces button.occupied {
+  color: #cdc885;
+}
+
+/* Tag requesting attention */
+#workspaces button.urgent {
+  background-color: #ef5e5e;
+  color: #282828;
+}
+
 #mode,
 #clock,
-#battery {
+#battery,
+#pulseaudio,
+#memory,
+#cpu,
+#temperature,
+#disk,
+#idle_inhibitor,
+#power-profiles-daemon {
+  background-color: #282828;
+  border-radius: 10px;
   padding: 0 10px;
+  margin: 0 2px;
 }
 
 #mode {
   border-radius: 10px;
-  background: #282828;
 }
 
 #clock {
@@ -81,21 +111,80 @@ tooltip label {
   animation-direction: alternate;
 }
 
-#cpu,
-#memory,
-#disk,
-#temperature,
+/* Media controls and other modules */
 #backlight,
 #network,
-#pulseaudio,
 #wireplumber,
 #custom-media,
 #tray,
-#idle_inhibitor,
 #scratchpad,
 #mpd {
   background-color: #282828;
   border-radius: 10px;
-  padding: 5px 5px;
+  padding: 0 10px;
+  margin: 0 2px;
   color: #fbf1c7;
+}
+
+/* Idle inhibitor states */
+#idle_inhibitor.activated {
+  background-color: #504945;
+  color: #fbf1c7;
+}
+
+#idle_inhibitor.deactivated {
+  background-color: #282828;
+  color: #928374;
+}
+
+/* Power profile states */
+#power-profiles-daemon.performance {
+  background-color: #fb4934;
+  color: #282828;
+}
+
+#power-profiles-daemon.balanced {
+  background-color: #b8bb26;
+  color: #282828;
+}
+
+#power-profiles-daemon.power-saver {
+  background-color: #83a598;
+  color: #282828;
+}
+
+/* Temperature warning */
+#temperature.critical {
+  background-color: #fb4934;
+  color: #282828;
+}
+
+/* Disk usage warning */
+#disk.warning {
+  background-color: #fabd2f;
+  color: #282828;
+}
+
+#disk.critical {
+  background-color: #fb4934;
+  color: #282828;
+}
+
+/* Memory and CPU warnings */
+#memory.warning,
+#cpu.warning {
+  background-color: #fabd2f;
+  color: #282828;
+}
+
+#memory.critical,
+#cpu.critical {
+  background-color: #fb4934;
+  color: #282828;
+}
+
+/* Pulseaudio muted state */
+#pulseaudio.muted {
+  background-color: #928374;
+  color: #3c3836;
 }
