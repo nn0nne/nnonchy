@@ -79,6 +79,17 @@ return {
       vim.keymap.set("i", "<A-c>", function()
         require("neocodeium").clear()
       end)
+      -- Toggle keymaps (choose one approach)
+
+      -- Option 1: Toggle globally
+      vim.keymap.set("n", "<leader>Ct", "<cmd>NeoCodeium toggle<cr>", { desc = "NeoCodeium: Toggle" })
+
+      -- Option 2: Separate enable/disable keymaps
+      vim.keymap.set("n", "<leader>Ce", "<cmd>NeoCodeium enable<cr>", { desc = "NeoCodeium: Enable" })
+      vim.keymap.set("n", "<leader>Cd", "<cmd>NeoCodeium disable<cr>", { desc = "NeoCodeium: Disable" })
+
+      -- Option 3: Toggle for current buffer only
+      vim.keymap.set("n", "<leader>Cb", "<cmd>NeoCodeium toggle_buffer<cr>", { desc = "NeoCodeium: Toggle buffer" })
     end,
   },
 
