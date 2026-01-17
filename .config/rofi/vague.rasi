@@ -1,0 +1,145 @@
+/**
+ * Vague rofi theme
+ * Color palette imported from Vague (skewb1k)
+ */
+
+* {
+    /* Vague Color Palette */
+    bg0:     #141415; /* Background */
+    bg1:     #252530; /* Selection/Alt Background */
+    fg0:     #cdcdcd; /* Foreground */
+    fg1:     #606079; /* Muted Foreground */
+    
+    accent:  #878787; /* Active Border */
+    red:     #d8647e;
+    green:   #7fa563;
+    yellow:  #f3be7c;
+    blue:    #6e94b2;
+    magenta: #bb9dbd;
+    cyan:    #aeaed1;
+
+    /* Theme Mapping */
+    foreground:       @fg0;
+    background-color: transparent;
+    
+    highlight: underline bold #d7d7d7;
+
+    transparent: rgba(20, 20, 21, 0);
+}
+
+window {
+    location: center;
+    anchor:   center;
+    border-radius: 10px;
+    height: 560px;
+    width: 600px;
+
+    background-color: @transparent;
+    spacing: 0;
+    children:  [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+message {
+    padding: 10px;
+    border:  0px 2px 2px 2px;
+    border-color: @bg0;
+    background-color: @bg1;
+}
+
+inputbar {
+    color: @fg0;
+    padding: 14px;
+    background-color: @bg0;
+    border-color: @bg0;
+
+    border: 1px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+entry, prompt, case-indicator {
+    text-font: inherit;
+    text-color: inherit;
+}
+
+prompt {
+    margin: 0px 1em 0em 0em ;
+    text-color: @magenta; /* Using Vague's signature purple */
+}
+
+listview {
+    padding: 8px;
+    border-radius: 0px 0px 10px 10px;
+    border: 2px 2px 2px 2px;
+    border-color: @bg0;
+    background-color: @bg0;
+    dynamic: false;
+}
+
+element {
+    padding: 5px;
+    vertical-align: 0.5;
+    border-radius: 10px;
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+element.normal.active {
+    background-color: @blue;
+    text-color: @bg0;
+}
+
+element.normal.urgent {
+    background-color: @red;
+    text-color: @bg0;
+}
+
+element.selected.normal {
+    background-color: @bg1; /* Vague's selection color */
+    text-color: @fg0;
+    border: 1px;
+    border-color: @accent;
+}
+
+element.selected.active {
+    background-color: @cyan;
+    text-color: @bg0;
+}
+
+element.selected.urgent {
+    background-color: @red;
+    text-color: @bg0;
+}
+
+element.alternate.normal {
+    background-color: @transparent;
+}
+
+element-text, element-icon {
+    size: 3ch;
+    margin: 0 10 0 0;
+    vertical-align: 0.5;
+    background-color: inherit;
+    text-color: inherit;
+}
+
+button {
+    padding: 6px;
+    color: @fg1;
+    horizontal-align: 0.5;
+
+    border: 2px 0px 2px 2px;
+    border-radius: 10px;
+    border-color: @bg1;
+}
+
+button.selected.normal {
+    border: 2px 0px 2px 2px;
+    border-color: @accent;
+    text-color: @fg0;
+}

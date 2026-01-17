@@ -1,28 +1,32 @@
 #!/bin/bash
 
 # Define the options
-options="Logout\nReboot\nPoweroff\nHibernate"
+options="Logout\nSleep\nReboot\nPoweroff\nHibernate"
 
-# Colors (Gruvbox-style based on your input)
-BG="#1d2021FF"
-FG="#d4be98FF"
-SEL_BG="#d4be98FF"
-SEL_FG="#1d2021FF"
-# Prompt Colors (We'll make the prompt stand out with different colors)
-PROMPT_BG="#458588FF" # A nice Blue to make the "Action:" distinct
-PROMPT_FG="#1d2021FF"
+# --- Custom color scheme from your palette ---
+BG="#252530FF" # color0 (background)
+FG="#cdcdcdFF" # color7 (normal foreground)
+
+SEL_BG="#606079FF" # color8 (selection background)
+SEL_FG="#d7d7d7FF" # color15 (selection foreground – bright & readable)
+
+PROMPT_BG="#6e94b2FF" # color4 (prompt background – soft blue)
+PROMPT_FG="#252530FF" # color0 (prompt text – dark for contrast)
 
 # Launch wmenu
 chosen=$(echo -e "$options" | wmenu -i -p "Action:" \
   -f "JetBrainsMono Nerd Font Mono 10" \
-  -l 4 \
+  -l 5 \
   -N "$BG" -n "$FG" \
   -S "$SEL_BG" -s "$SEL_FG" \
   -M "$SEL_BG" -m "$SEL_FG")
 
 case $chosen in
 Logout)
-  pkill mangowc
+  pkill mango
+  ;;
+Sleep)
+  sync && swaylock && systemctl suspend
   ;;
 Reboot)
   sync && systemctl reboot

@@ -14,3 +14,5 @@ if vim.fn.has("nvim-0.11") == 1 then
 else
   vim.print = dd
 end
+
+vim.lsp.enable("tsgo")

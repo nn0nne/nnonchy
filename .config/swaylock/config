@@ -1,0 +1,35 @@
+# Vague Theme for swaylock
+color=141415
+
+image=~/dotfiles/wallpapers/radio-tower-night.png
+
+font=JetBrainsMono Nerd Font
+font-size=16
+
+indicator-radius=100
+indicator-thickness=8
+
+inside-color=252530
+ring-color=606079
+line-color=606079
+text-color=cdcdcd
+
+inside-clear-color=252530
+ring-clear-color=606079
+text-clear-color=cdcdcd
+
+inside-ver-color=252530
+ring-ver-color=7fa563
+text-ver-color=cdcdcd
+
+inside-wrong-color=252530
+ring-wrong-color=d8647e
+text-wrong-color=cdcdcd
+
+key-hl-color=99b782
+bs-hl-color=e08398
+separator-color=606079
+
+layout-bg-color=252530
+layout-text-color=cdcdcd
+layout-border-color=606079

@@ -14,3 +14,5 @@ require("mime-ext"):setup({
 })
 
 require("mime-preview"):setup()
+
+require("git"):setup()

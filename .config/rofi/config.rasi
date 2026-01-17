@@ -7,4 +7,5 @@ configuration {
     show-icons:     true;
 }
 
-@theme "~/.config/rofi/gruvbox-material.rasi"
+// @theme "~/.config/rofi/gruvbox-material.rasi"
+@theme "~/.config/rofi/vague.rasi"
