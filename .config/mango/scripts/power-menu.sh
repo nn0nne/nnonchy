@@ -26,7 +26,7 @@ Logout)
   pkill mango
   ;;
 Sleep)
-  sync && swaylock && systemctl suspend
+  sync && systemctl suspend && swaylock
   ;;
 Reboot)
   sync && systemctl reboot

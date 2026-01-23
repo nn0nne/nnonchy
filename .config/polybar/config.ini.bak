@@ -26,15 +26,15 @@ alert = #cc241d
 disabled = #32302f
 
 [bar/toph]
-width = 100%
-height = 12pt
-radius = 0
+width = 70%
+height = 18pt
+radius = 6
 
 ;center polybar
-;fixed-center = true
-;offset-x = 15%
-;override-redirect = true
-;wm-restack = i3
+fixed-center = true
+offset-x = 15%
+override-redirect = true
+wm-restack = i3
 
 ; dpi = 96
 
@@ -43,7 +43,7 @@ foreground = ${colors.foreground}
 
 line-size = 1pt
 
-border-size = 0
+border-size = 4pt
 border-color = #00000000
 
 padding-left = 1
@@ -53,13 +53,10 @@ module-margin = 1
 separator = |
 separator-foreground = ${colors.foreground}
 
-#font-0 = FantasqueSansM Nerd Font:size=10;2
-font-0 = UDEV Gothic HS:size=10;2
-
-; font-0 = monospace:size=10;2
+font-0 = FantasqueSansM Nerd Font:size=10;2
 
 modules-left = xworkspaces xwindow
-modules-right = scratch filesystem backlight pulseaudio xkeyboard memory cpu wlan eth battery date systray
+modules-right = filesystem backlight pulseaudio xkeyboard memory cpu wlan eth battery date systray
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -71,17 +68,6 @@ enable-ipc = true
 ; wm-restack = i3
 
 ; override-redirect = true
-
-[module/scratch]
-type = custom/script
-label = %output:5:30:…% 
-label-foreground = ${colors.secondary}
-label-padding = 1
-format-fail = ""
-format-padding = 0
-exec = i3-msg -t get_tree | jq -r ".nodes|.[]|.|.nodes|.[]|.nodes|.[]|select(.name==\"__i3_scratch\")|.floating_nodes|.[]|.nodes|.[]|.window_properties.class" | awk 'BEGIN { ORS=" " }; {print}'; echo ""
-interval = 1
-click-left = exec i3-msg [class=.*] scratchpad show
 
 [module/systray]
 type = internal/tray
@@ -312,7 +298,7 @@ interval = 1
 
 ; date = %H:%M
 ; date-alt = %Y-%m-%d %H:%M:%S
-date = %a, %Y-%m-%d %H:%M:%S
+date = %a, %Y-%m-%d %H:%M
 
 label = %date%
 label-foreground = ${colors.foreground}

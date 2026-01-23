@@ -56,8 +56,8 @@
   },
 
   "pulseaudio": {
-    "format": "{volume}% <span font='14'>{icon}</span>",
-    "format-muted": "<span font='14'></span>",
+    "format": "{volume}% <span font='12'>{icon}</span>",
+    "format-muted": "<span font='12'></span>",
     "format-icons": {
       "default": ["", ""],
     },
@@ -70,9 +70,9 @@
       "warning": 25,
       "critical": 15,
     },
-    "format": "{capacity}% <span font='14'>{icon}</span>",
-    "format-charging": "<span font='14'>󰂄</span>",
-    "format-plugged": "<span font='14'></span>",
+    "format": "{capacity}% <span font='12'>{icon}</span>",
+    "format-charging": "<span font='12'>󰂄</span>",
+    "format-plugged": "<span font='12'></span>",
     "format-icons": ["", "", "", "", ""],
     "tooltip": false,
   },
@@ -80,9 +80,9 @@
   "power-profiles-daemon": {
     "format": "{icon}",
     "format-icons": {
-      "performance": "<span font='14'></span>",
-      "balanced": "<span font='14'></span>",
-      "power-saver": "<span font='14'></span>",
+      "performance": "<span font='12'></span>",
+      "balanced": "<span font='12'></span>",
+      "power-saver": "<span font='12'></span>",
     },
     "tooltip": false,
   },

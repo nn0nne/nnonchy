@@ -131,7 +131,19 @@ format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
 disabled = true
 
-palette = "everblush"
+palette = "vague"
+
+[palettes.vague]
+background           = "#141415"
+lighter_background   = "#252530"
+red                  = "#d8647e"
+green                = "#7fa563"
+yellow               = "#f3be7c"
+blue                 = "#6e94b2"
+magenta              = "#bb9dbd"
+cyan                 = "#aeaed1"
+light_gray           = "#cdcdcd"
+foreground           = "#cdcdcd"
 
 [palettes.everblush]
 background = "#141b1e"
