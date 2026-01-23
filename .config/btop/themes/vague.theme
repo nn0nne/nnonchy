@@ -1,0 +1,83 @@
+# Main background
+theme[main_bg]="#141415"
+
+# Main text color
+theme[main_fg]="#cdcdcd"
+
+# Title color for boxes
+theme[title]="#cdcdcd"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#6e94b2"  # Blue
+
+# Background color of selected item in processes box
+theme[selected_bg]="#252530"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#cdcdcd"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#606079"  # Dim gray (color8)
+
+# Color of text on graphs (e.g., uptime, network scaling)
+theme[graph_text]="#f3be7c"  # Yellow – soft but readable
+
+# Background of percentage meters
+theme[meter_bg]="#252530"
+
+# Misc colors (mini CPU graphs, memory graph, status text)
+theme[proc_misc]="#aeaed1"  # Cyan – neutral highlight
+
+# Box outline colors
+theme[cpu_box]="#bb9dbd"   # Magenta
+theme[mem_box]="#7fa563"   # Green
+theme[net_box]="#d8647e"   # Red – matches "network danger" feel
+theme[proc_box]="#6e94b2"  # Blue
+
+# Divider lines
+theme[div_line]="#606079"  # Dim gray
+
+# Temperature gradient (cool → warm → hot)
+theme[temp_start]="#7fa563"   # Green (cool)
+theme[temp_mid]="#f3be7c"     # Yellow (warm)
+theme[temp_end]="#d8647e"     # Red (hot)
+
+# CPU usage gradient (low → mid → high)
+theme[cpu_start]="#7fa563"    # Green
+theme[cpu_mid]="#aeaed1"      # Cyan
+theme[cpu_end]="#d8647e"      # Red
+
+# Memory/Disk free space (more free = cooler)
+theme[free_start]="#bb9dbd"   # Magenta (high free)
+theme[free_mid]="#6e94b2"     # Blue
+theme[free_end]="#7fa563"     # Green (fully free)
+
+# Cached memory/disk (neutral tones)
+theme[cached_start]="#aeaed1" # Cyan
+theme[cached_mid]="#bb9dbd"   # Magenta
+theme[cached_end]="#6e94b2"   # Blue
+
+# Available memory/disk (peach → red analog: yellow → red)
+theme[available_start]="#f3be7c"  # Yellow
+theme[available_mid]="#e08398"    # Bright red (color9)
+theme[available_end]="#d8647e"    # Red
+
+# Used memory/disk (green → sky analog: green → cyan)
+theme[used_start]="#7fa563"       # Green
+theme[used_mid]="#aeaed1"         # Cyan
+theme[used_end]="#6e94b2"         # Blue
+
+# Download graph (yellow → red)
+theme[download_start]="#f3be7c"   # Yellow
+theme[download_mid]="#e08398"     # Bright red
+theme[download_end]="#d8647e"     # Red
+
+# Upload graph (green → cyan)
+theme[upload_start]="#7fa563"     # Green
+theme[upload_mid]="#aeaed1"       # Cyan
+theme[upload_end]="#6e94b2"       # Blue
+
+# Process usage gradient (CPU/mem/thread intensity)
+theme[process_start]="#7fa563"    # Low usage – green
+theme[process_mid]="#aeaed1"      # Mid – cyan
+theme[process_end]="#d8647e"      # High – red
