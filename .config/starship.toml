@@ -109,11 +109,11 @@ full_symbol = "🔋"
 charging_symbol = "⚡️"
 discharging_symbol = "💀"
 
-[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+[[battery.display]] # "bold red" style when capacity is between 0% and 10%
 threshold = 10
 style = "bold red"
 
-[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+[[battery.display]] # "bold yellow" style when capacity is between 10% and 30%
 threshold = 30
 style = "bold yellow"
 
@@ -134,16 +134,16 @@ disabled = true
 palette = "vague"
 
 [palettes.vague]
-background           = "#141415"
-lighter_background   = "#252530"
-red                  = "#d8647e"
-green                = "#7fa563"
-yellow               = "#f3be7c"
-blue                 = "#6e94b2"
-magenta              = "#bb9dbd"
-cyan                 = "#aeaed1"
-light_gray           = "#cdcdcd"
-foreground           = "#cdcdcd"
+background = "#141415"
+lighter_background = "#252530"
+red = "#d8647e"
+green = "#7fa563"
+yellow = "#f3be7c"
+blue = "#6e94b2"
+magenta = "#bb9dbd"
+cyan = "#aeaed1"
+light_gray = "#cdcdcd"
+foreground = "#cdcdcd"
 
 [palettes.everblush]
 background = "#141b1e"
