@@ -1,43 +1,77 @@
 #!/bin/bash
 
-# Define the options
-options="Logout\nSleep\nReboot\nPoweroff\nHibernate"
+# Options with Nerd Font icons
+options="󰍃  Logout
+󰤄  Sleep
+󰜉  Reboot
+  Poweroff
+󰒲  Hibernate"
 
-# --- Custom color scheme from your palette ---
-BG="#252530FF" # color0 (background)
-FG="#cdcdcdFF" # color7 (normal foreground)
+# --- Custom color scheme ---
+BG="#252530FF"
+FG="#cdcdcdFF"
 
-SEL_BG="#606079FF" # color8 (selection background)
-SEL_FG="#d7d7d7FF" # color15 (selection foreground – bright & readable)
+SEL_BG="#606079FF"
+SEL_FG="#d7d7d7FF"
 
-PROMPT_BG="#6e94b2FF" # color4 (prompt background – soft blue)
-PROMPT_FG="#252530FF" # color0 (prompt text – dark for contrast)
+PROMPT_BG="#6e94b2FF"
+PROMPT_FG="#252530FF"
 
-# Launch wmenu
-chosen=$(echo -e "$options" | wmenu -i -p "Action:" \
-  -f "JetBrainsMono Nerd Font Mono 10" \
-  -l 5 \
-  -N "$BG" -n "$FG" \
-  -S "$SEL_BG" -s "$SEL_FG" \
-  -M "$SEL_BG" -m "$SEL_FG")
+chosen=$(echo -e "$options" | rofi -dmenu \
+    -i \
+    -p "Action:" \
+    -lines 5 \
+    -font "JetBrainsMono Nerd Font Mono 10" \
+    -theme-str "
+    * {
+      background: $BG;
+      foreground: $FG;
+      selected-background: $SEL_BG;
+      selected-foreground: $SEL_FG;
+    }
+    window {
+      background-color: $BG;
+      border-radius: 8px;
+      height: 27%;
+    }
+    prompt {
+      background-color: $PROMPT_BG;
+      text-color: $PROMPT_FG;
+      padding: 6px;
+    }
+    listview {
+      lines: 5;
+      spacing: 4px;
+    }
+    element {
+      padding: 6px;
+    }
+    element selected {
+      background-color: $SEL_BG;
+      text-color: $SEL_FG;
+    }
+  ")
 
-case $chosen in
+# Strip icon + extra spaces, keep only the word
+action=$(echo "$chosen" | awk '{print $2}')
+
+case "$action" in
 Logout)
-  pkill mango
-  ;;
+    pkill mango
+    ;;
 Sleep)
-  sync && systemctl suspend && swaylock
-  ;;
+    sync && systemctl suspend && swaylock
+    ;;
 Reboot)
-  sync && systemctl reboot
-  ;;
+    sync && systemctl reboot
+    ;;
 Poweroff)
-  sync && systemctl poweroff
-  ;;
+    sync && systemctl poweroff
+    ;;
 Hibernate)
-  sync && systemctl hibernate
-  ;;
+    sync && systemctl hibernate
+    ;;
 *)
-  exit 0
-  ;;
+    exit 0
+    ;;
 esac

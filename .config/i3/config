@@ -30,7 +30,7 @@ smart_gaps on
 # startup apps
 exec --no-startup-id easyeffects --gapplication-service
 exec --no-startup-id fcitx -d
-exec_always feh --bg-scale /home/nnonne/Downloads/Downloads/Wallpaper/wallhaven-nzmo3w_1920x1080.png
+exec_always feh --bg-scale ~/.config/i3/wallpaper.png
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id /home/nnonne/.config/polybar/launch_polybar.sh
 exec_always --no-startup-id /usr/bin/autotiling
