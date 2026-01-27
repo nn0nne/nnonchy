@@ -1,0 +1,16 @@
+prompt: (づ｡◕‿‿◕｡)づ
+default_exec: /bin/bash
+docker_path: unix:///var/run/docker.sock
+docker_host: null
+check_for_update: true
+autocomplete_minimum_length: 2
+theme:
+  use_theme: true
+  title: "#8ba9c1"
+  help: "#f5cb96"
+  background: "#141415"
+  footer: "#8ba9c1"
+  success: "#7fa563"
+  error: "#d8647e"
+  positive_highlight: "#99b782"
+  negative_highlight: "#e08398"
