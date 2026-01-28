@@ -126,5 +126,3 @@
   <img src="./tjunction.jpg" alt="tjunction" width="400"/><br>
   <small style="color: #666; font-family: sans-serif; letter-spacing: 0.5px;">T Junction</small>
 </p>
-
-<sup>Most of these are from [Unsplash](https://unsplash.com/) though I changed the filename to fit the image</sup>
