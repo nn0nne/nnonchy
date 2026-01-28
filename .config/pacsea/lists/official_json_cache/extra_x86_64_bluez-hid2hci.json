@@ -1,0 +1,46 @@
+{
+  "arch": "x86_64",
+  "build_date": "2025-11-21T17:46:50Z",
+  "checkdepends": [],
+  "compressed_size": 8652,
+  "conflicts": [],
+  "depends": [
+    "glibc",
+    "systemd-libs"
+  ],
+  "epoch": 0,
+  "filename": "bluez-hid2hci-5.85-1-x86_64.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 16508,
+  "last_update": "2025-11-23T12:44:15.412Z",
+  "licenses": [
+    "GPL-2.0-only"
+  ],
+  "maintainers": [
+    "andyrtr",
+    "Antiz"
+  ],
+  "makedepends": [
+    "alsa-lib",
+    "cups",
+    "dbus",
+    "ell",
+    "json-c",
+    "libical",
+    "python-docutils",
+    "python-pygments",
+    "systemd"
+  ],
+  "optdepends": [],
+  "packager": "Antiz",
+  "pkgbase": "bluez",
+  "pkgdesc": "Put HID proxying bluetooth HCI's into HCI mode",
+  "pkgname": "bluez-hid2hci",
+  "pkgrel": "1",
+  "pkgver": "5.85",
+  "provides": [],
+  "replaces": [],
+  "repo": "extra",
+  "url": "http://www.bluez.org/"
+}

@@ -1,0 +1,1152 @@
+[
+  {
+    "id": "pkg-update:aur:bridge-utils:1.7.1-3",
+    "date": "2026-01-28",
+    "title": "bridge-utils updated to 1.7.1-3",
+    "summary": "1.7.1-3",
+    "url": "https://aur.archlinux.org/packages/bridge-utils",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bridge-utils"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:limine-mkinitcpio-hook:1.28.3-1",
+    "date": "2026-01-24",
+    "title": "limine-mkinitcpio-hook updated to 1.28.3-1",
+    "summary": "1.28.3-1",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:limine-snapper-sync:1.21.0-1",
+    "date": "2026-01-24",
+    "title": "limine-snapper-sync updated to 1.21.0-1",
+    "summary": "1.21.0-1",
+    "url": "https://aur.archlinux.org/packages/limine-snapper-sync",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "limine-snapper-sync"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:docker-compose-bin:5.0.2-1",
+    "date": "2026-01-23",
+    "title": "docker-compose-bin updated to 5.0.2-1",
+    "summary": "5.0.2-1",
+    "url": "https://aur.archlinux.org/packages/docker-compose-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "docker-compose-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:linux-cachyos:6.18.7-1",
+    "date": "2026-01-23",
+    "title": "linux-cachyos updated to 6.18.7-1",
+    "summary": "6.18.7-1",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:linux-cachyos-headers:6.18.7-1",
+    "date": "2026-01-23",
+    "title": "linux-cachyos-headers updated to 6.18.7-1",
+    "summary": "6.18.7-1",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos-headers",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "linux-cachyos-headers"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:linux-cachyos-lts:6.12.67-1",
+    "date": "2026-01-23",
+    "title": "linux-cachyos-lts updated to 6.12.67-1",
+    "summary": "6.12.67-1",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos-lts",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "linux-cachyos-lts"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:linux-cachyos-lts-headers:6.12.67-1",
+    "date": "2026-01-23",
+    "title": "linux-cachyos-lts-headers updated to 6.12.67-1",
+    "summary": "6.12.67-1",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos-lts-headers",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "linux-cachyos-lts-headers"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:cloudflare-warp-bin:2025.10.186-1",
+    "date": "2026-01-22",
+    "title": "cloudflare-warp-bin updated to 2025.10.186-1",
+    "summary": "2025.10.186-1",
+    "url": "https://aur.archlinux.org/packages/cloudflare-warp-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cloudflare-warp-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:brave-bin:1:1.86.142-1",
+    "date": "2026-01-21",
+    "title": "brave-bin updated to 1:1.86.142-1",
+    "summary": "1:1.86.142-1",
+    "url": "https://aur.archlinux.org/packages/brave-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1056121",
+    "date": "2026-01-20",
+    "title": "New AUR comment on brave-bin",
+    "summary": "I was having trouble with resuming from sleep. The browser fonts and images were altered in color and density, making it virtually impossible to read or view. I noticed that one us…",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1056121",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1056035",
+    "date": "2026-01-19",
+    "title": "New AUR comment on brave-bin",
+    "summary": "@higorslva @lukeren once again, this is not the place to report issues with the browser. If you'd like something fixed, please report it via [GitHub](https://github.com/brave/brave…",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1056035",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1055885",
+    "date": "2026-01-18",
+    "title": "New AUR comment on brave-bin",
+    "summary": "why this garbage crashes randomly?",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055885",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1055815",
+    "date": "2026-01-18",
+    "title": "New AUR comment on brave-bin",
+    "summary": "Having the same issue as higorslva when my laptop resumes from sleep or screen dimming.",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055815",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1055755",
+    "date": "2026-01-17",
+    "title": "New AUR comment on brave-bin",
+    "summary": "After updating to v1.86.139-1, I started noticing color glitches when moving a window between my laptop screen and an external monitor. The issue occurs specifically when moving fr…",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055755",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1055750",
+    "date": "2026-01-17",
+    "title": "New AUR comment on brave-bin",
+    "summary": "@wknapik done: [https://github.com/brave/brave-browser/issues/52067](https://github.com/brave/brave-browser/issues/52067)",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055750",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1055738",
+    "date": "2026-01-17",
+    "title": "New AUR comment on brave-bin",
+    "summary": "@bglogic @dominikzogg if you can [collect crash information](https://support.brave.app/hc/en-us/articles/22281484910221-How-do-I-manually-submit-crash-reports), please [report it t…",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055738",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1055693",
+    "date": "2026-01-17",
+    "title": "New AUR comment on brave-bin",
+    "summary": "I don't have any problem (at the moment)\nBrave 1.86.139 (Wayland)\nCPU (and GPU) AMD Ryzen 5 5600g\nFlags: \n--enable-features=WebUIDarkMode\n--force-dark-mode\n--disable-smooth-scrolli…",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055693",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1055670",
+    "date": "2026-01-17",
+    "title": "New AUR comment on brave-bin",
+    "summary": "@bglogic I had to downgrade as well, Braves crashes after 1-2s. 1:1.85.120-1 works fine.",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055670",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:flutter-bin:3.38.7-1",
+    "date": "2026-01-16",
+    "title": "flutter-bin updated to 3.38.7-1",
+    "summary": "3.38.7-1",
+    "url": "https://aur.archlinux.org/packages/flutter-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:ngrok:3.35.0-1",
+    "date": "2026-01-12",
+    "title": "ngrok updated to 3.35.0-1",
+    "summary": "3.35.0-1",
+    "url": "https://aur.archlinux.org/packages/ngrok",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "ngrok"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:mangowc-git:r1201.d6dbb7a-1",
+    "date": "2025-12-30",
+    "title": "mangowc-git updated to r1201.d6dbb7a-1",
+    "summary": "r1201.d6dbb7a-1",
+    "url": "https://aur.archlinux.org/packages/mangowc-git",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "mangowc-git"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/nvidia-590-driver-drops-pascal-support-main-packages-switch-to-open-kernel-modules/",
+    "date": "2025-12-20",
+    "title": "NVIDIA 590 driver drops Pascal and lower support; main packages switch to Open Kernel Modules",
+    "summary": null,
+    "url": "https://archlinux.org/news/nvidia-590-driver-drops-pascal-support-main-packages-switch-to-open-kernel-modules/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "pkg-update:aur:nomachine:9.3.7-1",
+    "date": "2025-12-20",
+    "title": "nomachine updated to 9.3.7-1",
+    "summary": "9.3.7-1",
+    "url": "https://aur.archlinux.org/packages/nomachine",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "nomachine"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/net-packages-may-require-manual-intervention/",
+    "date": "2025-12-11",
+    "title": ".NET packages may require manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/net-packages-may-require-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1048899",
+    "date": "2025-11-23",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "Thanks for the quick update.",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1048899",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:android-sdk-build-tools:r36.1-2",
+    "date": "2025-11-22",
+    "title": "android-sdk-build-tools updated to r36.1-2",
+    "summary": "r36.1-2",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1048759",
+    "date": "2025-11-22",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "@medaminezghal @Martchus It got fixed in [https://aur.archlinux.org/cgit/aur.git/commit/?h=android-sdk-build-tools&id=5c8b58d](https://aur.archlinux.org/cgit/aur.git/commit/?h=andr…",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1048759",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1048736",
+    "date": "2025-11-22",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "And that's not just about Android Studio. The builds of my Qt apps also fail due to this.\nHere's a version that fixes this (based on the comment from @medaminezghal): [https://gith…",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1048736",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1048715",
+    "date": "2025-11-22",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "@aminvakil to make sure that Android Studio read the package correctly you need to make sure that the latest lines of the `package.xml` look like:\nAlso the package need to be insta…",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1048715",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/waydroid-154-3-update-may-require-manual-intervention/",
+    "date": "2025-11-06",
+    "title": "waydroid &gt;= 1.5.4-3 update may require manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/waydroid-154-3-update-may-require-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/dovecot-24-requires-manual-intervention/",
+    "date": "2025-10-31",
+    "title": "dovecot &gt;= 2.4 requires manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/dovecot-24-requires-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/recent-services-outages/",
+    "date": "2025-08-21",
+    "title": "Recent service outages",
+    "summary": null,
+    "url": "https://archlinux.org/news/recent-services-outages/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "pkg-update:aur:dim-screen:0.4.1-1",
+    "date": "2025-08-19",
+    "title": "dim-screen updated to 0.4.1-1",
+    "summary": "0.4.1-1",
+    "url": "https://aur.archlinux.org/packages/dim-screen",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "dim-screen"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/zabbix-741-2-may-requires-manual-intervention/",
+    "date": "2025-08-04",
+    "title": "zabbix &gt;= 7.4.1-2 may require manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/zabbix-741-2-may-requires-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/linux-firmware-2025061312fe085f-5-upgrade-requires-manual-intervention/",
+    "date": "2025-06-21",
+    "title": "linux-firmware &gt;= 20250613.12fe085f-5 upgrade requires manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/linux-firmware-2025061312fe085f-5-upgrade-requires-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/plasma-640-will-need-manual-intervention-if-you-are-on-x11/",
+    "date": "2025-06-20",
+    "title": "Plasma 6.4.0 will need manual intervention if you are on X11",
+    "summary": null,
+    "url": "https://archlinux.org/news/plasma-640-will-need-manual-intervention-if-you-are-on-x11/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/transition-to-the-new-wow64-wine-and-wine-staging/",
+    "date": "2025-06-16",
+    "title": "Transition to the new WoW64 wine and wine-staging",
+    "summary": null,
+    "url": "https://archlinux.org/news/transition-to-the-new-wow64-wine-and-wine-staging/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "pkg-update:aur:nbfc-linux:0.3.19-1",
+    "date": "2025-06-13",
+    "title": "nbfc-linux updated to 0.3.19-1",
+    "summary": "0.3.19-1",
+    "url": "https://aur.archlinux.org/packages/nbfc-linux",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "nbfc-linux"
+    ]
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-6",
+    "date": "2025-06-12",
+    "title": "[ASA-202506-6] python-django: content spoofing",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-6",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-5",
+    "date": "2025-06-11",
+    "title": "[ASA-202506-5] konsole: arbitrary code execution",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-5",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-4",
+    "date": "2025-06-07",
+    "title": "[ASA-202506-4] go: multiple issues",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-4",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-3",
+    "date": "2025-06-06",
+    "title": "[ASA-202506-3] samba: access restriction bypass",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-3",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-2",
+    "date": "2025-06-05",
+    "title": "[ASA-202506-2] curl: denial of service",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-2",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-1",
+    "date": "2025-06-04",
+    "title": "[ASA-202506-1] roundcubemail: arbitrary code execution",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-1",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1026704",
+    "date": "2025-05-30",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "@Anquihald I'll add it to optdepends, without a pkgrel bump.",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1026704",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1026661",
+    "date": "2025-05-30",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "Hello.\nTwo of the binaries, *bcc-compat* and *llvm-rs-cc*, require ncurses version 5 to work. Maybe it might be worth adding ncurses5-compat-libsᴬᵁᴿ in a list of dependencies?",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1026661",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-15",
+    "date": "2025-05-24",
+    "title": "[ASA-202505-15] ghostscript: information disclosure",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-15",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-14",
+    "date": "2025-05-21",
+    "title": "[ASA-202505-14] bind: denial of service",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-14",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-13",
+    "date": "2025-05-20",
+    "title": "[ASA-202505-13] varnish: content spoofing",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-13",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-9",
+    "date": "2025-05-19",
+    "title": "[ASA-202505-9] dropbear: arbitrary command execution",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-9",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-10",
+    "date": "2025-05-19",
+    "title": "[ASA-202505-10] python-django: denial of service",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-10",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-11",
+    "date": "2025-05-19",
+    "title": "[ASA-202505-11] freetype2: arbitrary code execution",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-11",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-12",
+    "date": "2025-05-19",
+    "title": "[ASA-202505-12] go: directory traversal",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-12",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-7",
+    "date": "2025-05-18",
+    "title": "[ASA-202505-7] nodejs-lts-jod: denial of service",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-7",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-8",
+    "date": "2025-05-18",
+    "title": "[ASA-202505-8] nodejs-lts-iron: multiple issues",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-8",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "pkg-update:aur:flat-remix-gtk:20240730-1",
+    "date": "2025-05-18",
+    "title": "flat-remix-gtk updated to 20240730-1",
+    "summary": "20240730-1",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "flat-remix-gtk"
+    ]
+  },
+  {
+    "id": "aur-comment:brave-bin:comment-1021175",
+    "date": "2025-04-25",
+    "title": "New AUR comment on brave-bin",
+    "summary": "Official Brave packages in AUR - [brave-bin](https://aur.archlinux.org/packages/brave-bin) (release), [brave-beta-bin](https://aur.archlinux.org/packages/brave-beta-bin) (beta), [b…",
+    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1021175",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "brave-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:android-platform:36_r02-1",
+    "date": "2025-04-18",
+    "title": "android-platform updated to 36_r02-1",
+    "summary": "36_r02-1",
+    "url": "https://aur.archlinux.org/packages/android-platform",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:durdraw:0.29.0-2",
+    "date": "2025-04-18",
+    "title": "durdraw updated to 0.29.0-2",
+    "summary": "0.29.0-2",
+    "url": "https://aur.archlinux.org/packages/durdraw",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "durdraw"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/valkey-to-replace-redis-in-the-extra-repository/",
+    "date": "2025-04-17",
+    "title": "Valkey to replace Redis in the [extra] Repository",
+    "summary": null,
+    "url": "https://archlinux.org/news/valkey-to-replace-redis-in-the-extra-repository/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "pkg-update:aur:etterna:0.74.4-1",
+    "date": "2025-04-02",
+    "title": "etterna updated to 0.74.4-1",
+    "summary": "0.74.4-1",
+    "url": "https://aur.archlinux.org/packages/etterna",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "etterna"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1017087",
+    "date": "2025-03-26",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "This repository is maintained at [https://github.com/aminvakil/aur](https://github.com/aminvakil/aur).\nIn case anyone had any suggestions about anything, feel free to raise a PR th…",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1017087",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-1016246",
+    "date": "2025-03-20",
+    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
+    "summary": "Regarding the comment - [https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-995433](https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#com…",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-1016246",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "aur-comment:android-platform:comment-1016126",
+    "date": "2025-03-19",
+    "title": "New AUR comment on android-platform",
+    "summary": "@bsndrf Filing orphan requests on a cache issue was a bit of a stretch, to say the least...",
+    "url": "https://aur.archlinux.org/packages/android-platform#comment-1016126",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:android-sdk-cmdline-tools-latest:19.0-1",
+    "date": "2025-03-18",
+    "title": "android-sdk-cmdline-tools-latest updated to 19.0-1",
+    "summary": "19.0-1",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:localsend:1.17.0-2",
+    "date": "2025-03-17",
+    "title": "localsend updated to 1.17.0-2",
+    "summary": "1.17.0-2",
+    "url": "https://aur.archlinux.org/packages/localsend",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "localsend"
+    ]
+  },
+  {
+    "id": "aur-comment:android-platform:comment-1015101",
+    "date": "2025-03-12",
+    "title": "New AUR comment on android-platform",
+    "summary": "@bsndrf I just saw your email, do you want to be added to the maintainers?\nI cannot maintain this at the moment.",
+    "url": "https://aur.archlinux.org/packages/android-platform#comment-1015101",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "aur-comment:android-platform:comment-1015083",
+    "date": "2025-03-11",
+    "title": "New AUR comment on android-platform",
+    "summary": "The sha256sum is correct now but somehow the check still fails. Not sure why.\n$ paru -S android-platform\n:: Resolving dependencies...\n:: There are 3 providers available for android…",
+    "url": "https://aur.archlinux.org/packages/android-platform#comment-1015083",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "aur-comment:android-platform:comment-1011951",
+    "date": "2025-02-18",
+    "title": "New AUR comment on android-platform",
+    "summary": "As already pointed out the sha256sum changed could you update the package",
+    "url": "https://aur.archlinux.org/packages/android-platform#comment-1011951",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "aur-comment:android-platform:comment-1009285",
+    "date": "2025-01-30",
+    "title": "New AUR comment on android-platform",
+    "summary": "Hi sha256sums for platform-35_r02.zip changed to 0988cacad01b38a18a47bac14a0695f246bc76c1b06c0eeb8eb0dc825ab0c8e0",
+    "url": "https://aur.archlinux.org/packages/android-platform#comment-1009285",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1008560",
+    "date": "2025-01-24",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "These still returns 404 for me, maybe a mess from website as Martchus said?\n[https://dl.google.com/android/repository/build-tools_r35-linux.zip](https://dl.google.com/android/repos…",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1008560",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1008541",
+    "date": "2025-01-24",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "Yes, probably just nobody updates the website. And as mentioned, this would be useful for following other documentation such as [https://developer.android.com/guide/practices/page-…",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1008541",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-build-tools:comment-1008538",
+    "date": "2025-01-24",
+    "title": "New AUR comment on android-sdk-build-tools",
+    "summary": "I think the website is just \"outdated\". There is 35.0.1 in sdkmanager already and 36.0.0-rc\nSo please update to 35.0.1 as sdkmanager uses it as newest version.\nbuild-tools;35.0.0  …",
+    "url": "https://aur.archlinux.org/packages/android-sdk-build-tools#comment-1008538",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-build-tools"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:fnm-bin:1.38.1-1",
+    "date": "2024-11-17",
+    "title": "fnm-bin updated to 1.38.1-1",
+    "summary": "1.38.1-1",
+    "url": "https://aur.archlinux.org/packages/fnm-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "fnm-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-995433",
+    "date": "2024-10-21",
+    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
+    "summary": "Any clues on the following errors?\nDid I probably updated through android-studio before AUR update? Not sure if it was a mistake on my side.",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-995433",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-986931",
+    "date": "2024-08-17",
+    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
+    "summary": "Does this really need `java-environment` to be used? Is `java-runtime` not sufficing?\nRegards!",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-986931",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-961223",
+    "date": "2024-03-14",
+    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
+    "summary": "@Jal-JAP package.xml location should be fixed now.",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-961223",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-961118",
+    "date": "2024-03-13",
+    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
+    "summary": "Also for the errors about /opt/android-sdk being not writeable, it can be fixed by",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-961118",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-961113",
+    "date": "2024-03-13",
+    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
+    "summary": "`sdkmanager` gives the following warning currently.\nthis can be fixed by simply moving package.xml from `/opt/android-sdk/cmdline-tools` to `/opt/android-sdk/cmdline-tools/latest`\n…",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-961113",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-944747",
+    "date": "2023-11-22",
+    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
+    "summary": "IntelliJ doesn't like this package because of",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-944747",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-942910",
+    "date": "2023-11-09",
+    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
+    "summary": "IntelliJ IDEA doesn't recognize this package, because it doesn't contain a package.xml. Can you add it to this package like you've done for [https://aur.archlinux.org/packages/andr…",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-942910",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-942264",
+    "date": "2023-11-06",
+    "title": "New AUR comment on android-sdk",
+    "summary": "I just ran into this error :",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-942264",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-937372",
+    "date": "2023-10-09",
+    "title": "New AUR comment on android-sdk",
+    "summary": "okey, my workaround was to instead install [https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest](https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest…",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-937372",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-937344",
+    "date": "2023-10-09",
+    "title": "New AUR comment on android-sdk",
+    "summary": "hey @dreieck - did you manage to solve that issue? I've ran into it too and an am unsure what to do next..",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-937344",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-932492",
+    "date": "2023-09-05",
+    "title": "New AUR comment on android-sdk",
+    "summary": "When I run `avdmanager`, it fails with:\n`java --version`:  \nRegards!",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-932492",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-928832",
+    "date": "2023-08-12",
+    "title": "New AUR comment on android-sdk",
+    "summary": "Anyone else new to Android SDK command line tools: you probably don't want this package! The upstream of this package is deprecated and has not received updates since 2017. Newer S…",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-928832",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-928831",
+    "date": "2023-08-12",
+    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
+    "summary": "Nitpick: Why the `-latest` part in the name? `android-sdk-cmdline-tools` seems like it would be adequate, especially since none of the related packages (`android-sdk-build-tools`, …",
+    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-928831",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk-cmdline-tools-latest"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:android-sdk:26.1.1-2",
+    "date": "2022-03-22",
+    "title": "android-sdk updated to 26.1.1-2",
+    "summary": "26.1.1-2",
+    "url": "https://aur.archlinux.org/packages/android-sdk",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-857562",
+    "date": "2022-03-21",
+    "title": "New AUR comment on android-sdk",
+    "summary": "Any plans to replace `ANDROID_HOME` with `ANDROID_SDK_ROOT`, since it's deprecated? [https://developer.android.com/studio/command-line/variables#android_sdk_root](https://developer…",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-857562",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-platform:comment-823757",
+    "date": "2021-08-27",
+    "title": "New AUR comment on android-platform",
+    "summary": "@stef204 did you install android-platform through sdkmanager or android-studio directly? It seems that the update from 30 to 31 cannot be done because you already have it installed…",
+    "url": "https://aur.archlinux.org/packages/android-platform#comment-823757",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-772170",
+    "date": "2020-10-23",
+    "title": "New AUR comment on android-sdk",
+    "summary": "@ulidtko Ah yes, that worked. Thank you! My bad... :P",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-772170",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-772169",
+    "date": "2020-10-23",
+    "title": "New AUR comment on android-sdk",
+    "summary": "@qualphey as you can see from `pacman -Ql android-sdk`, it installs its tools under `/opt/android-sdk/tools/bin` -- so you have to ensure that dir appears on your $PATH.",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-772169",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-772166",
+    "date": "2020-10-23",
+    "title": "New AUR comment on android-sdk",
+    "summary": "Does the sdkmanager get installed with this package?\nI get `bash: sdkmanager: command not found` when trying to run it? What am I missing?",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-772166",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-762233",
+    "date": "2020-08-24",
+    "title": "New AUR comment on android-sdk",
+    "summary": "@ulidtko @dreamingincode After encountering the same issue, running the following worked for me:\nIt uses Android Studio's built-in `java` instead of the globally installed one.\nI h…",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-762233",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-platform:comment-754542",
+    "date": "2020-07-05",
+    "title": "New AUR comment on android-platform",
+    "summary": "@petronny Hum OK, I didn't knew this subtility!\nI will try to do this soon. (Monday probably)",
+    "url": "https://aur.archlinux.org/packages/android-platform#comment-754542",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "aur-comment:android-platform:comment-754454",
+    "date": "2020-07-04",
+    "title": "New AUR comment on android-platform",
+    "summary": "Hi, could you put the `depends` line inside `package()` to make the package more easier to be built?\nCurrently, this package can't be built in a clean chroot due to a bug of `devto…",
+    "url": "https://aur.archlinux.org/packages/android-platform#comment-754454",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-733171",
+    "date": "2020-03-11",
+    "title": "New AUR comment on android-sdk",
+    "summary": "@benedikt\ncmdline-tools should be a different package because it's installed at android-sdk/cmdline-tools/latest, not android-sdk/tools of this package. They show up as different p…",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-733171",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  },
+  {
+    "id": "aur-comment:android-platform:comment-696712",
+    "date": "2019-06-12",
+    "title": "New AUR comment on android-platform",
+    "summary": "But in the meantime, `android-sdk-platform-tools` already updated to API 29.",
+    "url": "https://aur.archlinux.org/packages/android-platform#comment-696712",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-platform"
+    ]
+  },
+  {
+    "id": "aur-comment:android-sdk:comment-592124",
+    "date": "2017-04-18",
+    "title": "New AUR comment on android-sdk",
+    "summary": "I'm going to update this package to 26.0.1 (it has been long-outdated), according to https://dl.google.com/android/repository/repository2-1.xml which is used by Android Studio.\n\nSo…",
+    "url": "https://aur.archlinux.org/packages/android-sdk#comment-592124",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "android-sdk"
+    ]
+  }
+]

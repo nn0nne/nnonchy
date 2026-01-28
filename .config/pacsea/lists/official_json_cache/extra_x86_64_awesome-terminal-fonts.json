@@ -1,0 +1,32 @@
+{
+  "arch": "any",
+  "build_date": "2024-07-11T23:56:35Z",
+  "checkdepends": [],
+  "compressed_size": 201337,
+  "conflicts": [],
+  "depends": [],
+  "epoch": 0,
+  "filename": "awesome-terminal-fonts-1.1.0-5-any.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 386404,
+  "last_update": "2024-07-12T00:03:52.380Z",
+  "licenses": [
+    "MIT"
+  ],
+  "maintainers": [
+    "shibumi"
+  ],
+  "makedepends": [],
+  "optdepends": [],
+  "packager": "blakkheim",
+  "pkgbase": "awesome-terminal-fonts",
+  "pkgdesc": "fonts/icons for powerlines",
+  "pkgname": "awesome-terminal-fonts",
+  "pkgrel": "5",
+  "pkgver": "1.1.0",
+  "provides": [],
+  "replaces": [],
+  "repo": "extra",
+  "url": "https://github.com/gabrielelana/awesome-terminal-fonts"
+}

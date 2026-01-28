@@ -1,0 +1,62 @@
+{
+  "arch": "any",
+  "build_date": "2023-10-08T01:15:41Z",
+  "checkdepends": [],
+  "compressed_size": 2362,
+  "conflicts": [],
+  "depends": [
+    "archlinux-keyring",
+    "bash",
+    "bzip2",
+    "coreutils",
+    "file",
+    "filesystem",
+    "findutils",
+    "gawk",
+    "gcc-libs",
+    "gettext",
+    "glibc",
+    "grep",
+    "gzip",
+    "iproute2",
+    "iputils",
+    "licenses",
+    "pacman",
+    "pciutils",
+    "procps-ng",
+    "psmisc",
+    "sed",
+    "shadow",
+    "systemd",
+    "systemd-sysvcompat",
+    "tar",
+    "util-linux",
+    "xz"
+  ],
+  "epoch": 0,
+  "filename": "base-3-2-any.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 0,
+  "last_update": "2023-10-09T21:27:42.228Z",
+  "licenses": [
+    "GPL"
+  ],
+  "maintainers": [
+    "anthraxx"
+  ],
+  "makedepends": [],
+  "optdepends": [
+    "linux: bare metal support"
+  ],
+  "packager": "heftig",
+  "pkgbase": "base",
+  "pkgdesc": "Minimal package set to define a basic Arch Linux installation",
+  "pkgname": "base",
+  "pkgrel": "2",
+  "pkgver": "3",
+  "provides": [],
+  "replaces": [],
+  "repo": "core",
+  "url": "https://www.archlinux.org"
+}

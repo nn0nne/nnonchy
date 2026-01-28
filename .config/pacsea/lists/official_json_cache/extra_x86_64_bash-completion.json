@@ -1,0 +1,36 @@
+{
+  "arch": "any",
+  "build_date": "2026-01-21T17:58:14Z",
+  "checkdepends": [],
+  "compressed_size": 225414,
+  "conflicts": [],
+  "depends": [
+    "bash"
+  ],
+  "epoch": 0,
+  "filename": "bash-completion-2.17.0-3-any.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 1060727,
+  "last_update": "2026-01-21T18:00:11.021Z",
+  "licenses": [
+    "GPL-2.0-only"
+  ],
+  "maintainers": [
+    "grazzolini",
+    "felixonmars",
+    "tpowa"
+  ],
+  "makedepends": [],
+  "optdepends": [],
+  "packager": "heftig",
+  "pkgbase": "bash-completion",
+  "pkgdesc": "Programmable completion for the bash shell",
+  "pkgname": "bash-completion",
+  "pkgrel": "3",
+  "pkgver": "2.17.0",
+  "provides": [],
+  "replaces": [],
+  "repo": "extra",
+  "url": "https://github.com/scop/bash-completion"
+}

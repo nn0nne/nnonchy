@@ -1,0 +1,55 @@
+{
+  "arch": "x86_64",
+  "build_date": "2025-11-21T17:46:50Z",
+  "checkdepends": [],
+  "compressed_size": 1031849,
+  "conflicts": [],
+  "depends": [
+    "dbus",
+    "glib2",
+    "glibc",
+    "readline",
+    "systemd-libs"
+  ],
+  "epoch": 0,
+  "filename": "bluez-utils-5.85-1-x86_64.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 3628176,
+  "last_update": "2025-11-23T12:44:17.248Z",
+  "licenses": [
+    "GPL-2.0-only"
+  ],
+  "maintainers": [
+    "andyrtr",
+    "Antiz"
+  ],
+  "makedepends": [
+    "alsa-lib",
+    "cups",
+    "dbus",
+    "ell",
+    "json-c",
+    "libical",
+    "python-docutils",
+    "python-pygments",
+    "systemd"
+  ],
+  "optdepends": [
+    "ell: for btpclient"
+  ],
+  "packager": "Antiz",
+  "pkgbase": "bluez",
+  "pkgdesc": "Development and debugging utilities for the bluetooth protocol stack",
+  "pkgname": "bluez-utils",
+  "pkgrel": "1",
+  "pkgver": "5.85",
+  "provides": [
+    "bluez-plugins"
+  ],
+  "replaces": [
+    "bluez-plugins"
+  ],
+  "repo": "extra",
+  "url": "http://www.bluez.org/"
+}

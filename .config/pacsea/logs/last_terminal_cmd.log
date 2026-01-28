@@ -1,0 +1,8 @@
+((command -v nvim >/dev/null 2>&1 || sudo pacman -Qi neovim >/dev/null 2>&1) && nvim '/home/nnonne/.config/pacsea/theme.conf') || \
+             ((command -v vim >/dev/null 2>&1 || sudo pacman -Qi vim >/dev/null 2>&1) && vim '/home/nnonne/.config/pacsea/theme.conf') || \
+             ((command -v hx >/dev/null 2>&1 || sudo pacman -Qi helix >/dev/null 2>&1) && hx '/home/nnonne/.config/pacsea/theme.conf') || \
+             ((command -v helix >/dev/null 2>&1 || sudo pacman -Qi helix >/dev/null 2>&1) && helix '/home/nnonne/.config/pacsea/theme.conf') || \
+             ((command -v emacsclient >/dev/null 2>&1 || sudo pacman -Qi emacs >/dev/null 2>&1) && emacsclient -t '/home/nnonne/.config/pacsea/theme.conf') || \
+             ((command -v emacs >/dev/null 2>&1 || sudo pacman -Qi emacs >/dev/null 2>&1) && emacs -nw '/home/nnonne/.config/pacsea/theme.conf') || \
+             ((command -v nano >/dev/null 2>&1 || sudo pacman -Qi nano >/dev/null 2>&1) && nano '/home/nnonne/.config/pacsea/theme.conf') || \
+             (echo 'No terminal editor found (nvim/vim/emacsclient/emacs/hx/helix/nano).'; echo 'File: /home/nnonne/.config/pacsea/theme.conf'; read -rn1 -s _ || true); echo; echo 'Finished.'; echo 'Press any key to close...'; read -rn1 -s _ || (echo; echo 'Press Ctrl+C to close'; sleep infinity)

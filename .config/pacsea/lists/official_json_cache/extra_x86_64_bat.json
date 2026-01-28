@@ -1,0 +1,45 @@
+{
+  "arch": "x86_64",
+  "build_date": "2025-12-04T21:54:40Z",
+  "checkdepends": [],
+  "compressed_size": 2647411,
+  "conflicts": [],
+  "depends": [
+    "gcc-libs",
+    "glibc",
+    "libgit2",
+    "libgit2.so=1.9-64",
+    "oniguruma",
+    "zlib"
+  ],
+  "epoch": 0,
+  "filename": "bat-0.26.1-1-x86_64.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 6060071,
+  "last_update": "2025-12-04T22:16:23.201Z",
+  "licenses": [
+    "Apache-2.0 OR MIT"
+  ],
+  "maintainers": [
+    "arodseth"
+  ],
+  "makedepends": [
+    "cargo-edit",
+    "clang",
+    "cmake",
+    "git",
+    "rust"
+  ],
+  "optdepends": [],
+  "packager": "arodseth",
+  "pkgbase": "bat",
+  "pkgdesc": "Cat clone with syntax highlighting and git integration",
+  "pkgname": "bat",
+  "pkgrel": "1",
+  "pkgver": "0.26.1",
+  "provides": [],
+  "replaces": [],
+  "repo": "extra",
+  "url": "https://github.com/sharkdp/bat"
+}

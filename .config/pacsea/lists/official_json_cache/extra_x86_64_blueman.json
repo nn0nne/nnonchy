@@ -1,0 +1,49 @@
+{
+  "arch": "x86_64",
+  "build_date": "2025-12-14T21:02:54Z",
+  "checkdepends": [],
+  "compressed_size": 1444350,
+  "conflicts": [],
+  "depends": [
+    "bluez",
+    "bluez-libs",
+    "gtk3",
+    "libnm",
+    "python-cairo",
+    "python-gobject"
+  ],
+  "epoch": 0,
+  "filename": "blueman-2.4.6-2-x86_64.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 7176466,
+  "last_update": "2026-01-10T15:19:22.684Z",
+  "licenses": [
+    "GPL-3.0-or-later"
+  ],
+  "maintainers": [
+    "bgyorgy",
+    "Antiz"
+  ],
+  "makedepends": [
+    "cython",
+    "intltool",
+    "iproute2"
+  ],
+  "optdepends": [
+    "dnsmasq: Network Access Point (NAP) support",
+    "iproute2: Network Access Point (NAP) support",
+    "networkmanager: Dial Up Networking (DUN) and Personal Area Networking (PAN) support",
+    "pulseaudio-bluetooth: audio devices support"
+  ],
+  "packager": "jelle",
+  "pkgbase": "blueman",
+  "pkgdesc": "GTK+ Bluetooth Manager",
+  "pkgname": "blueman",
+  "pkgrel": "2",
+  "pkgver": "2.4.6",
+  "provides": [],
+  "replaces": [],
+  "repo": "extra",
+  "url": "https://github.com/blueman-project/blueman"
+}

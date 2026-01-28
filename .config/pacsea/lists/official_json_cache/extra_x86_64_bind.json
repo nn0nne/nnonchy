@@ -1,0 +1,70 @@
+{
+  "arch": "x86_64",
+  "build_date": "2026-01-21T14:27:10Z",
+  "checkdepends": [],
+  "compressed_size": 2168878,
+  "conflicts": [
+    "bind-tools",
+    "dnsutils"
+  ],
+  "depends": [
+    "bash",
+    "dnssec-anchors",
+    "e2fsprogs",
+    "glibc",
+    "icu",
+    "jemalloc",
+    "json-c",
+    "krb5",
+    "libcap",
+    "libedit",
+    "libidn2",
+    "libmaxminddb",
+    "libnghttp2",
+    "libnsl",
+    "liburcu",
+    "libuv",
+    "libxml2",
+    "lmdb",
+    "openssl",
+    "readline",
+    "xz",
+    "zlib"
+  ],
+  "epoch": 0,
+  "filename": "bind-9.20.18-1-x86_64.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 7330737,
+  "last_update": "2026-01-21T16:53:56.447Z",
+  "licenses": [
+    "MPL2"
+  ],
+  "maintainers": [
+    "seblu",
+    "blakkheim"
+  ],
+  "makedepends": [
+    "git",
+    "python-sphinx"
+  ],
+  "optdepends": [],
+  "packager": "blakkheim",
+  "pkgbase": "bind",
+  "pkgdesc": "A complete, highly portable implementation of the DNS protocol",
+  "pkgname": "bind",
+  "pkgrel": "1",
+  "pkgver": "9.20.18",
+  "provides": [
+    "bind-tools",
+    "dns-server",
+    "dnsutils"
+  ],
+  "replaces": [
+    "bind-tools",
+    "dnsutils",
+    "host"
+  ],
+  "repo": "extra",
+  "url": "https://www.isc.org/software/bind/"
+}

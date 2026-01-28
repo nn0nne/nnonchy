@@ -1,0 +1,44 @@
+{
+  "arch": "x86_64",
+  "build_date": "2025-08-11T19:29:57Z",
+  "checkdepends": [],
+  "compressed_size": 1976759,
+  "conflicts": [
+    "p7zip"
+  ],
+  "depends": [
+    "gcc-libs",
+    "glibc",
+    "sh"
+  ],
+  "epoch": 0,
+  "filename": "7zip-25.01-1-x86_64.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 6557759,
+  "last_update": "2025-08-11T19:32:28.630Z",
+  "licenses": [
+    "BSD-3-Clause",
+    "LGPL-2.1-or-later",
+    "LicenseRef-UnRAR"
+  ],
+  "maintainers": [],
+  "makedepends": [
+    "uasm"
+  ],
+  "optdepends": [],
+  "packager": "blakkheim",
+  "pkgbase": "7zip",
+  "pkgdesc": "File archiver for extremely high compression",
+  "pkgname": "7zip",
+  "pkgrel": "1",
+  "pkgver": "25.01",
+  "provides": [
+    "p7zip"
+  ],
+  "replaces": [
+    "p7zip"
+  ],
+  "repo": "extra",
+  "url": "https://www.7-zip.org"
+}

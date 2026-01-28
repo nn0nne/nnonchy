@@ -1,0 +1,12 @@
+env desktop=mango wayland=true script=/tmp/pacsea_scan_64057_1769601397489256586.sh cmd_len=1309
+spawn term=kitty args=["bash", "-lc"] xfce_mode=false cmd_len=1309
+spawn result: ok pid=66601
+env desktop=mango wayland=true script=/tmp/pacsea_scan_64057_1769601442990517986.sh cmd_len=1309
+spawn term=kitty args=["bash", "-lc"] xfce_mode=false cmd_len=1309
+spawn result: ok pid=68122
+env desktop=mango wayland=true script=/tmp/pacsea_scan_69187_1769601606553564611.sh cmd_len=1333
+spawn term=kitty args=["bash", "-lc"] xfce_mode=false cmd_len=1333
+spawn result: ok pid=70199
+env desktop=mango wayland=true script=/tmp/pacsea_scan_71253_1769601694742313665.sh cmd_len=1309
+spawn term=kitty args=["bash", "-lc"] xfce_mode=false cmd_len=1309
+spawn result: ok pid=72413

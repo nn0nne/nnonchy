@@ -1,0 +1,60 @@
+{
+  "arch": "x86_64",
+  "build_date": "2024-04-19T21:17:35Z",
+  "checkdepends": [
+    "glibc-locales",
+    "python-dbusmock",
+    "python-gobject"
+  ],
+  "compressed_size": 168366,
+  "conflicts": [],
+  "depends": [
+    "gcc-libs",
+    "glib2",
+    "glibc",
+    "libcrypt.so=2-64",
+    "libgio-2.0.so=0-64",
+    "libglib-2.0.so=0-64",
+    "libgobject-2.0.so=0-64",
+    "libsystemd.so=0-64",
+    "libxcrypt",
+    "polkit",
+    "shadow",
+    "systemd"
+  ],
+  "epoch": 0,
+  "filename": "accountsservice-23.13.9-2-x86_64.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 1011991,
+  "last_update": "2024-04-19T21:28:14.147Z",
+  "licenses": [
+    "GPL-3.0-or-later"
+  ],
+  "maintainers": [
+    "heftig"
+  ],
+  "makedepends": [
+    "docbook-xsl",
+    "git",
+    "gobject-introspection",
+    "gtk-doc",
+    "meson",
+    "python-packaging",
+    "vala",
+    "xmlto"
+  ],
+  "optdepends": [],
+  "packager": "heftig",
+  "pkgbase": "accountsservice",
+  "pkgdesc": "D-Bus interface for user account query and manipulation",
+  "pkgname": "accountsservice",
+  "pkgrel": "2",
+  "pkgver": "23.13.9",
+  "provides": [
+    "libaccountsservice.so=0-64"
+  ],
+  "replaces": [],
+  "repo": "extra",
+  "url": "https://gitlab.freedesktop.org/accountsservice/accountsservice"
+}
