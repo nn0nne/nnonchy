@@ -145,7 +145,6 @@ opt.foldenable = true
 opt.foldcolumn = "0"
 
 -- misc
-opt.guicursor = ""
 opt.isfname:append("@-@")
 opt.updatetime = 50
 opt.colorcolumn = "80"
