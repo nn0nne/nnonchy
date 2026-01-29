@@ -1,14 +1,14 @@
 return {
   "aspeddro/gitui.nvim",
-  keys = {
-    {
-      "<leader>gg", -- or any key combo you prefer
-      function()
-        require("gitui").open()
-      end,
-      desc = "Open GitUI",
-    },
-  },
+  -- keys = {
+  --   {
+  --     "<leader>gg", -- or any key combo you prefer
+  --     function()
+  --       require("gitui").open()
+  --     end,
+  --     desc = "Open GitUI",
+  --   },
+  -- },
   opts = {
     command = { enable = true }, -- optional: enables :Gitui command
     binary = "gitui",
