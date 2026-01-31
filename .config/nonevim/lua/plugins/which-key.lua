@@ -2,9 +2,8 @@ return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
 	opts = {
-		---@class wk.Opts
 		---@type false | "classic" | "modern" | "helix"
-		preset = "classic",
+		preset = "helix",
 		-- Delay before showing the popup. Can be a number or a function that returns a number.
 		---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
 		delay = function(ctx)
@@ -182,4 +181,11 @@ return {
 			desc = "Buffer Local Keymaps (which-key)",
 		},
 	},
+	config = function(_, opts)
+		local wk = require("which-key")
+		wk.setup(opts)
+		local keymaps = require("configs.keymaps")
+
+		wk.add(keymaps.spec)
+	end,
 }

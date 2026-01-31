@@ -1,80 +1,41 @@
 return {
-  "folke/snacks.nvim",
-  ---@type snacks.Config
-  opts = {
-    dashboard = {
-      width = 60,
-      row = nil, -- dashboard position. nil for center
-      col = nil, -- dashboard position. nil for center
-      pane_gap = 4, -- empty columns between vertical panes
-      autokeys = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", -- autokey sequence
-      -- These settings are used by some built-in sections
-      preset = {
-        -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
-        ---@type fun(cmd:string, opts:table)|nil
-        pick = nil,
-        -- Used by the `keys` section to show keymaps.
-        -- Set your custom keymaps here.
-        -- When using a function, the `items` argument are the default keymaps.
-        ---@type snacks.dashboard.Item[]
-        keys = {
-          -- { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          -- { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          -- { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-          {
-            icon = " ",
-            key = "c",
-            desc = "Config",
-            action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-          },
-          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          -- { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-        },
-        -- Used by the `header` section
-        header = [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀
- ⠀⠀⠀⠀⢀⡴⣆⠀⠀⠀⠀⠀⣠⡀⠀⠀⠀⠀⠀⠀⣼⣿⡗⠀⠀⠀⠀
- ⠀⠀⠀⣠⠟⠀⠘⠷⠶⠶⠶⠾⠉⢳⡄⠀⠀⠀⠀⠀⣧⣿⠀⠀⠀⠀⠀
- ⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣤⣤⣤⣤⣤⣿⢿⣄⠀⠀⠀⠀
- ⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⠀⠀⠀⠀⠀⠀⠙⣷⡴⠶⣦
- ⠀⠀⢱⡀⠀⠉⠉⠀⠀⠀⠀⠛⠃⠀⢠⡟⠀⠀⠀⢀⣀⣠⣤⠿⠞⠛⠋
- ⣠⠾⠋⠙⣶⣤⣤⣤⣤⣤⣀⣠⣤⣾⣿⠴⠶⠚⠋⠉⠁⠀⠀⠀⠀⠀⠀
- ⠛⠒⠛⠉⠉⠀⠀⠀⣴⠟⢃⡴⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
- ⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        hl = "CatDashboard",
-      },
-      -- item field formatters
-      formats = {
-        icon = function(item)
-          if item.file and item.icon == "file" or item.icon == "directory" then
-            return Snacks.dashboard.icon(item.file, item.icon)
-          end
-          return { item.icon, width = 2, hl = "icon" }
-        end,
-        footer = { "%s", align = "center" },
-        header = { "%s", align = "center" },
-        file = function(item, ctx)
-          local fname = vim.fn.fnamemodify(item.file, ":~")
-          fname = ctx.width and #fname > ctx.width and vim.fn.pathshorten(fname) or fname
-          if #fname > ctx.width then
-            local dir = vim.fn.fnamemodify(fname, ":h")
-            local file = vim.fn.fnamemodify(fname, ":t")
-            if dir and file then
-              file = file:sub(-(ctx.width - #dir - 2))
-              fname = dir .. "/…" .. file
-            end
-          end
-          local dir, file = fname:match("^(.*)/(.+)$")
-          return dir and { { dir .. "/", hl = "dir" }, { file, hl = "file" } } or { { fname, hl = "file" } }
-        end,
-      },
-      sections = {
-        { section = "header" },
-        {
-          pane = 2,
-          {
-            title = [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣤⣤⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+	"nvim-mini/mini.starter",
+	version = "*",
+	config = function()
+		local starter = require("mini.starter")
+		starter.setup(
+			-- No need to copy this inside `setup()`. Will be used automatically.
+			{
+				-- Whether to open starter buffer on VimEnter. Not opened if Neovim was
+				-- started with intent to show something else.
+				autoopen = true,
+
+				-- Whether to evaluate action of single active item
+				evaluate_single = false,
+
+				-- Items to be displayed. Should be an array with the following elements:
+				-- - Item: table with <action>, <name>, and <section> keys.
+				-- - Function: should return one of these three categories.
+				-- - Array: elements of these three types (i.e. item, array, function).
+				-- If `nil` (default), default items will be used (see |mini.starter|).
+				items = {
+
+					{
+						name = "Config",
+						action = function()
+							require("mini.pick").builtin.files({
+								cwd = vim.fn.stdpath("config"),
+							})
+						end,
+						section = "Actions",
+					},
+					starter.sections.builtin_actions(),
+				},
+
+				-- Header to be displayed before items. Converted to single string via
+				-- `tostring` (use `\n` to display several lines). If function, it is
+				-- evaluated first. If `nil` (default), polite greeting will be used.
+                header = [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣤⣤⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⠶⣻⠝⠋⠠⠔⠛⠁⡀⠀⠈⢉⡙⠓⠶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⢋⣴⡮⠓⠋⠀⠀⢄⠀⠀⠉⠢⣄⠀⠈⠁⠀⡀⠙⢶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⢁⣔⠟⠁⠀⠀⠀⠀⠀⠈⡆⠀⠀⠀⠈⢦⡀⠀⠀⠘⢯⢢⠙⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -104,12 +65,39 @@ return {
          ⠀⣿⣛⣻⣿⡿⠿⠟⠗⠶⠶⠶⠶⠤⠤⢤⠤⡤⢤⣤⣤⣤⣤⣄⣀⣀⣀⣀⣀⣀⣀⣀⣣⢹⣷⣶⣿⣿⣦⣴⣟⣛⣯⣤⣿⣿⣿⣿⣿⣷⣌⣿⣿⣿⣿⣿⣿⣿⣤⣤⣤⣤⣤⣤⣄
          ⠀⠉⠙⠛⠛⠛⠛⠛⠻⠿⠿⠿⠷⠶⠶⢶⣶⣶⣶⣶⣤⣤⣤⣤⣤⣥⣬⣭⣭⣉⣩⣍⣙⣏⣉⣏⣽⣶⣶⣶⣤⣤⣬⣤⣤⣾⣿⠶⠾⠿⠿⠿⠿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠃
          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠛⠛⠛⠛⠛⠛⠋⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-            hl = "GirlDashboard",
-          },
-        },
-        { section = "keys", gap = 1, padding = 1 },
-        -- { section = "startup" },
-      },
-    },
-  },
+-- 				header = [[
+-- ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀
+-- ⠀⠀⠀⠀⢀⡴⣆⠀⠀⠀⠀⠀⣠⡀⠀⠀⠀⠀⠀⠀⣼⣿⡗⠀⠀⠀⠀
+-- ⠀⠀⠀⣠⠟⠀⠘⠷⠶⠶⠶⠾⠉⢳⡄⠀⠀⠀⠀⠀⣧⣿⠀⠀⠀⠀⠀
+-- ⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣤⣤⣤⣤⣤⣿⢿⣄⠀⠀⠀⠀
+-- ⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⠀⠀⠀⠀⠀⠀⠙⣷⡴⠶⣦
+-- ⠀⠀⢱⡀⠀⠉⠉⠀⠀⠀⠀⠛⠃⠀⢠⡟⠀⠀⠀⢀⣀⣠⣤⠿⠞⠛⠋
+-- ⣠⠾⠋⠙⣶⣤⣤⣤⣤⣤⣀⣠⣤⣾⣿⠴⠶⠚⠋⠉⠁⠀⠀⠀⠀⠀⠀
+-- ⠛⠒⠛⠉⠉⠀⠀⠀⣴⠟⢃⡴⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+-- ⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+-- ]],
+
+				-- Footer to be displayed after items. Converted to single string via
+				-- `tostring` (use `\n` to display several lines). If function, it is
+				-- evaluated first. If `nil` (default), default usage help will be shown.
+				footer = nil,
+
+				-- Array  of functions to be applied consecutively to initial content.
+				-- Each function should take and return content for 'Starter' buffer (see
+				-- |mini.starter| and |MiniStarter.content| for more details).
+				content_hooks = {
+					starter.gen_hook.adding_bullet("▸ "),
+					starter.gen_hook.aligning("center", "center"),
+				},
+
+				-- Characters to update query. Each character will have special buffer
+				-- mapping overriding your global ones. Be careful to not add `:` as it
+				-- allows you to go into command mode.
+				query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_-.",
+
+				-- Whether to disable showing non-error feedback
+				silent = false,
+			}
+		)
+	end,
 }
