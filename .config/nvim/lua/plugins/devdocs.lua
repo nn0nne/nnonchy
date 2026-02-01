@@ -1,6 +1,6 @@
 return {
   "maskudo/devdocs.nvim",
-  lazy = false,
+  -- lazy = false,
   dependencies = {
     "folke/snacks.nvim",
   },
