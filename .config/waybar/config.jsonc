@@ -7,12 +7,25 @@
   "modules-right": [
     "tray",
     "temperature",
+    "disk",
     "pulseaudio",
+    "backlight",
     "battery",
     "power-profiles-daemon",
   ],
 
   // --- Modules ---
+  "disk": {
+    "interval": 30,
+    "format": "{percentage_used}% {path}",
+    "path": "/",
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% <span font='12'>{icon}</span>",
+    "format-icons": ["", ""],
+  },
+
   "ext/workspaces": {
     "format": "{icon}",
     "ignore-hidden": true,
