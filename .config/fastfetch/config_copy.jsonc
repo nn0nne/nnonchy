@@ -277,16 +277,16 @@
     //   "showAllIps": false,
     //   "namePrefix": ""
     // },
-    // {
-    //   "type": "battery",
-    //   "keyIcon": "",
-    //   "temp": false,
-    //   "percent": {
-    //     "green": 50,
-    //     "yellow": 20,
-    //     "type": 0,
-    //   },
-    // },
+    {
+      "type": "battery",
+      "keyIcon": "",
+      "temp": false,
+      "percent": {
+        "green": 50,
+        "yellow": 20,
+        "type": 0,
+      },
+    },
     // {
     //   "type": "poweradapter",
     //   "keyIcon": "󰚥"
