@@ -524,3 +524,60 @@ error: failed to synchronize all databases (failed to retrieve some files)
 2026-01-28-T12:04:19  INFO Update check completed: found 0 total available updates (after deduplication)
 2026-01-28-T12:04:21  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
 2026-01-28-T12:04:34  INFO AUR comments fetch completed: items=50
+2026-02-05-T17:10:34  INFO logging initialized path=/home/nnonne/.config/pacsea/logs/pacsea.log
+2026-02-05-T17:10:34  INFO Pacsea starting dry_run=false
+2026-02-05-T17:10:34  INFO startup timestamp tracking previous=Some("20260128:190415") current=20260206:001034
+2026-02-05-T17:10:34  INFO resolved state file paths recent=/home/nnonne/.config/pacsea/lists/recent_searches.json install=/home/nnonne/.config/pacsea/lists/install_list.json details_cache=/home/nnonne/.config/pacsea/lists/details_cache.json index=/home/nnonne/.config/pacsea/lists/official_index.json news_read=/home/nnonne/.config/pacsea/lists/news_read_urls.json news_read_ids=/home/nnonne/.config/pacsea/lists/news_read_ids.json announcement_read=/home/nnonne/.config/pacsea/lists/announcement_read.json
+2026-02-05-T17:10:34  INFO Resolved locale: 'en-US' (from settings: '<auto-detect>')
+2026-02-05-T17:10:34  INFO loaded details cache path=/home/nnonne/.config/pacsea/lists/details_cache.json
+2026-02-05-T17:10:34  INFO loaded recent searches path=/home/nnonne/.config/pacsea/lists/recent_searches.json count=2
+2026-02-05-T17:10:34  INFO showing version announcement modal current_version="0.7.3" base_version=0.7.3 announcement_version="0.7.3"
+2026-02-05-T17:10:34  INFO attempted to load official index from disk path=/home/nnonne/.config/pacsea/lists/official_index.json
+2026-02-05-T17:10:34  INFO [Runtime] Dependency worker started, waiting for requests...
+2026-02-05-T17:10:34  INFO [Runtime] Executor worker started, waiting for requests...
+2026-02-05-T17:10:34  INFO auxiliary workers starting headless=false get_announcement=true updates_refresh_interval=60
+2026-02-05-T17:10:34  INFO queueing combined news feed fetch (startup) installed_names=0
+2026-02-05-T17:10:34  INFO fetching remote announcement url=https://gist.githubusercontent.com/Firstp1ck/d2e6016b8d7a90f813a582078208e9bd/raw/announcement.json
+2026-02-05-T17:10:34  INFO waiting for startup news fetch to complete before starting aggregated feed fetch
+2026-02-05-T17:10:34  INFO additional delay after startup fetch completion additional_delay_ms=1004
+2026-02-05-T17:10:34  INFO refreshing official index in background
+2026-02-05-T17:10:34  INFO loaded theme configuration path=/home/nnonne/.config/pacsea/theme.conf
+2026-02-05-T17:10:34  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-05-T17:10:34  WARN Temp database sync failed
+2026-02-05-T17:10:34  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-05-T17:10:34  INFO Executing: checkupdates (automatically syncs database)
+2026-02-05-T17:10:34  INFO announcement fetched successfully id=2025-12-20-nvidia-590-pascal-support
+2026-02-05-T17:10:34  INFO queued remote announcement (modal already open) id=2025-12-20-nvidia-590-pascal-support queue_size=1
+2026-02-05-T17:10:35  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "endeavouros"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=47
+2026-02-05-T17:10:35  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-core"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=48
+2026-02-05-T17:10:35  INFO Successfully saved index to disk path=/home/nnonne/.config/pacsea/lists/official_index.json package_count=23398
+2026-02-05-T17:10:35  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-extra"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=49
+2026-02-05-T17:10:35  INFO fetch_news_feed start limit=50 include_arch_news=true include_advisories=true include_pkg_updates=true include_aur_comments=true installed_only=false installed_filter=true sort_mode=DateDesc
+2026-02-05-T17:10:35  INFO starting fetch: arch_news=true, advisories=true, pkg_updates=true, aur_comments=true
+2026-02-05-T17:10:35  INFO fetching package updates: installed_count=327, limit=50
+2026-02-05-T17:10:35  INFO fetch_installed_updates: official scan complete, new_packages=47, updated_packages=1, baseline_only=253
+2026-02-05-T17:10:35  INFO fetching AUR comments: installed_count=327, limit=50
+2026-02-05-T17:10:35  INFO fetching arch news...
+2026-02-05-T17:10:35  INFO loaded from disk cache source="arch_news" items=10 age_hours=197 ttl_days=14
+2026-02-05-T17:10:35  INFO arch news fetch completed: items=10
+2026-02-05-T17:10:35  INFO fetching advisories...
+2026-02-05-T17:10:35  INFO loaded from disk cache source="advisories" items=15 age_hours=197 ttl_days=14
+2026-02-05-T17:10:35  INFO advisories fetch completed: items=15
+2026-02-05-T17:10:35  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-v3"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=46
+2026-02-05-T17:10:35  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-core-v3"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=51
+2026-02-05-T17:10:35  INFO showing pending announcement id=2025-12-20-nvidia-590-pascal-support
+2026-02-05-T17:10:35  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-extra-v3"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=52
+2026-02-05-T17:10:36  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "omniverse"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=45
+2026-02-05-T17:10:36  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "universe"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=44
+2026-02-05-T17:10:36  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "lib32"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=41
+2026-02-05-T17:10:37  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "galaxy"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=42
+2026-02-05-T17:10:37  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "world"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=41
+2026-02-05-T17:10:37  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "system"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=42
+2026-02-05-T17:10:37  INFO Successfully saved index to disk path=/home/nnonne/.config/pacsea/lists/official_index.json package_count=23431
+2026-02-05-T17:10:37  INFO official index updated (names changed) count=23431
+2026-02-05-T17:10:42  INFO Update check completed: found 8 total available updates (after deduplication)
+2026-02-05-T17:10:44  INFO Successfully saved index to disk path=/home/nnonne/.config/pacsea/lists/official_index.json package_count=23431
+2026-02-05-T17:10:45  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
+2026-02-05-T17:10:50  INFO AUR comments fetch completed: items=50

@@ -1,0 +1,34 @@
+{
+  "arch": "x86_64",
+  "build_date": "2024-07-12T01:39:10Z",
+  "checkdepends": [],
+  "compressed_size": 11331,
+  "conflicts": [],
+  "depends": [
+    "systemd-libs"
+  ],
+  "epoch": 0,
+  "filename": "brightnessctl-0.5.1-3-x86_64.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 29066,
+  "last_update": "2024-07-12T02:07:20.892Z",
+  "licenses": [
+    "MIT"
+  ],
+  "maintainers": [
+    "shibumi"
+  ],
+  "makedepends": [],
+  "optdepends": [],
+  "packager": "blakkheim",
+  "pkgbase": "brightnessctl",
+  "pkgdesc": "Lightweight brightness control tool",
+  "pkgname": "brightnessctl",
+  "pkgrel": "3",
+  "pkgver": "0.5.1",
+  "provides": [],
+  "replaces": [],
+  "repo": "extra",
+  "url": "https://github.com/Hummer12007/brightnessctl"
+}

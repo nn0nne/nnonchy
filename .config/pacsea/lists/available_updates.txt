@@ -1,0 +1,8 @@
+cudnn - 9.18.1.3-1.1 -> cudnn - 9.18.1.3-1.1 -> 9.19.0.56-1.1
+glances - 4.4.1-4 -> glances - 4.4.1-4 -> 4.4.1-5
+kaccounts-integration - 25.12.1-1.1 -> kaccounts-integration - 25.12.1-1.1 -> 25.12.2-1.1
+kdenlive - 25.12.1-1.1 -> kdenlive - 25.12.1-1.1 -> 25.12.2-1.1
+limine - 10.6.5-1 -> limine - 10.6.5-1 -> 10.6.6-1
+limine-mkinitcpio-hook - 1.29.0-3 -> limine-mkinitcpio-hook - 1.29.0-3 -> 1.29.1_1-1
+limine-snapper-sync - 1.22.0-3 -> limine-snapper-sync - 1.22.0-3 -> 1.22.1-1
+signon-kwallet-extension - 25.12.1-1.1 -> signon-kwallet-extension - 25.12.1-1.1 -> 25.12.2-1.1
