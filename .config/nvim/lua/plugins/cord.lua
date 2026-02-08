@@ -5,7 +5,7 @@ return {
     enabled = true,
     log_level = vim.log.levels.OFF,
     editor = {
-      client = "lazyvim",
+      client = "neovim",
       tooltip = "I don't know what I'm doing",
       icon = "https://cdn3.emoji.gg/emojis/9736_clownnerd.png",
     },
