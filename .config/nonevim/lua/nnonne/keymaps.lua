@@ -1,6 +1,7 @@
 local M = {}
 
 M.spec = {
+
 	{ "<Esc>", "<cmd>nohlsearch<CR>", desc = "Clear highlights", mode = "n" },
 
 	-- Centered scrolling
