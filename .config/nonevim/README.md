@@ -15,7 +15,7 @@
 
 1. [x] add and configure mini.pick
 2. [-] add and configure neovim options
-3. [-] add necessary keymaps to which-key.lua
+3. [x] add necessary keymaps to which-key.lua
 4. [x] add file explorer plugin
 5. [x] add lsp
 6. [x] add formatter
