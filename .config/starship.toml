@@ -74,7 +74,7 @@ disabled = false
 # success_symbol = "[ ](bold blue)"
 # error_symbol = "[ ](bold red)"
 success_symbol = "[➜](bold blue)"
-error_symbol = "[👎🏻](bold red)"
+error_symbol = "[✘](bold red)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
