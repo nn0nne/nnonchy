@@ -11,27 +11,28 @@
     "memory",
     // "disk",
     "pulseaudio",
-    // "backlight",
+    "backlight",
     "battery",
     "power-profiles-daemon"
   ],
 
   // --- Modules ---
+   "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    // "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C ",
+    "format": "{temperatureC}°C"
+  },
   "memory": {
     "interval": 30,
-    "format": "{percentage}%  {swapPercentage}% ",
-    "max-length": 10
-  },
-
-  "swap-memory": {
-    "interval": 30,
-    "format": "{percentage}% ",
-    "max-length": 10
+    "format": "{percentage}% {swapPercentage}% <span font='12'></span>",
+    "max-length": 15
   },
 
   "cpu": {
     "interval": 10,
-    "format": "{usage}% ",
+    "format": "{usage}% <span font='12'></span>",
     "max-length": 10
   },
 
@@ -43,8 +44,8 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "{percent}% <span font='12'>{icon}</span>",
-    "format-icons": ["", ""]
+    "format": "<span font='12'>{icon}</span>",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
 
   "ext/workspaces": {
@@ -77,8 +78,6 @@
     },
     "actions": {
       "on-click-right": "mode",
-      "on-scroll-up": "tz_up",
-      "on-scroll-down": "tz_down",
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     }
@@ -90,12 +89,13 @@
   },
 
   "pulseaudio": {
-    "format": "{volume}% <span font='12'>{icon}</span>",
-    "format-muted": "<span font='12'></span>",
+    // "format": "{volume}% <span font='12'>{icon}</span>",
+    "format": "<span font='12'>{icon}</span>",
+    "format-muted": "<span font='12'>󰝟</span>",
     "format-icons": {
-      "default": ["", ""]
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
-    "on-click": "pavucontrol",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "tooltip": false
   },
 

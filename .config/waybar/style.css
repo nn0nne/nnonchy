@@ -65,18 +65,61 @@ tooltip label {
 }
 
 /* === Modules === */
+#pulseaudio,
+#backlight {
+  background-color: #252530;
+  padding: 0 10px;
+  color: #cdcdcd;
+}
+
+#pulseaudio {
+  border-radius: 10px 0 0 10px;
+  padding-right: 10px;
+  margin: 0 -5 0 0;
+}
+
+#backlight {
+  border-radius: 0 10px 10px 0;
+  padding-left: 10px;
+  margin: 0 0 0 -5;
+}
+
+#temperature,
+#cpu,
+#memory {
+  background-color: #252530;
+  padding: 0 10px;
+  color: #cdcdcd;
+}
+
+#temperature {
+  border-radius: 10px 0 0 10px;
+  padding-right: 10px;
+  margin: 4 -5 0 0;
+}
+#cpu {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: 0 -5 0 -5;
+}
+#memory {
+  border-radius: 0 10px 10px 0;
+  padding-left: 10px;
+  margin: 0 0 0 -5;
+}
+
 #clock,
 #battery,
-#pulseaudio,
-#memory,
-#cpu,
-#temperature,
+/* #pulseaudio, */
+/* #memory, */
+/* #cpu, */
+/* #temperature, */
 #disk,
 #network,
 #wireplumber,
 #idle_inhibitor,
 #power-profiles-daemon,
-#backlight,
+/* #backlight, */
 #custom-media,
 #mpd,
 #scratchpad {
