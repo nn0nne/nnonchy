@@ -1,0 +1,63 @@
+{
+  "arch": "x86_64",
+  "build_date": "2025-12-04T11:24:40Z",
+  "checkdepends": [],
+  "compressed_size": 5425853,
+  "conflicts": [],
+  "depends": [
+    "acl",
+    "avahi",
+    "cups-filters",
+    "dbus",
+    "gcc-libs",
+    "glibc",
+    "gnutls",
+    "hicolor-icon-theme",
+    "libcups>=2.4.16",
+    "libpaper",
+    "pam",
+    "systemd",
+    "systemd-libs"
+  ],
+  "epoch": 2,
+  "filename": "cups-2:2.4.16-1-x86_64.pkg.tar.zst",
+  "flag_date": null,
+  "groups": [],
+  "installed_size": 13399367,
+  "last_update": "2025-12-04T13:02:49.709Z",
+  "licenses": [
+    "Apache-2.0 WITH LLVM-exception AND BSD-3-Clause AND Zlib AND BSD-2-Clause"
+  ],
+  "maintainers": [
+    "andyrtr"
+  ],
+  "makedepends": [
+    "acl",
+    "avahi",
+    "colord",
+    "cups-filters",
+    "gnutls",
+    "libpaper",
+    "libusb",
+    "pam",
+    "systemd"
+  ],
+  "optdepends": [
+    "colord: for ICC color profile support",
+    "cups-browsed: to browse the network for remote CUPS queues and IPP network printers",
+    "ipp-usb: allows to send HTTP requests via a USB connection on devices without Ethernet or WiFi connections",
+    "libusb: for usb printer backend",
+    "logrotate: for logfile rotation support",
+    "xdg-utils: xdg .desktop file support"
+  ],
+  "packager": "andyrtr",
+  "pkgbase": "cups",
+  "pkgdesc": "OpenPrinting CUPS - daemon package",
+  "pkgname": "cups",
+  "pkgrel": "1",
+  "pkgver": "2.4.16",
+  "provides": [],
+  "replaces": [],
+  "repo": "extra",
+  "url": "https://openprinting.github.io/cups/"
+}

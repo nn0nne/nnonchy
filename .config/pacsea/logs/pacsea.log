@@ -581,3 +581,304 @@ error: failed to synchronize all databases (failed to retrieve some files)
 2026-02-05-T17:10:44  INFO Successfully saved index to disk path=/home/nnonne/.config/pacsea/lists/official_index.json package_count=23431
 2026-02-05-T17:10:45  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
 2026-02-05-T17:10:50  INFO AUR comments fetch completed: items=50
+2026-02-11-T14:32:39  INFO logging initialized path=/home/nnonne/.config/pacsea/logs/pacsea.log
+2026-02-11-T14:32:39  INFO Pacsea starting dry_run=false
+2026-02-11-T14:32:39  INFO startup timestamp tracking previous=Some("20260206:001034") current=20260211:213239
+2026-02-11-T14:32:39  INFO resolved state file paths recent=/home/nnonne/.config/pacsea/lists/recent_searches.json install=/home/nnonne/.config/pacsea/lists/install_list.json details_cache=/home/nnonne/.config/pacsea/lists/details_cache.json index=/home/nnonne/.config/pacsea/lists/official_index.json news_read=/home/nnonne/.config/pacsea/lists/news_read_urls.json news_read_ids=/home/nnonne/.config/pacsea/lists/news_read_ids.json announcement_read=/home/nnonne/.config/pacsea/lists/announcement_read.json
+2026-02-11-T14:32:39  INFO Resolved locale: 'en-US' (from settings: '<auto-detect>')
+2026-02-11-T14:32:39  INFO loaded details cache path=/home/nnonne/.config/pacsea/lists/details_cache.json
+2026-02-11-T14:32:39  INFO loaded recent searches path=/home/nnonne/.config/pacsea/lists/recent_searches.json count=3
+2026-02-11-T14:32:39  INFO showing version announcement modal current_version="0.7.3" base_version=0.7.3 announcement_version="0.7.3"
+2026-02-11-T14:32:39  INFO attempted to load official index from disk path=/home/nnonne/.config/pacsea/lists/official_index.json
+2026-02-11-T14:32:39  INFO auxiliary workers starting headless=false get_announcement=true updates_refresh_interval=60
+2026-02-11-T14:32:39  INFO [Runtime] Dependency worker started, waiting for requests...
+2026-02-11-T14:32:39  INFO [Runtime] Executor worker started, waiting for requests...
+2026-02-11-T14:32:39  INFO queueing combined news feed fetch (startup) installed_names=0
+2026-02-11-T14:32:39  INFO waiting for startup news fetch to complete before starting aggregated feed fetch
+2026-02-11-T14:32:39  INFO additional delay after startup fetch completion additional_delay_ms=1281
+2026-02-11-T14:32:39  INFO fetching remote announcement url=https://gist.githubusercontent.com/Firstp1ck/d2e6016b8d7a90f813a582078208e9bd/raw/announcement.json
+2026-02-11-T14:32:39  INFO refreshing official index in background
+2026-02-11-T14:32:39  INFO loaded theme configuration path=/home/nnonne/.config/pacsea/theme.conf
+2026-02-11-T14:32:39  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:32:39  WARN Temp database sync failed
+2026-02-11-T14:32:39  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:32:39  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:32:40  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "endeavouros"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=47
+2026-02-11-T14:32:40  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-core"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=48
+2026-02-11-T14:32:40  INFO Successfully saved index to disk path=/home/nnonne/.config/pacsea/lists/official_index.json package_count=23431
+2026-02-11-T14:32:40  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-extra"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=49
+2026-02-11-T14:32:40  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-v3"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=46
+2026-02-11-T14:32:40  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-core-v3"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=51
+2026-02-11-T14:32:40  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "cachyos-extra-v3"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=52
+2026-02-11-T14:32:40  INFO fetch_news_feed start limit=50 include_arch_news=true include_advisories=true include_pkg_updates=true include_aur_comments=true installed_only=false installed_filter=true sort_mode=DateDesc
+2026-02-11-T14:32:40  INFO starting fetch: arch_news=true, advisories=true, pkg_updates=true, aur_comments=true
+2026-02-11-T14:32:40  INFO fetching package updates: installed_count=331, limit=50
+2026-02-11-T14:32:40  INFO fetch_installed_updates: official scan complete, new_packages=48, updated_packages=0, baseline_only=253
+2026-02-11-T14:32:40  INFO fetching AUR comments: installed_count=331, limit=50
+2026-02-11-T14:32:40  INFO fetching arch news...
+2026-02-11-T14:32:41  INFO announcement fetched successfully id=2025-12-20-nvidia-590-pascal-support
+2026-02-11-T14:32:41  INFO showing remote announcement modal
+2026-02-11-T14:32:41  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "omniverse"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=45
+2026-02-11-T14:32:41  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "universe"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=44
+2026-02-11-T14:32:41  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "lib32"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=41
+2026-02-11-T14:32:41  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "galaxy"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=42
+2026-02-11-T14:32:41  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "world"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=41
+2026-02-11-T14:32:41  WARN pacman exited with non-zero status command="pacman" args=["-Sl", "system"] status=ExitStatus(unix_wait_status(256)) status_code=1 stdout_len=0 stderr_len=42
+2026-02-11-T14:32:42  INFO Successfully saved index to disk path=/home/nnonne/.config/pacsea/lists/official_index.json package_count=23448
+2026-02-11-T14:32:42  INFO official index updated (names changed) count=23448
+2026-02-11-T14:32:43  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
+2026-02-11-T14:32:47  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
+2026-02-11-T14:32:49  WARN failed to fetch AUR comments error=Network error: error sending request for url (https://aur.archlinux.org/packages/android-sdk) pkg=android-sdk
+2026-02-11-T14:32:50  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
+2026-02-11-T14:32:52  INFO fetched arch news feed bytes=18612
+2026-02-11-T14:32:52  INFO parsed arch news feed count=10
+2026-02-11-T14:32:52  INFO arch news fetch completed: items=10
+2026-02-11-T14:32:52  INFO fetching advisories...
+2026-02-11-T14:32:56  INFO fetched advisories feed status=200 bytes=43444
+2026-02-11-T14:32:56  INFO parsed advisories feed count=15
+2026-02-11-T14:32:56  INFO advisories fetch completed: items=15
+2026-02-11-T14:32:56  WARN failed to fetch AUR comments error=Network error: error sending request for url (https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest) pkg=android-sdk-cmdline-tools-latest
+2026-02-11-T14:32:58  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
+2026-02-11-T14:33:00  WARN increased archlinux.org backoff delay consecutive_failures=2 backoff_ms=2000
+2026-02-11-T14:33:01  WARN failed to fetch AUR comments error=Failed to read response: error decoding response body pkg=bridge-utils
+2026-02-11-T14:33:06  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
+2026-02-11-T14:33:06  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=5 total=10 failure_percentage=50
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=60
+2026-02-11-T14:33:06  WARN failed to fetch AUR comments error=Network error: error sending request for url (https://aur.archlinux.org/packages/cpx-copy) pkg=cpx-copy
+2026-02-11-T14:33:08  INFO Update check completed: found 16 total available updates (after deduplication)
+2026-02-11-T14:33:08  WARN increased archlinux.org backoff delay consecutive_failures=2 backoff_ms=2000
+2026-02-11-T14:33:08  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=6 total=10 failure_percentage=60
+2026-02-11-T14:33:10  WARN increased archlinux.org backoff delay consecutive_failures=3 backoff_ms=4000
+2026-02-11-T14:33:10  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=6 total=10 failure_percentage=60
+2026-02-11-T14:33:13  INFO [Runtime] Executor worker received update request: 1 commands, dry_run=false
+2026-02-11-T14:33:16  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
+2026-02-11-T14:33:16  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=6 total=10 failure_percentage=60
+2026-02-11-T14:33:16  INFO spawning background retry task for 30 packages
+2026-02-11-T14:33:16  INFO background retry task started with 30 packages
+2026-02-11-T14:33:16  INFO background retry: waiting before attempt package=brave-bin retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:33:18  WARN failed to save AUR JSON cache error=File name too long (os error 36) path="/home/nnonne/.config/pacsea/lists/aur_json_cache/android-platform,android-sdk,android-sdk-build-tools,android-sdk-cmdline-tools-latest,bridge-utils,cpx-copy,dim-screen,docker-compose-bin,durdraw,etterna,flat-remix-gtk,flutter-bin,fnm-bin,mangowc-git,nbfc-linux,ngrok,nomachine,opencode-bin,osu-lazer-bin,osu-mime,pacsea-bin,terabox-bin,timr,ttf-ms-win11-auto,tumbler-extra-thumbnailers,vencord-bin,vial-appimage,winboat-bin.json"
+2026-02-11-T14:33:18  INFO installed update feed built emitted=75 new_packages=48 updated_packages=0 aur_new_packages=9 aur_updated_packages=3 baseline_only=253 installed_total=331 aur_candidates=28
+2026-02-11-T14:33:18  INFO package updates fetch completed: items=75
+2026-02-11-T14:33:26  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=50
+2026-02-11-T14:33:26  INFO background retry: waiting before attempt package=cachy-update retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:33:30  INFO AUR comments fetch completed: items=50
+2026-02-11-T14:33:30  INFO fetch completed, combining results...
+2026-02-11-T14:33:30  INFO fetch_news_feed success total=150 arch=10 advisories=15 updates=75 aur_comments=50
+2026-02-11-T14:33:30  INFO news feed fetched total=150 arch=10 advisories=15 installed_names=331
+2026-02-11-T14:33:30  INFO sending aggregated news feed payload to channel items_count=150
+2026-02-11-T14:33:30  INFO aggregated news feed payload sent successfully
+2026-02-11-T14:33:30  INFO received aggregated news feed payload in event loop items_count=150
+2026-02-11-T14:33:30  INFO starting news continuation worker initial_count=150
+2026-02-11-T14:33:30  INFO news feed updated fetched=150 visible=41 max_age_days=30 installed_only=false arch_on=true advisories_on=true
+2026-02-11-T14:33:32  INFO starting continuation fetch installed_count=331 initial_count=150
+2026-02-11-T14:33:32  INFO fetch_installed_updates: using cached results (age=14s, items=75)
+2026-02-11-T14:33:32  INFO fetch_installed_aur_comments: using cached results (age=2s, items=50)
+2026-02-11-T14:33:32  INFO fetching arch news...
+2026-02-11-T14:33:32  INFO using in-memory cached arch news
+2026-02-11-T14:33:32  INFO arch news fetch completed: items=10
+2026-02-11-T14:33:32  INFO fetching advisories...
+2026-02-11-T14:33:32  INFO using in-memory cached advisories
+2026-02-11-T14:33:32  INFO advisories fetch completed: items=15
+2026-02-11-T14:33:32  INFO continuation fetch complete total=0 arch=0 advisories=0 updates=0
+2026-02-11-T14:33:32  INFO continuation worker received items to send count=0
+2026-02-11-T14:33:32  INFO news continuation worker completed
+2026-02-11-T14:33:36  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=40
+2026-02-11-T14:33:36  INFO background retry: waiting before attempt package=cachyos-hello retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:33:39  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:33:39  WARN Temp database sync failed
+2026-02-11-T14:33:39  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:33:39  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:33:46  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=30
+2026-02-11-T14:33:46  INFO background retry: waiting before attempt package=cachyos-hooks retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:33:52  INFO Update check completed: found 16 total available updates (after deduplication)
+2026-02-11-T14:33:56  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=20
+2026-02-11-T14:33:56  INFO background retry: waiting before attempt package=cachyos-kernel-manager retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:34:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=10
+2026-02-11-T14:34:06  INFO background retry: waiting before attempt package=cachyos-keyring retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:34:18  WARN increased archlinux.org backoff delay consecutive_failures=2 backoff_ms=2000
+2026-02-11-T14:34:18  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=7 total=10 failure_percentage=70
+2026-02-11-T14:34:18  INFO background retry: waiting before attempt package=cachyos-mirrorlist retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:34:28  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=50
+2026-02-11-T14:34:28  INFO background retry: waiting before attempt package=cachyos-packageinstaller retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:34:38  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=40
+2026-02-11-T14:34:38  INFO background retry: waiting before attempt package=cachyos-plymouth-bootanimation retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:34:39  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:34:39  WARN Temp database sync failed
+2026-02-11-T14:34:39  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:34:39  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:34:47  INFO Update check completed: found 16 total available updates (after deduplication)
+2026-02-11-T14:34:48  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=30
+2026-02-11-T14:34:48  INFO background retry: waiting before attempt package=cachyos-rate-mirrors retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:34:58  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=20
+2026-02-11-T14:34:58  INFO background retry: waiting before attempt package=cachyos-settings retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:35:08  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=10
+2026-02-11-T14:35:08  INFO background retry: waiting before attempt package=cachyos-snapper-support retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:35:23  WARN increased archlinux.org backoff delay consecutive_failures=3 backoff_ms=4000
+2026-02-11-T14:35:23  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=7 total=10 failure_percentage=70
+2026-02-11-T14:35:23  INFO background retry: waiting before attempt package=cachyos-v3-mirrorlist retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:35:33  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=50
+2026-02-11-T14:35:33  INFO background retry: waiting before attempt package=cachyos-v4-mirrorlist retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:35:39  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:35:39  WARN Temp database sync failed
+2026-02-11-T14:35:39  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:35:39  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:35:43  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=40
+2026-02-11-T14:35:43  INFO background retry: waiting before attempt package=cachyos-wallpapers retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:35:53  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=30
+2026-02-11-T14:35:53  INFO background retry: waiting before attempt package=cachyos-zsh-config retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:35:54  INFO Update check completed: found 16 total available updates (after deduplication)
+2026-02-11-T14:36:03  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=20
+2026-02-11-T14:36:03  INFO background retry: waiting before attempt package=calf retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:36:13  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=10
+2026-02-11-T14:36:13  INFO background retry: waiting before attempt package=cantarell-fonts retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:36:26  WARN increased archlinux.org backoff delay consecutive_failures=4 backoff_ms=8000
+2026-02-11-T14:36:26  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=7 total=10 failure_percentage=70
+2026-02-11-T14:36:26  INFO background retry: waiting before attempt package=ccache retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:36:36  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=50
+2026-02-11-T14:36:36  INFO background retry: waiting before attempt package=celluloid retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:36:39  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:36:39  WARN Temp database sync failed
+2026-02-11-T14:36:39  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:36:39  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:36:46  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=40
+2026-02-11-T14:36:46  INFO background retry: waiting before attempt package=chwd retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:36:51  INFO Update check completed: found 16 total available updates (after deduplication)
+2026-02-11-T14:36:56  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=30
+2026-02-11-T14:36:56  INFO background retry: waiting before attempt package=cliphist retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:37:06  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=20
+2026-02-11-T14:37:06  INFO background retry: waiting before attempt package=cloudflare-warp-bin retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:37:16  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=10
+2026-02-11-T14:37:16  INFO background retry: waiting before attempt package=cloudflared retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:37:31  WARN increased archlinux.org backoff delay consecutive_failures=5 backoff_ms=16000
+2026-02-11-T14:37:31  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=8 total=10 failure_percentage=80
+2026-02-11-T14:37:31  INFO background retry: waiting before attempt package=cpupower retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:37:39  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:37:39  WARN Temp database sync failed
+2026-02-11-T14:37:39  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:37:39  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:37:41  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=50
+2026-02-11-T14:37:41  INFO background retry: waiting before attempt package=cronie retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:37:47  INFO Update check completed: found 16 total available updates (after deduplication)
+2026-02-11-T14:37:51  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=40
+2026-02-11-T14:37:51  INFO background retry: waiting before attempt package=cryptsetup retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:38:01  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=30
+2026-02-11-T14:38:01  INFO background retry: waiting before attempt package=cuda retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:38:11  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=20
+2026-02-11-T14:38:11  INFO background retry: waiting before attempt package=cudnn retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:38:21  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=10
+2026-02-11-T14:38:21  INFO background retry: waiting before attempt package=cups retry_attempt=1 queue_remaining=29 delay_ms=10000
+2026-02-11-T14:38:32  INFO background retry succeeded, cache updated package=cups retry_attempt=1
+2026-02-11-T14:38:32  INFO background retry: waiting before attempt package=brave-bin retry_attempt=2 queue_remaining=28 delay_ms=20000
+2026-02-11-T14:38:39  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:38:39  WARN Temp database sync failed
+2026-02-11-T14:38:39  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:38:39  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:38:46  INFO Update check completed: found 7 total available updates (after deduplication)
+2026-02-11-T14:38:55  WARN increased archlinux.org backoff delay consecutive_failures=1 backoff_ms=1000
+2026-02-11-T14:38:55  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=8 total=10 failure_percentage=80
+2026-02-11-T14:38:55  INFO background retry: waiting before attempt package=cachy-update retry_attempt=2 queue_remaining=28 delay_ms=20000
+2026-02-11-T14:38:56  INFO [PTY] Process finished: success=true, exit_code=Some(0), total_lines_sent=6018
+2026-02-11-T14:38:56  INFO Received Finished: success=true, exit_code=Some(0)
+2026-02-11-T14:38:56  INFO Added completion message, log_lines.len()=115
+2026-02-11-T14:38:56  INFO Install operation completed: triggered refresh of installed packages and updates
+2026-02-11-T14:38:56  INFO [Runtime] Executor worker received update request: 1 commands, dry_run=false
+2026-02-11-T14:38:56  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:38:56  WARN Temp database sync failed
+2026-02-11-T14:38:56  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:38:56  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:39:08  WARN checkupdates command failed with exit code: Some(2), stderr: 
+2026-02-11-T14:39:08  INFO Update check completed: found 2 total available updates (after deduplication)
+2026-02-11-T14:39:15  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=40
+2026-02-11-T14:39:15  INFO background retry: waiting before attempt package=cachyos-hello retry_attempt=2 queue_remaining=28 delay_ms=20000
+2026-02-11-T14:39:35  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=20
+2026-02-11-T14:39:35  INFO background retry: waiting before attempt package=cachyos-hooks retry_attempt=2 queue_remaining=28 delay_ms=20000
+2026-02-11-T14:39:39  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:39:39  WARN Temp database sync failed
+2026-02-11-T14:39:39  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:39:39  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:39:45  WARN checkupdates command failed with exit code: Some(2), stderr: 
+2026-02-11-T14:39:45  INFO Update check completed: found 2 total available updates (after deduplication)
+2026-02-11-T14:40:00  WARN increased archlinux.org backoff delay consecutive_failures=2 backoff_ms=2000
+2026-02-11-T14:40:00  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=8 total=10 failure_percentage=80
+2026-02-11-T14:40:00  INFO background retry: waiting before attempt package=cachyos-kernel-manager retry_attempt=2 queue_remaining=28 delay_ms=20000
+2026-02-11-T14:40:20  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=40
+2026-02-11-T14:40:20  INFO background retry: waiting before attempt package=cachyos-keyring retry_attempt=2 queue_remaining=28 delay_ms=20000
+2026-02-11-T14:40:39  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:40:39  WARN Temp database sync failed
+2026-02-11-T14:40:39  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:40:39  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:40:40  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=20
+2026-02-11-T14:40:40  INFO background retry: waiting before attempt package=cachyos-mirrorlist retry_attempt=2 queue_remaining=28 delay_ms=20000
+2026-02-11-T14:40:44  WARN checkupdates command failed with exit code: Some(2), stderr: 
+2026-02-11-T14:40:44  INFO Update check completed: found 2 total available updates (after deduplication)
+2026-02-11-T14:41:02  WARN increased archlinux.org backoff delay consecutive_failures=3 backoff_ms=4000
+2026-02-11-T14:41:02  WARN circuit breaker opened due to high failure rate endpoint_pattern="/packages/*/json/" failure_count=8 total=10 failure_percentage=80
+2026-02-11-T14:41:02  INFO background retry: waiting before attempt package=cachyos-packageinstaller retry_attempt=2 queue_remaining=28 delay_ms=20000
+2026-02-11-T14:41:22  WARN circuit breaker is Open, blocking request endpoint_pattern="/packages/*/json/" remaining_secs=40
+2026-02-11-T14:41:22  INFO background retry: waiting before attempt package=cachyos-plymouth-bootanimation retry_attempt=2 queue_remaining=28 delay_ms=20000
+2026-02-11-T14:41:29  INFO [PTY] Process finished: success=true, exit_code=Some(0), total_lines_sent=594
+2026-02-11-T14:41:29  INFO Received Finished: success=true, exit_code=Some(0)
+2026-02-11-T14:41:29  INFO Added completion message, log_lines.len()=687
+2026-02-11-T14:41:29  INFO Install operation completed: triggered refresh of installed packages and updates
+2026-02-11-T14:41:29  WARN Temp database sync failed (exit code: Some(1)): error: restricting filesystem access failed because the Landlock ruleset could not be applied: Operation not permitted
+error: switching to sandbox user 'alpm' failed!
+error: failed to synchronize all databases (failed to retrieve some files)
+2026-02-11-T14:41:29  WARN Temp database sync failed
+2026-02-11-T14:41:29  INFO Temp database sync failed, trying checkupdates as fallback
+2026-02-11-T14:41:29  INFO Executing: checkupdates (automatically syncs database)
+2026-02-11-T14:41:33  WARN checkupdates command failed with exit code: Some(2), stderr: 
+2026-02-11-T14:41:33  INFO Update check completed: found 0 total available updates (after deduplication)

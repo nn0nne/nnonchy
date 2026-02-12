@@ -1,249 +1,393 @@
 [
   {
-    "id": "pkg-update:aur:bridge-utils:1.7.1-3",
-    "date": "2026-01-28",
-    "title": "bridge-utils updated to 1.7.1-3",
-    "summary": "1.7.1-3",
-    "url": "https://aur.archlinux.org/packages/bridge-utils",
-    "source": "AurPackageUpdate",
+    "id": "pkg-update:official:brave-bin:1:1.86.142-1",
+    "date": "2026-02-11",
+    "title": "brave-bin",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/brave-bin/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "bridge-utils"
+      "brave-bin"
     ]
   },
   {
-    "id": "pkg-update:aur:limine-mkinitcpio-hook:1.28.3-1",
-    "date": "2026-01-24",
-    "title": "limine-mkinitcpio-hook updated to 1.28.3-1",
-    "summary": "1.28.3-1",
-    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook",
-    "source": "AurPackageUpdate",
+    "id": "pkg-update:official:cachy-update:3.17.7-1",
+    "date": "2026-02-11",
+    "title": "cachy-update",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachy-update/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "limine-mkinitcpio-hook"
+      "cachy-update"
     ]
   },
   {
-    "id": "pkg-update:aur:limine-snapper-sync:1.21.0-1",
-    "date": "2026-01-24",
-    "title": "limine-snapper-sync updated to 1.21.0-1",
-    "summary": "1.21.0-1",
-    "url": "https://aur.archlinux.org/packages/limine-snapper-sync",
-    "source": "AurPackageUpdate",
+    "id": "pkg-update:official:cachyos-hello:0.19.2-1",
+    "date": "2026-02-11",
+    "title": "cachyos-hello",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-hello/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "limine-snapper-sync"
+      "cachyos-hello"
     ]
   },
   {
-    "id": "pkg-update:aur:docker-compose-bin:5.0.2-1",
-    "date": "2026-01-23",
-    "title": "docker-compose-bin updated to 5.0.2-1",
-    "summary": "5.0.2-1",
-    "url": "https://aur.archlinux.org/packages/docker-compose-bin",
-    "source": "AurPackageUpdate",
+    "id": "pkg-update:official:cachyos-hooks:2025.09.22-1",
+    "date": "2026-02-11",
+    "title": "cachyos-hooks",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-hooks/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "docker-compose-bin"
+      "cachyos-hooks"
     ]
   },
   {
-    "id": "pkg-update:aur:linux-cachyos:6.18.7-1",
-    "date": "2026-01-23",
-    "title": "linux-cachyos updated to 6.18.7-1",
-    "summary": "6.18.7-1",
-    "url": "https://aur.archlinux.org/packages/linux-cachyos",
-    "source": "AurPackageUpdate",
+    "id": "pkg-update:official:cachyos-kernel-manager:1.16.1-1.1",
+    "date": "2026-02-11",
+    "title": "cachyos-kernel-manager",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-kernel-manager/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "linux-cachyos"
+      "cachyos-kernel-manager"
     ]
   },
   {
-    "id": "pkg-update:aur:linux-cachyos-headers:6.18.7-1",
-    "date": "2026-01-23",
-    "title": "linux-cachyos-headers updated to 6.18.7-1",
-    "summary": "6.18.7-1",
-    "url": "https://aur.archlinux.org/packages/linux-cachyos-headers",
-    "source": "AurPackageUpdate",
+    "id": "pkg-update:official:cachyos-keyring:20240331-1",
+    "date": "2026-02-11",
+    "title": "cachyos-keyring",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-keyring/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "linux-cachyos-headers"
+      "cachyos-keyring"
     ]
   },
   {
-    "id": "pkg-update:aur:linux-cachyos-lts:6.12.67-1",
-    "date": "2026-01-23",
-    "title": "linux-cachyos-lts updated to 6.12.67-1",
-    "summary": "6.12.67-1",
-    "url": "https://aur.archlinux.org/packages/linux-cachyos-lts",
-    "source": "AurPackageUpdate",
+    "id": "pkg-update:official:cachyos-mirrorlist:22-1",
+    "date": "2026-02-11",
+    "title": "cachyos-mirrorlist",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-mirrorlist/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "linux-cachyos-lts"
+      "cachyos-mirrorlist"
     ]
   },
   {
-    "id": "pkg-update:aur:linux-cachyos-lts-headers:6.12.67-1",
-    "date": "2026-01-23",
-    "title": "linux-cachyos-lts-headers updated to 6.12.67-1",
-    "summary": "6.12.67-1",
-    "url": "https://aur.archlinux.org/packages/linux-cachyos-lts-headers",
-    "source": "AurPackageUpdate",
+    "id": "pkg-update:official:cachyos-packageinstaller:1.5.1-2",
+    "date": "2026-02-11",
+    "title": "cachyos-packageinstaller",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-packageinstaller/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "linux-cachyos-lts-headers"
+      "cachyos-packageinstaller"
     ]
   },
   {
-    "id": "pkg-update:aur:cloudflare-warp-bin:2025.10.186-1",
-    "date": "2026-01-22",
-    "title": "cloudflare-warp-bin updated to 2025.10.186-1",
-    "summary": "2025.10.186-1",
-    "url": "https://aur.archlinux.org/packages/cloudflare-warp-bin",
-    "source": "AurPackageUpdate",
+    "id": "pkg-update:official:cachyos-plymouth-bootanimation:2-1",
+    "date": "2026-02-11",
+    "title": "cachyos-plymouth-bootanimation",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-plymouth-bootanimation/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cachyos-plymouth-bootanimation"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cachyos-rate-mirrors:18-1",
+    "date": "2026-02-11",
+    "title": "cachyos-rate-mirrors",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-rate-mirrors/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cachyos-rate-mirrors"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cachyos-settings:1:1.3.0-1",
+    "date": "2026-02-11",
+    "title": "cachyos-settings",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-settings/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cachyos-settings"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cachyos-snapper-support:1.0.2-1",
+    "date": "2026-02-11",
+    "title": "cachyos-snapper-support",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-snapper-support/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cachyos-snapper-support"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cachyos-v3-mirrorlist:22-1",
+    "date": "2026-02-11",
+    "title": "cachyos-v3-mirrorlist",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-v3-mirrorlist/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cachyos-v3-mirrorlist"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cachyos-v4-mirrorlist:22-1",
+    "date": "2026-02-11",
+    "title": "cachyos-v4-mirrorlist",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-v4-mirrorlist/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cachyos-v4-mirrorlist"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cachyos-wallpapers:r23.964263e-1",
+    "date": "2026-02-11",
+    "title": "cachyos-wallpapers",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-wallpapers/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cachyos-wallpapers"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cachyos-zsh-config:1.0.3-1",
+    "date": "2026-02-11",
+    "title": "cachyos-zsh-config",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cachyos-zsh-config/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cachyos-zsh-config"
+    ]
+  },
+  {
+    "id": "pkg-update:official:calf:0.90.8-6",
+    "date": "2026-02-11",
+    "title": "calf",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/calf/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "calf"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cantarell-fonts:1:0.311-1",
+    "date": "2026-02-11",
+    "title": "cantarell-fonts",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/cantarell-fonts/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cantarell-fonts"
+    ]
+  },
+  {
+    "id": "pkg-update:official:ccache:4.12.2-1",
+    "date": "2026-02-11",
+    "title": "ccache",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/ccache/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "ccache"
+    ]
+  },
+  {
+    "id": "pkg-update:official:celluloid:0.29-1",
+    "date": "2026-02-11",
+    "title": "celluloid",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/celluloid/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "celluloid"
+    ]
+  },
+  {
+    "id": "pkg-update:official:chwd:1.18.0-3",
+    "date": "2026-02-11",
+    "title": "chwd",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/chwd/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "chwd"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cliphist:1:0.7.0-1",
+    "date": "2026-02-11",
+    "title": "cliphist",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/cliphist/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cliphist"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cloudflare-warp-bin:2025.10.186-1",
+    "date": "2026-02-11",
+    "title": "cloudflare-warp-bin",
+    "summary": null,
+    "url": "https://archlinux.org/packages/cachyos/x86_64/cloudflare-warp-bin/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
       "cloudflare-warp-bin"
     ]
   },
   {
-    "id": "pkg-update:aur:brave-bin:1:1.86.142-1",
-    "date": "2026-01-21",
-    "title": "brave-bin updated to 1:1.86.142-1",
-    "summary": "1:1.86.142-1",
-    "url": "https://aur.archlinux.org/packages/brave-bin",
+    "id": "pkg-update:official:cloudflared:2026.1.1-1",
+    "date": "2026-02-11",
+    "title": "cloudflared",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/cloudflared/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cloudflared"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cpupower:6.18-3",
+    "date": "2026-02-11",
+    "title": "cpupower",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/cpupower/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cpupower"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cronie:1.7.2-2",
+    "date": "2026-02-11",
+    "title": "cronie",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/cronie/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cronie"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cryptsetup:2.8.4-1",
+    "date": "2026-02-11",
+    "title": "cryptsetup",
+    "summary": null,
+    "url": "https://archlinux.org/packages/core/x86_64/cryptsetup/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cryptsetup"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cuda:13.1.1-1",
+    "date": "2026-02-11",
+    "title": "cuda",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/cuda/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cuda"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cudnn:9.18.1.3-1.1 -> 9.19.0.56-1.1",
+    "date": "2026-02-11",
+    "title": "cudnn",
+    "summary": "9.18.1.3-1.1 → 9.18.1.3-1.1 -> 9.19.0.56-1.1",
+    "url": "https://archlinux.org/packages/extra/x86_64/cudnn/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cudnn"
+    ]
+  },
+  {
+    "id": "pkg-update:official:cups:2:2.4.16-1",
+    "date": "2026-02-11",
+    "title": "cups",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/cups/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cups"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:opencode-bin:1.1.57-1",
+    "date": "2026-02-11",
+    "title": "opencode-bin updated to 1.1.57-1",
+    "summary": "1.1.57-1",
+    "url": "https://aur.archlinux.org/packages/opencode-bin",
     "source": "AurPackageUpdate",
     "severity": null,
     "packages": [
-      "brave-bin"
+      "opencode-bin"
     ]
   },
   {
-    "id": "aur-comment:brave-bin:comment-1056121",
-    "date": "2026-01-20",
-    "title": "New AUR comment on brave-bin",
-    "summary": "I was having trouble with resuming from sleep. The browser fonts and images were altered in color and density, making it virtually impossible to read or view. I noticed that one us…",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1056121",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
-    "id": "aur-comment:brave-bin:comment-1056035",
-    "date": "2026-01-19",
-    "title": "New AUR comment on brave-bin",
-    "summary": "@higorslva @lukeren once again, this is not the place to report issues with the browser. If you'd like something fixed, please report it via [GitHub](https://github.com/brave/brave…",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1056035",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
-    "id": "aur-comment:brave-bin:comment-1055885",
-    "date": "2026-01-18",
-    "title": "New AUR comment on brave-bin",
-    "summary": "why this garbage crashes randomly?",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055885",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
-    "id": "aur-comment:brave-bin:comment-1055815",
-    "date": "2026-01-18",
-    "title": "New AUR comment on brave-bin",
-    "summary": "Having the same issue as higorslva when my laptop resumes from sleep or screen dimming.",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055815",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
-    "id": "aur-comment:brave-bin:comment-1055755",
-    "date": "2026-01-17",
-    "title": "New AUR comment on brave-bin",
-    "summary": "After updating to v1.86.139-1, I started noticing color glitches when moving a window between my laptop screen and an external monitor. The issue occurs specifically when moving fr…",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055755",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
-    "id": "aur-comment:brave-bin:comment-1055750",
-    "date": "2026-01-17",
-    "title": "New AUR comment on brave-bin",
-    "summary": "@wknapik done: [https://github.com/brave/brave-browser/issues/52067](https://github.com/brave/brave-browser/issues/52067)",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055750",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
-    "id": "aur-comment:brave-bin:comment-1055738",
-    "date": "2026-01-17",
-    "title": "New AUR comment on brave-bin",
-    "summary": "@bglogic @dominikzogg if you can [collect crash information](https://support.brave.app/hc/en-us/articles/22281484910221-How-do-I-manually-submit-crash-reports), please [report it t…",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055738",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
-    "id": "aur-comment:brave-bin:comment-1055693",
-    "date": "2026-01-17",
-    "title": "New AUR comment on brave-bin",
-    "summary": "I don't have any problem (at the moment)\nBrave 1.86.139 (Wayland)\nCPU (and GPU) AMD Ryzen 5 5600g\nFlags: \n--enable-features=WebUIDarkMode\n--force-dark-mode\n--disable-smooth-scrolli…",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055693",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
-    "id": "aur-comment:brave-bin:comment-1055670",
-    "date": "2026-01-17",
-    "title": "New AUR comment on brave-bin",
-    "summary": "@bglogic I had to downgrade as well, Braves crashes after 1-2s. 1:1.85.120-1 works fine.",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1055670",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
-    "id": "pkg-update:aur:flutter-bin:3.38.7-1",
-    "date": "2026-01-16",
-    "title": "flutter-bin updated to 3.38.7-1",
-    "summary": "3.38.7-1",
-    "url": "https://aur.archlinux.org/packages/flutter-bin",
+    "id": "pkg-update:aur:timr:1.7.1-1",
+    "date": "2026-02-07",
+    "title": "timr updated to 1.7.1-1",
+    "summary": "1.7.1-1",
+    "url": "https://aur.archlinux.org/packages/timr",
     "source": "AurPackageUpdate",
     "severity": null,
     "packages": [
-      "flutter-bin"
+      "timr"
     ]
   },
   {
-    "id": "pkg-update:aur:ngrok:3.35.0-1",
-    "date": "2026-01-12",
-    "title": "ngrok updated to 3.35.0-1",
-    "summary": "3.35.0-1",
+    "id": "pkg-update:aur:ngrok:3.36.0-1",
+    "date": "2026-02-03",
+    "title": "ngrok updated to 3.36.0-1",
+    "summary": "3.35.0-1 → 3.36.0-1",
     "url": "https://aur.archlinux.org/packages/ngrok",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -252,10 +396,190 @@
     ]
   },
   {
+    "id": "pkg-update:aur:cpx-copy:0.1.3-1",
+    "date": "2026-02-02",
+    "title": "cpx-copy updated to 0.1.3-1",
+    "summary": "0.1.3-1",
+    "url": "https://aur.archlinux.org/packages/cpx-copy",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "cpx-copy"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:pacsea-bin:0.7.3-1",
+    "date": "2026-02-01",
+    "title": "pacsea-bin updated to 0.7.3-1",
+    "summary": "0.7.3-1",
+    "url": "https://aur.archlinux.org/packages/pacsea-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "pacsea-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:flutter-bin:3.38.9-1",
+    "date": "2026-01-31",
+    "title": "flutter-bin updated to 3.38.9-1",
+    "summary": "3.38.7-1 → 3.38.9-1",
+    "url": "https://aur.archlinux.org/packages/flutter-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:bridge-utils:1.7.1-5",
+    "date": "2026-01-29",
+    "title": "bridge-utils updated to 1.7.1-5",
+    "summary": "1.7.1-3 → 1.7.1-5",
+    "url": "https://aur.archlinux.org/packages/bridge-utils",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bridge-utils"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:docker-compose-bin:5.0.2-1",
+    "date": "2026-01-23",
+    "title": "docker-compose-bin updated to 5.0.2-1",
+    "summary": "5.0.2-1 → 5.0.2-1",
+    "url": "https://aur.archlinux.org/packages/docker-compose-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "docker-compose-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:official:bash-completion:2.17.0-3",
+    "date": "2026-01-21",
+    "title": "bash-completion",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/bash-completion/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bash-completion"
+    ]
+  },
+  {
+    "id": "pkg-update:official:bind:9.20.18-1",
+    "date": "2026-01-21",
+    "title": "bind",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/bind/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bind"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:osu-lazer-bin:2026.119.0-1",
+    "date": "2026-01-19",
+    "title": "osu-lazer-bin updated to 2026.119.0-1",
+    "summary": "2026.119.0-1",
+    "url": "https://aur.archlinux.org/packages/osu-lazer-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "osu-lazer-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:official:alsa-utils:1.2.15.2-1",
+    "date": "2026-01-11",
+    "title": "alsa-utils",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/alsa-utils/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "alsa-utils"
+    ]
+  },
+  {
+    "id": "aur-comment:flutter-bin:comment-1054791",
+    "date": "2026-01-11",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "Thanks, I have pushed the new version, already tried it on my machines. I usually run `updpkgsums` which downloads the files. I will look into `pkgctl`.",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-1054791",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:flutter-bin:comment-1054700",
+    "date": "2026-01-11",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "@mihalycsaba Will let you try.  Please don't break.\nSome notes on updating this package:\nWhy not `pkgctl version upgrade`?  You can, but you'll have to wait for the full download. …",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-1054700",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:official:blueman:2.4.6-2",
+    "date": "2026-01-10",
+    "title": "blueman",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/blueman/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "blueman"
+    ]
+  },
+  {
+    "id": "pkg-update:official:btrfs-progs:6.17.1-2",
+    "date": "2026-01-10",
+    "title": "btrfs-progs",
+    "summary": null,
+    "url": "https://archlinux.org/packages/core/x86_64/btrfs-progs/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "btrfs-progs"
+    ]
+  },
+  {
+    "id": "aur-comment:flutter-bin:comment-1054595",
+    "date": "2026-01-10",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "hey, it's out of date. could you add me as a maintainer? I'm using it often for development. [https://github.com/mihalycsaba/snag](https://github.com/mihalycsaba/snag)",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-1054595",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:official:bottom:0.12.3-1",
+    "date": "2026-01-01",
+    "title": "bottom",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/bottom/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bottom"
+    ]
+  },
+  {
     "id": "pkg-update:aur:mangowc-git:r1201.d6dbb7a-1",
     "date": "2025-12-30",
     "title": "mangowc-git updated to r1201.d6dbb7a-1",
-    "summary": "r1201.d6dbb7a-1",
+    "summary": "r1201.d6dbb7a-1 → r1201.d6dbb7a-1",
     "url": "https://aur.archlinux.org/packages/mangowc-git",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -277,12 +601,24 @@
     "id": "pkg-update:aur:nomachine:9.3.7-1",
     "date": "2025-12-20",
     "title": "nomachine updated to 9.3.7-1",
-    "summary": "9.3.7-1",
+    "summary": "9.3.7-1 → 9.3.7-1",
     "url": "https://aur.archlinux.org/packages/nomachine",
     "source": "AurPackageUpdate",
     "severity": null,
     "packages": [
       "nomachine"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:terabox-bin:1.42.6-1",
+    "date": "2025-12-19",
+    "title": "terabox-bin updated to 1.42.6-1",
+    "summary": "1.42.6-1",
+    "url": "https://aur.archlinux.org/packages/terabox-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "terabox-bin"
     ]
   },
   {
@@ -294,6 +630,66 @@
     "source": "ArchNews",
     "severity": null,
     "packages": []
+  },
+  {
+    "id": "pkg-update:official:bat:0.26.1-1",
+    "date": "2025-12-04",
+    "title": "bat",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/bat/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bat"
+    ]
+  },
+  {
+    "id": "pkg-update:official:bluez:5.85-1",
+    "date": "2025-11-23",
+    "title": "bluez",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/bluez/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bluez"
+    ]
+  },
+  {
+    "id": "pkg-update:official:bluez-hid2hci:5.85-1",
+    "date": "2025-11-23",
+    "title": "bluez-hid2hci",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/bluez-hid2hci/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bluez-hid2hci"
+    ]
+  },
+  {
+    "id": "pkg-update:official:bluez-libs:5.85-1",
+    "date": "2025-11-23",
+    "title": "bluez-libs",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/bluez-libs/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bluez-libs"
+    ]
+  },
+  {
+    "id": "pkg-update:official:bluez-utils:5.85-1",
+    "date": "2025-11-23",
+    "title": "bluez-utils",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/bluez-utils/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bluez-utils"
+    ]
   },
   {
     "id": "aur-comment:android-sdk-build-tools:comment-1048899",
@@ -311,7 +707,7 @@
     "id": "pkg-update:aur:android-sdk-build-tools:r36.1-2",
     "date": "2025-11-22",
     "title": "android-sdk-build-tools updated to r36.1-2",
-    "summary": "r36.1-2",
+    "summary": "r36.1-2 → r36.1-2",
     "url": "https://aur.archlinux.org/packages/android-sdk-build-tools",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -376,6 +772,30 @@
     "packages": []
   },
   {
+    "id": "pkg-update:official:btrfs-assistant:2.2-4",
+    "date": "2025-10-10",
+    "title": "btrfs-assistant",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/btrfs-assistant/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "btrfs-assistant"
+    ]
+  },
+  {
+    "id": "pkg-update:official:alsa-plugins:1:1.2.12-5",
+    "date": "2025-10-04",
+    "title": "alsa-plugins",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/alsa-plugins/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "alsa-plugins"
+    ]
+  },
+  {
     "id": "https://archlinux.org/news/recent-services-outages/",
     "date": "2025-08-21",
     "title": "Recent service outages",
@@ -389,12 +809,24 @@
     "id": "pkg-update:aur:dim-screen:0.4.1-1",
     "date": "2025-08-19",
     "title": "dim-screen updated to 0.4.1-1",
-    "summary": "0.4.1-1",
+    "summary": "0.4.1-1 → 0.4.1-1",
     "url": "https://aur.archlinux.org/packages/dim-screen",
     "source": "AurPackageUpdate",
     "severity": null,
     "packages": [
       "dim-screen"
+    ]
+  },
+  {
+    "id": "pkg-update:official:7zip:25.01-1",
+    "date": "2025-08-11",
+    "title": "7zip",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/7zip/",
+    "source": "InstalledPackageUpdate",
+    "severity": null,
+    "packages": [
+      "7zip"
     ]
   },
   {
@@ -441,7 +873,7 @@
     "id": "pkg-update:aur:nbfc-linux:0.3.19-1",
     "date": "2025-06-13",
     "title": "nbfc-linux updated to 0.3.19-1",
-    "summary": "0.3.19-1",
+    "summary": "0.3.19-1 → 0.3.19-1",
     "url": "https://aur.archlinux.org/packages/nbfc-linux",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -564,6 +996,18 @@
     "packages": []
   },
   {
+    "id": "pkg-update:aur:ttf-ms-win11-auto:10.0.26100.1742-4",
+    "date": "2025-05-20",
+    "title": "ttf-ms-win11-auto updated to 10.0.26100.1742-4",
+    "summary": "10.0.26100.1742-4",
+    "url": "https://aur.archlinux.org/packages/ttf-ms-win11-auto",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "ttf-ms-win11-auto"
+    ]
+  },
+  {
     "id": "https://security.archlinux.org/ASA-202505-9",
     "date": "2025-05-19",
     "title": "[ASA-202505-9] dropbear: arbitrary command execution",
@@ -627,7 +1071,7 @@
     "id": "pkg-update:aur:flat-remix-gtk:20240730-1",
     "date": "2025-05-18",
     "title": "flat-remix-gtk updated to 20240730-1",
-    "summary": "20240730-1",
+    "summary": "20240730-1 → 20240730-1",
     "url": "https://aur.archlinux.org/packages/flat-remix-gtk",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -636,22 +1080,10 @@
     ]
   },
   {
-    "id": "aur-comment:brave-bin:comment-1021175",
-    "date": "2025-04-25",
-    "title": "New AUR comment on brave-bin",
-    "summary": "Official Brave packages in AUR - [brave-bin](https://aur.archlinux.org/packages/brave-bin) (release), [brave-beta-bin](https://aur.archlinux.org/packages/brave-beta-bin) (beta), [b…",
-    "url": "https://aur.archlinux.org/packages/brave-bin#comment-1021175",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "brave-bin"
-    ]
-  },
-  {
     "id": "pkg-update:aur:android-platform:36_r02-1",
     "date": "2025-04-18",
     "title": "android-platform updated to 36_r02-1",
-    "summary": "36_r02-1",
+    "summary": "36_r02-1 → 36_r02-1",
     "url": "https://aur.archlinux.org/packages/android-platform",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -663,7 +1095,7 @@
     "id": "pkg-update:aur:durdraw:0.29.0-2",
     "date": "2025-04-18",
     "title": "durdraw updated to 0.29.0-2",
-    "summary": "0.29.0-2",
+    "summary": "0.29.0-2 → 0.29.0-2",
     "url": "https://aur.archlinux.org/packages/durdraw",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -685,12 +1117,24 @@
     "id": "pkg-update:aur:etterna:0.74.4-1",
     "date": "2025-04-02",
     "title": "etterna updated to 0.74.4-1",
-    "summary": "0.74.4-1",
+    "summary": "0.74.4-1 → 0.74.4-1",
     "url": "https://aur.archlinux.org/packages/etterna",
     "source": "AurPackageUpdate",
     "severity": null,
     "packages": [
       "etterna"
+    ]
+  },
+  {
+    "id": "aur-comment:flat-remix-gtk:comment-1017711",
+    "date": "2025-03-31",
+    "title": "New AUR comment on flat-remix-gtk",
+    "summary": "still broken. Has not been updated in 3 years",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk#comment-1017711",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flat-remix-gtk"
     ]
   },
   {
@@ -703,18 +1147,6 @@
     "severity": null,
     "packages": [
       "android-sdk-build-tools"
-    ]
-  },
-  {
-    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-1016246",
-    "date": "2025-03-20",
-    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
-    "summary": "Regarding the comment - [https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-995433](https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#com…",
-    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-1016246",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "android-sdk-cmdline-tools-latest"
     ]
   },
   {
@@ -733,7 +1165,7 @@
     "id": "pkg-update:aur:android-sdk-cmdline-tools-latest:19.0-1",
     "date": "2025-03-18",
     "title": "android-sdk-cmdline-tools-latest updated to 19.0-1",
-    "summary": "19.0-1",
+    "summary": "19.0-1 → 19.0-1",
     "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -742,15 +1174,75 @@
     ]
   },
   {
-    "id": "pkg-update:aur:localsend:1.17.0-2",
-    "date": "2025-03-17",
-    "title": "localsend updated to 1.17.0-2",
-    "summary": "1.17.0-2",
-    "url": "https://aur.archlinux.org/packages/localsend",
-    "source": "AurPackageUpdate",
+    "id": "aur-comment:flutter-bin:comment-1015915",
+    "date": "2025-03-18",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "@Tech-Tac That doesn't solve the problem on the packaging side.  Also, pacman/aur helper may still display warnings about the package being out of date.",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-1015915",
+    "source": "AurComment",
     "severity": null,
     "packages": [
-      "localsend"
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:flutter-bin:comment-1015912",
+    "date": "2025-03-18",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "@xiota I'm not really familiar with PKGBUILDs, but I think it is possible flag specific packages to prevent them from being marked as outdated in Pacman/yay by adding them to Ignor…",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-1015912",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:flutter-bin:comment-1015905",
+    "date": "2025-03-18",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "@Tech-Tac Do you know of a solution?",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-1015905",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:flutter-bin:comment-1015855",
+    "date": "2025-03-17",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "This package is nice for installing Flutter, but not for updating it. Simply running `flutter upgrade` is more efficient than updating through this package as it only downloads the…",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-1015855",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:flutter-bin:comment-1015705",
+    "date": "2025-03-16",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "@Erwin_Iosef On my computer, pacman reports compressed package size is 864.53 MiB, installed size is 1727.28 MiB.  I'd prefer to leave compression settings alone because changing t…",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-1015705",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:flutter-bin:comment-1015701",
+    "date": "2025-03-16",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "@xiota thanks for the package, on compression using paru the pkg just gets reduced to a mere 700 MB compared to the 731 flutter.tar and takes a long time to compress. Maybe it'd be…",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-1015701",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flutter-bin"
     ]
   },
   {
@@ -775,6 +1267,18 @@
     "severity": null,
     "packages": [
       "android-platform"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:osu-mime:0.1-3",
+    "date": "2025-02-27",
+    "title": "osu-mime updated to 0.1-3",
+    "summary": "0.1-3",
+    "url": "https://aur.archlinux.org/packages/osu-mime",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "osu-mime"
     ]
   },
   {
@@ -838,10 +1342,58 @@
     ]
   },
   {
+    "id": "pkg-update:aur:tumbler-extra-thumbnailers:5.1-1",
+    "date": "2025-01-20",
+    "title": "tumbler-extra-thumbnailers updated to 5.1-1",
+    "summary": "5.1-1",
+    "url": "https://aur.archlinux.org/packages/tumbler-extra-thumbnailers",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "tumbler-extra-thumbnailers"
+    ]
+  },
+  {
+    "id": "aur-comment:durdraw:comment-1004994",
+    "date": "2025-01-03",
+    "title": "New AUR comment on durdraw",
+    "summary": "It seems you forgot to update `.SRCINFO` file, but thanks for the quick reaction",
+    "url": "https://aur.archlinux.org/packages/durdraw#comment-1004994",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "durdraw"
+    ]
+  },
+  {
+    "id": "aur-comment:durdraw:comment-1004993",
+    "date": "2025-01-03",
+    "title": "New AUR comment on durdraw",
+    "summary": "What a polite way of asking for continued maintenance of this package.",
+    "url": "https://aur.archlinux.org/packages/durdraw#comment-1004993",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "durdraw"
+    ]
+  },
+  {
+    "id": "aur-comment:durdraw:comment-1004988",
+    "date": "2025-01-03",
+    "title": "New AUR comment on durdraw",
+    "summary": "when bump",
+    "url": "https://aur.archlinux.org/packages/durdraw#comment-1004988",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "durdraw"
+    ]
+  },
+  {
     "id": "pkg-update:aur:fnm-bin:1.38.1-1",
     "date": "2024-11-17",
     "title": "fnm-bin updated to 1.38.1-1",
-    "summary": "1.38.1-1",
+    "summary": "1.38.1-1 → 1.38.1-1",
     "url": "https://aur.archlinux.org/packages/fnm-bin",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -850,166 +1402,202 @@
     ]
   },
   {
-    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-995433",
-    "date": "2024-10-21",
-    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
-    "summary": "Any clues on the following errors?\nDid I probably updated through android-studio before AUR update? Not sure if it was a mistake on my side.",
-    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-995433",
-    "source": "AurComment",
+    "id": "pkg-update:official:base-devel:1-2",
+    "date": "2024-09-07",
+    "title": "base-devel",
+    "summary": null,
+    "url": "https://archlinux.org/packages/core/any/base-devel/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "android-sdk-cmdline-tools-latest"
+      "base-devel"
     ]
   },
   {
-    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-986931",
-    "date": "2024-08-17",
-    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
-    "summary": "Does this really need `java-environment` to be used? Is `java-runtime` not sufficing?\nRegards!",
-    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-986931",
-    "source": "AurComment",
+    "id": "pkg-update:official:awesome-terminal-fonts:1.1.0-5",
+    "date": "2024-07-12",
+    "title": "awesome-terminal-fonts",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/awesome-terminal-fonts/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "android-sdk-cmdline-tools-latest"
+      "awesome-terminal-fonts"
     ]
   },
   {
-    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-961223",
-    "date": "2024-03-14",
-    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
-    "summary": "@Jal-JAP package.xml location should be fixed now.",
-    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-961223",
-    "source": "AurComment",
+    "id": "pkg-update:official:brightnessctl:0.5.1-3",
+    "date": "2024-07-12",
+    "title": "brightnessctl",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/brightnessctl/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "android-sdk-cmdline-tools-latest"
+      "brightnessctl"
     ]
   },
   {
-    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-961118",
-    "date": "2024-03-13",
-    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
-    "summary": "Also for the errors about /opt/android-sdk being not writeable, it can be fixed by",
-    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-961118",
-    "source": "AurComment",
+    "id": "pkg-update:official:alsa-firmware:1.2.4-4",
+    "date": "2024-07-11",
+    "title": "alsa-firmware",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/alsa-firmware/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "android-sdk-cmdline-tools-latest"
+      "alsa-firmware"
     ]
   },
   {
-    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-961113",
-    "date": "2024-03-13",
-    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
-    "summary": "`sdkmanager` gives the following warning currently.\nthis can be fixed by simply moving package.xml from `/opt/android-sdk/cmdline-tools` to `/opt/android-sdk/cmdline-tools/latest`\n…",
-    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-961113",
+    "id": "aur-comment:flutter-bin:comment-981886",
+    "date": "2024-07-11",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "Users can choose to use `fvm-sourcebuild` to build packages that use `fvm`, if they want to build flutter engine from source.",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-981886",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk-cmdline-tools-latest"
+      "flutter-bin"
     ]
   },
   {
-    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-944747",
-    "date": "2023-11-22",
-    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
-    "summary": "IntelliJ doesn't like this package because of",
-    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-944747",
+    "id": "aur-comment:flutter-bin:comment-972779",
+    "date": "2024-05-14",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "Packagers: Consider using [aur/fvm](https://aur.archlinux.org/packages/fvm).",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-972779",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk-cmdline-tools-latest"
+      "flutter-bin"
     ]
   },
   {
-    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-942910",
-    "date": "2023-11-09",
-    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
-    "summary": "IntelliJ IDEA doesn't recognize this package, because it doesn't contain a package.xml. Can you add it to this package like you've done for [https://aur.archlinux.org/packages/andr…",
-    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-942910",
+    "id": "aur-comment:flutter-bin:comment-968595",
+    "date": "2024-04-22",
+    "title": "New AUR comment on flutter-bin",
+    "summary": "`aur/flutter-bin` is needed to provide a working stable flutter package. It is intended to be installed by itself, without any other flutter or dart package.\nThe conflicts are need…",
+    "url": "https://aur.archlinux.org/packages/flutter-bin#comment-968595",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk-cmdline-tools-latest"
+      "flutter-bin"
     ]
   },
   {
-    "id": "aur-comment:android-sdk:comment-942264",
-    "date": "2023-11-06",
-    "title": "New AUR comment on android-sdk",
-    "summary": "I just ran into this error :",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-942264",
-    "source": "AurComment",
+    "id": "pkg-update:official:accountsservice:23.13.9-2",
+    "date": "2024-04-19",
+    "title": "accountsservice",
+    "summary": null,
+    "url": "https://archlinux.org/packages/extra/x86_64/accountsservice/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "android-sdk"
+      "accountsservice"
     ]
   },
   {
-    "id": "aur-comment:android-sdk:comment-937372",
+    "id": "pkg-update:official:base:3-3",
     "date": "2023-10-09",
-    "title": "New AUR comment on android-sdk",
-    "summary": "okey, my workaround was to instead install [https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest](https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest…",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-937372",
-    "source": "AurComment",
+    "title": "base",
+    "summary": null,
+    "url": "https://archlinux.org/packages/core/any/base/",
+    "source": "InstalledPackageUpdate",
     "severity": null,
     "packages": [
-      "android-sdk"
+      "base"
     ]
   },
   {
-    "id": "aur-comment:android-sdk:comment-937344",
-    "date": "2023-10-09",
-    "title": "New AUR comment on android-sdk",
-    "summary": "hey @dreieck - did you manage to solve that issue? I've ran into it too and an am unsure what to do next..",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-937344",
+    "id": "aur-comment:fnm-bin:comment-929055",
+    "date": "2023-08-13",
+    "title": "New AUR comment on fnm-bin",
+    "summary": "got this error:\n---EDIT---\nuh, so looks like it's already reported on upstream, guess I will wait then.",
+    "url": "https://aur.archlinux.org/packages/fnm-bin#comment-929055",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk"
+      "fnm-bin"
     ]
   },
   {
-    "id": "aur-comment:android-sdk:comment-932492",
-    "date": "2023-09-05",
-    "title": "New AUR comment on android-sdk",
-    "summary": "When I run `avdmanager`, it fails with:\n`java --version`:  \nRegards!",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-932492",
+    "id": "aur-comment:fnm-bin:comment-924409",
+    "date": "2023-07-14",
+    "title": "New AUR comment on fnm-bin",
+    "summary": "I face the same issue.",
+    "url": "https://aur.archlinux.org/packages/fnm-bin#comment-924409",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk"
+      "fnm-bin"
     ]
   },
   {
-    "id": "aur-comment:android-sdk:comment-928832",
-    "date": "2023-08-12",
-    "title": "New AUR comment on android-sdk",
-    "summary": "Anyone else new to Android SDK command line tools: you probably don't want this package! The upstream of this package is deprecated and has not received updates since 2017. Newer S…",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-928832",
+    "id": "aur-comment:fnm-bin:comment-923887",
+    "date": "2023-07-12",
+    "title": "New AUR comment on fnm-bin",
+    "summary": "@Ugzuzg thnk you for package and issue. it looks like the problem is the completions",
+    "url": "https://aur.archlinux.org/packages/fnm-bin#comment-923887",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk"
+      "fnm-bin"
     ]
   },
   {
-    "id": "aur-comment:android-sdk-cmdline-tools-latest:comment-928831",
-    "date": "2023-08-12",
-    "title": "New AUR comment on android-sdk-cmdline-tools-latest",
-    "summary": "Nitpick: Why the `-latest` part in the name? `android-sdk-cmdline-tools` seems like it would be adequate, especially since none of the related packages (`android-sdk-build-tools`, …",
-    "url": "https://aur.archlinux.org/packages/android-sdk-cmdline-tools-latest#comment-928831",
+    "id": "aur-comment:fnm-bin:comment-923876",
+    "date": "2023-07-12",
+    "title": "New AUR comment on fnm-bin",
+    "summary": "@salimp, thanks. Created an issue here: [https://github.com/Schniz/fnm/issues/1006](https://github.com/Schniz/fnm/issues/1006)",
+    "url": "https://aur.archlinux.org/packages/fnm-bin#comment-923876",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk-cmdline-tools-latest"
+      "fnm-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:etterna:comment-891638",
+    "date": "2022-11-29",
+    "title": "New AUR comment on etterna",
+    "summary": "Experiencing crashing once a map is loaded using Pipewire. Unclear what is causing the error.",
+    "url": "https://aur.archlinux.org/packages/etterna#comment-891638",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "etterna"
+    ]
+  },
+  {
+    "id": "aur-comment:etterna:comment-881400",
+    "date": "2022-09-13",
+    "title": "New AUR comment on etterna",
+    "summary": "Note:\nIn order to prevent user writing in /opt the update from 0.70.4 to 0.71.2 moved the location of the game data stored in /opt/etterna to ~/.etterna, this includes /opt/etterna…",
+    "url": "https://aur.archlinux.org/packages/etterna#comment-881400",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "etterna"
+    ]
+  },
+  {
+    "id": "aur-comment:flat-remix-gtk:comment-860214",
+    "date": "2022-04-07",
+    "title": "New AUR comment on flat-remix-gtk",
+    "summary": "notice: theme is currently half-broken due to Gnome 42 and libadwaita deployment. \ntheres a beta working on libadwaita but doesnt seems to be included yet.",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk#comment-860214",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flat-remix-gtk"
     ]
   },
   {
     "id": "pkg-update:aur:android-sdk:26.1.1-2",
     "date": "2022-03-22",
     "title": "android-sdk updated to 26.1.1-2",
-    "summary": "26.1.1-2",
+    "summary": "26.1.1-2 → 26.1.1-2",
     "url": "https://aur.archlinux.org/packages/android-sdk",
     "source": "AurPackageUpdate",
     "severity": null,
@@ -1018,15 +1606,39 @@
     ]
   },
   {
-    "id": "aur-comment:android-sdk:comment-857562",
-    "date": "2022-03-21",
-    "title": "New AUR comment on android-sdk",
-    "summary": "Any plans to replace `ANDROID_HOME` with `ANDROID_SDK_ROOT`, since it's deprecated? [https://developer.android.com/studio/command-line/variables#android_sdk_root](https://developer…",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-857562",
+    "id": "aur-comment:flat-remix-gtk:comment-837284",
+    "date": "2021-11-23",
+    "title": "New AUR comment on flat-remix-gtk",
+    "summary": "@daniruiz The current PKGBUILD has an erroneous white space on line 4",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk#comment-837284",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk"
+      "flat-remix-gtk"
+    ]
+  },
+  {
+    "id": "aur-comment:flat-remix-gtk:comment-834747",
+    "date": "2021-11-08",
+    "title": "New AUR comment on flat-remix-gtk",
+    "summary": "Hi, I'm wondering if you could add SHA256 sums to the PKGBUILD? Thanks!",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk#comment-834747",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flat-remix-gtk"
+    ]
+  },
+  {
+    "id": "aur-comment:flat-remix-gtk:comment-831564",
+    "date": "2021-10-17",
+    "title": "New AUR comment on flat-remix-gtk",
+    "summary": "The theme is not outdated. The new tag in [https://github.com/daniruiz/flat-remix-gtk/tags](https://github.com/daniruiz/flat-remix-gtk/tags) is for the new beta versions.\nOnce they…",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk#comment-831564",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flat-remix-gtk"
     ]
   },
   {
@@ -1042,51 +1654,27 @@
     ]
   },
   {
-    "id": "aur-comment:android-sdk:comment-772170",
-    "date": "2020-10-23",
-    "title": "New AUR comment on android-sdk",
-    "summary": "@ulidtko Ah yes, that worked. Thank you! My bad... :P",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-772170",
+    "id": "aur-comment:flat-remix-gtk:comment-822460",
+    "date": "2021-08-19",
+    "title": "New AUR comment on flat-remix-gtk",
+    "summary": "This gtk theme is broken. In GIMP version 2.10.24, I cannot use accelerators or mnemonics. So, if I hold ALT_L and press L, for example, Layers in the toolbar does not become selec…",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk#comment-822460",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk"
+      "flat-remix-gtk"
     ]
   },
   {
-    "id": "aur-comment:android-sdk:comment-772169",
-    "date": "2020-10-23",
-    "title": "New AUR comment on android-sdk",
-    "summary": "@qualphey as you can see from `pacman -Ql android-sdk`, it installs its tools under `/opt/android-sdk/tools/bin` -- so you have to ensure that dir appears on your $PATH.",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-772169",
+    "id": "aur-comment:etterna:comment-802362",
+    "date": "2021-04-17",
+    "title": "New AUR comment on etterna",
+    "summary": "Hi maintainers\nThis package has **SEVERE** issues with permissions and a lot of minor issues.\nPlease fix them ASAP:",
+    "url": "https://aur.archlinux.org/packages/etterna#comment-802362",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk"
-    ]
-  },
-  {
-    "id": "aur-comment:android-sdk:comment-772166",
-    "date": "2020-10-23",
-    "title": "New AUR comment on android-sdk",
-    "summary": "Does the sdkmanager get installed with this package?\nI get `bash: sdkmanager: command not found` when trying to run it? What am I missing?",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-772166",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "android-sdk"
-    ]
-  },
-  {
-    "id": "aur-comment:android-sdk:comment-762233",
-    "date": "2020-08-24",
-    "title": "New AUR comment on android-sdk",
-    "summary": "@ulidtko @dreamingincode After encountering the same issue, running the following worked for me:\nIt uses Android Studio's built-in `java` instead of the globally installed one.\nI h…",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-762233",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "android-sdk"
+      "etterna"
     ]
   },
   {
@@ -1114,15 +1702,39 @@
     ]
   },
   {
-    "id": "aur-comment:android-sdk:comment-733171",
-    "date": "2020-03-11",
-    "title": "New AUR comment on android-sdk",
-    "summary": "@benedikt\ncmdline-tools should be a different package because it's installed at android-sdk/cmdline-tools/latest, not android-sdk/tools of this package. They show up as different p…",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-733171",
+    "id": "aur-comment:flat-remix-gtk:comment-721937",
+    "date": "2019-12-24",
+    "title": "New AUR comment on flat-remix-gtk",
+    "summary": "Hi. I believe pkgver should be 20191224",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk#comment-721937",
     "source": "AurComment",
     "severity": null,
     "packages": [
-      "android-sdk"
+      "flat-remix-gtk"
+    ]
+  },
+  {
+    "id": "aur-comment:flat-remix-gtk:comment-706113",
+    "date": "2019-08-29",
+    "title": "New AUR comment on flat-remix-gtk",
+    "summary": "Thanks @florianmw ! I didn't know about it, I've just added that option disabling strip",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk#comment-706113",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flat-remix-gtk"
+    ]
+  },
+  {
+    "id": "aur-comment:flat-remix-gtk:comment-705322",
+    "date": "2019-08-23",
+    "title": "New AUR comment on flat-remix-gtk",
+    "summary": "Can you please add following in your PKGBUILD?\noptions=('!strip')\nStrip is set by default, but since the package has no executables stripping is not needed and it takes ages on my …",
+    "url": "https://aur.archlinux.org/packages/flat-remix-gtk#comment-705322",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "flat-remix-gtk"
     ]
   },
   {
@@ -1135,18 +1747,6 @@
     "severity": null,
     "packages": [
       "android-platform"
-    ]
-  },
-  {
-    "id": "aur-comment:android-sdk:comment-592124",
-    "date": "2017-04-18",
-    "title": "New AUR comment on android-sdk",
-    "summary": "I'm going to update this package to 26.0.1 (it has been long-outdated), according to https://dl.google.com/android/repository/repository2-1.xml which is used by Android Studio.\n\nSo…",
-    "url": "https://aur.archlinux.org/packages/android-sdk#comment-592124",
-    "source": "AurComment",
-    "severity": null,
-    "packages": [
-      "android-sdk"
     ]
   }
 ]
