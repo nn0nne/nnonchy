@@ -7,34 +7,55 @@
   "modules-right": [
     "tray",
     "temperature",
-    "disk",
+    "cpu",
+    "memory",
+    // "disk",
     "pulseaudio",
-    "backlight",
+    // "backlight",
     "battery",
-    "power-profiles-daemon",
+    "power-profiles-daemon"
   ],
 
   // --- Modules ---
+  "memory": {
+    "interval": 30,
+    "format": "{percentage}%  {swapPercentage}% ",
+    "max-length": 10
+  },
+
+  "swap-memory": {
+    "interval": 30,
+    "format": "{percentage}% ",
+    "max-length": 10
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": "{usage}% ",
+    "max-length": 10
+  },
+
   "disk": {
     "interval": 30,
     "format": "{percentage_used}% {path}",
-    "path": "/",
+    "path": "/"
   },
+
   "backlight": {
     "device": "intel_backlight",
     "format": "{percent}% <span font='12'>{icon}</span>",
-    "format-icons": ["", ""],
+    "format-icons": ["", ""]
   },
 
   "ext/workspaces": {
     "format": "{icon}",
     "ignore-hidden": true,
     "on-click": "activate",
-    "sort-by-id": true,
+    "sort-by-id": true
   },
 
   "dwl/window": {
-    "format": "[{layout}] {title}",
+    "format": "[{layout}] {title}"
   },
 
   "clock": {
@@ -51,43 +72,43 @@
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
         "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
-      },
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
     },
     "actions": {
       "on-click-right": "mode",
       "on-scroll-up": "tz_up",
       "on-scroll-down": "tz_down",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
-    },
+      "on-scroll-down": "shift_down"
+    }
   },
 
   "tray": {
     "icon-size": 18,
-    "spacing": 8,
+    "spacing": 8
   },
 
   "pulseaudio": {
     "format": "{volume}% <span font='12'>{icon}</span>",
     "format-muted": "<span font='12'></span>",
     "format-icons": {
-      "default": ["", ""],
+      "default": ["", ""]
     },
     "on-click": "pavucontrol",
-    "tooltip": false,
+    "tooltip": false
   },
 
   "battery": {
     "states": {
       "warning": 25,
-      "critical": 15,
+      "critical": 15
     },
     "format": "{capacity}% <span font='12'>{icon}</span>",
     "format-charging": "{capacity}% <span font='12'>󰂄</span>",
     "format-plugged": "{capacity}% <span font='12'></span>",
     "format-icons": ["", "", "", "", ""],
-    "tooltip": false,
+    "tooltip": false
   },
 
   "power-profiles-daemon": {
@@ -95,8 +116,8 @@
     "format-icons": {
       "performance": "<span font='12'></span>",
       "balanced": "<span font='12'></span>",
-      "power-saver": "<span font='12'></span>",
+      "power-saver": "<span font='12'></span>"
     },
-    "tooltip": false,
-  },
+    "tooltip": false
+  }
 }
