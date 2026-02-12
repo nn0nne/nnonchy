@@ -26,7 +26,7 @@
   },
   "memory": {
     "interval": 30,
-    "format": "{percentage}%  {swapPercentage}% 󰓡",
+    "format": "{percentage}%   {swapPercentage}% 󰓡",
     "max-length": 15
   },
 
