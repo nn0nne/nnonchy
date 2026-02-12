@@ -1,7 +1,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: JetBrainsMono Nerd Font Mono;
+  font-family: JetBrainsMono Nerd Font;
   font-size: 12px;
   min-height: 0;
 }
@@ -75,45 +75,45 @@ tooltip label {
 #pulseaudio {
   border-radius: 10px 0 0 10px;
   padding-right: 10px;
-  margin: 0 -5 0 0;
+  margin: 0 -8px 0 0;
 }
 
 #backlight {
   border-radius: 0 10px 10px 0;
   padding-left: 10px;
-  margin: 0 0 0 -5;
+  margin: 0 0 0 -8px;
 }
 
-#temperature,
-#cpu,
-#memory {
-  background-color: #252530;
-  padding: 0 10px;
-  color: #cdcdcd;
-}
-
-#temperature {
-  border-radius: 10px 0 0 10px;
-  padding-right: 10px;
-  margin: 4 -5 0 0;
-}
-#cpu {
-  padding-right: 10px;
-  padding-left: 10px;
-  margin: 0 -5 0 -5;
-}
-#memory {
-  border-radius: 0 10px 10px 0;
-  padding-left: 10px;
-  margin: 0 0 0 -5;
-}
+/* #temperature, */
+/* #cpu, */
+/* #memory { */
+/*   background-color: #252530; */
+/*   padding: 0 10px; */
+/*   color: #cdcdcd; */
+/* } */
+/**/
+/* #temperature { */
+/*   border-radius: 10px 0 0 10px; */
+/*   padding-right: 10px; */
+/*   margin: 4px -8px 0 0; */
+/* } */
+/* #cpu { */
+/*   padding-right: 10px; */
+/*   padding-left: 10px; */
+/*   margin: 0 -8px 0 -8px; */
+/* } */
+/* #memory { */
+/*   border-radius: 0 10px 10px 0; */
+/*   padding-left: 10px; */
+/*   margin: 0 0 0 -8px; */
+/* } */
 
 #clock,
 #battery,
 /* #pulseaudio, */
-/* #memory, */
-/* #cpu, */
-/* #temperature, */
+#memory,
+#cpu,
+#temperature,
 #disk,
 #network,
 #wireplumber,

@@ -26,13 +26,13 @@
   },
   "memory": {
     "interval": 30,
-    "format": "{percentage}% {swapPercentage}% <span font='12'></span>",
+    "format": "{percentage}%  {swapPercentage}% 󰓡",
     "max-length": 15
   },
 
   "cpu": {
     "interval": 10,
-    "format": "{usage}% <span font='12'></span>",
+    "format": "{usage}% ",
     "max-length": 10
   },
 
@@ -44,7 +44,7 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "<span font='12'>{icon}</span>",
+    "format": "{icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
 
@@ -84,14 +84,14 @@
   },
 
   "tray": {
-    "icon-size": 18,
+    "icon-size": 15,
     "spacing": 8
   },
 
   "pulseaudio": {
     // "format": "{volume}% <span font='12'>{icon}</span>",
-    "format": "<span font='12'>{icon}</span>",
-    "format-muted": "<span font='12'>󰝟</span>",
+    "format": "{icon}",
+    "format-muted": "󰝟",
     "format-icons": {
       "default": ["󰕿", "󰖀", "󰕾"]
     },
@@ -104,9 +104,9 @@
       "warning": 25,
       "critical": 15
     },
-    "format": "{capacity}% <span font='12'>{icon}</span>",
-    "format-charging": "{capacity}% <span font='12'>󰂄</span>",
-    "format-plugged": "{capacity}% <span font='12'></span>",
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% ",
     "format-icons": ["", "", "", "", ""],
     "tooltip": false
   },
@@ -114,9 +114,9 @@
   "power-profiles-daemon": {
     "format": "{icon}",
     "format-icons": {
-      "performance": "<span font='12'></span>",
-      "balanced": "<span font='12'></span>",
-      "power-saver": "<span font='12'></span>"
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
     },
     "tooltip": false
   }
