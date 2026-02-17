@@ -1,9 +1,9 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		-- tag = "v1.8.0",
-		-- pin = true,
-		version = "*",
+		tag = "v1.8.0",
+		pin = true,
+		-- version = "*",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			-- "hrsh7th/nvim-cmp",
@@ -201,7 +201,7 @@ return {
 	{ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
 	{
 		"hrsh7th/nvim-cmp",
-		dependencies = { "hrsh7th/cmp-nvim-lsp", "tailwind-tools", "onsails/lspkind-nvim" },
+		dependencies = { "hrsh7th/cmp-nvim-lsp", "onsails/lspkind-nvim" },
 		event = "InsertEnter",
 		config = function()
 			local cmp = require("cmp")
@@ -251,20 +251,9 @@ return {
 							item = lspkind.cmp_format()(entry, item)
 						end
 
-						local ok2, tw = pcall(require, "tailwind-tools.cmp")
-						if ok2 then
-							item = tw.lspkind_format(entry, item)
-						end
-
 						return item
 					end,
 				},
-
-				-- formatting = {
-				-- 	format = require("lspkind").cmp_format({
-				-- 		before = require("tailwind-tools.cmp").lspkind_format,
-				-- 	}),
-				-- },
 			})
 		end,
 	},
@@ -278,24 +267,24 @@ return {
 			require("mason").setup()
 		end,
 	},
-	{
-		"mason-org/mason-lspconfig.nvim",
-		-- event = "VeryLazy",
-		-- cmd = { "Mason", "MasonInstall" },
-		tag = "v1.32.0",
-		pin = true,
-		dependencies = {
-			{ "mason-org/mason.nvim", opts = {} },
-			"neovim/nvim-lspconfig",
-		},
-		config = function()
-			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						require("lspconfig")[server_name].setup({})
-					end,
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"mason-org/mason-lspconfig.nvim",
+	-- 	-- event = "VeryLazy",
+	-- 	-- cmd = { "Mason", "MasonInstall" },
+	-- 	tag = "v1.32.0",
+	-- 	pin = true,
+	-- 	dependencies = {
+	-- 		{ "mason-org/mason.nvim", opts = {} },
+	-- 		"neovim/nvim-lspconfig",
+	-- 	},
+	-- 	config = function()
+	-- 		require("mason-lspconfig").setup({
+	-- 			handlers = {
+	-- 				function(server_name)
+	-- 					require("lspconfig")[server_name].setup({})
+	-- 				end,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 }
