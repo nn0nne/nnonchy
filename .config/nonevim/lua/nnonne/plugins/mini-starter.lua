@@ -21,15 +21,17 @@ return {
 			-- If `nil` (default), default items will be used (see |mini.starter|).
 			items = {
 
-				{
-					name = "Config",
-					action = function()
-						require("mini.pick").builtin.files({
-							cwd = vim.fn.stdpath("config"),
-						})
-					end,
-					section = "Actions",
-				},
+				--- Commented because idk why it doesnt always points to the configuration
+				--- especially when accessing it from $HOME (only tested in $HOME and vim.fn.stdpath("config"))
+				-- {
+				-- 	name = "Config",
+				-- 	action = function()
+				-- 		require("mini.pick").builtin.files({
+				-- 			cwd = vim.uv.fs_realpath(vim.fn.stdpath("config")) or vim.fn.stdpath("config"),
+				-- 		})
+				-- 	end,
+				-- 	section = "Actions",
+				-- },
 				starter.sections.builtin_actions(),
 			},
 
