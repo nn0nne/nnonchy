@@ -198,28 +198,126 @@ return {
 					})
 					vim.lsp.enable("tailwindcss")
 
-					vim.lsp.config("tsgo", {
-						cmd = { "tsgo", "--lsp", "--stdio" },
-						filetypes = {
-							"javascript",
-							"javascriptreact",
-							"typescript",
-							"typescriptreact",
-						},
-						root_dir = function(fname)
-							return vim.fs.root(fname, {
-								"tsconfig.json",
-								"jsconfig.json",
-								"package.json",
-								".git",
-								"tsconfig.base.json",
-							})
-						end,
-					})
+					local ts_server = "vtsls" -- Change to "tsgo" to switch back
 
-					vim.lsp.enable("tsgo")
+					if ts_server == "vtsls" then
+						-- Optimized vtsls configuration
+						vim.lsp.config("vtsls", {
+							filetypes = {
+								"javascript",
+								"javascriptreact",
+								"typescript",
+								"typescriptreact",
+							},
+							root_dir = function(fname)
+								return vim.fs.root(fname, {
+									"tsconfig.json",
+									"jsconfig.json",
+									"package.json",
+									".git",
+									"tsconfig.base.json",
+								})
+							end,
+							settings = {
+								-- Disable telemetry
+								telemetry = { enabled = false },
 
-					-- TODO: add tsgo, gopls, rust-analyzer, zig, lua_lsp
+								-- TypeScript-specific settings
+								typescript = {
+									inlayHints = {
+										parameterNames = { enabled = "all" },
+										parameterTypes = { enabled = true },
+										variableTypes = { enabled = true },
+										propertyDeclarationTypes = { enabled = true },
+										functionLikeReturnTypes = { enabled = true },
+										enumMemberValues = { enabled = true },
+									},
+									preferences = {
+										includeCompletionsForModuleExports = true,
+										includeCompletionsWithInsertText = true,
+										-- Faster completions
+										quotePreference = "auto",
+										importModuleSpecifierPreference = "relative",
+									},
+									-- Performance settings
+									tsserver = {
+										maxTsServerMemory = 8192, -- Match your tsgo memory setting
+										enableAutoDiscovery = false,
+										experimental = {
+											enableProjectDiagnostics = true, -- Faster project-wide diagnostics
+										},
+									},
+								},
+
+								-- JavaScript-specific settings (inherits TypeScript settings)
+								javascript = {
+									inlayHints = {
+										parameterNames = { enabled = "all" },
+										parameterTypes = { enabled = true },
+										variableTypes = { enabled = true },
+										propertyDeclarationTypes = { enabled = true },
+										functionLikeReturnTypes = { enabled = true },
+										enumMemberValues = { enabled = true },
+									},
+								},
+							},
+							init_options = {
+								hostInfo = "neovim",
+								preferences = {
+									includeInlayParameterNameHints = "all",
+									includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+									includeInlayFunctionParameterTypeHints = true,
+									includeInlayVariableTypeHints = true,
+									includeInlayPropertyDeclarationTypeHints = true,
+									includeInlayFunctionLikeReturnTypeHints = true,
+									includeInlayEnumMemberValueHints = true,
+								},
+							},
+						})
+						vim.lsp.enable("vtsls")
+					else
+						vim.lsp.config("tsgo", {
+							cmd = { "tsgo", "--lsp", "--stdio", "--parallelism=8" },
+							filetypes = {
+								"javascript",
+								"javascriptreact",
+								"typescript",
+								"typescriptreact",
+							},
+							root_dir = function(fname)
+								return vim.fs.root(fname, {
+									"tsconfig.json",
+									"jsconfig.json",
+									"package.json",
+									".git",
+									"tsconfig.base.json",
+								})
+							end,
+							settings = {
+								telemetry = { enabled = false },
+								typescript = {
+									tsserver = {
+										maxTsServerMemory = 8192,
+										enableAutoDiscovery = false,
+									},
+								},
+							},
+							init_options = {
+								hostInfo = "neovim",
+								preferences = {
+									includeInlayParameterNameHints = "all",
+									includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+									includeInlayFunctionParameterTypeHints = true,
+									includeInlayVariableTypeHints = true,
+									includeInlayPropertyDeclarationTypeHints = true,
+									includeInlayFunctionLikeReturnTypeHints = true,
+									includeInlayEnumMemberValueHints = true,
+								},
+							},
+						})
+						vim.lsp.enable("tsgo")
+					end
+
 					vim.lsp.config("eslint", {
 						on_attach = function(client, bufnr)
 							vim.api.nvim_create_autocmd("BufWritePre", {
