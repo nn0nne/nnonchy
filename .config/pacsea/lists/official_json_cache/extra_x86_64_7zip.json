@@ -1,38 +1,39 @@
 {
   "arch": "x86_64",
-  "build_date": "2025-08-11T19:29:57Z",
+  "build_date": "2026-02-14T02:45:50Z",
   "checkdepends": [],
-  "compressed_size": 1976759,
+  "compressed_size": 1977208,
   "conflicts": [
     "p7zip"
   ],
   "depends": [
-    "gcc-libs",
     "glibc",
+    "libgcc",
+    "libstdc++",
     "sh"
   ],
   "epoch": 0,
-  "filename": "7zip-25.01-1-x86_64.pkg.tar.zst",
+  "filename": "7zip-26.00-1-x86_64.pkg.tar.zst",
   "flag_date": null,
   "groups": [],
   "installed_size": 6557759,
-  "last_update": "2025-08-11T19:32:28.630Z",
+  "last_update": "2026-02-14T02:58:42.369Z",
   "licenses": [
-    "BSD-3-Clause",
-    "LGPL-2.1-or-later",
-    "LicenseRef-UnRAR"
+    "LGPL-2.1-or-later AND LicenseRef-UnRAR AND BSD-3-Clause AND BSD-2-Clause"
   ],
-  "maintainers": [],
+  "maintainers": [
+    "grawlinson"
+  ],
   "makedepends": [
     "uasm"
   ],
   "optdepends": [],
-  "packager": "blakkheim",
+  "packager": "grawlinson",
   "pkgbase": "7zip",
   "pkgdesc": "File archiver for extremely high compression",
   "pkgname": "7zip",
   "pkgrel": "1",
-  "pkgver": "25.01",
+  "pkgver": "26.00",
   "provides": [
     "p7zip"
   ],

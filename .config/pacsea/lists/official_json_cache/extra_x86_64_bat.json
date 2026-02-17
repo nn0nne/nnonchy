@@ -1,23 +1,23 @@
 {
   "arch": "x86_64",
-  "build_date": "2025-12-04T21:54:40Z",
+  "build_date": "2026-02-16T07:49:45Z",
   "checkdepends": [],
-  "compressed_size": 2647411,
+  "compressed_size": 2625115,
   "conflicts": [],
   "depends": [
-    "gcc-libs",
     "glibc",
+    "libgcc",
     "libgit2",
     "libgit2.so=1.9-64",
     "oniguruma",
     "zlib"
   ],
   "epoch": 0,
-  "filename": "bat-0.26.1-1-x86_64.pkg.tar.zst",
+  "filename": "bat-0.26.1-2-x86_64.pkg.tar.zst",
   "flag_date": null,
   "groups": [],
-  "installed_size": 6060071,
-  "last_update": "2025-12-04T22:16:23.201Z",
+  "installed_size": 5924559,
+  "last_update": "2026-02-16T07:54:22.675Z",
   "licenses": [
     "Apache-2.0 OR MIT"
   ],
@@ -32,11 +32,11 @@
     "rust"
   ],
   "optdepends": [],
-  "packager": "arodseth",
+  "packager": "tpowa",
   "pkgbase": "bat",
   "pkgdesc": "Cat clone with syntax highlighting and git integration",
   "pkgname": "bat",
-  "pkgrel": "1",
+  "pkgrel": "2",
   "pkgver": "0.26.1",
   "provides": [],
   "replaces": [],
