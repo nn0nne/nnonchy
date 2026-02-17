@@ -162,7 +162,42 @@ return {
 					vim.lsp.enable("html")
 					vim.lsp.enable("cssls")
 					vim.lsp.enable("jsonls")
+
+					vim.lsp.config("tailwindcss", {
+						cmd = { "tailwindcss-language-server", "--stdio" },
+						filetypes = {
+							"html",
+							"css",
+							"javascript",
+							"javascriptreact",
+							"typescript",
+							"typescriptreact",
+							"vue",
+							"svelte",
+						},
+						root_dir = function(fname)
+							return vim.fs.root(fname, {
+								"tailwind.config.js",
+								"tailwind.config.ts",
+								"postcss.config.js",
+								"postcss.config.ts",
+								"package.json",
+								".git",
+							})
+						end,
+						settings = {
+							tailwindCSS = {
+								experimental = {
+									classRegex = {
+										{ "tw`([^`]*)" },
+										{ "tw\\([^)]*\\)", "'([^']*)'" },
+									},
+								},
+							},
+						},
+					})
 					vim.lsp.enable("tailwindcss")
+
 					vim.lsp.config("tsgo", {
 						cmd = { "tsgo", "--lsp", "--stdio" },
 						filetypes = {
@@ -201,6 +236,7 @@ return {
 	{ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
 	{
 		"hrsh7th/nvim-cmp",
+		-- dependencies = { "hrsh7th/cmp-nvim-lsp", "tailwind-tools", "onsails/lspkind-nvim" },
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "onsails/lspkind-nvim" },
 		event = "InsertEnter",
 		config = function()
@@ -251,9 +287,20 @@ return {
 							item = lspkind.cmp_format()(entry, item)
 						end
 
+						-- local ok2, tw = pcall(require, "tailwind-tools.cmp")
+						-- if ok2 then
+						-- 	item = tw.lspkind_format(entry, item)
+						-- end
+
 						return item
 					end,
 				},
+
+				-- formatting = {
+				-- 	format = require("lspkind").cmp_format({
+				-- 		before = require("tailwind-tools.cmp").lspkind_format,
+				-- 	}),
+				-- },
 			})
 		end,
 	},
@@ -267,24 +314,25 @@ return {
 			require("mason").setup()
 		end,
 	},
-	-- {
-	-- 	"mason-org/mason-lspconfig.nvim",
-	-- 	-- event = "VeryLazy",
-	-- 	-- cmd = { "Mason", "MasonInstall" },
-	-- 	tag = "v1.32.0",
-	-- 	pin = true,
-	-- 	dependencies = {
-	-- 		{ "mason-org/mason.nvim", opts = {} },
-	-- 		"neovim/nvim-lspconfig",
-	-- 	},
-	-- 	config = function()
-	-- 		require("mason-lspconfig").setup({
-	-- 			handlers = {
-	-- 				function(server_name)
-	-- 					require("lspconfig")[server_name].setup({})
-	-- 				end,
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
+	{
+		"mason-org/mason-lspconfig.nvim",
+		-- event = "VeryLazy",
+		-- cmd = { "Mason", "MasonInstall" },
+		tag = "v1.32.0",
+		pin = true,
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			require("mason-lspconfig").setup({
+				handlers = {
+					function(server_name)
+						-- require("lspconfig")[server_name].setup({})
+						vim.lsp.enable(server_name)
+					end,
+				},
+			})
+		end,
+	},
 }
