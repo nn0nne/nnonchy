@@ -9,10 +9,10 @@ M.spec = {
 	{ "<C-u>", "<C-u>zz", desc = "Scroll up and center cursor", mode = "n" },
 
 	-- Move to window using the <ctrl> hjkl keys
-	{ "<C-h>", "<C-w>h", desc = "Go to Left Window", mode = "n", remap = true },
-	{ "<C-j>", "<C-w>j", desc = "Go to Lower Window", mode = "n", remap = true },
-	{ "<C-k>", "<C-w>k", desc = "Go to Upper Window", mode = "n", remap = true },
-	{ "<C-l>", "<C-w>l", desc = "Go to Right Window", mode = "n", remap = true },
+	-- { "<C-h>", "<C-w>h", desc = "Go to Left Window", mode = "n", remap = true },
+	-- { "<C-j>", "<C-w>j", desc = "Go to Lower Window", mode = "n", remap = true },
+	-- { "<C-k>", "<C-w>k", desc = "Go to Upper Window", mode = "n", remap = true },
+	-- { "<C-l>", "<C-w>l", desc = "Go to Right Window", mode = "n", remap = true },
 
 	-- Terminal
 	{ "<Esc><Esc>", "<C-\\><C-n>", desc = "Exit terminal mode", mode = "t" },
