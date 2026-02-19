@@ -21,7 +21,7 @@ return {
 			css = { "stylelint" },
 			json = { "jsonlint" },
 			yaml = { "yamllint" },
-			prisma = { "prisma" },
+			prisma = { "prisma-language-server" },
 			env = { "dotenv-linter" },
 			zig = { "zls" }, -- zls includes diagnostics
 		}
