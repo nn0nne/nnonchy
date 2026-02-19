@@ -15,7 +15,7 @@ return {
 				html = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
-				markdown = { "prettier" },
+				markdown = { "markdownlint-cli2" },
 				go = { "gofumpt", "goimports" },
 				sh = { "beautysh", "shfmt" },
 				bash = { "beautysh", "shfmt" },

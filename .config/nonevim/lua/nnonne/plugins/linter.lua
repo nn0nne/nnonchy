@@ -6,17 +6,17 @@ return {
 
 		lint.linters_by_ft = {
 			python = { "ruff", "pylint" }, -- ruff includes both formatting and linting
-			javascript = { "eslint_d" },
-			javascriptreact = { "eslint_d" },
-			typescript = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
+			javascript = { "eslint" },
+			javascriptreact = { "eslint" },
+			typescript = { "eslint" },
+			typescriptreact = { "eslint" },
 			go = { "golangci-lint" },
-			lua = { "selene" },
+			-- lua = { "selene" },
 			sh = { "shellcheck" },
 			bash = { "shellcheck" },
 			dockerfile = { "hadolint" },
 			sql = { "sqlfluff", "squawk" },
-			markdown = { "markuplint", "vale" },
+			markdown = { "markdownlint-cli2" },
 			html = { "markuplint" },
 			css = { "stylelint" },
 			json = { "jsonlint" },
