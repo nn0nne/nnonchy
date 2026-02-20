@@ -13,22 +13,22 @@
     "pulseaudio",
     "backlight",
     "battery",
-    "power-profiles-daemon"
+    "power-profiles-daemon",
   ],
 
   // --- Modules ---
 
   "mpris": {
-	"format": "{player_icon} {artist} - {title}",
-	"format-paused": "{status_icon} <i>{artist} - {title}</i>",
-	"player-icons": {
-		"default": "▶"
-	},
-	"status-icons": {
-		"paused": "⏸"
-	},
+    "format": "{player_icon} {artist} - {title}",
+    "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+    "player-icons": {
+      "default": "▶",
+    },
+    "status-icons": {
+      "paused": "⏸",
+    },
     "on-click": "playerctl previous",
-    "on-click-right": "playerctl next"
+    "on-click-right": "playerctl next",
   },
 
   "temperature": {
@@ -36,49 +36,58 @@
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     // "critical-threshold": 80,
     // "format-critical": "{temperatureC}°C ",
-    "format": "{temperatureC}°C"
+    "format": "{temperatureC}°C",
   },
   "memory": {
     "interval": 30,
     "format": "{percentage}%   {swapPercentage}% 󰓡",
-    "max-length": 15
+    "max-length": 15,
   },
 
   "cpu": {
     "interval": 10,
     "format": "{usage}% ",
-    "max-length": 10
+    "max-length": 10,
   },
 
   "disk": {
     "interval": 30,
     "format": "{percentage_used}% {path}",
-    "path": "/"
+    "path": "/",
   },
 
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
   },
 
   "ext/workspaces": {
     "format": "{icon}",
     "ignore-hidden": true,
     "on-click": "activate",
-    "sort-by-id": true
+    "sort-by-id": true,
   },
 
   "dwl/window": {
     "format": "[{layout}] {app_id}",
     "rewrite": {
+      "^\\[(.*)\\] brave-browser$": "[$1] Brave",
+      "^\\[(.*)\\] thunar$": "[$1] Thunar",
+      "^\\[(.*)\\] vesktop$": "[$1] Vesktop",
+      "^\\[(.*)\\] blueman-manager$": "[$1] Bluetooh Manager",
+      "^\\[(.*)\\] org.pulseaudio.pavucontrol$": "[$1] Pavucontrol",
+      "^\\[(.*)\\] com.github.wwmm.easyeffects$": "[$1] Easy Effects",
+      "^\\[(.*)\\] localsend$": "[$1] LocalSend",
+      "^\\[(.*)\\] org.gnome.gThumb$": "[$1] GThumb",
+      "^\\[(.*)\\] com.obsproject.Studio$": "[$1] OBS Studio",
       "^\\[(.*)\\] .*cinhimbnkkaeohfgghhklpknlkffjgod.*$": "[$1] Youtube Music",
       "^\\[(.*)\\] .*agimnkijcaahngcdmfeangaknmldooml.*$": "[$1] Youtube",
       "^\\[(.*)\\] .*eikjhbkpemdappjfcmdeeeamdpkgabmk.*$": "[$1] Soundcloud",
       "^\\[(.*)\\] .*hnpfjngllnobngcgfapefoaidbinmjnm.*$": "[$1] Whatsapp",
       "^\\[(.*)\\] .*ibblmnobmgdmpoeblocemifbpglakpoi.*$": "[$1] Telegram",
-      "^\\[(.*)\\] .*pjibgclleladliembfgfagdaldikeohf.*$": "[$1] Spotify"
-    }
+      "^\\[(.*)\\] .*pjibgclleladliembfgfagdaldikeohf.*$": "[$1] Spotify",
+    },
   },
 
   "clock": {
@@ -95,38 +104,35 @@
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
         "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
     },
     "actions": {
       "on-click-right": "mode",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
+      "on-scroll-down": "shift_down",
+    },
   },
 
   "group/tray": {
-  "orientation": "horizontal",
-  "drawer": {
-    "transition-duration": 200,
-    "children-class": "tray-child",
-    "click-to-reveal": true
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 200,
+      "children-class": "tray-child",
+      "click-to-reveal": true,
+    },
+    "modules": ["custom/tray-toggle", "tray"],
   },
-  "modules": [
-    "custom/tray-toggle",
-    "tray"
-  ]
-},
 
-"custom/tray-toggle": {
-  "format": "",  
-  "tooltip": false
-},
+  "custom/tray-toggle": {
+    "format": "",
+    "tooltip": false,
+  },
 
-"tray": {
-  "icon-size": 15,
-  "spacing": 6
-},
+  "tray": {
+    "icon-size": 15,
+    "spacing": 6,
+  },
 
   "pulseaudio": {
     // "format": "{volume}% <span font='12'>{icon}</span>",
@@ -135,19 +141,19 @@
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇"],
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "tooltip": false
+    "tooltip": false,
   },
 
   "battery": {
     "states": {
       "warning": 25,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% ",
     "format-icons": ["", "", "", "", ""],
-    "tooltip": false
+    "tooltip": false,
   },
 
   "power-profiles-daemon": {
@@ -155,8 +161,8 @@
     "format-icons": {
       "performance": "",
       "balanced": "",
-      "power-saver": ""
+      "power-saver": "",
     },
-    "tooltip": false
-  }
+    "tooltip": false,
+  },
 }
