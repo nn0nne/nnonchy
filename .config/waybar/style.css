@@ -66,8 +66,8 @@ tooltip label {
 /* === Modules === */
 #group-tray {
   background: #252530;
-  /* border-radius: 10px; */
-  /* padding: 0 10px; */
+  border-radius: 10px;
+  padding: 0 10px;
 }
 
 #custom-tray-toggle {
@@ -75,9 +75,9 @@ tooltip label {
   padding: 0 12px;
 }
 
-/* #group-tray .tray-child { */
-/*   margin-left: 10px; */
-/* } */
+#group-tray .tray-child {
+  margin-left: 10px;
+}
 
 #pulseaudio,
 #backlight {

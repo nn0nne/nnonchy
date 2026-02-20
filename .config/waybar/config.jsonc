@@ -1,8 +1,6 @@
 {
   "height": 30,
-  "spacing": 10,
-  "mode": "dock",
-  "layer": "top",
+  "spacing": 4,
 
   "modules-left": ["clock", "ext/workspaces", "dwl/window"],
   "modules-center": ["mpris"],
