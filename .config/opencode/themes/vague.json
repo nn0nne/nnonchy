@@ -1,0 +1,223 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "vague0": "#141415",
+    "vague1": "#252530",
+    "vague2": "#606079",
+    "vague3": "#606079",
+    "vague4": "#cdcdcd",
+    "vague5": "#d7d7d7",
+    "vague6": "#d7d7d7",
+    "vague7": "#bebeda",
+    "vague8": "#8ba9c1",
+    "vague9": "#6e94b2",
+    "vague10": "#6e94b2",
+    "vague11": "#d8647e",
+    "vague12": "#f3be7c",
+    "vague13": "#f5cb96",
+    "vague14": "#7fa563",
+    "vague15": "#bb9dbd"
+  },
+  "theme": {
+    "primary": {
+      "dark": "vague8",
+      "light": "vague10"
+    },
+    "secondary": {
+      "dark": "vague9",
+      "light": "vague9"
+    },
+    "accent": {
+      "dark": "vague7",
+      "light": "vague7"
+    },
+    "error": {
+      "dark": "vague11",
+      "light": "vague11"
+    },
+    "warning": {
+      "dark": "vague12",
+      "light": "vague12"
+    },
+    "success": {
+      "dark": "vague14",
+      "light": "vague14"
+    },
+    "info": {
+      "dark": "vague8",
+      "light": "vague10"
+    },
+    "text": {
+      "dark": "vague4",
+      "light": "vague0"
+    },
+    "textMuted": {
+      "dark": "vague3",
+      "light": "vague1"
+    },
+    "background": {
+      "dark": "vague0",
+      "light": "vague6"
+    },
+    "backgroundPanel": {
+      "dark": "vague1",
+      "light": "vague5"
+    },
+    "backgroundElement": {
+      "dark": "vague1",
+      "light": "vague4"
+    },
+    "border": {
+      "dark": "vague2",
+      "light": "vague3"
+    },
+    "borderActive": {
+      "dark": "vague3",
+      "light": "vague2"
+    },
+    "borderSubtle": {
+      "dark": "vague2",
+      "light": "vague3"
+    },
+    "diffAdded": {
+      "dark": "vague14",
+      "light": "vague14"
+    },
+    "diffRemoved": {
+      "dark": "vague11",
+      "light": "vague11"
+    },
+    "diffContext": {
+      "dark": "vague3",
+      "light": "vague3"
+    },
+    "diffHunkHeader": {
+      "dark": "vague3",
+      "light": "vague3"
+    },
+    "diffHighlightAdded": {
+      "dark": "vague14",
+      "light": "vague14"
+    },
+    "diffHighlightRemoved": {
+      "dark": "vague11",
+      "light": "vague11"
+    },
+    "diffAddedBg": {
+      "dark": "#252530",
+      "light": "#d7d7d7"
+    },
+    "diffRemovedBg": {
+      "dark": "#252530",
+      "light": "#d7d7d7"
+    },
+    "diffContextBg": {
+      "dark": "vague1",
+      "light": "vague5"
+    },
+    "diffLineNumber": {
+      "dark": "vague2",
+      "light": "vague4"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "#252530",
+      "light": "#d7d7d7"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "#252530",
+      "light": "#d7d7d7"
+    },
+    "markdownText": {
+      "dark": "vague4",
+      "light": "vague0"
+    },
+    "markdownHeading": {
+      "dark": "vague8",
+      "light": "vague10"
+    },
+    "markdownLink": {
+      "dark": "vague9",
+      "light": "vague9"
+    },
+    "markdownLinkText": {
+      "dark": "vague7",
+      "light": "vague7"
+    },
+    "markdownCode": {
+      "dark": "vague14",
+      "light": "vague14"
+    },
+    "markdownBlockQuote": {
+      "dark": "vague3",
+      "light": "vague3"
+    },
+    "markdownEmph": {
+      "dark": "vague12",
+      "light": "vague12"
+    },
+    "markdownStrong": {
+      "dark": "vague13",
+      "light": "vague13"
+    },
+    "markdownHorizontalRule": {
+      "dark": "vague3",
+      "light": "vague3"
+    },
+    "markdownListItem": {
+      "dark": "vague8",
+      "light": "vague10"
+    },
+    "markdownListEnumeration": {
+      "dark": "vague7",
+      "light": "vague7"
+    },
+    "markdownImage": {
+      "dark": "vague9",
+      "light": "vague9"
+    },
+    "markdownImageText": {
+      "dark": "vague7",
+      "light": "vague7"
+    },
+    "markdownCodeBlock": {
+      "dark": "vague4",
+      "light": "vague0"
+    },
+    "syntaxComment": {
+      "dark": "vague3",
+      "light": "vague3"
+    },
+    "syntaxKeyword": {
+      "dark": "vague9",
+      "light": "vague9"
+    },
+    "syntaxFunction": {
+      "dark": "vague8",
+      "light": "vague8"
+    },
+    "syntaxVariable": {
+      "dark": "vague7",
+      "light": "vague7"
+    },
+    "syntaxString": {
+      "dark": "vague14",
+      "light": "vague14"
+    },
+    "syntaxNumber": {
+      "dark": "vague15",
+      "light": "vague15"
+    },
+    "syntaxType": {
+      "dark": "vague7",
+      "light": "vague7"
+    },
+    "syntaxOperator": {
+      "dark": "vague9",
+      "light": "vague9"
+    },
+    "syntaxPunctuation": {
+      "dark": "vague4",
+      "light": "vague0"
+    }
+  }
+}
