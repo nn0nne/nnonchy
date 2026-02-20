@@ -7,7 +7,7 @@
   "modules-left": ["clock", "ext/workspaces", "dwl/window"],
   "modules-center": ["mpris"],
   "modules-right": [
-    "tray",
+    "group/tray",
     "temperature",
     "cpu",
     "memory",
@@ -107,10 +107,28 @@
     }
   },
 
-  "tray": {
-    "icon-size": 15,
-    "spacing": 8
+  "group/tray": {
+  "orientation": "horizontal",
+  "drawer": {
+    "transition-duration": 200,
+    "children-class": "tray-child",
+    "click-to-reveal": true
   },
+  "modules": [
+    "custom/tray-toggle",
+    "tray"
+  ]
+},
+
+"custom/tray-toggle": {
+  "format": "",  
+  "tooltip": false
+},
+
+"tray": {
+  "icon-size": 15,
+  "spacing": 6
+},
 
   "pulseaudio": {
     // "format": "{volume}% <span font='12'>{icon}</span>",
