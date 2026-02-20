@@ -9,54 +9,54 @@
     "temperature",
     "cpu",
     "memory",
-    // "disk",
+    "disk",
     "pulseaudio",
     "backlight",
     "battery",
-    "power-profiles-daemon"
+    "power-profiles-daemon",
   ],
 
   // --- Modules ---
-   "temperature": {
+  "temperature": {
     // "thermal-zone": 2,
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     // "critical-threshold": 80,
     // "format-critical": "{temperatureC}°C ",
-    "format": "{temperatureC}°C"
+    "format": "{temperatureC}°C",
   },
   "memory": {
     "interval": 30,
     "format": "{percentage}%   {swapPercentage}% 󰓡",
-    "max-length": 15
+    "max-length": 15,
   },
 
   "cpu": {
     "interval": 10,
     "format": "{usage}% ",
-    "max-length": 10
+    "max-length": 10,
   },
 
   "disk": {
     "interval": 30,
     "format": "{percentage_used}% {path}",
-    "path": "/"
+    "path": "/",
   },
 
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
   },
 
   "ext/workspaces": {
     "format": "{icon}",
     "ignore-hidden": true,
     "on-click": "activate",
-    "sort-by-id": true
+    "sort-by-id": true,
   },
 
   "dwl/window": {
-    "format": "[{layout}] {title}"
+    "format": "[{layout}] {app_id}",
   },
 
   "clock": {
@@ -73,42 +73,42 @@
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
         "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
     },
     "actions": {
       "on-click-right": "mode",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
+      "on-scroll-down": "shift_down",
+    },
   },
 
   "tray": {
     "icon-size": 15,
-    "spacing": 8
+    "spacing": 8,
   },
 
   "pulseaudio": {
     // "format": "{volume}% <span font='12'>{icon}</span>",
     "format": "{icon}",
-    "format-muted": "󰝟",
-    "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"]
-    },
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "tooltip": false
+    "format-muted": " ",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇"],
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl previous",
+    "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip": false,
   },
 
   "battery": {
     "states": {
       "warning": 25,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% ",
     "format-icons": ["", "", "", "", ""],
-    "tooltip": false
+    "tooltip": false,
   },
 
   "power-profiles-daemon": {
@@ -116,8 +116,8 @@
     "format-icons": {
       "performance": "",
       "balanced": "",
-      "power-saver": ""
+      "power-saver": "",
     },
-    "tooltip": false
-  }
+    "tooltip": false,
+  },
 }
