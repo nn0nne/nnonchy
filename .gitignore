@@ -1,7 +1,2 @@
-extras/
-.zshrc
-
 .backup
 
-# nvim
-undodir

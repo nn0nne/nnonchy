@@ -1,0 +1,53 @@
+# COLORS
+# --- Core Syntax Highlighting ---
+ble-face syntax_default='fg=#cdcdcd'           
+ble-face syntax_command='fg=#f3be7c'           
+ble-face syntax_quoted='fg=#99b782'            
+ble-face syntax_quotation='fg=#99b782,bold'    
+ble-face syntax_escape='fg=#c9b1ca'            
+ble-face syntax_expr='fg=#8ba9c1'              
+ble-face syntax_error='bg=#d8647e,fg=#141415'  
+ble-face syntax_varname='fg=#e08398'           
+ble-face syntax_delimiter='fg=#606079,bold'    
+ble-face syntax_param_expansion='fg=#bb9dbd'   
+ble-face syntax_history_expansion='bg=#252530,fg=#cdcdcd'  
+ble-face syntax_function_name='fg=#8ba9c1,bold'
+ble-face syntax_comment='fg=#606079'           
+ble-face syntax_glob='fg=#d8647e,bold'         
+ble-face syntax_brace='fg=#aeaed1,bold'        
+ble-face syntax_tilde='fg=#aeaed1,bold'        
+ble-face syntax_document='fg=#99b782'          
+ble-face syntax_document_begin='fg=#99b782,bold' 
+
+# --- Command Type Highlighting ---
+ble-face command_builtin='fg=#d8647e'          
+ble-face command_builtin_dot='fg=#d8647e,bold' 
+ble-face command_alias='fg=#7fa563'            
+ble-face command_function='fg=#8ba9c1'         
+ble-face command_file='fg=#99b782'             
+ble-face command_keyword='fg=#6e94b2'          
+ble-face command_directory='fg=#f3be7c,underline' 
+
+# --- Argument Highlighting ---
+ble-face argument_option='fg=#7fa563'          
+ble-face argument_error='bg=#d8647e,fg=#141415' 
+
+# --- Filename Highlighting ---
+ble-face filename_directory='fg=#f3be7c,underline'     
+ble-face filename_link='fg=#aeaed1,underline'          
+ble-face filename_executable='fg=#99b782,underline'    
+ble-face filename_other='fg=#cdcdcd,underline'         
+
+# --- Variable Attribute Highlighting ---
+ble-face varname_export='fg=#bb9dbd,bold'      
+ble-face varname_array='fg=#f3be7c,bold'       
+ble-face varname_readonly='fg=#d8647e'         
+ble-face varname_unset='fg=#606079'            
+
+# --- UI Elements ---
+ble-face region='bg=#252530,fg=#cdcdcd'        
+ble-face region_match='bg=#bb9dbd,fg=#141415'  
+ble-face disabled='fg=#606079'                 
+ble-face overwrite_mode='fg=#141415,bg=#aeaed1'
+
+

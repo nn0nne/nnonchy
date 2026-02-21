@@ -7,7 +7,7 @@ return {
 	},
 	config = function()
 		local runner_term = require("toggleterm.terminal").Terminal:new({
-			cmd = "zsh",
+			cmd = "bash",
 			hidden = false,
 			direction = "float",
 		})
