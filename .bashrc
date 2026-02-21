@@ -18,7 +18,7 @@ HISTSIZE=100000
 HISTFILESIZE=200000
 HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a"
 
 # aliases
 alias n='NVIM_APPNAME="nonevim" nvim'
@@ -71,7 +71,7 @@ osc7_cwd() {
     done
     printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
 }
-PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
+PROMPT_COMMAND="${PROMPT_COMMAND%}; osc7_cwd"
 
 ## editor default to neovim
 export EDITOR=nvim
