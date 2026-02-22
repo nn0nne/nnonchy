@@ -1,5 +1,6 @@
 return {
 	"nvim-mini/mini.diff",
+	version = "*",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("mini.diff").setup(

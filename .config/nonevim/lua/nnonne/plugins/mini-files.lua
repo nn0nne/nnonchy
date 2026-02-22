@@ -1,12 +1,25 @@
 return {
 	"nvim-mini/mini.files",
+	version = "*",
 	config = function()
 		local files = require("mini.files")
 		files.setup({
 			-- Customization of shown content
 			content = {
 				-- Predicate for which file system entries to show
-				filter = nil,
+				filter = function(fs_entry)
+					-- Hide .git directory
+					if fs_entry.name == ".git" then
+						return false
+					end
+
+					-- Hide node_modules directory
+					if fs_entry.name == "node_modules" then
+						return false
+					end
+
+					return true
+				end,
 				-- Highlight group to use for a file system entry
 				highlight = nil,
 				-- Prefix text and highlight to show to the left of file system entry
