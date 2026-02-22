@@ -23,6 +23,8 @@
     "format-paused": "{status_icon} <i>{artist} - {title}</i>",
     "player-icons": {
       "default": "▶",
+      "mpv": "🎵",
+
     },
     "status-icons": {
       "paused": "⏸",
