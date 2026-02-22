@@ -5,14 +5,14 @@ return {
 		{
 			"<leader>ff",
 			function()
-				require("mini.pick").builtin.files()
+				require("mini.pick").builtin.files({ tool = "rg" })
 			end,
 			desc = "Find Files",
 		},
 		{
 			"<leader>fg",
 			function()
-				require("mini.pick").builtin.grep_live()
+				require("mini.pick").builtin.grep_live({ tool = "rg" })
 			end,
 			desc = "Live Grep",
 		},

@@ -8,7 +8,7 @@
 
 # blesh setup
 [[ $- == *i* ]] &&
-    source -- "/usr/share/blesh/ble.sh" --attach=none --rcfile "$HOME/.blerc"
+  source -- "/usr/share/blesh/ble.sh" --attach=none --rcfile "$HOME/.blerc"
 
 # hide zoxide warning
 export _ZO_DOCTOR=0
@@ -29,47 +29,46 @@ alias du="dua i"
 alias find="fd"
 alias grep="rg"
 alias cat="bat"
-alias opencode="opencode --agent plan"
 alias y="yazi"
 alias mpv="env DRI_PRIME=0 mpv"
 alias cp="cpx"
 
 # cd using yazi (yazi go)
 function yg() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        zoxide add "$cwd"
-        cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    zoxide add "$cwd"
+    cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
 # function to easily use opencde run
 ask() {
-    opencode run "$*" | rich - --markdown --force-terminal
+  opencode run "$*" | rich - --markdown --force-terminal
 }
 
 # Use bash-completion, if available, and avoid double-sourcing
 [[ $PS1 &&
-    ! ${BASH_COMPLETION_VERSINFO:-} &&
-    -f /usr/share/bash-completion/bash_completion ]] &&
-    . /usr/share/bash-completion/bash_completion
+  ! ${BASH_COMPLETION_VERSINFO:-} &&
+  -f /usr/share/bash-completion/bash_completion ]] &&
+  . /usr/share/bash-completion/bash_completion
 
 # Foot enable osc7, idk what it is for though XD
 osc7_cwd() {
-    local strlen=${#PWD}
-    local encoded=""
-    local pos c o
-    for ((pos = 0; pos < strlen; pos++)); do
-        c=${PWD:$pos:1}
-        case "$c" in
-        [-/:_.!\'\(\)~[:alnum:]]) o="${c}" ;;
-        *) printf -v o '%%%02X' "'${c}" ;;
-        esac
-        encoded+="${o}"
-    done
-    printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
+  local strlen=${#PWD}
+  local encoded=""
+  local pos c o
+  for ((pos = 0; pos < strlen; pos++)); do
+    c=${PWD:$pos:1}
+    case "$c" in
+    [-/:_.!\'\(\)~[:alnum:]]) o="${c}" ;;
+    *) printf -v o '%%%02X' "'${c}" ;;
+    esac
+    encoded+="${o}"
+  done
+  printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
 }
 PROMPT_COMMAND="${PROMPT_COMMAND%}; osc7_cwd"
 
@@ -78,6 +77,9 @@ export EDITOR=nvim
 
 ## setting terminal to ~kitty~ foot
 export TERMINAL=foot
+
+## ripgrep config for mini.pick
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 
 ## flutter/android development
 export ANDROID_HOME=$HOME/android-sdk
