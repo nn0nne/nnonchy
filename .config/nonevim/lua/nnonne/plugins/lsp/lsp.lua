@@ -40,6 +40,7 @@ return {
 							vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
 							vim.keymap.set("n", "crn", vim.lsp.buf.rename, opts)
 							vim.keymap.set("n", "ca", vim.lsp.buf.code_action, opts)
+							vim.keymap.set("n", "ce", ":w<CR>:e<CR>", opts)
 						end,
 					})
 
