@@ -3,6 +3,40 @@ return {
 	version = "*",
 	config = function()
 		local files = require("mini.files")
+		-- Cache: path -> { errors = n, warns = n }
+		local diagnostic_cache = {}
+
+		local function update_diagnostic_cache(bufnr)
+			if not vim.api.nvim_buf_is_valid(bufnr) then
+				return
+			end
+
+			local path = vim.api.nvim_buf_get_name(bufnr)
+			if path == "" then
+				return
+			end
+
+			local errors = 0
+			local warns = 0
+
+			for _, d in ipairs(vim.diagnostic.get(bufnr)) do
+				if d.severity == vim.diagnostic.severity.ERROR then
+					errors = errors + 1
+				elseif d.severity == vim.diagnostic.severity.WARN then
+					warns = warns + 1
+				end
+			end
+
+			diagnostic_cache[path] = {
+				errors = errors,
+				warns = warns,
+			}
+		end
+		vim.api.nvim_create_autocmd("DiagnosticChanged", {
+			callback = function(args)
+				update_diagnostic_cache(args.buf)
+			end,
+		})
 		files.setup({
 			-- Customization of shown content
 			content = {
@@ -23,7 +57,27 @@ return {
 				-- Highlight group to use for a file system entry
 				highlight = nil,
 				-- Prefix text and highlight to show to the left of file system entry
-				prefix = nil,
+				prefix = function(fs_entry)
+					local data = diagnostic_cache[fs_entry.path]
+
+					if not data then
+						return "  "
+					end
+
+					if data.errors > 0 or data.warns > 0 then
+						local text = ""
+						if data.errors > 0 then
+							text = text .. " " .. data.errors
+						end
+						if data.warns > 0 then
+							text = text .. "  " .. data.warns
+						end
+
+						return text .. " "
+					end
+
+					return "  "
+				end,
 				-- Order in which to show file system entries
 				sort = nil,
 			},
