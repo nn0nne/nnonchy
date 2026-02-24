@@ -67,11 +67,18 @@ return {
 	{
 		"saghen/blink.cmp",
 		dependencies = {
-			"nvim-mini/mini.snippets",
-			version = "*",
-			config = function()
-				require("mini.snippets").setup()
-			end,
+			{ "rafamadriz/friendly-snippets" },
+			{
+				"nvim-mini/mini.snippets",
+				version = "*",
+				config = function()
+					require("mini.snippets").setup({
+						snippets = {
+							require("mini.snippets").gen_loader.from_lang(),
+						},
+					})
+				end,
+			},
 		},
 		version = "1.*",
 		opts = {

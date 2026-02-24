@@ -25,7 +25,7 @@ hash = "2011ef145f7d4aaa23cbc64c05cd6a7f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "25918dc"
+rev = "b224ddf"
 hash = "270915fa8282a19908449530ff66f7e2"
 
 [[plugin.deps]]
@@ -35,8 +35,8 @@ hash = "41dc37a724b2afd21da4f1ea6c1182d8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "25918dc"
-hash = "407d19bc4fb46eff5fa8ff8337644847"
+rev = "b224ddf"
+hash = "c887903a63a2ff520081b6d90a4b3392"
 
 [[plugin.deps]]
 use = "MasouShizuka/close-and-restore-tab"
