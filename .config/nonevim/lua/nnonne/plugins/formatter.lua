@@ -4,26 +4,29 @@ return {
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
+				python = { "ruff" },
+				javascript = { "biome", "prettier_d", "prettier" },
+				javascriptreact = { "biome", "prettier_d", "prettier" },
+				typescript = { "biome", "prettier_d", "prettier" },
+				typescriptreact = { "biome", "prettier_d", "prettier" },
 				lua = { "stylua" },
-				python = { "ruff_format", "black" }, -- Use ruff_format instead of isort
-				rust = { "rustfmt", lsp_format = "fallback" },
-				javascript = { "prettier" },
-				javascriptreact = { "prettier" },
-				typescript = { "prettier" },
-				typescriptreact = { "prettier" },
-				css = { "prettier" },
-				html = { "prettier" },
-				json = { "prettier" },
-				yaml = { "prettier" },
-				markdown = { "markdownlint-cli2" },
+				css = { "prettier_d", "prettier" },
+				html = { "prettier_d", "prettier" },
+				json = { "biome", "prettier_d", "prettier" },
+				yaml = { "prettier_d", "prettier" },
+				markdown = { "mdformat", "prettier_d", "prettier" },
 				go = { "gofumpt", "goimports" },
-				sh = { "beautysh", "shfmt" },
-				bash = { "beautysh", "shfmt" },
-				sql = { "sqlfluff", "pgformatter" },
+				sh = { "shfmt" },
+				bash = { "shfmt" },
 				prisma = { "prisma", lsp_format = "fallback" },
 				groovy = { "npm-groovy-lint" },
 				toml = { "taplo" },
 				zig = { "zig", lsp_format = "fallback" }, -- zls can format
+				env = {},
+				c = { "clang-format" },
+				cpp = { "clang-format" },
+				dart = { "dcm" },
+				http = { "kulala-fmt" },
 			},
 			formatters = {
 				prettier = {

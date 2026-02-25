@@ -83,7 +83,7 @@ am = '[📫 APPLY]'
 am_or_rebase = '[🔧 AM/REBASE]'
 
 [git_status]
-format = '([\[$all_status - $ahead_behind\]]($style) )'
+format = '([\[$all_status - $ahead_behind\]]($style) )| '
 style = 'bold white'
 staged = '[++($count)](green)'
 modified = '[~($count)](yellow)'
@@ -143,9 +143,6 @@ format = "took [$duration]($style) "
 style = "bold cyan"
 disabled = false
 
-[env_var]
-format = "with [$env_value]($style) "
-
 [time]
 disabled = true
 time_format = "%T"
@@ -178,7 +175,6 @@ format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
 disabled = true
 
-palette = "vague"
 
 [palettes.vague]
 background = "#141415"
@@ -203,3 +199,5 @@ magenta = "#c47fd5"
 cyan = "#6cbfbf"
 light_gray = "#b3b9b8"
 foreground = "#dadada"
+
+palette = "vague"
