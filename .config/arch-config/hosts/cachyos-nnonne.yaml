@@ -1,0 +1,72 @@
+host: cachyos-nnonne
+description: Laptop
+import: []
+enabled_modules: []
+packages: []
+exclude: []
+additional_packages: []
+flatpak_scope: user
+auto_prune: false
+module_processing: parallel
+strict_package_order: false
+config_backups:
+  enabled: true
+  max_backups: 5
+system_backups:
+  enabled: true
+  backup_on_sync: true
+  backup_on_update: true
+  tool: snapper
+  snapper_config: root
+  max_backups: 5
+services:
+  enabled:
+    - NetworkManager
+    - NetworkManager-dispatcher
+    - NetworkManager-wait-online
+    - ananicy-cpp
+    - avahi-daemon
+    - bluetooth
+    - bpftune
+    - cronie
+    - cups
+    - docker
+    - getty@
+    - libvirtd
+    - limine-snapper-sync
+    - nbfc_service
+    - nvidia-hibernate
+    - nvidia-powerd
+    - nvidia-resume
+    - nvidia-suspend
+    - seatd
+    - sshd
+    - switcheroo-control
+    - systemd-oomd
+    - tailscaled
+    - ufw
+    - warp-svc
+  disabled: []
+  scope: system
+enabled_service_profiles: []
+update_hooks:
+  pre_update: null
+  post_update: null
+  behavior: ask
+  devel: false
+  run_as_user: false
+default_apps:
+  scope: system
+  browser: brave-browser
+  text_editor: nvim
+  file_manager: thunar
+  terminal: null
+  video_player: mpv
+  audio_player: mpv
+  image_viewer: org.gnome.gThumb
+  pdf_viewer: null
+  mime_types: {}
+editor: nvim
+aur_helper: paru
+sync_sudo: false
+auto_commit: false

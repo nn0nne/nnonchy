@@ -121,6 +121,24 @@ image_bound = [10000, 10000]
 suppress_preload = false
 
 [plugin]
+append_previewers = [{ url = "*", run = "file-extra-metadata" }]
+
+# Setup keybind for spotter: https://github.com/sxyazi/yazi/pull/1802
+append_spotters = [{ url = "*", run = "file-extra-metadata" }]
+
+prepend_spotters = [
+  { mime = "image/*", run = "spot-image" },
+  { url = "video/*", run = "spot-video" },
+  { mime = 'audio/mpegurl', run = 'code' }, # ignore .m3u files
+  { url = "audio/*", run = "spot-audio" },
+  # # use the plugin for a specific mime type
+  # { mime = "audio/*", run = "spot" },
+  # use as a spotter for all directories
+  { url = "*/", run = "spot" },
+  # use as a fallback for all files that don't have a spotter
+  { url = "*", run = "spot" },
+]
+
 
 prepend_preloaders = [
   # Office Documents
@@ -129,6 +147,11 @@ prepend_preloaders = [
   { mime = "application/ms-*", run = "office" },
   { mime = "application/msword", run = "office" },
   { url = "*.docx", run = "office" },
+  # Replace magick, image, video with mediainfo
+  { mime = "{audio,video,image}/*", run = "mediainfo" },
+  { mime = "application/subrip", run = "mediainfo" },
+  # Adobe Illustrator, Adobe Photoshop is image/adobe.photoshop, already handled above
+  { mime = "application/postscript", run = "mediainfo" },
 ]
 
 prepend_previewers = [
@@ -145,11 +168,17 @@ prepend_previewers = [
   { url = "*.ipynb", run = "rich-preview" },                                # for jupyter notebooks (.ipynb)
   { url = "*.json", run = "rich-preview" },                                 # for json (.json) files
   # { url = "*.lang_type", run = "rich-preview"}, # for particular language files eg. .py, .go., .lua, etc.
+  # Replace magick, image, video with mediainfo
+  { mime = "{audio,video,image}/*", run = "mediainfo" },
+  { mime = "application/subrip", run = "mediainfo" },
+  # Adobe Illustrator, Adobe Photoshop is image/adobe.photoshop, already handled above
+  { mime = "application/postscript", run = "mediainfo" },
 
 ]
 
 prepend_fetchers = [
-  { id = "mime", url = "!(mime|dummy)", name = "*", run = "mime-ext", prio = "high" },
+  { id = "mime", url = "local://", run = "mime-ext.local", prio = "high" },
+  { id = "mime", url = "remote://", run = "mime-ext.remot", prio = "high" },
   { id = "git", url = "*", name = "*", run = "git", prio = "high" },
   { id = "git", url = "*/", name = "*", run = "git", prio = "high" },
 ]

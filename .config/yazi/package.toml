@@ -29,11 +29,6 @@ rev = "b224ddf"
 hash = "270915fa8282a19908449530ff66f7e2"
 
 [[plugin.deps]]
-use = "llanosrocas/githead"
-rev = "317d09f"
-hash = "41dc37a724b2afd21da4f1ea6c1182d8"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
 rev = "b224ddf"
 hash = "c887903a63a2ff520081b6d90a4b3392"
@@ -47,6 +42,51 @@ hash = "bb24648b1f96f1cef8c1543742189aad"
 use = "jessefarinacci/confirm-quit"
 rev = "6fec416"
 hash = "c6cce44dacc7d1d93b6604f15cdcc539"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "b224ddf"
+hash = "6fa6a05a81c98dd000fbca3cca6e9682"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "b224ddf"
+hash = "8b177921e50732b2c8e9d71aa5956270"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "eca1861"
+hash = "e519d894e94ded741e06aae4d4775981"
+
+[[plugin.deps]]
+use = "boydaihungst/file-extra-metadata"
+rev = "871ba3c"
+hash = "ff02946e042df4869617edb9aa310523"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "20ecff6"
+hash = "ad48b4d2fd8f429ce87b0fddf7f34c9"
+
+[[plugin.deps]]
+use = "AminurAlam/yazi-plugins:spot"
+rev = "f3608de"
+hash = "fe599dfd1cc92fcca8bca494178b6662"
+
+[[plugin.deps]]
+use = "AminurAlam/yazi-plugins:spot-image"
+rev = "f3608de"
+hash = "afa0c98d3cab4a594ce5aae7ea92a81a"
+
+[[plugin.deps]]
+use = "AminurAlam/yazi-plugins:spot-audio"
+rev = "f3608de"
+hash = "5f55cfa8993d3cb94ed217ffabda9366"
+
+[[plugin.deps]]
+use = "AminurAlam/yazi-plugins:spot-video"
+rev = "f3608de"
+hash = "3e437d65ebb31ac1ce2e1a20c93f3357"
 
 [flavor]
 deps = []

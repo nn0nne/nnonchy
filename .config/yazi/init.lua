@@ -1,90 +1,67 @@
-require("mime-preview"):setup({})
-
 require("git"):setup({})
 
 require("confirm-quit"):setup()
 
-require("mime-ext"):setup({
-	-- Expand the existing filename database (lowercase), for example:
-	-- with_files = {
-	-- 	makefile = "text/makefile",
-	-- 	-- ...
-	-- },
-
-	fallback_file1 = true,
+require("starship"):setup({
+	-- Hide flags (such as filter, find and search). This can be beneficial for starship themes
+	-- which are intended to go across the entire width of the terminal.
+	hide_flags = true,
+	-- Whether to place flags after the starship prompt. False means the flags will be placed before the prompt.
+	flags_after_prompt = true,
+	-- Custom starship configuration file to use
+	config_file = "~/.config/starship.toml", -- Default: nil
+	-- Whether to enable support for starship's right prompt (i.e. `starship prompt --right`).
+	show_right_prompt = false,
+	-- Whether to hide the count widget, in case you want only your right prompt to show up. Only has
+	-- an effect when `show_right_prompt = true`
+	hide_count = false,
+	-- Separator to place between the right prompt and the count widget. Use `count_separator = ""`
+	-- to have no space between the widgets.
+	count_separator = " ",
 })
 
-require("githead"):setup({
-	order = {
-		"__spacer__",
-		"branch",
-		"remote",
-		"__spacer__",
-		"tag",
-		"__spacer__",
-		"commit",
-		"__spacer__",
-		"behind_ahead_remote",
-		"__spacer__",
-		"stashes",
-		"__spacer__",
-		"state",
-		"__spacer__",
-		"staged",
-		"__spacer__",
-		"unstaged",
-		"__spacer__",
-		"untracked",
+require("full-border"):setup({
+	type = ui.Border.ROUNDED,
+})
+
+require("mime-ext.local"):setup({
+	-- Expand the existing filename database (lowercase), for example:
+	with_files = {
+		makefile = "text/makefile",
+		-- ...
 	},
 
-	show_numbers = true, -- shows staged, unstaged, untracked, stashes count
+	-- Expand the existing extension database (lowercase), for example:
+	with_exts = {
+		mk = "text/makefile",
+		-- ...
+	},
 
-	show_branch = true,
-	branch_prefix = "",
-	branch_color = "blue",
-	branch_symbol = "",
-	branch_borders = "",
+	-- If the MIME type is not in both filename and extension databases,
+	-- then fallback to Yazi's preset `mime.local` plugin, which uses `file(1)`
+	fallback_file1 = false,
+})
 
-	show_remote_branch = true, -- only shown if different from local branch
-	always_show_remote_branch = false, -- always show remote branch even if it the same as local branch
-	always_show_remote_repo = false, -- Adds `origin/` if `always_show_remote_branch` is enabled
-	remote_branch_prefix = ":",
-	remote_branch_color = "bright magenta",
-
-	show_tag = true, -- only shown if branch is not available
-	always_show_tag = false,
-	tag_color = "magenta",
-	tag_symbol = "#",
-
-	show_commit = true, -- only shown if branch AND tag are not available
-	always_show_commit = false,
-	commit_color = "bright magenta",
-	commit_symbol = "@",
-
-	show_behind_ahead_remote = true,
-	behind_remote_color = "bright magenta",
-	behind_remote_symbol = "⇣",
-	ahead_remote_color = "bright magenta",
-	ahead_remote_symbol = "⇡",
-
-	show_stashes = true,
-	stashes_color = "bright magenta",
-	stashes_symbol = "$",
-
-	show_state = true,
-	show_state_prefix = true,
-	state_color = "red",
-	state_symbol = "~",
-
-	show_staged = true,
-	staged_color = "bright yellow",
-	staged_symbol = "+",
-
-	show_unstaged = true,
-	unstaged_color = "bright yellow",
-	unstaged_symbol = "!",
-
-	show_untracked = true,
-	untracked_color = "blue",
-	untracked_symbol = "?",
+require("spot"):setup({
+	metadata_section = {
+		enable = true,
+		hash_cmd = "xxhsum", -- other hashing commands may be slower
+		hash_filesize_limit = 150, -- in MB, set 0 to disable
+		relative_time = true, -- 2026-01-01 or n days ago
+		time_format = "%Y-%m-%d %H:%M", -- https://www.man7.org/linux/man-pages/man3/strftime.3.html
+		show_compression = "size", ---@type false|"size"|"percentage"
+	},
+	plugins_section = {
+		enable = true,
+	},
+	style = {
+		section = "green",
+		key = "reset",
+		value = "blue",
+		selected = "green",
+		colorize_metadata = true,
+		height = 20,
+		width = 60,
+		key_length = 15,
+	},
 })
