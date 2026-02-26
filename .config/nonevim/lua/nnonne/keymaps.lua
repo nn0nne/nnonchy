@@ -80,6 +80,68 @@ M.spec = {
 
 	-- Join lines & keep cursor
 	{ "J", "mzJ`z", desc = "Join lines without moving cursor", mode = "n" },
+
+	-- Flutter mappings compatible with your current array-style spec
+	{
+		lhs = "<leader>Frn",
+		rhs = "<Cmd>FlutterRun<CR>",
+		desc = "Run project",
+		mode = "n",
+	},
+	{
+		lhs = "<leader>Fd",
+		rhs = "<Cmd>FlutterDebug<CR>",
+		desc = "Debug project",
+		mode = "n",
+	},
+	{
+		lhs = "<leader>Fl",
+		rhs = "<Cmd>FlutterLogToggle<CR>",
+		desc = "Toggle Dev Log",
+		mode = "n",
+	},
+	{
+		lhs = "<leader>Frl",
+		rhs = "<Cmd>FlutterReload<CR>",
+		desc = "Hot Reload",
+		mode = "n",
+	},
+	{
+		lhs = "<leader>Frr",
+		rhs = "<Cmd>FlutterRestart<CR>",
+		desc = "Hot Restart",
+		mode = "n",
+	},
+	{
+		lhs = "<leader>Fq",
+		rhs = "<Cmd>FlutterQuit<CR>",
+		desc = "Quit app",
+		mode = "n",
+	},
+	{
+		lhs = "<leader>Fo",
+		rhs = "<Cmd>FlutterOutlineToggle<CR>",
+		desc = "Toggle Outline",
+		mode = "n",
+	},
+	{
+		lhs = "<leader>Fs",
+		rhs = "<Cmd>FlutterDevices<CR>",
+		desc = "Select Device",
+		mode = "n",
+	},
+	{
+		lhs = "<leader>Fe",
+		rhs = "<Cmd>FlutterEmulators<CR>",
+		desc = "Select Emulator",
+		mode = "n",
+	},
+	{
+		lhs = "<leader>Fv",
+		rhs = "<Cmd>FlutterDevTools<CR>",
+		desc = "Open DevTools",
+		mode = "n",
+	},
 }
 
 return M

@@ -3,6 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
+		local uv = vim.loop
 
 		lint.linters_by_ft = {
 			python = { "ruff" }, -- ruff includes both formatting and linting
@@ -51,18 +52,39 @@ return {
 		-- 	lint.linters[name] = config
 		-- end
 
+		-- helper to check if a command exists
+		local function command_exists(cmd)
+			local handle = uv.spawn(cmd, { args = { "--version" }, stdio = nil }, function(code, _)
+				handle:close()
+			end)
+			return handle ~= nil
+		end
+
+		-- safe lint function: only use linters that exist
+		local function safe_lint()
+			local ft = vim.bo.filetype
+			local linters = lint.linters_by_ft[ft] or {}
+			local available_linters = {}
+
+			for _, l in ipairs(linters) do
+				if lint.linters[l] and vim.fn.executable(l) == 1 then
+					table.insert(available_linters, l)
+				end
+			end
+
+			if #available_linters > 0 then
+				lint.try_lint(available_linters)
+			end
+		end
+
 		-- Create autocommand to lint on save
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-			callback = function()
-				lint.try_lint()
-			end,
+			callback = safe_lint,
 		})
 
 		-- Optional: Lint on file open
 		vim.api.nvim_create_autocmd({ "BufRead", "InsertLeave" }, {
-			callback = function()
-				lint.try_lint()
-			end,
+			callback = safe_lint,
 		})
 	end,
 }

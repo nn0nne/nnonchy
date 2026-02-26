@@ -11,9 +11,9 @@ window#waybar {
   transition: all 0.2s ease;
 }
 
-window#waybar > box {
-  margin: 0 30px;
-}
+/* window#waybar > box { */
+/*   margin: 0 5px; */
+/* } */
 
 tooltip {
   background: rgba(37, 37, 48, 0.8); /* #252530 at 80% */
@@ -137,6 +137,7 @@ tooltip label {
 /* #backlight, */
 #custom-media,
 #mpd,
+#bluetooth,
 #scratchpad {
   background-color: #252530;
   border-radius: 10px;

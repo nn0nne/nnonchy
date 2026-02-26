@@ -12,11 +12,36 @@
     // "disk",
     "pulseaudio",
     "backlight",
+    "bluetooth",
+    "network",
     "battery",
     "power-profiles-daemon",
   ],
 
   // --- Modules ---
+"network": {
+    "interface": "wlan0",
+    "format": "{icon}",
+    "format-wifi": " ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "foot -e impala"
+},
+  "bluetooth": {
+    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    "format": "",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": "",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "foot -e bluetui",
+  },
 
   "mpris": {
     "format": "{player_icon} {artist} - {title}",
@@ -24,7 +49,6 @@
     "player-icons": {
       "default": "▶",
       "mpv": "🎵",
-
     },
     "status-icons": {
       "paused": "⏸",
