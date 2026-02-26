@@ -22,14 +22,13 @@
 "network": {
     "interface": "wlan0",
     "format": "{icon}",
-    "format-wifi": " ",
+    "format-wifi": "󰖩",
     "format-ethernet": "{ipaddr}/{cidr} 󰊗",
     "format-disconnected": "", //An empty format will hide the module.
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50,
     "on-click": "foot -e impala"
 },
   "bluetooth": {
@@ -117,7 +116,7 @@
   },
 
   "clock": {
-    "format": "{:%H:%M, %Y-%m-%d}",
+    "format": "{:%A %H:%M, %Y-%m-%d}",
     // "timezone": "America/New_York",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {

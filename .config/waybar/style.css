@@ -9,6 +9,7 @@ window#waybar {
   background: rgba(20, 20, 21, 0.85); /* #141415 with transparency */
   color: #cdcdcd;
   transition: all 0.2s ease;
+  border-radius: 10px;
 }
 
 /* window#waybar > box { */
@@ -79,6 +80,25 @@ tooltip label {
   margin-left: 10px;
 }
 
+#bluetooth,
+#network {
+  background-color: #252530;
+  padding: 0 10px;
+  color: #cdcdcd;
+}
+
+#bluetooth {
+  border-radius: 10px 0 0 10px;
+  padding-right: 10px;
+  margin: 0 -5px 0 0;
+}
+
+#network {
+  border-radius: 0 10px 10px 0;
+  padding-left: 10px;
+  margin: 0 0 0 -5px;
+}
+
 #pulseaudio,
 #backlight {
   background-color: #252530;
@@ -129,7 +149,7 @@ tooltip label {
 /* #cpu, */
 /* #temperature, */
 #disk,
-#network,
+/* #network, */
 #wireplumber,
 #idle_inhibitor,
 #mpris,
@@ -137,7 +157,7 @@ tooltip label {
 /* #backlight, */
 #custom-media,
 #mpd,
-#bluetooth,
+/* #bluetooth, */
 #scratchpad {
   background-color: #252530;
   border-radius: 10px;
