@@ -21,31 +21,34 @@ system_backups:
   max_backups: 5
 services:
   enabled:
-    - NetworkManager
-    - NetworkManager-dispatcher
-    - NetworkManager-wait-online
-    - ananicy-cpp
-    - avahi-daemon
-    - bluetooth
-    - bpftune
-    - cronie
-    - cups
-    - docker
-    - getty@
-    - libvirtd
-    - limine-snapper-sync
-    - nbfc_service
-    - nvidia-hibernate
-    - nvidia-powerd
-    - nvidia-resume
-    - nvidia-suspend
-    - seatd
-    - sshd
-    - switcheroo-control
-    - systemd-oomd
-    - tailscaled
-    - ufw
-    - warp-svc
+  - NetworkManager
+  - NetworkManager-dispatcher
+  - NetworkManager-wait-online
+  - ananicy-cpp
+  - avahi-daemon
+  - bluetooth
+  - bpftune
+  - cronie
+  - cups
+  - docker
+  - getty@
+  - iwd
+  - libvirtd
+  - limine-snapper-sync
+  - nbfc_service
+  - nvidia-hibernate
+  - nvidia-powerd
+  - nvidia-resume
+  - nvidia-suspend
+  - seatd
+  - sshd
+  - switcheroo-control
+  - systemd-network-generator
+  - systemd-networkd-wait-online
+  - systemd-oomd
+  - tailscaled
+  - ufw
+  - warp-svc
   disabled: []
   scope: system
 enabled_service_profiles: []

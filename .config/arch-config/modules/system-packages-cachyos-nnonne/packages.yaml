@@ -58,6 +58,7 @@ packages:
 - dhclient
 - diffutils
 - dim-screen
+- direnv
 - dmidecode
 - dmraid
 - dnsmasq
@@ -121,11 +122,13 @@ packages:
 - hplip
 - hwdetect
 - hwinfo
+- impala
 - inetutils
 - intel-media-driver
 - intel-ucode
 - iptables-nft
 - iwd
+- jdk17-openjdk
 - jfsutils
 - lazydocker
 - less
