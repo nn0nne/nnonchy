@@ -1,29 +1,29 @@
 local M = {}
-
+local runner_term = require("toggleterm.terminal").Terminal:new({
+	-- cmd = "bash",
+	hidden = false,
+	direction = "float",
+})
 M.spec = {
-
+	-- Clear highlights
 	{ "<Esc>", "<cmd>nohlsearch<CR>", desc = "Clear highlights", mode = "n" },
 
 	-- Centered scrolling
 	{ "<C-d>", "<C-d>zz", desc = "Scroll down and center cursor", mode = "n" },
 	{ "<C-u>", "<C-u>zz", desc = "Scroll up and center cursor", mode = "n" },
 
-	-- Move to window using the <ctrl> hjkl keys
-	-- { "<C-h>", "<C-w>h", desc = "Go to Left Window", mode = "n", remap = true },
-	-- { "<C-j>", "<C-w>j", desc = "Go to Lower Window", mode = "n", remap = true },
-	-- { "<C-k>", "<C-w>k", desc = "Go to Upper Window", mode = "n", remap = true },
-	-- { "<C-l>", "<C-w>l", desc = "Go to Right Window", mode = "n", remap = true },
-
 	-- Terminal
 	{ "<Esc><Esc>", "<C-\\><C-n>", desc = "Exit terminal mode", mode = "t" },
 
-	-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-	{ "n", "'Nn'[v:searchforward].'zv'", expr = true, desc = "Next Search Result", mode = "n" },
-	{ "n", "'Nn'[v:searchforward]", expr = true, desc = "Next Search Result", mode = "x" },
-	{ "n", "'Nn'[v:searchforward]", expr = true, desc = "Next Search Result", mode = "o" },
-	{ "N", "'Nn'[v:searchforward].'zv'", expr = true, desc = "Prev Search Result", mode = "n" },
-	{ "N", "'Nn'[v:searchforward]", expr = true, desc = "Prev Search Result", mode = "x" },
-	{ "N", "'Nn'[v:searchforward]", expr = true, desc = "Prev Search Result", mode = "o" },
+	-- Smart search + centered (fixes duplicate mapping warning)
+	-- { "n", "'Nn'[v:searchforward].'zv'", expr = true, desc = "Next Search Result", mode = "n" },
+	-- { "n", "'Nn'[v:searchforward]", expr = true, desc = "Next Search Result", mode = "x" },
+	-- { "n", "'Nn'[v:searchforward]", expr = true, desc = "Next Search Result", mode = "o" },
+	-- { "N", "'Nn'[v:searchforward].'zv'", expr = true, desc = "Prev Search Result", mode = "n" },
+	-- { "N", "'Nn'[v:searchforward]", expr = true, desc = "Prev Search Result", mode = "x" },
+	-- { "N", "'Nn'[v:searchforward]", expr = true, desc = "Prev Search Result", mode = "o" },
+	{ "n", "nzzzv", desc = "Next search result centered", mode = "n" },
+	{ "N", "Nzzzv", desc = "Previous search result centered", mode = "n" },
 
 	-- Better Up/Down
 	{ "j", "v:count == 0 ? 'gj' : 'j'", desc = "Down", mode = { "n", "x" }, expr = true, silent = true },
@@ -41,27 +41,25 @@ M.spec = {
 	{ "J", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", desc = "Move Down", mode = "v" },
 	{ "K", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", desc = "Move Up", mode = "v" },
 
-	-- Search Navigation (Centered)
-	{ "n", "nzzzv", desc = "Next search result centered", mode = "n" },
-	{ "N", "Nzzzv", desc = "Previous search result centered", mode = "n" },
-
 	-- Indenting
 	{ "<", "<gv", desc = "Indent left", mode = "v" },
 	{ ">", ">gv", desc = "Indent right", mode = "v" },
 
-	-- Leader Mappings
+	-- Join lines & keep cursor
+	{ "J", "mzJ`z", desc = "Join lines without moving cursor", mode = "n" },
+
+	-- Lazy
 	{ "<leader>l", "<cmd>Lazy<cr>", desc = "Lazy", mode = "n" },
 
 	-- Buffers
 	{ "<S-h>", "<cmd>bprevious<cr>", desc = "Prev Buffer", mode = "n" },
 	{ "<S-l>", "<cmd>bnext<cr>", desc = "Next Buffer", mode = "n" },
 	{ "<leader>b", group = "Buffers" },
-	-- { "<leader>bb", "<cmd>e #<cr>", desc = "Switch to Other Buffer", mode = "n" },
 	{ "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete Buffer", mode = "n" },
 	{ "<S-M-h>", "<cmd>BufferLineMovePrev<cr>", desc = "Move Buffer Left", mode = "n" },
 	{ "<S-M-l>", "<cmd>BufferLineMoveNext<cr>", desc = "Move Buffer Right", mode = "n" },
 
-	-- Splits
+	-- Windows
 	{ "<leader>wh", "<C-W>s", desc = "Split Window Below", mode = "n", remap = true },
 	{ "<leader>wv", "<C-W>v", desc = "Split Window Right", mode = "n", remap = true },
 	{ "<leader>w", group = "Windows" },
@@ -73,75 +71,237 @@ M.spec = {
 	{ "<leader><tab>l", "<cmd>tablast<cr>", desc = "Last Tab" },
 	{ "<leader><tab>o", "<cmd>tabonly<cr>", desc = "Close Other Tabs" },
 	{ "<leader><tab>f", "<cmd>tabfirst<cr>", desc = "First Tab" },
-	{ "<leader><tab><tab>", "<cmd>tabnew<cr>", desc = "New Tab" },
+	{ "<leader><tab>n", "<cmd>tabnew<cr>", desc = "New Tab" },
 	{ "<leader><tab>]", "<cmd>tabnext<cr>", desc = "Next Tab" },
 	{ "<leader><tab>d", "<cmd>tabclose<cr>", desc = "Close Tab" },
-	{ "<leader><tab>[", "<cmd>tabprevious<cr>", desc = "Previous Tab" },
+	{ "<leader><tab>p", "<cmd>tabprevious<cr>", desc = "Previous Tab" },
 
-	-- Join lines & keep cursor
-	{ "J", "mzJ`z", desc = "Join lines without moving cursor", mode = "n" },
+	-- Terminal
+	{ "<leader>t", group = "Terminal" },
+	{
+		"<leader>tt",
+		function()
+			runner_term.direction = "float"
+			runner_term:toggle()
+		end,
+		desc = "Float Terminal",
+		mode = "n",
+	},
+	{
+		"<leader>tv",
+		function()
+			runner_term.direction = "vertical"
+			runner_term:toggle()
+		end,
+		desc = "Vertical Terminal",
+		mode = "n",
+	},
+	{
+		"<leader>th",
+		function()
+			runner_term.direction = "horizontal"
+			runner_term:toggle()
+		end,
+		desc = "Horizontal Terminal",
+		mode = "n",
+	},
 
-	-- Flutter mappings compatible with your current array-style spec
+	-- Files / Find
+	{ "<leader>f", group = "Find" },
 	{
-		lhs = "<leader>Frn",
-		rhs = "<Cmd>FlutterRun<CR>",
-		desc = "Run project",
+		"<leader>ff",
+		function()
+			require("mini.pick").builtin.files({ tool = "rg" })
+		end,
+		desc = "Find Files",
 		mode = "n",
 	},
 	{
-		lhs = "<leader>Fd",
-		rhs = "<Cmd>FlutterDebug<CR>",
-		desc = "Debug project",
+		"<leader>fg",
+		function()
+			require("mini.pick").builtin.grep_live({ tool = "rg" })
+		end,
+		desc = "Live Grep",
+		mode = "n",
+	},
+	-- Explorer
+	{
+		"<leader>e",
+		function()
+			require("mini.files").open(vim.uv.cwd(), true)
+		end,
+		desc = "Explorer (mini.files)",
 		mode = "n",
 	},
 	{
-		lhs = "<leader>Fl",
-		rhs = "<Cmd>FlutterLogToggle<CR>",
-		desc = "Toggle Dev Log",
+		"<leader>E",
+		function()
+			local bufname = vim.api.nvim_buf_get_name(0)
+			if bufname == "" then
+				require("mini.files").open(vim.uv.cwd(), true)
+			else
+				require("mini.files").open(bufname, true)
+			end
+		end,
+		desc = "Explorer at current file",
+		mode = "n",
+	},
+
+	-- Trouble
+	{ "<leader>x", group = "Trouble" },
+	{ "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", desc = "Workspace Diagnostics", mode = "n" },
+	{ "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Document Diagnostics", mode = "n" },
+	{ "<leader>xq", "<cmd>Trouble quickfix toggle<CR>", desc = "Quickfix List", mode = "n" },
+	{ "<leader>xl", "<cmd>Trouble loclist toggle<CR>", desc = "Location List", mode = "n" },
+	{ "<leader>xt", "<cmd>Trouble todo toggle<CR>", desc = "Todos", mode = "n" },
+
+	-- Git
+	{ "<leader>g", group = "Git" },
+	{
+		"<leader>gg",
+		function()
+			require("gitui").open()
+		end,
+		desc = "Open GitUI",
+		mode = "n",
+	},
+
+	-- Yazi
+	{ "<leader>y", "<cmd>Yazi<cr>", desc = "Open Yazi", mode = { "n", "v" } },
+	{ "<leader>Y", "<cmd>Yazi cwd<cr>", desc = "Open Yazi at cwd", mode = "n" },
+	{ "<leader->", "<cmd>Yazi toggle<cr>", desc = "Resume Yazi", mode = "n" },
+
+	-- Flutter
+	{ "<leader>F", group = "Flutter" },
+	{ "<leader>Frn", "<Cmd>FlutterRun<CR>", desc = "Run project", mode = "n" },
+	{ "<leader>Fd", "<Cmd>FlutterDebug<CR>", desc = "Debug project", mode = "n" },
+	{ "<leader>Fl", "<Cmd>FlutterLogToggle<CR>", desc = "Toggle Dev Log", mode = "n" },
+	{ "<leader>Frl", "<Cmd>FlutterReload<CR>", desc = "Hot Reload", mode = "n" },
+	{ "<leader>Frr", "<Cmd>FlutterRestart<CR>", desc = "Hot Restart", mode = "n" },
+	{ "<leader>Fq", "<Cmd>FlutterQuit<CR>", desc = "Quit app", mode = "n" },
+	{ "<leader>Fo", "<Cmd>FlutterOutlineToggle<CR>", desc = "Toggle Outline", mode = "n" },
+	{ "<leader>Fs", "<Cmd>FlutterDevices<CR>", desc = "Select Device", mode = "n" },
+	{ "<leader>Fe", "<Cmd>FlutterEmulators<CR>", desc = "Select Emulator", mode = "n" },
+	{ "<leader>Fv", "<Cmd>FlutterDevTools<CR>", desc = "Open DevTools", mode = "n" },
+
+	-- OpenCode
+	{ "<leader>a", group = "OpenCode" },
+	{
+		"<leader>aa",
+		function()
+			require("opencode").toggle()
+		end,
+		desc = "Toggle Terminal",
+		mode = { "n", "x" },
+	},
+	{
+		"<leader>as",
+		function()
+			require("opencode").ask("@this: ", { submit = true })
+		end,
+		desc = "Ask opencode",
+		mode = { "n", "x" },
+	},
+	{
+		"<leader>ax",
+		function()
+			require("opencode").select()
+		end,
+		desc = "Execute Action",
+		mode = { "n", "x" },
+	},
+	{
+		"<leader>ap",
+		function()
+			require("opencode").prompt("@this")
+		end,
+		desc = "Add to opencode",
+		mode = { "n", "x" },
+	},
+	{
+		"<leader>aU",
+		function()
+			require("opencode").command("session.half.page.up")
+		end,
+		desc = "Half Page Up",
 		mode = "n",
 	},
 	{
-		lhs = "<leader>Frl",
-		rhs = "<Cmd>FlutterReload<CR>",
-		desc = "Hot Reload",
+		"<leader>aD",
+		function()
+			require("opencode").command("session.half.page.down")
+		end,
+		desc = "Half Page Down",
 		mode = "n",
+	},
+
+	-- LSP
+	{ "<leader>", group = "LSP" },
+	{ "g", group = "LSP" },
+	{ "K", vim.lsp.buf.hover, desc = "Hover", mode = "n" },
+	{ "gd", vim.lsp.buf.definition, desc = "Goto Definition", mode = "n" },
+	{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", mode = "n" },
+	{ "gi", vim.lsp.buf.implementation, desc = "Goto Implementation", mode = "n" },
+	{ "go", vim.lsp.buf.type_definition, desc = "Goto Type Definition", mode = "n" },
+	{ "gr", vim.lsp.buf.references, desc = "Goto References", mode = "n" },
+	{ "gs", vim.lsp.buf.signature_help, desc = "Signature Help", mode = "n" },
+	{ "<leader>crn", vim.lsp.buf.rename, desc = "Rename", mode = "n" },
+	{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = "n" },
+	{ "<leader>ce", ":w<CR>:e<CR>", desc = "Save & Reload", mode = "n" },
+
+	-- color presist
+	{
+		"<leader>Csp",
+		function()
+			require("colorscheme-persist").picker()
+		end,
+		desc = "Choose colorscheme",
+		mode = "n",
+	},
+
+	-- Devdocs
+	{ "<leader>D", group = "DevDocs" },
+	{
+		"<leader>Do",
+		mode = "n",
+		"<cmd>DevDocs get<cr>",
+		desc = "Get Devdocs",
 	},
 	{
-		lhs = "<leader>Frr",
-		rhs = "<Cmd>FlutterRestart<CR>",
-		desc = "Hot Restart",
+		"<leader>Di",
 		mode = "n",
+		"<cmd>DevDocs install<cr>",
+		desc = "Install Devdocs",
 	},
 	{
-		lhs = "<leader>Fq",
-		rhs = "<Cmd>FlutterQuit<CR>",
-		desc = "Quit app",
+		"<leader>Dv",
 		mode = "n",
+		function()
+			local devdocs = require("devdocs")
+			local Snacks = require("snacks")
+			local installedDocs = devdocs.GetInstalledDocs()
+			vim.ui.select(installedDocs, {}, function(selected)
+				if not selected then
+					return
+				end
+				local docDir = devdocs.GetDocDir(selected)
+				-- prettify the filename as you wish
+				Snacks.picker.files({ cwd = docDir })
+			end)
+		end,
+		desc = "Get Devdocs",
 	},
 	{
-		lhs = "<leader>Fo",
-		rhs = "<Cmd>FlutterOutlineToggle<CR>",
-		desc = "Toggle Outline",
+		"<leader>Dd",
 		mode = "n",
+		"<cmd>DevDocs delete<cr>",
+		desc = "Delete Devdoc",
 	},
-	{
-		lhs = "<leader>Fs",
-		rhs = "<Cmd>FlutterDevices<CR>",
-		desc = "Select Device",
-		mode = "n",
-	},
-	{
-		lhs = "<leader>Fe",
-		rhs = "<Cmd>FlutterEmulators<CR>",
-		desc = "Select Emulator",
-		mode = "n",
-	},
-	{
-		lhs = "<leader>Fv",
-		rhs = "<Cmd>FlutterDevTools<CR>",
-		desc = "Open DevTools",
-		mode = "n",
-	},
+
+	-- kulala
+	{ "<leader>K", group = "Kulala" },
+	{ "<leader>Ks", desc = "Send request" },
+	{ "<leader>Ka", desc = "Send all requests" },
+	{ "<leader>Kb", desc = "Open scratchpad" },
 }
-
 return M

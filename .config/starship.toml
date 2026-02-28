@@ -127,11 +127,11 @@ disabled = false
 
 # shows the hostname on new lines
 [hostname]
-disabled = true
-ssh_only = false
-format = "[$hostname]($style) in "
+# disabled = false
+ssh_only = true
+# format = "[$hostname]($style) in "
 #style = "bold dimmed yellow"
-style = "bold blue"
+# style = "bold blue"
 
 # configure directory
 [directory]

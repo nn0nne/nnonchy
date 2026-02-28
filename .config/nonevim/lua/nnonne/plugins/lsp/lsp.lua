@@ -107,6 +107,13 @@ return {
 			-- appearance = { nerd_font_variant = "mono" },
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
+				providers = {
+					snippets = {
+						opts = {
+							friendly_snippets = true,
+						},
+					},
+				},
 			},
 			-- signature = { enabled = true },
 			-- fuzzy = { implementation = "prefer_rust_with_warning" },

@@ -116,8 +116,6 @@ source ${ZIM_HOME}/init.zsh
 ## alias stuff
 alias n='NVIM_APPNAME="nonevim" nvim'
 alias v='NVIM_APPNAME="nvim" nvim'
-alias m='NVIM_APPNAME="nvim-minimax" nvim'
-alias cd="z"
 alias df="duf"
 alias ls="eza -l -F --icons --smart-group"
 alias du="dua i"
@@ -128,7 +126,6 @@ alias y="yazi"
 alias mpv="env DRI_PRIME=0 mpv"
 alias celluloid="env DRI_PRIME=0 celluloid"
 alias cp="cpx"
-alias nvtldr="navi --tldr"
 # alias "?"="opencode run '$*'"
 
 # cd via yazi
@@ -136,7 +133,8 @@ function yg() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
   yazi "$@" --cwd-file="$tmp"
   if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd"
+    zoxide add "$cwd"
+    cd -- "$cwd"
   fi
   rm -f -- "$tmp"
 }
@@ -197,7 +195,7 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 {} 2>/dev/null || ls {}'"
 source <(fzf --zsh)
 
 # zoxide setup
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # starship setup
 eval "$(starship init zsh)"
@@ -207,6 +205,3 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Added by Hugging Face CLI installer
 export PATH="$HOME/.local/bin:$PATH"
-
-# slumber setup
-source <(COMPLETE=zsh slumber)
