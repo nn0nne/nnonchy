@@ -30,12 +30,12 @@
     "modules-center": ["mpris"],
     "modules-right": [
       "group/tray",
-      "privacy",
       "temperature",
       "cpu",
       "memory",
       "pulseaudio",
       "backlight",
+      "privacy",
       "bluetooth",
       "network",
       "power-profiles-daemon",
@@ -58,23 +58,23 @@
       "format": "  <span color='#d8647e'>✗</span> {nr_failed}",
     },
     "privacy": {
-      "icon-spacing": 4,
-      "icon-size": 16,
+      "icon-spacing": 2,
+      "icon-size": 14,
       "modules": [
         {
           "type": "screenshare",
           "tooltip": true,
-          "tooltip-icon-size": 15,
+          "tooltip-icon-size": 14,
         },
         {
           "type": "audio-out",
           "tooltip": true,
-          "tooltip-icon-size": 15,
+          "tooltip-icon-size": 14,
         },
         {
           "type": "audio-in",
           "tooltip": true,
-          "tooltip-icon-size": 15,
+          "tooltip-icon-size": 14,
         },
       ],
     },
