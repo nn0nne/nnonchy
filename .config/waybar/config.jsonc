@@ -18,18 +18,22 @@
   //   },
   // },
   {
-    "height": 30,
     "spacing": 4,
 
-    "modules-left": ["clock", "ext/workspaces", "dwl/window"],
+    "modules-left": [
+      "systemd-failed-units",
+      "clock",
+      "ext/workspaces",
+      "dwl/window",
+    ],
     // "modules-center": ["custom/playerinfo"],
     "modules-center": ["mpris"],
     "modules-right": [
       "group/tray",
+      "privacy",
       "temperature",
       "cpu",
       "memory",
-      // "disk",
       "pulseaudio",
       "backlight",
       "bluetooth",
@@ -50,23 +54,43 @@
     //   "on-click": "playerctl next",
     //   "on-click-left": "playerctl previous",
     // },
+    "systemd-failed-units": {
+      "format": "  <span color='#d8647e'>✗</span> {nr_failed}",
+    },
+    "privacy": {
+      "icon-spacing": 4,
+      "icon-size": 16,
+      "modules": [
+        {
+          "type": "screenshare",
+          "tooltip": true,
+          "tooltip-icon-size": 15,
+        },
+        {
+          "type": "audio-out",
+          "tooltip": true,
+          "tooltip-icon-size": 15,
+        },
+        {
+          "type": "audio-in",
+          "tooltip": true,
+          "tooltip-icon-size": 15,
+        },
+      ],
+    },
     "network": {
       "interface": "wlan0",
       "format": "{icon}",
       "format-wifi": "󰖩",
-      "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-      "format-disconnected": "", //An empty format will hide the module.
-      "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+      "format-disconnected": "",
       "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
-      "tooltip-format-ethernet": "{ifname} ",
-      "tooltip-format-disconnected": "Disconnected",
       "on-click": "foot -e impala",
     },
     "bluetooth": {
-      // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
       "format": "",
-      "format-disabled": "", // an empty format will hide the module
       "format-connected": "",
+      "format-on": "",
+      "tooltip": true,
       "tooltip-format-connected": "{device_alias} - {device_battery_percentage}%",
       "on-click": "foot -e bluetui",
     },
@@ -76,7 +100,6 @@
       "format-paused": "{status_icon} <i>{artist} - {title}</i>",
       "player-icons": {
         "default": "▶",
-        "mpv": "🎵",
       },
       "status-icons": {
         "paused": "⏸",
@@ -86,26 +109,26 @@
     },
 
     "temperature": {
-      // "thermal-zone": 2,
-      // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-      // "critical-threshold": 80,
-      // "format-critical": "{temperatureC}°C ",
+      "interval": 60,
+      "critical-threshold": 50,
+      "warning-threshold": 60,
       "format": "{temperatureC}°C",
     },
+
     "memory": {
-      "interval": 30,
+      "interval": 60,
       "format": "{percentage}%   {swapPercentage}% 󰓡",
-      "max-length": 15,
+      "tooltip": true,
+      "tooltip-format": "{used:0.1f}GiB   {swapUsed:0.1f}GiB 󰓡",
     },
 
     "cpu": {
-      "interval": 10,
+      "interval": 60,
       "format": "{usage}% ",
-      "max-length": 10,
+      "on-click": "foot -e btm",
     },
 
     "disk": {
-      "interval": 30,
       "format": "{percentage_used}% {path}",
       "path": "/",
     },
@@ -114,6 +137,9 @@
       "device": "intel_backlight",
       "format": "{icon}",
       "format-icons": ["", "", "", "", "", "", "", "", ""],
+      "tooltip": true,
+      "tooltip-format": "{icon} {percent}%",
+      "interval": 1,
     },
 
     "ext/workspaces": {
@@ -146,7 +172,6 @@
 
     "clock": {
       "format": "{:%A %H:%M, %Y-%m-%d}",
-      // "timezone": "America/New_York",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
         "mode": "year",
@@ -154,11 +179,11 @@
         "weeks-pos": "right",
         "on-scroll": 1,
         "format": {
-          "months": "<span color='#ffead3'><b>{}</b></span>",
-          "days": "<span color='#ecc6d9'><b>{}</b></span>",
-          "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-          "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-          "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+          "months": "<span color='#bb9dbd'><b>{}</b></span>",
+          "weeks": "<span color='#6e94b2'><b>W{}</b></span>",
+          "days": "<span color='#cdcdcd'><b>{}</b></span>",
+          "weekdays": "<span color='#7fa563'><b>{}</b></span>",
+          "today": "<span color='#f3be7c'><b><u>{}</u></b></span>",
         },
       },
       "actions": {
@@ -177,37 +202,38 @@
       },
       "modules": ["custom/tray-toggle", "tray"],
     },
-
     "custom/tray-toggle": {
       "format": "",
       "tooltip": false,
     },
-
     "tray": {
       "icon-size": 15,
       "spacing": 6,
     },
 
     "pulseaudio": {
-      // "format": "{volume}% <span font='12'>{icon}</span>",
       "format": "{icon}",
       "format-muted": " ",
       "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇"],
       "on-click": "pavucontrol",
       "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-      "tooltip": false,
+      "tooltip": true,
+      "tooltip-format": "{icon} {volume}%",
+      "max-volume": 100,
     },
 
     "battery": {
       "states": {
-        "warning": 25,
+        "warning": 30,
         "critical": 15,
       },
       "format": "{capacity}% {icon}",
-      "format-charging": "{capacity}% 󰂄",
-      "format-plugged": "{capacity}% ",
-      "format-icons": ["", "", "", "", ""],
-      "tooltip": false,
+      "format-icons": {
+        "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      },
+      "tooltip": true,
+      "tooltip-format": "{timeTo}",
     },
 
     "power-profiles-daemon": {
@@ -217,7 +243,8 @@
         "balanced": "",
         "power-saver": "",
       },
-      "tooltip": false,
+      "tooltip": true,
+      "tooltip-format": "{profile}\n{driver}",
     },
   },
 ]

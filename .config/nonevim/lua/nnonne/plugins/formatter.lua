@@ -1,4 +1,4 @@
-return({
+return {
 	"stevearc/conform.nvim",
 	opts = {},
 	config = function()
@@ -14,6 +14,7 @@ return({
 				css = { "prettier_d", "prettier" },
 				html = { "prettier_d", "prettier" },
 				json = { "biome", "prettier_d", "prettier" },
+				jsonc = { "biome", "prettier_d", "prettier" },
 				yaml = { "prettier_d", "prettier" },
 				markdown = { "mdformat", "prettier_d", "prettier" },
 				go = { "gofumpt", "goimports" },
@@ -93,4 +94,4 @@ return({
 			end,
 		})
 	end,
-})
+}
