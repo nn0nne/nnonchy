@@ -1,193 +1,223 @@
-{
-  "height": 30,
-  "spacing": 4,
+[
+  // {
+  //   "name": "overlay",
+  //   "height": 30,
+  //   "width": 100,
+  //
+  //   // i had some problem with `"mode" : "overlay"` so i use these properties
+  //   "layer": "bottom",
+  //   "position": "top",
+  //   "margin-top": -30,
+  //   "exclusive": false,
+  //   "passtrough": true,
+  //
+  //   "modules-center": ["custom/cava"],
+  //   "custom/cava": {
+  //     "format": "{}",
+  //     "exec": "$HOME/.config/waybar/cava.sh",
+  //   },
+  // },
+  {
+    "height": 30,
+    "spacing": 4,
 
-  "modules-left": ["clock", "ext/workspaces", "dwl/window"],
-  "modules-center": ["mpris"],
-  "modules-right": [
-    "group/tray",
-    "temperature",
-    "cpu",
-    "memory",
-    // "disk",
-    "pulseaudio",
-    "backlight",
-    "bluetooth",
-    "network",
-    "battery",
-    "power-profiles-daemon",
-  ],
+    "modules-left": ["clock", "ext/workspaces", "dwl/window"],
+    // "modules-center": ["custom/playerinfo"],
+    "modules-center": ["mpris"],
+    "modules-right": [
+      "group/tray",
+      "temperature",
+      "cpu",
+      "memory",
+      // "disk",
+      "pulseaudio",
+      "backlight",
+      "bluetooth",
+      "network",
+      "power-profiles-daemon",
+      "battery",
+    ],
 
-  // --- Modules ---
-"network": {
-    "interface": "wlan0",
-    "format": "{icon}",
-    "format-wifi": "󰖩",
-    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    "format-disconnected": "", //An empty format will hide the module.
-    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
-    "tooltip-format-ethernet": "{ifname} ",
-    "tooltip-format-disconnected": "Disconnected",
-    "on-click": "foot -e impala"
-},
-  "bluetooth": {
-    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-    "format": "",
-    "format-disabled": "", // an empty format will hide the module
-    "format-connected": "",
-    "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "foot -e bluetui",
-  },
-
-  "mpris": {
-    "format": "{player_icon} {artist} - {title}",
-    "format-paused": "{status_icon} <i>{artist} - {title}</i>",
-    "player-icons": {
-      "default": "▶",
-      "mpv": "🎵",
+    // --- Modules ---
+    // "custom/playerinfo": {
+    //   "format": "{}",
+    //   "exec": "~/.config/waybar/playerinfo.sh",
+    //   "escape": true,
+    //   "return-type": "json",
+    //   "interval": 1,
+    //   "tooltip": true,
+    //   "on-click-middle": "playerctl play-pause",
+    //   "on-click": "playerctl next",
+    //   "on-click-left": "playerctl previous",
+    // },
+    "network": {
+      "interface": "wlan0",
+      "format": "{icon}",
+      "format-wifi": "󰖩",
+      "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+      "format-disconnected": "", //An empty format will hide the module.
+      "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
+      "tooltip-format-ethernet": "{ifname} ",
+      "tooltip-format-disconnected": "Disconnected",
+      "on-click": "foot -e impala",
     },
-    "status-icons": {
-      "paused": "⏸",
+    "bluetooth": {
+      // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+      "format": "",
+      "format-disabled": "", // an empty format will hide the module
+      "format-connected": "",
+      "tooltip-format-connected": "{device_alias} - {device_battery_percentage}%",
+      "on-click": "foot -e bluetui",
     },
-    "on-click": "playerctl previous",
-    "on-click-right": "playerctl next",
-  },
 
-  "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    // "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C ",
-    "format": "{temperatureC}°C",
-  },
-  "memory": {
-    "interval": 30,
-    "format": "{percentage}%   {swapPercentage}% 󰓡",
-    "max-length": 15,
-  },
-
-  "cpu": {
-    "interval": 10,
-    "format": "{usage}% ",
-    "max-length": 10,
-  },
-
-  "disk": {
-    "interval": 30,
-    "format": "{percentage_used}% {path}",
-    "path": "/",
-  },
-
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
-  },
-
-  "ext/workspaces": {
-    "format": "{icon}",
-    "ignore-hidden": true,
-    "on-click": "activate",
-    "sort-by-id": true,
-  },
-
-  "dwl/window": {
-    "format": "[{layout}] {app_id}",
-    "rewrite": {
-      "^\\[(.*)\\] brave-browser$": "[$1] Brave",
-      "^\\[(.*)\\] thunar$": "[$1] Thunar",
-      "^\\[(.*)\\] vesktop$": "[$1] Vesktop",
-      "^\\[(.*)\\] blueman-manager$": "[$1] Bluetooh Manager",
-      "^\\[(.*)\\] org.pulseaudio.pavucontrol$": "[$1] Pavucontrol",
-      "^\\[(.*)\\] com.github.wwmm.easyeffects$": "[$1] Easy Effects",
-      "^\\[(.*)\\] localsend$": "[$1] LocalSend",
-      "^\\[(.*)\\] org.gnome.gThumb$": "[$1] GThumb",
-      "^\\[(.*)\\] com.obsproject.Studio$": "[$1] OBS Studio",
-      "^\\[(.*)\\] .*cinhimbnkkaeohfgghhklpknlkffjgod.*$": "[$1] Youtube Music",
-      "^\\[(.*)\\] .*agimnkijcaahngcdmfeangaknmldooml.*$": "[$1] Youtube",
-      "^\\[(.*)\\] .*eikjhbkpemdappjfcmdeeeamdpkgabmk.*$": "[$1] Soundcloud",
-      "^\\[(.*)\\] .*hnpfjngllnobngcgfapefoaidbinmjnm.*$": "[$1] Whatsapp",
-      "^\\[(.*)\\] .*ibblmnobmgdmpoeblocemifbpglakpoi.*$": "[$1] Telegram",
-      "^\\[(.*)\\] .*pjibgclleladliembfgfagdaldikeohf.*$": "[$1] Spotify",
+    "mpris": {
+      "format": "{player_icon} {artist} - {title}",
+      "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+      "player-icons": {
+        "default": "▶",
+        "mpv": "🎵",
+      },
+      "status-icons": {
+        "paused": "⏸",
+      },
+      "on-click": "playerctl previous",
+      "on-click-right": "playerctl next",
     },
-  },
 
-  "clock": {
-    "format": "{:%A %H:%M, %Y-%m-%d}",
-    // "timezone": "America/New_York",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+    "temperature": {
+      // "thermal-zone": 2,
+      // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      // "critical-threshold": 80,
+      // "format-critical": "{temperatureC}°C ",
+      "format": "{temperatureC}°C",
+    },
+    "memory": {
+      "interval": 30,
+      "format": "{percentage}%   {swapPercentage}% 󰓡",
+      "max-length": 15,
+    },
+
+    "cpu": {
+      "interval": 10,
+      "format": "{usage}% ",
+      "max-length": 10,
+    },
+
+    "disk": {
+      "interval": 30,
+      "format": "{percentage_used}% {path}",
+      "path": "/",
+    },
+
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "{icon}",
+      "format-icons": ["", "", "", "", "", "", "", "", ""],
+    },
+
+    "ext/workspaces": {
+      "format": "{icon}",
+      "ignore-hidden": true,
+      "on-click": "activate",
+      "sort-by-id": true,
+    },
+
+    "dwl/window": {
+      "format": "[{layout}] {app_id}",
+      "rewrite": {
+        "^\\[(.*)\\] brave-browser$": "[$1] Brave",
+        "^\\[(.*)\\] thunar$": "[$1] Thunar",
+        "^\\[(.*)\\] vesktop$": "[$1] Vesktop",
+        "^\\[(.*)\\] blueman-manager$": "[$1] Bluetooh Manager",
+        "^\\[(.*)\\] org.pulseaudio.pavucontrol$": "[$1] Pavucontrol",
+        "^\\[(.*)\\] com.github.wwmm.easyeffects$": "[$1] Easy Effects",
+        "^\\[(.*)\\] localsend$": "[$1] LocalSend",
+        "^\\[(.*)\\] org.gnome.gThumb$": "[$1] GThumb",
+        "^\\[(.*)\\] com.obsproject.Studio$": "[$1] OBS Studio",
+        "^\\[(.*)\\] .*cinhimbnkkaeohfgghhklpknlkffjgod.*$": "[$1] Youtube Music",
+        "^\\[(.*)\\] .*agimnkijcaahngcdmfeangaknmldooml.*$": "[$1] Youtube",
+        "^\\[(.*)\\] .*eikjhbkpemdappjfcmdeeeamdpkgabmk.*$": "[$1] Soundcloud",
+        "^\\[(.*)\\] .*hnpfjngllnobngcgfapefoaidbinmjnm.*$": "[$1] Whatsapp",
+        "^\\[(.*)\\] .*ibblmnobmgdmpoeblocemifbpglakpoi.*$": "[$1] Telegram",
+        "^\\[(.*)\\] .*pjibgclleladliembfgfagdaldikeohf.*$": "[$1] Spotify",
       },
     },
-    "actions": {
-      "on-click-right": "mode",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
+
+    "clock": {
+      "format": "{:%A %H:%M, %Y-%m-%d}",
+      // "timezone": "America/New_York",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "mode": "year",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "on-scroll": 1,
+        "format": {
+          "months": "<span color='#ffead3'><b>{}</b></span>",
+          "days": "<span color='#ecc6d9'><b>{}</b></span>",
+          "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+          "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+        },
+      },
+      "actions": {
+        "on-click-right": "mode",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down",
+      },
+    },
+
+    "group/tray": {
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": 200,
+        "children-class": "tray-child",
+        "click-to-reveal": true,
+      },
+      "modules": ["custom/tray-toggle", "tray"],
+    },
+
+    "custom/tray-toggle": {
+      "format": "",
+      "tooltip": false,
+    },
+
+    "tray": {
+      "icon-size": 15,
+      "spacing": 6,
+    },
+
+    "pulseaudio": {
+      // "format": "{volume}% <span font='12'>{icon}</span>",
+      "format": "{icon}",
+      "format-muted": " ",
+      "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇"],
+      "on-click": "pavucontrol",
+      "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "tooltip": false,
+    },
+
+    "battery": {
+      "states": {
+        "warning": 25,
+        "critical": 15,
+      },
+      "format": "{capacity}% {icon}",
+      "format-charging": "{capacity}% 󰂄",
+      "format-plugged": "{capacity}% ",
+      "format-icons": ["", "", "", "", ""],
+      "tooltip": false,
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "format-icons": {
+        "performance": "",
+        "balanced": "",
+        "power-saver": "",
+      },
+      "tooltip": false,
     },
   },
-
-  "group/tray": {
-    "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 200,
-      "children-class": "tray-child",
-      "click-to-reveal": true,
-    },
-    "modules": ["custom/tray-toggle", "tray"],
-  },
-
-  "custom/tray-toggle": {
-    "format": "",
-    "tooltip": false,
-  },
-
-  "tray": {
-    "icon-size": 15,
-    "spacing": 6,
-  },
-
-  "pulseaudio": {
-    // "format": "{volume}% <span font='12'>{icon}</span>",
-    "format": "{icon}",
-    "format-muted": " ",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇"],
-    "on-click": "pavucontrol",
-    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "tooltip": false,
-  },
-
-  "battery": {
-    "states": {
-      "warning": 25,
-      "critical": 15,
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰂄",
-    "format-plugged": "{capacity}% ",
-    "format-icons": [" ", " ", " ", " ", " "],
-    "tooltip": false,
-  },
-
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "format-icons": {
-      "performance": "",
-      "balanced": "",
-      "power-saver": "",
-    },
-    "tooltip": false,
-  },
-}
+]

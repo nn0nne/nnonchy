@@ -6,10 +6,10 @@
 }
 
 window#waybar {
-  background: rgba(20, 20, 21, 0.85); /* #141415 with transparency */
+  background: transparent;
   color: #cdcdcd;
   transition: all 0.2s ease;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 /* window#waybar > box { */
@@ -17,9 +17,9 @@ window#waybar {
 /* } */
 
 tooltip {
-  background: rgba(37, 37, 48, 0.8); /* #252530 at 80% */
-  border: 1px solid rgba(96, 96, 121, 0.4); /* #606079 */
-  border-radius: 8px;
+  /* border: 1px solid rgba(96, 96, 121, 0.4); */
+  background: transparent;
+  /* border-radius: 8px; */
   padding: 4px 8px;
 }
 tooltip label {
@@ -28,8 +28,8 @@ tooltip label {
 
 /* === Workspaces === */
 #workspaces {
-  background: #252530;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  background: transparent;
   /* padding: 0 0; */
   /* margin: 0 10px; */
 }
@@ -37,7 +37,7 @@ tooltip label {
 #workspaces button {
   background: transparent;
   color: #cdcdcd;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   /* padding: 0 8px; */
   /* margin: 0 2px; */
   min-width: 12px;
@@ -46,28 +46,37 @@ tooltip label {
 
 /* Focused workspace (current tag) */
 #workspaces button.focused {
-  background: #c9b1ca; /* soft blue */
-  color: #141415;
+  background: transparent;
+  color: #8ba9c1;
   font-weight: bold;
 }
 
 /* Active but not focused (has windows) */
 #workspaces button.active {
-  color: #252530; /* bright magenta */
-  background: #8ba9c1; /* bright magenta */
+  background: transparent;
+  color: #8ba9c1;
 }
 
 /* Urgent (needs attention) */
 #workspaces button.urgent {
-  background: #e08398; /* soft pink/red */
-  color: #141415;
+  color: red;
+  background: transparent;
   font-weight: bold;
 }
 
 /* === Modules === */
+#custom-cava {
+  font-size: 24px;
+  color: rgba(96, 96, 121, 0.5);
+}
+
+#custom-playerinfo {
+  color: #cdcdcd;
+}
+
 #group-tray {
-  background: #252530;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  background: transparent;
   padding: 0 10px;
 }
 
@@ -82,38 +91,38 @@ tooltip label {
 
 #bluetooth,
 #network {
-  background-color: #252530;
   padding: 0 10px;
+  background: transparent;
   color: #cdcdcd;
 }
 
 #bluetooth {
-  border-radius: 10px 0 0 10px;
+  /* border-radius: 10px 0 0 10px; */
   padding-right: 10px;
   margin: 0 -5px 0 0;
 }
 
 #network {
-  border-radius: 0 10px 10px 0;
+  /* border-radius: 0 10px 10px 0; */
   padding-left: 10px;
   margin: 0 0 0 -5px;
 }
 
 #pulseaudio,
 #backlight {
-  background-color: #252530;
   padding: 0 10px;
+  background: transparent;
   color: #cdcdcd;
 }
 
 #pulseaudio {
-  border-radius: 10px 0 0 10px;
+  /* border-radius: 10px 0 0 10px; */
   padding-right: 10px;
   margin: 0 -5px 0 0;
 }
 
 #backlight {
-  border-radius: 0 10px 10px 0;
+  /* border-radius: 0 10px 10px 0; */
   padding-left: 10px;
   margin: 0 0 0 -5px;
 }
@@ -121,13 +130,13 @@ tooltip label {
 #temperature,
 #cpu,
 #memory {
-  background-color: #252530;
   padding: 0 10px;
+  background: transparent;
   color: #cdcdcd;
 }
 
 #temperature {
-  border-radius: 10px 0 0 10px;
+  /* border-radius: 10px 0 0 10px; */
   padding-right: 10px;
   margin: 0 -5px 0 0;
 }
@@ -137,9 +146,15 @@ tooltip label {
   margin: 0 -5px 0 -5px;
 }
 #memory {
-  border-radius: 0 10px 10px 0;
+  /* border-radius: 0 10px 10px 0; */
   padding-left: 10px;
   margin: 0 0 0 -5px;
+}
+
+#mpris {
+  padding: 0 10px;
+  /* margin: 0 3px; */
+  color: #cdcdcd;
 }
 
 #clock,
@@ -152,15 +167,14 @@ tooltip label {
 /* #network, */
 #wireplumber,
 #idle_inhibitor,
-#mpris,
 #power-profiles-daemon,
 /* #backlight, */
 #custom-media,
 #mpd,
 /* #bluetooth, */
 #scratchpad {
-  background-color: #252530;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  background: transparent;
   padding: 0 10px;
   /* margin: 0 3px; */
   color: #cdcdcd;
@@ -168,36 +182,36 @@ tooltip label {
 
 /* Clock – calm info */
 #clock {
-  background-color: #2d2d3a; /* slightly lighter surface */
+  background: transparent;
 }
 
 /* Battery */
 #battery {
-  background-color: #252530;
+  background: transparent;
 }
 
 #battery.charging {
-  background-color: #f5cb96; /* warm yellow */
   color: #141415;
+  background: transparent;
 }
 
 @keyframes vague-blink {
   to {
-    background-color: #f5cb96;
+    background: transparent;
     color: #141415;
   }
 }
 
 #battery.warning:not(.charging) {
-  background: #e08398;
   color: #141415;
+  background: transparent;
   animation: vague-blink 0.6s infinite alternate;
 }
 
 /* Idle inhibitor */
 #idle_inhibitor.activated {
-  background-color: #bb9dbd; /* accent */
   color: #141415;
+  background: transparent;
 }
 
 #idle_inhibitor.deactivated {
@@ -206,18 +220,18 @@ tooltip label {
 
 /* Power profiles */
 #power-profiles-daemon.performance {
-  background-color: #e08398;
-  color: #141415;
+  background: transparent;
+  color: #cdcdcd;
 }
 
 #power-profiles-daemon.balanced {
-  background-color: #8ba9c1;
-  color: #141415;
+  background: transparent;
+  color: #cdcdcd;
 }
 
 #power-profiles-daemon.power-saver {
-  background-color: #7fa563; /* green from Vague palette */
-  color: #141415;
+  color: #cdcdcd;
+  background: transparent;
 }
 
 /* Warnings & Critical */
@@ -225,28 +239,28 @@ tooltip label {
 #disk.critical,
 #memory.critical,
 #cpu.critical {
-  background-color: #e08398;
   color: #141415;
+  background: transparent;
 }
 
 #disk.warning,
 #memory.warning,
 #cpu.warning {
-  background-color: #f5cb96;
   color: #141415;
+  background: transparent;
 }
 
 /* Audio muted */
 #pulseaudio.muted {
   color: #606079;
-  background-color: #252530;
+  background: transparent;
 }
 
 /* Mode indicator (e.g., resize, move) */
 #mode {
-  background-color: #bb9dbd;
   color: #141415;
-  border-radius: 10px;
+  background: transparent;
+  /* border-radius: 10px; */
   padding: 0 10px;
   margin: 0 4px;
   font-weight: bold;
