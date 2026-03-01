@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Options with Nerd Font icons
-options="󰍃  Logout
+options="  Lock
+󰍃  Logout
 󰤄  Sleep
 󰜉  Reboot
   Poweroff
@@ -17,12 +18,13 @@ SEL_FG="#d7d7d7FF"
 PROMPT_BG="#6e94b2FF"
 PROMPT_FG="#252530FF"
 
-chosen=$(echo -e "$options" | rofi -dmenu \
-    -i \
-    -p "Action:" \
-    -lines 5 \
-    -font "JetBrainsMono Nerd Font Mono 10" \
-    -theme-str "
+chosen=$(
+    echo -e "$options" | rofi -dmenu \
+        -i \
+        -p "Action:" \
+        -lines 5 \
+        -font "JetBrainsMono Nerd Font Mono 10" \
+        -theme-str "
     * {
       background: $BG;
       foreground: $FG;
@@ -31,8 +33,7 @@ chosen=$(echo -e "$options" | rofi -dmenu \
     }
     window {
       background-color: $BG;
-      border-radius: 8px;
-      height: 27%;
+      height: 30%;
     }
     prompt {
       background-color: $PROMPT_BG;
@@ -50,7 +51,8 @@ chosen=$(echo -e "$options" | rofi -dmenu \
       background-color: $SEL_BG;
       text-color: $SEL_FG;
     }
-  ")
+  "
+)
 
 # Strip icon + extra spaces, keep only the word
 action=$(echo "$chosen" | awk '{print $2}')
@@ -60,7 +62,10 @@ Logout)
     pkill mango
     ;;
 Sleep)
-    sync && systemctl suspend && swaylock
+    sync && systemctl suspend && swaylock --clock --indicator
+    ;;
+Lock)
+    sync && swaylock --clock --indicator
     ;;
 Reboot)
     sync && systemctl reboot

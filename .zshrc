@@ -112,20 +112,20 @@ source ${ZIM_HOME}/init.zsh
 ### none's config starts here ###
 #################################
 
-# auto git fetch
+# git auto fetch
 export GIT_AUTO_FETCH_INTERVAL=60
 export GIT_AUTO_FETCH_CACHE_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/git_fetch_time"
 _git_auto_fetch() {
   git rev-parse --is-inside-work-tree &>/dev/null || return 0
   git remote get-url origin &>/dev/null || return 0
 
-  # skip if a fetch is already running
   pgrep -f "git fetch --all" >/dev/null && return 0
 
-  local now last_fetch
-  now=$(date +%s)
+  local now last_fetch git_dir cache_file
 
-  local cache_file="$PWD/.git/.last_fetch"
+  git_dir=$(git rev-parse --git-dir 2>/dev/null) || return 0
+  cache_file="$git_dir/.last_fetch"
+  now=$(date +%s)
 
   if [[ -f "$cache_file" ]]; then
     read -r last_fetch < "$cache_file"
@@ -135,44 +135,9 @@ _git_auto_fetch() {
   print -r -- "$now" >| "$cache_file"
 
   {
-    git fetch --all --quiet
+    git fetch --all --quiet 2>/dev/null
   } &!
 }
-# _git_auto_fetch() {
-#   git rev-parse --is-inside-work-tree &>/dev/null || return 0
-#   git remote get-url origin &>/dev/null || return 0
-#
-#   local now last_fetch
-#
-#   now=$(date +%s)
-#
-#   if [[ -f "$GIT_AUTO_FETCH_CACHE_FILE" ]]; then
-#     read -r last_fetch < "$GIT_AUTO_FETCH_CACHE_FILE"
-#     (( now - last_fetch < GIT_AUTO_FETCH_INTERVAL )) && return 0
-#   fi
-#
-#   # overwrite safely even with noclobber enabled
-#   print -r -- "$now" >| "$GIT_AUTO_FETCH_CACHE_FILE"
-#
-#   {
-#     git fetch --all --quiet
-#   } &!
-# }
-# _git_auto_fetch() {
-#   git rev-parse --is-inside-work-tree &>/dev/null || return 0
-#
-#   if [[ -f "$GIT_AUTO_FETCH_CACHE_FILE" ]]; then
-#     local last_fetch=$(cat "$GIT_AUTO_FETCH_CACHE_FILE")
-#     local now=$(date +%s)
-#     if (( now - last_fetch < GIT_AUTO_FETCH_INTERVAL )); then
-#       return 0
-#     fi
-#   fi
-#
-#   date +%s > "$GIT_AUTO_FETCH_CACHE_FILE"
-#
-#   git fetch --all &>/dev/null & disown
-# }
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd _git_auto_fetch
 

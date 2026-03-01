@@ -2,7 +2,7 @@
 (
     // Maximum number of notifications to show at any one time.
     // A value of 0 means that there is no limit.
-    max_notifications: 0,
+    max_notifications: 5,
 
     // The default timeout, in milliseconds, for notifications that don't have an initial timeout set.
     // 1000ms = 1s.
@@ -29,7 +29,7 @@
     // cleared, unless `unpause_on_input` is set to true.
     // Also note that no distinction is made between manually paused and idle paused notifications.
     // If `idle_threshold` is not specified, the behavior will be disabled entirely.
-    //idle_threshold: 3600,
+    idle_threshold: 3600,
 
     // Whether a notification should be sent when the config is reloaded.
     //notify_on_reload: true,
@@ -104,11 +104,11 @@
             // https://github.com/Toqozz/wired-notify/wiki/NotificationBlock  
             params: NotificationBlock((
                 monitor: 0,
-                border_width: 3.0,
-                border_rounding: 3.0,
+                border_width: 1.0,
+                border_rounding: 0.0,
                 background_color: Color(hex: "#141415"),     // Vague background
-                border_color: Color(hex: "#878787"),         // active_border_color
-                border_color_low: Color(hex: "#252530"),     // color0 / selection_background
+                border_color: Color(hex: "#8ba9c1"),         // active_border_color
+                border_color_low: Color(hex: "#8ba9c1"),     // color0 / selection_background
                 border_color_critical: Color(hex: "#d8647e"), // color1
                 border_color_paused: Color(hex: "#f3be7c"),  // color3
 
@@ -126,7 +126,7 @@
             params: ImageBlock((
                 image_type: Hint,
                 padding: Padding(left: 7.0, right: 0.0, top: 7.0, bottom: 7.0),
-                rounding: 3.0,
+                rounding: 0.0,
                 scale_width: 48,
                 scale_height: 48,
                 filter_mode: Lanczos3,

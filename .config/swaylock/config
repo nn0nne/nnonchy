@@ -1,35 +1,44 @@
-# Vague Theme for swaylock
-color=141415
+# Vague Theme – Borderless Look
 
+color=141415
 image=~/dotfiles/wallpapers/radio-tower-night.png
 
 font=JetBrainsMono Nerd Font
-font-size=16
+font-size=14
 
-indicator-radius=100
-indicator-thickness=8
+indicator-radius=95
+indicator-thickness=6
 
+# Base indicator
 inside-color=252530
-ring-color=606079
-line-color=606079
+ring-color=252530
+line-uses-inside
 text-color=cdcdcd
 
+# Cleared
 inside-clear-color=252530
-ring-clear-color=606079
+ring-clear-color=252530
+line-clear-color=252530
 text-clear-color=cdcdcd
 
+# Verifying (subtle glow effect instead of border)
 inside-ver-color=252530
 ring-ver-color=7fa563
+line-ver-color=7fa563
 text-ver-color=cdcdcd
 
+# Wrong
 inside-wrong-color=252530
 ring-wrong-color=d8647e
+line-wrong-color=d8647e
 text-wrong-color=cdcdcd
 
+# Highlights
 key-hl-color=99b782
 bs-hl-color=e08398
-separator-color=606079
+separator-color=252530
 
+# Layout box (remove border look)
 layout-bg-color=252530
 layout-text-color=cdcdcd
-layout-border-color=606079
+layout-border-color=252530
