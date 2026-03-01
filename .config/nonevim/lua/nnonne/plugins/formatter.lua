@@ -15,6 +15,7 @@ return {
 				html = { "prettier_d", "prettier" },
 				json = { "biome", "prettier_d", "prettier" },
 				jsonc = { "biome", "prettier_d", "prettier" },
+				rasi = { "biome", "prettier_d", "prettier" },
 				yaml = { "prettier_d", "prettier" },
 				markdown = { "mdformat", "prettier_d", "prettier" },
 				go = { "gofumpt", "goimports" },
@@ -24,7 +25,6 @@ return {
 				groovy = { "npm-groovy-lint" },
 				toml = { "taplo" },
 				zig = { "zig", lsp_format = "fallback" }, -- zls can format
-				env = {},
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				dart = { "dcm" },

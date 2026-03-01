@@ -31,8 +31,8 @@ window {
     location: center;
     anchor:   center;
     // border-radius: 10px;
-    height: 560px;
-    width: 600px;
+    height: 30%;
+    width: 30%;
 
     background-color: @transparent;
     spacing: 0;
@@ -47,8 +47,8 @@ mainbox {
 
 message {
     padding: 10px;
-    border:  0px 2px 2px 2px;
-    border-color: @bg0;
+    // border:  0px 2px 2px 2px;
+    // border-color: @bg0;
     background-color: @bg1;
 }
 
@@ -56,9 +56,9 @@ inputbar {
     color: @fg0;
     padding: 14px;
     background-color: @bg0;
-    border-color: @bg0;
+    // border-color: @bg0;
 
-    border: 1px;
+    // border: 1px;
     // border-radius: 10px 10px 0px 0px;
 }
 
@@ -74,9 +74,9 @@ prompt {
 
 listview {
     padding: 8px;
-    border-radius: 0px 0px 10px 10px;
-    border: 2px 2px 2px 2px;
-    border-color: @bg0;
+    // border-radius: 0px 0px 10px 10px;
+    // border: 2px 2px 2px 2px;
+    // border-color: @bg0;
     background-color: @bg0;
     dynamic: false;
 }
@@ -84,7 +84,7 @@ listview {
 element {
     padding: 5px;
     vertical-align: 0.5;
-    border-radius: 10px;
+    // border-radius: 10px;
     background-color: transparent;
     text-color: @fg0;
 }
@@ -102,8 +102,8 @@ element.normal.urgent {
 element.selected.normal {
     background-color: @bg1; /* Vague's selection color */
     text-color: @fg0;
-    border: 1px;
-    border-color: @accent;
+    // border: 1px;
+    color: @blue;
 }
 
 element.selected.active {
@@ -133,13 +133,13 @@ button {
     color: @fg1;
     horizontal-align: 0.5;
 
-    border: 2px 0px 2px 2px;
-    border-radius: 10px;
-    border-color: @bg1;
+    // border: 2px 0px 2px 2px;
+    // border-radius: 10px;
+    // border-color: @bg1;
 }
 
 button.selected.normal {
-    border: 2px 0px 2px 2px;
-    border-color: @accent;
+    // border: 2px 0px 2px 2px;
+    // border-color: @accent;
     text-color: @fg0;
 }

@@ -6,6 +6,7 @@ return {
 		"css",
 		"tsx",
 		"jsx",
+		"rasi",
 	},
 	config = function()
 		require("colorizer").setup()
