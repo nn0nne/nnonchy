@@ -149,7 +149,6 @@ add-zsh-hook precmd _git_auto_fetch
 alias n="~/.config/kitty/kitty_none.sh"
 alias none="~/.config/kitty/kitty_none.sh"
 alias v="~/.config/kitty/kitty_nvim.sh"
-alias nvim="~/.config/kitty/kitty_nvim.sh"
 
 alias df="duf"
 alias ls="eza -l -F --icons --smart-group"
