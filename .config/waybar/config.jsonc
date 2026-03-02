@@ -21,7 +21,7 @@
     "spacing": 4,
 
     "modules-left": [
-      "systemd-failed-units",
+      // "systemd-failed-units",
       "clock",
       "ext/workspaces",
       "dwl/window",
@@ -30,6 +30,7 @@
     "modules-center": ["mpris"],
     "modules-right": [
       "group/tray",
+      "idle_inhibitor",
       "temperature",
       "cpu",
       "memory",
@@ -54,6 +55,13 @@
     //   "on-click": "playerctl next",
     //   "on-click-left": "playerctl previous",
     // },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": "",
+      },
+    },
     "systemd-failed-units": {
       "format": "  <span color='#d8647e'>✗</span> {nr_failed}",
     },
@@ -177,7 +185,6 @@
         "mode": "year",
         "mode-mon-col": 3,
         "weeks-pos": "right",
-        "on-scroll": 1,
         "format": {
           "months": "<span color='#bb9dbd'><b>{}</b></span>",
           "weeks": "<span color='#6e94b2'><b>W{}</b></span>",

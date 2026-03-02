@@ -3,6 +3,8 @@
 # User configuration sourced by interactive shells
 #
 
+
+
 # -----------------
 # Zsh configuration
 # -----------------
@@ -19,7 +21,7 @@ setopt HIST_IGNORE_ALL_DUPS
 #
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -e
+# bindkey -v
 
 # Prompt for spelling correction of commands.
 #setopt CORRECT
@@ -142,9 +144,13 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd _git_auto_fetch
 
 
+
 ## alias stuff
-alias n='NVIM_APPNAME="nonevim" nvim'
-alias v='NVIM_APPNAME="nvim" nvim'
+alias n="~/.config/kitty/kitty_none.sh"
+alias none="~/.config/kitty/kitty_none.sh"
+alias v="~/.config/kitty/kitty_nvim.sh"
+alias nvim="~/.config/kitty/kitty_nvim.sh"
+
 alias df="duf"
 alias ls="eza -l -F --icons --smart-group"
 alias du="dua i"

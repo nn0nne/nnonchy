@@ -178,12 +178,12 @@ tooltip label {
 }
 
 #idle_inhibitor.activated {
-  color: #141415;
+  color: #cdcdcd;
   background: transparent;
 }
 
 #idle_inhibitor.deactivated {
-  color: #8ba9c1;
+  color: #606079;
 }
 
 #power-profiles-daemon.performance {

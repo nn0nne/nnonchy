@@ -12,7 +12,7 @@
     // `UseDefault`: use `timeout`.
     // `NeverExpire`: show this notification forever.
     // The latter is technically correct according to the notification spec: https://specifications.freedesktop.org/notification-spec/notification-spec-latest.html
-    zero_timeout_behavior: UseDefault,
+    zero_timeout_behavior: NeverExpire,
 
     // `poll_interval` decides decides how often (in milliseconds) Wired checks events,
     // draws notifications (if necessary) -- the update loop while any notification is present.
