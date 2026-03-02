@@ -43,6 +43,56 @@ tooltip label {
 }
 
 /* === Modules === */
+#tags button {
+  padding: 0 0.8rem; /*More horizontal padding for text */
+  font-weight: normal;
+}
+
+#tags button:not(.occupied):not(.focused) {
+  font-size: 0;
+  min-width: 0;
+  padding: 0;
+  margin: -50px;
+  color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+  transition: none;
+}
+
+#tags button.focused {
+  background: transparent;
+  font-weight: bold;
+  color: #cdcdcd;
+}
+
+#tags button.urgent {
+  background: transparent;
+  animation: blink 1s infinite;
+  color: #d8647e;
+}
+
+#tags button:hover {
+  background: transparent;
+}
+
+/* Optional: Add subtle transition for hover effects */
+#tags button {
+  transition: all 0.2s ease-in-out;
+  color: #606079;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 #custom-cava {
   font-size: 24px;
   color: rgba(96, 96, 121, 0.5);

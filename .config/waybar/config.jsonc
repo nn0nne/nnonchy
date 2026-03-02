@@ -19,11 +19,17 @@
   // },
   {
     "spacing": 4,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "ipc": false,
+    "layer": "top",
+    "position": "top",
 
     "modules-left": [
       // "systemd-failed-units",
       "clock",
-      "ext/workspaces",
+      "dwl/tags",
+      // "ext/workspaces",
       "dwl/window",
     ],
     // "modules-center": ["custom/playerinfo"],
@@ -55,6 +61,11 @@
     //   "on-click": "playerctl next",
     //   "on-click-left": "playerctl previous",
     // },
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 14,
+      "tooltip-format": "{title}",
+    },
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
@@ -155,6 +166,11 @@
       "ignore-hidden": true,
       "on-click": "activate",
       "sort-by-id": true,
+    },
+    "dwl/tags": {
+      "num-tags": 9,
+      "disable-click": true,
+      "tag-labels": ["一", "二", "三", "四", "五", "六", "七", "八", "九"],
     },
 
     "dwl/window": {
