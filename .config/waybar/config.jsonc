@@ -128,21 +128,21 @@
     },
 
     "temperature": {
-      "interval": 60,
+      "interval": 30,
       "critical-threshold": 50,
       "warning-threshold": 60,
       "format": "{temperatureC}°C",
     },
 
     "memory": {
-      "interval": 60,
+      "interval": 30,
       "format": "{percentage}%   {swapPercentage}% 󰓡",
       "tooltip": true,
       "tooltip-format": "{used:0.1f}GiB   {swapUsed:0.1f}GiB 󰓡",
     },
 
     "cpu": {
-      "interval": 60,
+      "interval": 30,
       "format": "{usage}% ",
       "on-click": "foot -e btm",
     },
