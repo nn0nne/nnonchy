@@ -37,6 +37,10 @@ prepend_keymap = [
   { on = "<C-w>", run = "plugin close-and-restore-tab close_to_right", desc = "Close the current tab and turn to right tab, or quit if it is last tab" },
   { on = "<C-t>", run = "plugin close-and-restore-tab restore", desc = "Restore the closed tab" },
   { on = "q", run = "plugin confirm-quit", desc = "Exit the process" },
+  { on = [
+    "g",
+    "g",
+  ], run = "plugin gitui", desc = "run gitui" },
 ]
 
 keymap = [
