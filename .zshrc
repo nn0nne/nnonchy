@@ -234,6 +234,9 @@ eval "$(zoxide init zsh --cmd cd)"
 # starship setup
 eval "$(starship init zsh)"
 
+# tirith setup
+# eval "$(tirith init --shell zsh)"
+
 # fnm (fast node manager) setup
 eval "$(fnm env --use-on-cd --shell zsh)"
 
