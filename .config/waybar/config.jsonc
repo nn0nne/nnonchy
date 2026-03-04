@@ -27,6 +27,7 @@
 
     "modules-left": [
       // "systemd-failed-units",
+      "custom/updates",
       "clock",
       "dwl/tags",
       // "ext/workspaces",
@@ -61,6 +62,16 @@
     //   "on-click": "playerctl next",
     //   "on-click-left": "playerctl previous",
     // },
+    "custom/updates": {
+      "format": " {} {icon}",
+      "return-type": "json",
+      "format-icons": {
+        "has-updates": "󱍷",
+        "updated": "󰂪",
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      "exec": "waybar-module-pacman-updates --no-zero-output --interval-seconds 300 --network-interval-seconds 600 --column-color-overrides #cdcdcd,#606079,#f3be7c,#7fa563",
+    },
     "wlr/taskbar": {
       "format": "{icon}",
       "icon-size": 14,
@@ -115,7 +126,7 @@
     },
 
     "mpris": {
-      "format": "{player_icon} {artist} - {title}",
+      "format": "{player_icon} {artist} - {title} {0}",
       "format-paused": "{status_icon} <i>{artist} - {title}</i>",
       "player-icons": {
         "default": "▶",
