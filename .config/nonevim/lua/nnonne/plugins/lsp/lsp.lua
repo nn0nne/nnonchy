@@ -68,35 +68,35 @@ return {
 		"saghen/blink.cmp",
 		dependencies = {
 			{ "rafamadriz/friendly-snippets" },
-			{
-				"nvim-mini/mini.snippets",
-				version = "*",
-				config = function()
-					require("mini.snippets").setup({
-						snippets = {
-							require("mini.snippets").gen_loader.from_lang(),
-						},
-					})
-				end,
-				opts = {
-					sources = {
-						-- add lazydev to your completion providers
-						default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-						providers = {
-							lazydev = {
-								name = "LazyDev",
-								module = "lazydev.integrations.blink",
-								-- make lazydev completions top priority (see `:h blink.cmp`)
-								score_offset = 100,
-							},
-						},
-					},
-				},
-			},
+			-- {
+			-- 	"nvim-mini/mini.snippets",
+			-- 	version = "*",
+			-- 	config = function()
+			-- 		require("mini.snippets").setup({
+			-- 			snippets = {
+			-- 				require("mini.snippets").gen_loader.from_lang(),
+			-- 			},
+			-- 		})
+			-- 	end,
+			-- 	opts = {
+			-- 		sources = {
+			-- 			-- add lazydev to your completion providers
+			-- 			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+			-- 			providers = {
+			-- 				lazydev = {
+			-- 					name = "LazyDev",
+			-- 					module = "lazydev.integrations.blink",
+			-- 					-- make lazydev completions top priority (see `:h blink.cmp`)
+			-- 					score_offset = 100,
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 		},
 		version = "1.*",
 		opts = {
-			snippets = { preset = "mini_snippets" },
+			-- snippets = { preset = "mini_snippets" },
 			keymap = {
 				preset = "default",
 				["<C-p>"] = { "select_prev", "fallback" },

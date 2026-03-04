@@ -48,7 +48,7 @@ return {
 						end,
 						icon = " ",
 					},
-					{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+					-- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
 					{
 						function()
 							return vim.fn.expand("%:~:.")
