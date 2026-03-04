@@ -103,7 +103,7 @@
       "format-wifi": "󰖩",
       "format-disconnected": "",
       "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
-      "on-click": "foot -e impala",
+      "on-click": "kitty -e impala",
     },
     "bluetooth": {
       "format": "",
@@ -111,7 +111,7 @@
       "format-on": "",
       "tooltip": true,
       "tooltip-format-connected": "{device_alias} - {device_battery_percentage}%",
-      "on-click": "foot -e bluetui",
+      "on-click": "kitty -e bluetui",
     },
 
     "mpris": {
@@ -144,7 +144,7 @@
     "cpu": {
       "interval": 30,
       "format": "{usage}% ",
-      "on-click": "foot -e btm",
+      "on-click": "kitty -e btm",
     },
 
     "disk": {
