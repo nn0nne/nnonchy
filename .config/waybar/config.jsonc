@@ -67,7 +67,7 @@
       "return-type": "json",
       "format-icons": {
         "has-updates": "󱍷",
-        "updated": "󰂪",
+        "updated": "",
       },
       "exec-if": "which waybar-module-pacman-updates",
       "exec": "waybar-module-pacman-updates --no-zero-output --interval-seconds 300 --network-interval-seconds 600 --column-color-overrides #cdcdcd,#606079,#f3be7c,#7fa563",
@@ -126,7 +126,7 @@
     },
 
     "mpris": {
-      "format": "{player_icon} {artist} - {title} {0}",
+      "format": "{player_icon} {artist} - {title}",
       "format-paused": "{status_icon} <i>{artist} - {title}</i>",
       "player-icons": {
         "default": "▶",
