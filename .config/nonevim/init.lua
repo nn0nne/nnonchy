@@ -15,3 +15,21 @@ augroup kitty_mp
     au BufEnter * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0 margin=0
 augroup END
 ]])
+
+vim.opt.textwidth = 80
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	pattern = { "*.md" },
+	callback = function()
+		vim.opt.colorcolumn = "80"
+		vim.opt.textwidth = 80
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+	pattern = { "*.md" },
+	callback = function()
+		vim.opt.colorcolumn = "120"
+		vim.opt.textwidth = 120
+	end,
+})

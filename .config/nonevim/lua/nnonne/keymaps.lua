@@ -1,9 +1,4 @@
 local M = {}
-local runner_term = require("toggleterm.terminal").Terminal:new({
-	-- cmd = "bash",
-	hidden = false,
-	direction = "float",
-})
 M.spec = {
 	-- Clear highlights
 	{ "<Esc>", "<cmd>nohlsearch<CR>", desc = "Clear highlights", mode = "n" },
@@ -75,36 +70,6 @@ M.spec = {
 	{ "<leader><tab>]", "<cmd>tabnext<cr>", desc = "Next Tab" },
 	{ "<leader><tab>d", "<cmd>tabclose<cr>", desc = "Close Tab" },
 	{ "<leader><tab>p", "<cmd>tabprevious<cr>", desc = "Previous Tab" },
-
-	-- Terminal
-	{ "<leader>t", group = "Terminal" },
-	{
-		"<leader>tt",
-		function()
-			runner_term.direction = "float"
-			runner_term:toggle()
-		end,
-		desc = "Float Terminal",
-		mode = "n",
-	},
-	{
-		"<leader>tv",
-		function()
-			runner_term.direction = "vertical"
-			runner_term:toggle()
-		end,
-		desc = "Vertical Terminal",
-		mode = "n",
-	},
-	{
-		"<leader>th",
-		function()
-			runner_term.direction = "horizontal"
-			runner_term:toggle()
-		end,
-		desc = "Horizontal Terminal",
-		mode = "n",
-	},
 
 	-- Files / Find
 	{ "<leader>f", group = "Find" },

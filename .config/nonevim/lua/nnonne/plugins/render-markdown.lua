@@ -1,41 +1,26 @@
 return {
 	"MeanderingProgrammer/render-markdown.nvim",
-	enabled = true,
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
-	},
-	---@module 'render-markdown'
-	ft = { "markdown", "norg", "rmd", "org" },
-	init = function()
-		-- Define colors
-		local color1_bg = "#d8647e"
-		local color2_bg = "#7fa563"
-		local color3_bg = "#b4d4cf"
-		local color4_bg = "#e0a363"
-		local color5_bg = "#7e98e8"
-		local color6_bg = "#c3c3d5"
-		local color_fg = "#141415"
-
-		-- Heading background
-		vim.cmd(string.format([[highlight Headline1Bg guifg=%s guibg=%s gui=bold]], color_fg, color1_bg))
-		vim.cmd(string.format([[highlight Headline2Bg guifg=%s guibg=%s gui=bold]], color_fg, color2_bg))
-		vim.cmd(string.format([[highlight Headline3Bg guifg=%s guibg=%s gui=bold]], color_fg, color3_bg))
-		vim.cmd(string.format([[highlight Headline4Bg guifg=%s guibg=%s gui=bold]], color_fg, color4_bg))
-		vim.cmd(string.format([[highlight Headline5Bg guifg=%s guibg=%s gui=bold]], color_fg, color5_bg))
-		vim.cmd(string.format([[highlight Headline6Bg guifg=%s guibg=%s gui=bold]], color_fg, color6_bg))
-
-		-- Heading fg
-		vim.cmd(string.format([[highlight Headline1Fg guifg=%s gui=bold]], color1_bg))
-		vim.cmd(string.format([[highlight Headline2Fg guifg=%s gui=bold]], color2_bg))
-		vim.cmd(string.format([[highlight Headline3Fg guifg=%s gui=bold]], color3_bg))
-		vim.cmd(string.format([[highlight Headline4Fg guifg=%s gui=bold]], color4_bg))
-		vim.cmd(string.format([[highlight Headline5Fg guifg=%s gui=bold]], color5_bg))
-		vim.cmd(string.format([[highlight Headline6Fg guifg=%s gui=bold]], color6_bg))
-	end,
+	dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
+	ft = { "markdown" },
 	opts = {
 		heading = {
-			sign = false,
-			icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
+			enabled = true,
+			render_modes = false,
+			atx = true,
+			setext = true,
+			sign = true,
+			position = "overlay",
+			signs = { "󰫎 " },
+			width = "block",
+			left_margin = 0,
+			left_pad = 0,
+			right_pad = 0,
+			min_width = 30,
+			border = false,
+			border_virtual = false,
+			border_prefix = false,
+			above = "▄",
+			below = "▀",
 			backgrounds = {
 				"Headline1Bg",
 				"Headline2Bg",
@@ -52,39 +37,378 @@ return {
 				"Headline5Fg",
 				"Headline6Fg",
 			},
+			icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
 		},
-		code = {
-			sign = false,
-			width = "block",
-			right_pad = 1,
+		paragraph = {
+			enabled = true,
+			render_modes = false,
+			left_margin = 0,
+			indent = 0,
+			min_width = 0,
+		},
+		dash = {
+			enabled = true,
+			render_modes = false,
+			icon = "─",
+			width = "full",
+			left_margin = 0,
+			priority = nil,
+			highlight = "RenderMarkdownDash",
 		},
 		bullet = {
-			-- Turn on / off list bullet rendering
 			enabled = true,
+			render_modes = false,
+			icons = { "●", "○", "◆", "◇" },
+			ordered_icons = function(ctx)
+				local value = vim.trim(ctx.value)
+				local index = tonumber(value:sub(1, #value - 1))
+				return ("%d."):format(index > 1 and index or ctx.index)
+			end,
+			left_pad = 0,
+			right_pad = 0,
+			highlight = "RenderMarkdownBullet",
+			scope_highlight = {},
+			scope_priority = nil,
+		},
+		quote = {
+			enabled = true,
+			render_modes = false,
+			icon = "▋",
+			repeat_linebreak = false,
+			highlight = {
+				"RenderMarkdownQuote1",
+				"RenderMarkdownQuote2",
+				"RenderMarkdownQuote3",
+				"RenderMarkdownQuote4",
+				"RenderMarkdownQuote5",
+				"RenderMarkdownQuote6",
+			},
+		},
+		win_options = {
+			showbreak = {
+				default = "",
+				rendered = "  ",
+			},
+			breakindent = {
+				default = false,
+				rendered = true,
+			},
+			breakindentopt = {
+				default = "",
+				rendered = "",
+			},
+		},
+		pipe_table = {
+			enabled = true,
+			render_modes = false,
+			preset = "none",
+			cell = "padded",
+			cell_offset = function()
+				return 0
+			end,
+			padding = 1,
+			min_width = 12,
+			border = {
+				"┌",
+				"┬",
+				"┐",
+				"├",
+				"┼",
+				"┤",
+				"└",
+				"┴",
+				"┘",
+				"│",
+				"─",
+			},
+			border_enabled = true,
+			border_virtual = false,
+			alignment_indicator = "━",
+			head = "RenderMarkdownTableHead",
+			row = "RenderMarkdownTableRow",
+			style = "full",
+		},
+		callout = {
+			note = {
+				raw = "[!NOTE]",
+				rendered = "󰋽 Note",
+				highlight = "RenderMarkdownInfo",
+				category = "github",
+			},
+			tip = {
+				raw = "[!TIP]",
+				rendered = "󰌶 Tip",
+				highlight = "RenderMarkdownSuccess",
+				category = "github",
+			},
+			important = {
+				raw = "[!IMPORTANT]",
+				rendered = "󰅾 Important",
+				highlight = "RenderMarkdownHint",
+				category = "github",
+			},
+			warning = {
+				raw = "[!WARNING]",
+				rendered = "󰀪 Warning",
+				highlight = "RenderMarkdownWarn",
+				category = "github",
+			},
+			caution = {
+				raw = "[!CAUTION]",
+				rendered = "󰳦 Caution",
+				highlight = "RenderMarkdownError",
+				category = "github",
+			},
+			abstract = {
+				raw = "[!ABSTRACT]",
+				rendered = "󰨸 Abstract",
+				highlight = "RenderMarkdownInfo",
+				category = "obsidian",
+			},
+			summary = {
+				raw = "[!SUMMARY]",
+				rendered = "󰨸 Summary",
+				highlight = "RenderMarkdownInfo",
+				category = "obsidian",
+			},
+			tldr = {
+				raw = "[!TLDR]",
+				rendered = "󰨸 Tldr",
+				highlight = "RenderMarkdownInfo",
+				category = "obsidian",
+			},
+			info = {
+				raw = "[!INFO]",
+				rendered = "󰋽 Info",
+				highlight = "RenderMarkdownInfo",
+				category = "obsidian",
+			},
+			todo = {
+				raw = "[!TODO]",
+				rendered = "󰗡 Todo",
+				highlight = "RenderMarkdownInfo",
+				category = "obsidian",
+			},
+			hint = {
+				raw = "[!HINT]",
+				rendered = "󰌶 Hint",
+				highlight = "RenderMarkdownSuccess",
+				category = "obsidian",
+			},
+			success = {
+				raw = "[!SUCCESS]",
+				rendered = "󰄬 Success",
+				highlight = "RenderMarkdownSuccess",
+				category = "obsidian",
+			},
+			check = {
+				raw = "[!CHECK]",
+				rendered = "󰄬 Check",
+				highlight = "RenderMarkdownSuccess",
+				category = "obsidian",
+			},
+			done = {
+				raw = "[!DONE]",
+				rendered = "󰄬 Done",
+				highlight = "RenderMarkdownSuccess",
+				category = "obsidian",
+			},
+			question = {
+				raw = "[!QUESTION]",
+				rendered = "󰘥 Question",
+				highlight = "RenderMarkdownWarn",
+				category = "obsidian",
+			},
+			help = {
+				raw = "[!HELP]",
+				rendered = "󰘥 Help",
+				highlight = "RenderMarkdownWarn",
+				category = "obsidian",
+			},
+			faq = {
+				raw = "[!FAQ]",
+				rendered = "󰘥 Faq",
+				highlight = "RenderMarkdownWarn",
+				category = "obsidian",
+			},
+			attention = {
+				raw = "[!ATTENTION]",
+				rendered = "󰀪 Attention",
+				highlight = "RenderMarkdownWarn",
+				category = "obsidian",
+			},
+			failure = {
+				raw = "[!FAILURE]",
+				rendered = "󰅖 Failure",
+				highlight = "RenderMarkdownError",
+				category = "obsidian",
+			},
+			fail = {
+				raw = "[!FAIL]",
+				rendered = "󰅖 Fail",
+				highlight = "RenderMarkdownError",
+				category = "obsidian",
+			},
+			missing = {
+				raw = "[!MISSING]",
+				rendered = "󰅖 Missing",
+				highlight = "RenderMarkdownError",
+				category = "obsidian",
+			},
+			danger = {
+				raw = "[!DANGER]",
+				rendered = "󱐌 Danger",
+				highlight = "RenderMarkdownError",
+				category = "obsidian",
+			},
+			error = {
+				raw = "[!ERROR]",
+				rendered = "󱐌 Error",
+				highlight = "RenderMarkdownError",
+				category = "obsidian",
+			},
+			bug = {
+				raw = "[!BUG]",
+				rendered = "󰨰 Bug",
+				highlight = "RenderMarkdownError",
+				category = "obsidian",
+			},
+			example = {
+				raw = "[!EXAMPLE]",
+				rendered = "󰉹 Example",
+				highlight = "RenderMarkdownHint",
+				category = "obsidian",
+			},
+			quote = {
+				raw = "[!QUOTE]",
+				rendered = "󱆨 Quote",
+				highlight = "RenderMarkdownQuote",
+				category = "obsidian",
+			},
+			cite = {
+				raw = "[!CITE]",
+				rendered = "󱆨 Cite",
+				highlight = "RenderMarkdownQuote",
+				category = "obsidian",
+			},
+		},
+		link = {
+			enabled = true,
+			render_modes = false,
+			footnote = {
+				enabled = true,
+				icon = "󰯔 ",
+				body = function(ctx)
+					return ctx.text
+				end,
+				superscript = true,
+				prefix = "",
+				suffix = "",
+			},
+			image = "󰥶 ",
+			image_custom = true,
+			email = "󰀓 ",
+			hyperlink = "󰌹 ",
+			highlight = "RenderMarkdownLink",
+			highlight_title = "RenderMarkdownLinkTitle",
+			wiki = {
+				enabled = true,
+				icon = "󱗖 ",
+				body = function()
+					return nil
+				end,
+				highlight = "RenderMarkdownWikiLink",
+				scope_highlight = nil,
+			},
+			custom = {
+				web = { pattern = "^http", icon = "󰖟 " },
+				apple = { pattern = "apple%.com", icon = " " },
+				discord = { pattern = "discord%.com", icon = "󰙯 " },
+				github = { pattern = "github%.com", icon = "󰊤 " },
+				gitlab = { pattern = "gitlab%.com", icon = "󰮠 " },
+				google = { pattern = "google%.com", icon = "󰊭 " },
+				hackernews = { pattern = "ycombinator%.com", icon = " " },
+				linkedin = { pattern = "linkedin%.com", icon = "󰌻 " },
+				microsoft = { pattern = "microsoft%.com", icon = " " },
+				neovim = { pattern = "neovim%.io", icon = " " },
+				reddit = { pattern = "reddit%.com", icon = "󰑍 " },
+				slack = { pattern = "slack%.com", icon = "󰒱 " },
+				stackoverflow = { pattern = "stackoverflow%.com", icon = "󰓌 " },
+				steam = { pattern = "steampowered%.com", icon = " " },
+				twitter = { pattern = "twitter%.com", icon = " " },
+				wikipedia = { pattern = "wikipedia%.org", icon = "󰖬 " },
+				x = { pattern = "x%.com", icon = " " },
+				youtube = { pattern = "youtube[^.]*%.com", icon = "󰗃 " },
+				youtube_short = { pattern = "youtu%.be", icon = "󰗃 " },
+			},
+		},
+		indent = {
+			enabled = true,
+			render_modes = false,
+			per_level = 2,
+			skip_level = 1,
+			skip_heading = false,
+			icon = "▎",
+			priority = 0,
+			highlight = "RenderMarkdownIndent",
 		},
 		checkbox = {
-			-- Turn on / off checkbox state rendering
 			enabled = true,
-			-- Determines how icons fill the available space:
-			--  inline:  underlying text is concealed resulting in a left aligned icon
-			--  overlay: result is left padded with spaces to hide any additional text
-			position = "inline",
+			render_modes = false,
+			bullet = false,
+			left_pad = 0,
+			right_pad = 1,
 			unchecked = {
-				-- Replaces '[ ]' of 'task_list_marker_unchecked'
 				icon = "   󰄱 ",
-				-- Highlight for the unchecked icon
 				highlight = "RenderMarkdownUnchecked",
-				-- Highlight for item associated with unchecked checkbox
-				scope_highlight = nil,
+				scope_highlight = "@markup.strikethrough",
 			},
 			checked = {
-				-- Replaces '[x]' of 'task_list_marker_checked'
 				icon = "   󰱒 ",
-				-- Highlight for the checked icon
 				highlight = "RenderMarkdownChecked",
-				-- Highlight for item associated with checked checkbox
 				scope_highlight = nil,
 			},
+			custom = {
+				todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo", scope_highlight = nil },
+			},
+			scope_priority = nil,
+		},
+		code = {
+			enabled = true,
+			render_modes = false,
+			sign = false,
+			conceal_delimiters = true,
+			language = true,
+			position = "left",
+			language_icon = true,
+			language_name = true,
+			language_info = true,
+			language_pad = 0,
+			disable = {},
+			disable_background = { "diff" },
+			width = "block",
+			left_margin = 0,
+			left_pad = 2,
+			right_pad = 4,
+			min_width = 0,
+			border = "hide",
+			language_border = " ",
+			language_left = "",
+			language_right = "",
+			above = "▄",
+			below = "▀",
+			inline = true,
+			inline_left = "",
+			inline_right = "",
+			inline_pad = 0,
+			priority = 140,
+			highlight = "RenderMarkdownCode",
+			highlight_info = "RenderMarkdownCodeInfo",
+			highlight_language = nil,
+			highlight_border = "RenderMarkdownCodeBorder",
+			highlight_fallback = "RenderMarkdownCodeFallback",
+			highlight_inline = "RenderMarkdownCodeInline",
+			style = "full",
 		},
 	},
 }

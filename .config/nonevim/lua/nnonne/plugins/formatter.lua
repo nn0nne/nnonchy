@@ -1,6 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	opts = {},
+	event = { "BufReadPre" },
 	config = function()
 		local conform = require("conform")
 		local ft_formatters =

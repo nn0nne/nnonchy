@@ -70,7 +70,7 @@ opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.jumpoptions = "view"
 opt.laststatus = 3 -- global statusline
-opt.linebreak = true -- Wrap lines at convenient points
+opt.linebreak = false -- Wrap lines at convenient points
 opt.mouse = "a" -- Enable mouse mode
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
@@ -80,7 +80,8 @@ opt.shiftround = true -- Round indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.sidescrolloff = 8 -- Columns of context
 opt.smoothscroll = true
-opt.spelllang = { "en" }
+opt.spell = true
+opt.spelllang = { "en", "id" }
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
@@ -89,10 +90,10 @@ opt.undolevels = 10000
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = false -- Disable line wrap
+opt.wrap = true -- Disable line wrap
 
 -- Fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
+-- vim.g.markdown_recommended_style = 0
 
 -- search
 opt.inccommand = "split"
@@ -107,7 +108,6 @@ opt.foldcolumn = "0"
 -- misc
 opt.isfname:append("@-@")
 opt.updatetime = 50
-opt.colorcolumn = "80"
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

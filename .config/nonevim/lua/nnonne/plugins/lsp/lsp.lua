@@ -1,6 +1,7 @@
 return {
 	{
 		"mason-org/mason-lspconfig.nvim",
+		event = { "BufReadPre" },
 		opts = {
 			ensure_installed = {
 				"lua_ls",
@@ -22,6 +23,7 @@ return {
 			{
 				"neovim/nvim-lspconfig",
 				dependencies = { "saghen/blink.cmp" },
+				event = { "BufReadPre" },
 				config = function()
 					local group = vim.api.nvim_create_augroup("OoO", {})
 
@@ -66,8 +68,9 @@ return {
 	},
 	{
 		"saghen/blink.cmp",
+		event = { "BufReadPre" },
 		dependencies = {
-			{ "rafamadriz/friendly-snippets" },
+			{ "rafamadriz/friendly-snippets", event = { "BufReadPost", "BufNewFile" } },
 			-- {
 			-- 	"nvim-mini/mini.snippets",
 			-- 	version = "*",
@@ -120,5 +123,5 @@ return {
 		},
 		opts_extend = { "sources.default" },
 	},
-	{ "antosha417/nvim-lsp-file-operations", config = true },
+	{ "antosha417/nvim-lsp-file-operations", config = true, event = { "BufReadPre" } },
 }

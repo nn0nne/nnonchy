@@ -1,6 +1,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	event = "UIEnter",
+	-- event = "VeryLazy",
+	event = { "BufReadPost", "BufNewFile" },
 	opts = function()
 		local icons = {
 			diagnostics = { Error = " ", Warn = " ", Info = " ", Hint = " " },
