@@ -55,7 +55,7 @@ $status\
 $character"""
 
 command_timeout = 1000
-scan_timeout = 1000
+scan_timeout = 5000
 
 # Don't print a new line at the start of the prompt
 add_newline = true
