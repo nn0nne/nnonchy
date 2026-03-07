@@ -1,16 +1,15 @@
+# https://github.com/jdx/mise/discussions/8338 flutter mise error fix
+
 [tools]
-jq = "latest"
-node = "latest"
-fzf = "latest"
-fd = "latest"
-ripgrep = "latest"
-zoxide = "latest"
-imagemagick = "latest"
-ffmpeg = "latest"
-yazi = "latest"
-duf = "latest"
-bat = "latest"
-eza = "latest"
-lazygit = "latest"
-tmux = "latest"
-yt-dlp = "latest"
+go = "latest"
+node = "24"
+java = "openjdk"
+rust = "stable"
+zig = "latest"
+flutter = { version = "latest", platforms = """
+[linux-arm64]
+url = 'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_arm64_{{ version | replace(from="-stable", to="") }}-stable.tar.xz'
+
+[linux-x64]
+url = 'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_{{ version | replace(from="-stable", to="") }}-stable.tar.xz'
+""", url = 'https://sjorage.googleapis.com/flutter_infra_release/releases/stable/{{ os() }}/flutter_{{ os() }}{{ arch(x64="", arm64="_arm64") }}_{{ version | replace(from="-stable", to="") }}-stable.zip', version_expr = 'fromJSON(body).releases | filter({ #.channel == "stable" }) | map({ #.version }) | sortVersions()', version_list_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json" }

@@ -226,6 +226,9 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 {} 2>/dev/null || ls {}'"
 
 ### belows are setups ###
 
+# setup mise
+eval "$(/usr/bin/mise activate zsh)"
+
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
@@ -234,12 +237,6 @@ eval "$(zoxide init zsh --cmd cd)"
 
 # starship setup
 eval "$(starship init zsh)"
-
-# tirith setup
-# eval "$(tirith init --shell zsh)"
-
-# fnm (fast node manager) setup
-eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Added by Hugging Face CLI installer
 export PATH="$HOME/.local/bin:$PATH"
