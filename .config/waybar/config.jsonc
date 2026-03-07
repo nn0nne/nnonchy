@@ -18,7 +18,7 @@
   //   },
   // },
   {
-    "height": 10,
+    "height": 25,
     "spacing": 4,
     "passthrough": false,
     "gtk-layer-shell": true,
