@@ -14,3 +14,4 @@ url = 'https://storage.googleapis.com/flutter_infra_release/releases/stable/linu
 """, url = 'https://sjorage.googleapis.com/flutter_infra_release/releases/stable/{{ os() }}/flutter_{{ os() }}{{ arch(x64="", arm64="_arm64") }}_{{ version | replace(from="-stable", to="") }}-stable.zip', version_expr = 'fromJSON(body).releases | filter({ #.channel == "stable" }) | map({ #.version }) | sortVersions()', version_list_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json" }
 uv = "latest"
 rust = "latest"
+android-sdk = "latest"

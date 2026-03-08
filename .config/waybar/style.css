@@ -43,6 +43,23 @@ tooltip label {
 }
 
 /* === Modules === */
+#workspaces button {
+  padding: 0 0.8rem; /*More horizontal padding for text */
+  font-weight: normal;
+}
+
+#workspaces button.focused {
+  background: transparent;
+  font-weight: bold;
+  color: #cdcdcd;
+}
+
+/* Optional: Add subtle transition for hover effects */
+#workspaces button {
+  transition: all 0.2s ease-in-out;
+  color: #606079;
+}
+
 #tags button {
   padding: 0 0.8rem; /*More horizontal padding for text */
   font-weight: normal;
@@ -93,6 +110,7 @@ tooltip label {
     opacity: 1;
   }
 }
+
 #custom-cava {
   font-size: 24px;
   color: rgba(96, 96, 121, 0.5);

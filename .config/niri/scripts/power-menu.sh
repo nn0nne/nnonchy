@@ -59,7 +59,7 @@ action=$(echo "$chosen" | awk '{print $2}')
 
 case "$action" in
 Logout)
-    mmsg -q
+    niri msg action quit
     ;;
 Sleep)
     sync && systemctl suspend && swaylock --clock --indicator

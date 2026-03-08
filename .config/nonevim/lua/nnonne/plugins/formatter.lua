@@ -16,6 +16,7 @@ return {
 				html = { "prettier_d", "prettier" },
 				json = { "biome", "prettier_d", "prettier" },
 				jsonc = { "biome", "prettier_d", "prettier" },
+				kdl = { "kdlfmt" },
 				rasi = { "biome", "prettier_d", "prettier" },
 				yaml = { "prettier_d", "prettier" },
 				markdown = { "mdformat", "prettier_d", "prettier" },

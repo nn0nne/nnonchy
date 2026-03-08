@@ -4,6 +4,9 @@
 #
 
 
+# setup mise
+eval "$(/usr/bin/mise activate zsh)"
+
 # -----------------
 # Zsh configuration
 # -----------------
@@ -13,7 +16,7 @@
 #
 
 # Remove older command from the history if a duplicate is to be added.
-setopt HIST_IGNORE_ALL_DUPS
+            setopt HIST_IGNORE_ALL_DUPS
 
 #
 # Input/output
@@ -226,8 +229,6 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 {} 2>/dev/null || ls {}'"
 
 ### belows are setups ###
 
-# setup mise
-eval "$(/usr/bin/mise activate zsh)"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
