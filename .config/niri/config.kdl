@@ -5,6 +5,41 @@
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://niri-wm.github.io/niri/Configuration  :-Input
+workspace "󰭹 "
+workspace " "
+workspace " "
+window-rule {
+    match app-id="vesktop"
+    open-on-workspace "󰭹 "
+}
+window-rule {
+    match app-id="hnpfjngllnobngcgfapefoaidbinmjnm"
+    open-on-workspace "󰭹 "
+}
+window-rule {
+    match app-id="ibblmnobmgdmpoeblocemifbpglakpoi"
+    open-on-workspace "󰭹 "
+}
+window-rule {
+    match app-id="cinhimbnkkaeohfgghhklpknlkffjgod"
+    open-on-workspace " "
+}
+window-rule {
+    match app-id="agimnkijcaahngcdmfeangaknmldooml"
+    open-on-workspace " "
+}
+window-rule {
+    match app-id="eikjhbkpemdappjfcmdeeeamdpkgabmk"
+    open-on-workspace " "
+}
+window-rule {
+    match app-id="pjibgclleladliembfgfagdaldikeohf"
+    open-on-workspace " "
+}
+window-rule {
+    match app-id="osu*"
+    open-on-workspace " "
+}
 input {
     keyboard {
         xkb {
@@ -406,7 +441,37 @@ window-rule {
     match app-id="kitty"
     draw-border-with-background false
 }
+window-rule {
+    match app-id="wired"
+    open-floating true
+    default-floating-position x=0 y=0 relative-to="top-right"
+    open-focused false
+}
 binds {
+    Mod+R {
+        spawn-sh "pkill swaybg; pkill waybar; swaybg -i ~/.config/niri/wallpaper.png -m fill & waybar --config ~/.config/waybar/config-niri.jsonc &"
+    }
+    Mod+Shift+b {
+        spawn-sh "kitty -e bluetui"
+    }
+    Mod+Shift+w {
+        spawn-sh "kitty -e impala"
+    }
+    Mod+F5 {
+        spawn-sh "wlr-randr --output eDP-1 --mode 1920x1080@60.019001Hz && notify-send 'Refresh Rate' 'Set to 60' -t 2000"
+    }
+    Mod+F6 {
+        spawn-sh "wlr-randr --output eDP-1 --mode 1920x1080@144.003006Hz && notify-send 'Refresh Rate' 'Set to 144' -t 2000"
+    }
+    Mod+Shift+G {
+        spawn-sh "~/.config/mango/scripts/toggle-gammastep.sh >/dev/null 2>&1 &"
+    }
+    Mod+F1 {
+        spawn-sh "notify-send 'Dim' 'Enabled' -t 1000 && dim -p -d 0  "
+    }
+    Mod+F2 {
+        spawn-sh "pkill dim && notify-send 'Dim' 'Disabled' -t 1000"
+    }
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
     // like wev.
@@ -421,14 +486,11 @@ binds {
     Mod+Shift+Slash {
         show-hotkey-overlay
     }
-    Mod+R {
-        spawn-sh "pkill swaybg; pkill waybar; swaybg -i ~/.config/niri/wallpaper.png -m fill & waybar --config ~/.config/waybar/config-niri.jsonc &"
-    }
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" {
+    Mod+Return {
         spawn "kitty"
     }
-    Mod+D hotkey-overlay-title="Run an Application: rofi" {
+    Mod+D {
         spawn-sh "pkill rofi || rofi -show drun"
     }
     // Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
@@ -551,10 +613,10 @@ binds {
     // Mod+Page_Down      { focus-workspace-down; }
     // Mod+Page_Up        { focus-workspace-up; }
     Mod+BracketRight {
-        focus-workspace-down
+        spawn-sh "~/.config/niri/scripts/skip-empty-workspaces.sh down"
     }
     Mod+BracketLeft {
-        focus-workspace-up
+        spawn-sh "~/.config/niri/scripts/skip-empty-workspaces.sh up"
     }
     Mod+Shift+BracketRight {
         move-column-to-workspace-down
@@ -565,12 +627,12 @@ binds {
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
     // ...
-    Mod+Alt+BracketRight {
-        move-workspace-down
-    }
-    Mod+Alt+BracketLeft {
-        move-workspace-up
-    }
+    // Mod+Alt+BracketRight {
+    //     move-workspace-down
+    // }
+    // Mod+Alt+BracketLeft {
+    //     move-workspace-up
+    // }
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
     //

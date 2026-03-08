@@ -28,6 +28,9 @@ tooltip label {
   background: transparent;
   color: #606079;
   min-width: 12px;
+  padding: 0 0.8rem; /*More horizontal padding for text */
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
 }
 
 #workspaces button.active {
@@ -42,23 +45,25 @@ tooltip label {
   font-weight: bold;
 }
 
-/* === Modules === */
-#workspaces button {
-  padding: 0 0.8rem; /*More horizontal padding for text */
-  font-weight: normal;
-}
-
 #workspaces button.focused {
   background: transparent;
   font-weight: bold;
   color: #cdcdcd;
 }
 
-/* Optional: Add subtle transition for hover effects */
-#workspaces button {
-  transition: all 0.2s ease-in-out;
-  color: #606079;
+#workspaces button.empty {
+  font-size: 0;
+  min-width: 0;
+  padding: 0;
+  margin: -50px;
+  color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+  transition: none;
 }
+
+/* === Modules === */
 
 #tags button {
   padding: 0 0.8rem; /*More horizontal padding for text */
