@@ -1,10 +1,10 @@
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
-// https://niri-wm.github.io/niri/Configuration:-Introduction
+// https://niri-wm.github.io/niri/Configuration  :-Introduction
 // Input device configuration.
 // Find the full list of options on the wiki:
-// https://niri-wm.github.io/niri/Configuration:-Input
+// https://niri-wm.github.io/niri/Configuration  :-Input
 input {
     keyboard {
         xkb {
@@ -109,7 +109,7 @@ input {
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
 // Find more information on the wiki:
-// https://niri-wm.github.io/niri/Configuration:-Outputs
+// https://niri-wm.github.io/niri/Configuration  :-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
     // Uncomment this line to disable this output.
@@ -136,9 +136,9 @@ output "eDP-1" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     position x=0 y=0
-    variable-refresh-rate
-    // on-demand=true    focus-at-startup
-    backdrop-color "#000000"
+    // variable-refresh-rate on-demand=true
+    focus-at-startup
+    backdrop-color "#141415"
     hot-corners {
         off
  // top-left
@@ -149,7 +149,7 @@ output "eDP-1" {
 }
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
-// https://niri-wm.github.io/niri/Configuration:-Layout
+// https://niri-wm.github.io/niri/Configuration  :-Layout
 layout {
     // Set gaps around windows in logical pixels.
     gaps 1
@@ -163,7 +163,7 @@ layout {
     always-center-single-column
     // empty-workspace-above-first
     default-column-display "tabbed"
-    background-color "#000000"
+    background-color "#141415"
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
@@ -208,13 +208,13 @@ layout {
         // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        active-color "#6e94b2"
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#505050"
-        urgent-color "#9b0000"
+        inactive-color "#252530"
+        urgent-color "#d8647e"
  // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
         // The angle is the same as in linear-gradient, and is optional,
@@ -237,11 +237,11 @@ layout {
     //     off
     //
     //     width 1
-    //     active-color "#ffc87f"
-    //     inactive-color "#505050"
+    //     active-color "#f3be7c"
+    //     inactive-color "#606079"
     //
     //     // Color of the border around windows that request your attention.
-    //     urgent-color "#9b0000"
+    //     urgent-color "#d8647e"
     //
     //     // Gradients can use a few different interpolation color spaces.
     //     // For example, this is a pastel rainbow gradient via in="oklch longer hue".
@@ -292,15 +292,15 @@ layout {
         on
         hide-when-single-tab
         place-within-column
-        gap 5
+        gap 1
         width 4
         length total-proportion=1.0
         position "right"
-        gaps-between-tabs 2
-        corner-radius 8
-        active-color "red"
-        inactive-color "gray"
-        urgent-color "blue"
+        gaps-between-tabs 0
+        corner-radius 0
+        active-color "#6e94b2"
+        inactive-color "#252530"
+        urgent-color "#d8647e"
  // active-gradient from="#80c8ff" to="#bbddff" angle=45
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
         // urgent-gradient from="#800" to="#a33" angle=45
@@ -308,7 +308,7 @@ layout {
     insert-hint {
         // off
         on
-        color "#ffc87f80"
+        color "#f3be7c80"
  // gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
     }
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -362,14 +362,14 @@ recent-windows {
     debounce-ms 750
     open-delay-ms 150
     highlight {
-        active-color "#999999ff"
-        urgent-color "#ff9999ff"
-        padding 30
+        active-color "#cdcdcdaa"
+        urgent-color "#d8647eaa"
+        padding 0
         corner-radius 0
     }
     previews {
-        max-height 480
-        max-scale 0.5
+        max-height 1080
+        max-scale 0.75
     }
     binds {
         Alt+Tab {
@@ -382,7 +382,7 @@ recent-windows {
 }
 // Animation settings.
 // The wiki explains how to configure individual animations:
-// https://niri-wm.github.io/niri/Configuration:-Animations
+// https://niri-wm.github.io/niri/Configuration  :-Animations
 animations {
     // Uncomment to turn off all animations.
     off
@@ -401,7 +401,7 @@ switch-events {
 }
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
-// https://niri-wm.github.io/niri/Configuration:-Window-Rules
+// https://niri-wm.github.io/niri/Configuration  :-Window-Rules
 window-rule {
     match app-id="kitty"
     draw-border-with-background false
