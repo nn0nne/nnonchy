@@ -363,6 +363,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // This line starts waybar, a commonly used bar for Wayland compositors.
+spawn-sh-at-startup "niriusd &"
 spawn-sh-at-startup "waybar --config ~/.config/waybar/config-niri.jsonc"
 spawn-sh-at-startup "pkill swaybg; swaybg -i ~/.config/niri/wallpaper.png -m fill >/dev/null 2>&1 &"
 spawn-sh-at-startup "lxsession &"
@@ -448,6 +449,15 @@ window-rule {
     open-focused false
 }
 binds {
+    Mod+minus {
+        spawn-sh "nirius scratchpad-toggle"
+    }
+    Mod+Shift+Minus {
+        spawn-sh "nirius scratchpad-show"
+    }
+    Mod+Z {
+        spawn-sh "nirius scratchpad-show-all"
+    }
     Mod+R {
         spawn-sh "pkill swaybg; pkill waybar; swaybg -i ~/.config/niri/wallpaper.png -m fill & waybar --config ~/.config/waybar/config-niri.jsonc &"
     }
@@ -503,10 +513,10 @@ binds {
     // Using spawn-sh allows to pass multiple arguments together with the command.
     // "-l 1.0" limits the volume to 100%.
     XF86AudioRaiseVolume allow-when-locked=true {
-        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ -l 1.0"
     }
     XF86AudioLowerVolume allow-when-locked=true {
-        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"
     }
     XF86AudioMute allow-when-locked=true {
         spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
@@ -532,10 +542,10 @@ binds {
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn "brightnessctl" "--class=backlight" "set" "+10%"
+        spawn "brightnessctl" "--class=backlight" "set" "+1%"
     }
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn "brightnessctl" "--class=backlight" "set" "10%-"
+        spawn "brightnessctl" "--class=backlight" "set" "1%-"
     }
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,

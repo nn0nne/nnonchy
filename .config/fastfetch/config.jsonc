@@ -171,11 +171,11 @@
     //   "keyIcon": "",
     //   "slowVersionDetection": false,
     // },
-    // {
-    //   "type": "wm",
-    //   "keyIcon": "",
-    //   "detectPlugin": false,
-    // },
+    {
+      "type": "wm",
+      "keyIcon": "",
+      "detectPlugin": false,
+    },
     // {
     //   "type": "wmtheme",
     //   "keyIcon": "󰓸",

@@ -14,6 +14,7 @@ COUNT=${#POPULATED_INDICES[@]}
 
 # If no other workspaces have windows, just exit
 if [ "$COUNT" -le 1 ]; then
+    niri msg action focus-workspace-$1
     exit 0
 fi
 
