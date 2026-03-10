@@ -1,317 +1,300 @@
 description: Packages installed manually on the system (auto-synced by dcli)
 packages:
-- 7zip
-- accountsservice
-- alsa-firmware
-- alsa-plugins
-- alsa-utils
-- android-platform
-- android-sdk
-- android-sdk-build-tools
-- android-sdk-cmdline-tools-latest
-- awesome-terminal-fonts
-- bash-completion
-- bat
-- bind
-- blesh-git
-- bluetui
-- bluez
-- bluez-hid2hci
-- bluez-libs
-- bluez-utils
-- bottom
-- bpftune-git
-- brave-bin
-- bridge-utils
-- brightnessctl
-- btrfs-assistant
-- btrfs-progs
-- cachy-update
-- cachyos-gaming-meta
-- cachyos-hello
-- cachyos-hooks
-- cachyos-kernel-manager
-- cachyos-keyring
-- cachyos-mirrorlist
-- cachyos-packageinstaller
-- cachyos-plymouth-bootanimation
-- cachyos-rate-mirrors
-- cachyos-settings
-- cachyos-snapper-support
-- cachyos-v3-mirrorlist
-- cachyos-v4-mirrorlist
-- calf
-- cantarell-fonts
-- ccache
-- chwd
-- cliphist
-- cloudflare-warp-bin
-- cpupower
-- cpx-copy
-- cronie
-- cryptsetup
-- cups
-- cups-filters
-- cups-pdf
-- dcli-arch-git
-- device-mapper
-- dhclient
-- diffutils
-- dim-screen
-- direnv
-- dmidecode
-- dmraid
-- dnsmasq
-- docker
-- docker-compose-bin
-- dosfstools
-- dua-cli
-- duf
-- e2fsprogs
-- easyeffects
-- efibootmgr
-- efitools
-- egl-wayland
-- ethtool
-- ex-vi-compat
-- exfatprogs
-- eza
-- f2fs-tools
-- fastfetch
-- fcitx5
-- fcitx5-configtool
-- fcitx5-mozc
-- ffmpegthumbnailer
-- flat-remix-gtk
-- flutter-bin
-- fnm-bin
-- foomatic-db
-- foomatic-db-engine
-- foomatic-db-gutenprint-ppds
-- foomatic-db-nonfree
-- foomatic-db-nonfree-ppds
-- foomatic-db-ppds
-- foot
-- fsarchiver
-- fuse2
-- gamemode
-- gamescope
-- gammastep
-- ghostscript
-- git
-- git-lfs
-- github-cli
-- gitui
-- glances
-- go
-- grim
-- gsfonts
-- gst-libav
-- gst-plugin-pipewire
-- gst-plugin-va
-- gst-plugins-bad
-- gst-plugins-ugly
-- gthumb
-- gutenprint
-- gvfs
-- gvfs-afc
-- gvfs-mtp
-- haveged
-- hdparm
-- helium-browser-bin
-- hplip
-- hwdetect
-- hwinfo
-- impala
-- inetutils
-- intel-media-driver
-- intel-ucode
-- iptables-nft
-- iwd
-- jdk17-openjdk
-- jfsutils
-- lazydocker
-- less
-- lib32-mesa
-- lib32-nvidia-utils
-- lib32-opencl-nvidia
-- lib32-vulkan-intel
-- libdvdcss
-- libgsf
-- libopenraw
-- libreoffice-fresh
-- libva-nvidia-driver
-- libvirt
-- libwnck3
-- limine
-- limine-mkinitcpio-hook
-- limine-snapper-sync
-- linux-cachyos
-- linux-cachyos-headers
-- linux-cachyos-lts
-- linux-cachyos-lts-headers
-- linux-cachyos-lts-nvidia-open
-- linux-cachyos-nvidia-open
-- linux-firmware
-- localsend
-- logrotate
-- lsb-release
-- lsof
-- lsp-plugins-lv2
-- lsscsi
-- lua-luv
-- lutris
-- lvm2
-- lxqt-config
-- lxsession
-- ly
-- man-db
-- man-pages
-- mangowc-git
-- mdadm
-- mesa-utils
-- mkinitcpio
-- modemmanager
-- mousetweaks
-- mpv
-- mtools
-- nano
-- nano-syntax-highlighting
-- nbfc-linux
-- neovim
-- netctl
-- network-manager-applet
-- networkmanager
-- networkmanager-openvpn
-- nfs-utils
-- nilfs-utils
-- noto-color-emoji-fontconfig
-- noto-fonts
-- noto-fonts-cjk
-- noto-fonts-emoji
-- nss-mdns
-- ntp
-- nvidia-prime
-- nvidia-settings
-- nvidia-utils
-- nwg-look
-- obs-studio
-- opencl-nvidia
-- opencode-bin
-- openssh
-- os-prober
-- osu-lazer-bin
-- pacman-contrib
-- pandoc-cli
-- paru-git
-- pavucontrol
-- perl
-- pipewire-alsa
-- pipewire-pulse
-- pkgfile
-- plocate
-- plymouth
-- poppler-glib
-- power-profiles-daemon
-- powertop
-- profile-sync-daemon
-- pv
-- python
-- python-defusedxml
-- python-packaging
-- python-pipx
-- python-pypresence
-- python-pyqt5
-- python-reportlab
-- qemu-desktop
-- qt5ct
-- qt6-graphs
-- rebuild-detector
-- reflector
-- resvg
-- ripgrep
-- rofi
-- rofi-calc
-- rofi-emoji
-- rsync
-- rtkit
-- s-nail
-- sg3_utils
-- slurp
-- smartmontools
-- snapper
-- sof-firmware
-- splix
-- starship
-- sudo
-- swaybg
-- swaylock
-- swaync
-- switcheroo-control
-- sysfsutils
-- system-config-printer
-- tailscale
-- tectonic
-- tela-circle-icon-theme-black
-- texinfo
-- thunar
-- thunar-archive-plugin
-- thunar-volman
-- tldr
-- tmux
-- tree-sitter-cli
-- ttf-bitstream-vera
-- ttf-dejavu
-- ttf-jetbrains-mono-nerd
-- ttf-liberation
-- ttf-ms-win11-auto
-- ttf-opensans
-- tumbler
-- tumbler-extra-thumbnailers
-- udiskie
-- ufw
-- unrar
-- unzip
-- upower
-- usb_modeswitch
-- usbutils
-- uv
-- vesktop-bin
-- vial-appimage
-- vim
-- vlc-plugin-ffmpeg
-- vpl-gpu-rt
-- vulkan-intel
-- waybar
-- wdisplays
-- wev
-- wget
-- which
-- wireless-regdb
-- wireplumber
-- wl-clip-persist
-- wl-clipboard
-- wlr-randr
-- wpa_supplicant
-- wqy-zenhei
-- xarchiver
-- xdg-desktop-portal-wlr
-- xdg-user-dirs
-- xf86-input-libinput
-- xfsprogs
-- xl2tpd
-- xorg-server
-- xorg-xdpyinfo
-- xorg-xinit
-- xorg-xinput
-- xorg-xkill
-- xorg-xrandr
-- xsettingsd
-- xwayland-satellite
-- yazi
-- yt-dlp
-- zip
-- zoxide
+  - 7zip
+  - accountsservice
+  - alsa-firmware
+  - alsa-plugins
+  - alsa-utils
+  - bash-completion
+  - bat
+  - bind
+  - bluetui
+  - bluez
+  - bluez-hid2hci
+  - bluez-libs
+  - bluez-utils
+  - bpftune-git
+  - brave-bin
+  - bridge-utils
+  - brightnessctl
+  - btop
+  - btrfs-assistant
+  - btrfs-progs
+  - cachyos-hello
+  - cachyos-hooks
+  - cachyos-kernel-manager
+  - cachyos-keyring
+  - cachyos-mirrorlist
+  - cachyos-packageinstaller
+  - cachyos-plymouth-bootanimation
+  - cachyos-rate-mirrors
+  - cachyos-settings
+  - cachyos-snapper-support
+  - cachyos-v3-mirrorlist
+  - cachyos-v4-mirrorlist
+  - calf
+  - cantarell-fonts
+  - ccache
+  - chwd
+  - clamav
+  - cliphist
+  - cloudflare-warp-bin
+  - cpupower
+  - cpx-copy
+  - cronie
+  - cryptsetup
+  - cups
+  - cups-filters
+  - cups-pdf
+  - dcli-arch-git
+  - device-mapper
+  - dhclient
+  - diffutils
+  - dim-screen
+  - dmidecode
+  - dmraid
+  - dnsmasq
+  - docker
+  - docker-compose-bin
+  - dosfstools
+  - dua-cli
+  - duf
+  - e2fsprogs
+  - easyeffects
+  - efibootmgr
+  - efitools
+  - egl-wayland
+  - ethtool
+  - ex-vi-compat
+  - exfatprogs
+  - eza
+  - f2fs-tools
+  - fastfetch
+  - fcitx5
+  - fcitx5-configtool
+  - fcitx5-mozc
+  - ffmpegthumbnailer
+  - flat-remix-gtk
+  - flutter-bin
+  - foomatic-db
+  - foomatic-db-engine
+  - foomatic-db-gutenprint-ppds
+  - foomatic-db-nonfree
+  - foomatic-db-nonfree-ppds
+  - foomatic-db-ppds
+  - fsarchiver
+  - fuse2
+  - gammastep
+  - ghostscript
+  - git
+  - git-lfs
+  - github-cli
+  - gitui
+  - grim
+  - gsfonts
+  - gst-libav
+  - gst-plugin-pipewire
+  - gst-plugin-va
+  - gst-plugins-bad
+  - gst-plugins-ugly
+  - gthumb
+  - gutenprint
+  - gvfs
+  - gvfs-afc
+  - gvfs-mtp
+  - haveged
+  - hdparm
+  - hplip
+  - hwdetect
+  - hwinfo
+  - impala
+  - inetutils
+  - intel-media-driver
+  - intel-ucode
+  - iptables-nft
+  - iwd
+  - jdk17-openjdk
+  - jfsutils
+  - kitty
+  - lazydocker
+  - less
+  - lib32-mesa
+  - lib32-nvidia-utils
+  - lib32-opencl-nvidia
+  - lib32-vulkan-intel
+  - libcanberra
+  - libdvdcss
+  - libgsf
+  - libopenraw
+  - libreoffice-fresh
+  - libva-nvidia-driver
+  - libvirt
+  - libwnck3
+  - limine
+  - limine-mkinitcpio-hook
+  - limine-snapper-sync
+  - linux-cachyos
+  - linux-cachyos-headers
+  - linux-cachyos-lts
+  - linux-cachyos-lts-headers
+  - linux-cachyos-lts-nvidia-open
+  - linux-cachyos-nvidia-open
+  - linux-firmware
+  - logrotate
+  - lsb-release
+  - lsof
+  - lsp-plugins-lv2
+  - lsscsi
+  - lua-luv
+  - lvm2
+  - lxqt-config
+  - lxsession
+  - ly
+  - man-db
+  - man-pages
+  - mangowm-git
+  - mdadm
+  - mesa-utils
+  - mise
+  - mkinitcpio
+  - modemmanager
+  - mousetweaks
+  - mpv
+  - mtools
+  - nano
+  - nano-syntax-highlighting
+  - nbfc-linux
+  - neovim
+  - netctl
+  - nfs-utils
+  - ngrok
+  - nilfs-utils
+  - niri-git
+  - nirius
+  - noto-color-emoji-fontconfig
+  - noto-fonts
+  - noto-fonts-cjk
+  - noto-fonts-emoji
+  - nss-mdns
+  - ntp
+  - nvidia-prime
+  - nvidia-settings
+  - nvidia-utils
+  - nwg-look
+  - obs-studio
+  - opencl-nvidia
+  - opencode-bin
+  - openssh
+  - os-prober
+  - osu-lazer-bin
+  - pacman-contrib
+  - paru-git
+  - perl
+  - pipewire-alsa
+  - pipewire-pulse
+  - pkgfile
+  - plocate
+  - plymouth
+  - poppler-glib
+  - powertop
+  - profile-sync-daemon
+  - pv
+  - python
+  - python-defusedxml
+  - python-fangfrisch
+  - python-packaging
+  - python-pipx
+  - python-pypresence
+  - python-pyqt5
+  - python-reportlab
+  - qemu-desktop
+  - qt6-graphs
+  - rebuild-detector
+  - reflector
+  - resvg
+  - ripgrep
+  - rofi
+  - rsync
+  - rtkit
+  - s-nail
+  - sg3_utils
+  - slurp
+  - smartmontools
+  - sof-firmware
+  - splix
+  - starship
+  - sudo
+  - swaybg
+  - swayidle
+  - swaylock-effects
+  - sysfsutils
+  - system-config-printer
+  - tailscale
+  - tealdeer
+  - tectonic
+  - tela-circle-icon-theme-black
+  - texinfo
+  - thunar
+  - thunar-archive-plugin
+  - thunar-volman
+  - tlp
+  - tlp-pd
+  - tmux
+  - tree-sitter-cli
+  - ttf-bitstream-vera
+  - ttf-dejavu
+  - ttf-jetbrains-mono-nerd
+  - ttf-liberation
+  - ttf-ms-win11-auto
+  - ttf-opensans
+  - tumbler
+  - tumbler-extra-thumbnailers
+  - udiskie
+  - ufw
+  - unrar
+  - unzip
+  - upower
+  - usb_modeswitch
+  - usbutils
+  - vesktop-bin
+  - vial-appimage
+  - vicinae
+  - vim
+  - vlc-plugin-ffmpeg
+  - vpl-gpu-rt
+  - vulkan-intel
+  - waybar
+  - waybar-module-pacman-updates-git
+  - wdisplays
+  - wget
+  - which
+  - wired
+  - wireless-regdb
+  - wiremix
+  - wireplumber
+  - wl-clip-persist
+  - wl-clipboard
+  - wlr-randr
+  - wlroots-git
+  - xarchiver
+  - xdg-desktop-portal-gtk
+  - xdg-desktop-portal-wlr
+  - xdg-user-dirs
+  - xf86-input-libinput
+  - xfsprogs
+  - xl2tpd
+  - xorg-server
+  - xorg-xdpyinfo
+  - xorg-xinit
+  - xorg-xinput
+  - xorg-xkill
+  - xorg-xrandr
+  - xsettingsd
+  - xwayland-satellite
+  - yazi
+  - zip
+  - zoxide
+  - zsh
 exclude: []
 conflicts: []
 pre_install_hook: null

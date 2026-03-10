@@ -1,0 +1,98 @@
+/* find-host, not working write to the find-host section, so I put it outside */
+.R.HM.D > .LH {
+  background: #252530cc; /* color0 with transparency */
+  border: none;
+  border-radius: 1px;
+  backdrop-filter: blur(1.5px);
+  color: #cdcdcd; /* foreground */
+}
+
+/* #ui */
+.HUD,
+.TEE {
+  padding: 0;
+  bottom: 1px;
+}
+
+@media screen and (min-width: 1260px) {
+  .Omnibar {
+    left: calc(20vw - 12px);
+    width: calc(60vw + 24px);
+  }
+}
+@media screen and (min-width: 1760px) {
+  .Omnibar {
+    left: calc(30vw - 12px);
+    width: calc(40vw + 24px);
+  }
+}
+
+/* #omni */
+#bar {
+  background: #252530; /* color0 - panel background */
+  border-bottom: none;
+}
+
+#list {
+  background: #252530; /* color0 */
+}
+
+#input {
+  background: #252530; /* color0 */
+  box-shadow: none;
+  border-color: #606079; /* color8 - subtle border */
+}
+
+body::after {
+  border: none;
+}
+
+.item {
+  border-bottom: none;
+  padding-top: 0px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item.s,
+.item:hover {
+  background-color: #606079; /* color8 - hover state */
+}
+
+.top {
+  color: #cdcdcd; /* foreground */
+  width: 30rem;
+}
+
+.bottom {
+  width: 20rem;
+  overflow: hidden;
+}
+
+.bottom > a {
+  font-size: 0.7rem;
+}
+
+#toolbar {
+  display: none;
+}
+
+/* #find */
+.r.D {
+  background: #252530; /* color0 */
+  color: #cdcdcd; /* foreground */
+}
+
+.r {
+  box-shadow: inset 0 0 1px 0.5px #bb9dbd; /* color5/url_color - accent */
+}
+
+/* #find:host */
+
+/* #find:selection */
+::selection {
+  background: #f3be7c !important; /* color3 - warm accent for selection */
+  color: #cdcdcd; /* foreground */
+}

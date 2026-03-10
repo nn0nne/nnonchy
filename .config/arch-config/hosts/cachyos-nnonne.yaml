@@ -6,7 +6,7 @@ packages: []
 exclude: []
 additional_packages: []
 flatpak_scope: user
-auto_prune: false
+auto_prune: true
 module_processing: parallel
 strict_package_order: false
 config_backups:
@@ -21,34 +21,34 @@ system_backups:
   max_backups: 5
 services:
   enabled:
-  - NetworkManager
-  - NetworkManager-dispatcher
-  - NetworkManager-wait-online
-  - ananicy-cpp
-  - avahi-daemon
-  - bluetooth
-  - bpftune
-  - cronie
-  - cups
-  - docker
-  - getty@
-  - iwd
-  - libvirtd
-  - limine-snapper-sync
-  - nbfc_service
-  - nvidia-hibernate
-  - nvidia-powerd
-  - nvidia-resume
-  - nvidia-suspend
-  - seatd
-  - sshd
-  - switcheroo-control
-  - systemd-network-generator
-  - systemd-networkd-wait-online
-  - systemd-oomd
-  - tailscaled
-  - ufw
-  - warp-svc
+    - ananicy-cpp
+    - avahi-daemon
+    - bluetooth
+    - bpftune
+    - clamav-clamonacc
+    - clamav-daemon
+    - clamav-freshclam
+    - cronie
+    - cups
+    - docker
+    - getty@
+    - iwd
+    - libvirtd
+    - limine-snapper-sync
+    - nbfc_service
+    - nvidia-hibernate
+    - nvidia-powerd
+    - nvidia-resume
+    - nvidia-suspend
+    - seatd
+    - sshd
+    - systemd-network-generator
+    - systemd-networkd-wait-online
+    - tailscaled
+    - tlp
+    - tlp-pd
+    - ufw
+    - warp-svc
   disabled: []
   scope: system
 enabled_service_profiles: []
@@ -61,13 +61,13 @@ update_hooks:
 default_apps:
   scope: system
   browser: brave-browser
-  text_editor: nvim
-  file_manager: thunar
-  terminal: null
+  text_editor: libreoffice-writer
+  file_manager: kitty-open
+  terminal: kitty
   video_player: mpv
   audio_player: mpv
   image_viewer: org.gnome.gThumb
-  pdf_viewer: null
+  pdf_viewer: brave-browser
   mime_types: {}
 editor: nvim
 aur_helper: paru

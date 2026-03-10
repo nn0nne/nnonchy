@@ -9,7 +9,7 @@ run_hooks_as_user: false
 post_disable_hook: null
 post_disable_behavior: null
 package_files:
-- packages.yaml
+  - packages.yaml
 dotfiles_sync: null
 dotfiles: []
 author: null
