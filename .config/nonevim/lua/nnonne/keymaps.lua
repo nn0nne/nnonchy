@@ -214,16 +214,6 @@ M.spec = {
 	{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = "n" },
 	{ "<leader>ce", ":w<CR>:e<CR>", desc = "Save & Reload", mode = "n" },
 
-	-- color presist
-	{
-		"<leader>Csp",
-		function()
-			require("colorscheme-persist").picker()
-		end,
-		desc = "Choose colorscheme",
-		mode = "n",
-	},
-
 	-- Devdocs
 	{ "<leader>D", group = "DevDocs" },
 	{
@@ -264,9 +254,13 @@ M.spec = {
 	},
 
 	-- kulala
-	{ "<leader>K", group = "Kulala" },
-	{ "<leader>Ks", desc = "Send request" },
-	{ "<leader>Ka", desc = "Send all requests" },
-	{ "<leader>Kb", desc = "Open scratchpad" },
+	{ "<leader>K", group = "Kulala", mode = "n" },
+	{ "<leader>Ks", desc = "Send request", mode = "n" },
+	{ "<leader>Ka", desc = "Send all requests", mode = "n" },
+	{ "<leader>Kb", desc = "Open scratchpad", mode = "n" },
+
+	-- live preview
+	{ "<leader>M", group = "Live Preview" },
+	{ "<leader>Ms", "<cmd>LivePreview start<cr>", group = "Live Preview" },
 }
 return M

@@ -164,6 +164,7 @@ alias y="yazi"
 alias mpv="env DRI_PRIME=0 mpv"
 alias celluloid="env DRI_PRIME=0 celluloid"
 alias cp="cpx"
+alias ping="prettyping"
 # alias "?"="opencode run '$*'"
 
 # cd via yazi

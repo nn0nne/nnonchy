@@ -31,6 +31,7 @@
       "custom/updates",
       "clock",
       "dwl/tags",
+      "custom/window-counter",
       // "ext/workspaces",
       "dwl/window",
     ],
@@ -63,6 +64,12 @@
     //   "on-click": "playerctl next",
     //   "on-click-left": "playerctl previous",
     // },
+    "custom/window-counter": {
+      "exec": "~/.config/waybar/scripts/scrolling-window-list.sh",
+      "return-type": "json",
+      "format": "{}",
+      "tooltip-format": "{}",
+    },
     "custom/updates": {
       "format": " {} {icon}",
       "return-type": "json",

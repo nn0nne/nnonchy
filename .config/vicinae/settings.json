@@ -89,6 +89,25 @@
       ""
    ],
    "providers": {
+      "applications": {
+         "entrypoints": {
+            "brave-agimnkijcaahngcdmfeangaknmldooml-Default": {
+               "alias": "y"
+            },
+            "brave-browser": {
+               "alias": "b"
+            },
+            "brave-cinhimbnkkaeohfgghhklpknlkffjgod-Default": {
+               "alias": "ym"
+            },
+            "brave-hnpfjngllnobngcgfapefoaidbinmjnm-Default": {
+               "alias": "w"
+            },
+            "brave-ibblmnobmgdmpoeblocemifbpglakpoi-Default": {
+               "alias": "t"
+            }
+         }
+      },
       "browser-extension": {
          "enabled": false,
          "entrypoints": {
