@@ -148,9 +148,10 @@ add-zsh-hook precmd _git_auto_fetch
 
 
 ## alias stuff
-alias n="~/.config/kitty/kitty_none.sh"
-alias none="~/.config/kitty/kitty_none.sh"
-alias v="~/.config/kitty/kitty_nvim.sh"
+alias n="~/.config/kitty/scripts/kitty_none.sh"
+alias none="~/.config/kitty/scripts/kitty_none.sh"
+alias v="~/.config/kitty/scripts/kitty_nvim.sh"
+# alias nonevim="NVIM_APPNAME='nonevim' nvim"
 
 alias nzsh="n ~/.zshrc"
 alias szsh="source ~/.zshrc"

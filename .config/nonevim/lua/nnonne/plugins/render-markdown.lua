@@ -1,7 +1,7 @@
 return {
 	"MeanderingProgrammer/render-markdown.nvim",
 	dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
-	ft = { "markdown" },
+	-- ft = { "markdown" },
 	opts = {
 		heading = {
 			enabled = true,
@@ -361,12 +361,12 @@ return {
 			unchecked = {
 				icon = "   󰄱 ",
 				highlight = "RenderMarkdownUnchecked",
-				scope_highlight = "@markup.strikethrough",
+				scope_highlight = nil,
 			},
 			checked = {
 				icon = "   󰱒 ",
 				highlight = "RenderMarkdownChecked",
-				scope_highlight = nil,
+				scope_highlight = "@markup.strikethrough",
 			},
 			custom = {
 				todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo", scope_highlight = nil },

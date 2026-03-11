@@ -30,7 +30,7 @@ ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
 edit = [
-  { run = '~/.config/kitty/kitty_none.sh "$@"', desc = "neovim", for = "unix", block = true },
+  { run = '~/.config/kitty/scripts/kitty_none.sh "$@"', desc = "neovim", for = "unix", block = true },
   { run = "code %s", desc = "code", for = "windows", orphan = true },
   { run = "code -w %s", desc = "code (block)", for = "windows", block = true },
 ]
