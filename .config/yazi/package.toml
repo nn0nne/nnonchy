@@ -88,5 +88,10 @@ use = "AminurAlam/yazi-plugins:spot-video"
 rev = "f3608de"
 hash = "3e437d65ebb31ac1ce2e1a20c93f3357"
 
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "fa68711"
+hash = "8714306b5cac6359edbacbf545fbd691"
+
 [flavor]
 deps = []

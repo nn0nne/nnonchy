@@ -1,6 +1,6 @@
 return {
 	"nvim-flutter/flutter-tools.nvim",
-	lazy = true,
+	-- lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"stevearc/dressing.nvim", -- optional for vim.ui.select
@@ -71,9 +71,10 @@ return {
 			},
 		})
 
+		-- TODO: add telescope integration
 		-- Optional: setup Telescope integration
-		pcall(function()
-			require("mini.picker").load_extension("flutter")
-		end)
+		-- pcall(function()
+		-- 	require("mini.picker").load_extension("flutter")
+		-- end)
 	end,
 }

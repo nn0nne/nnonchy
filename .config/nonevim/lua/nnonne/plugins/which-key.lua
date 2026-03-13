@@ -178,12 +178,12 @@ return {
 		debug = false, -- enable wk.log in the current directory
 	},
 	keys = {
-		{
-			"<leader>?",
-			function()
-				require("which-key").show({ global = false })
-			end,
-			desc = "Buffer Local Keymaps (which-key)",
-		},
+		-- {
+		-- 	"<leader>?",
+		-- 	function()
+		-- 		require("which-key").show({ global = false })
+		-- 	end,
+		-- 	desc = "Buffer Local Keymaps (which-key)",
+		-- },
 	},
 }

@@ -50,7 +50,14 @@ M.spec = {
 	{ "<S-h>", "<cmd>bprevious<cr>", desc = "Prev Buffer", mode = "n" },
 	{ "<S-l>", "<cmd>bnext<cr>", desc = "Next Buffer", mode = "n" },
 	{ "<leader>b", group = "Buffers" },
-	{ "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete Buffer", mode = "n" },
+	{
+		"<leader>bd",
+		function()
+			Snacks.bufdelete()
+		end,
+		desc = "Delete Buffer",
+		mode = "n",
+	},
 	{ "<S-M-h>", "<cmd>BufferLineMovePrev<cr>", desc = "Move Buffer Left", mode = "n" },
 	{ "<S-M-l>", "<cmd>BufferLineMoveNext<cr>", desc = "Move Buffer Right", mode = "n" },
 
@@ -71,54 +78,13 @@ M.spec = {
 	{ "<leader><tab>d", "<cmd>tabclose<cr>", desc = "Close Tab" },
 	{ "<leader><tab>p", "<cmd>tabprevious<cr>", desc = "Previous Tab" },
 
-	-- Files / Find
-	{ "<leader>f", group = "Find" },
-	{
-		"<leader>ff",
-		function()
-			require("mini.pick").builtin.files({ tool = "rg" })
-		end,
-		desc = "Find Files",
-		mode = "n",
-	},
-	{
-		"<leader>fg",
-		function()
-			require("mini.pick").builtin.grep_live({ tool = "rg" })
-		end,
-		desc = "Live Grep",
-		mode = "n",
-	},
-	-- Explorer
-	{
-		"<leader>e",
-		function()
-			require("mini.files").open(vim.uv.cwd(), true)
-		end,
-		desc = "Explorer (mini.files)",
-		mode = "n",
-	},
-	{
-		"<leader>E",
-		function()
-			local bufname = vim.api.nvim_buf_get_name(0)
-			if bufname == "" then
-				require("mini.files").open(vim.uv.cwd(), true)
-			else
-				require("mini.files").open(bufname, true)
-			end
-		end,
-		desc = "Explorer at current file",
-		mode = "n",
-	},
-
 	-- Trouble
-	{ "<leader>x", group = "Trouble" },
-	{ "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", desc = "Workspace Diagnostics", mode = "n" },
-	{ "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Document Diagnostics", mode = "n" },
-	{ "<leader>xq", "<cmd>Trouble quickfix toggle<CR>", desc = "Quickfix List", mode = "n" },
-	{ "<leader>xl", "<cmd>Trouble loclist toggle<CR>", desc = "Location List", mode = "n" },
-	{ "<leader>xt", "<cmd>Trouble todo toggle<CR>", desc = "Todos", mode = "n" },
+	{ "<leader>d", group = "Trouble" },
+	{ "<leader>dw", "<cmd>Trouble diagnostics toggle<CR>", desc = "Workspace Diagnostics", mode = "n" },
+	{ "<leader>dd", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Document Diagnostics", mode = "n" },
+	{ "<leader>dq", "<cmd>Trouble quickfix toggle<CR>", desc = "Quickfix List", mode = "n" },
+	{ "<leader>dl", "<cmd>Trouble loclist toggle<CR>", desc = "Location List", mode = "n" },
+	{ "<leader>dt", "<cmd>Trouble todo toggle<CR>", desc = "Todos", mode = "n" },
 
 	-- Git
 	{ "<leader>g", group = "Git" },
@@ -132,9 +98,9 @@ M.spec = {
 	},
 
 	-- Yazi
-	{ "<leader>y", "<cmd>Yazi<cr>", desc = "Open Yazi", mode = { "n", "v" } },
-	{ "<leader>Y", "<cmd>Yazi cwd<cr>", desc = "Open Yazi at cwd", mode = "n" },
-	{ "<leader->", "<cmd>Yazi toggle<cr>", desc = "Resume Yazi", mode = "n" },
+	{ "<leader>Y", "<cmd>Yazi<cr>", desc = "Open Yazi", mode = { "n", "v" } },
+	-- { "<leader>Y", "<cmd>Yazi cwd<cr>", desc = "Open Yazi at cwd", mode = "n" },
+	-- { "<leader->", "<cmd>Yazi toggle<cr>", desc = "Resume Yazi", mode = "n" },
 
 	-- Flutter
 	{ "<leader>F", group = "Flutter" },
@@ -149,68 +115,74 @@ M.spec = {
 	{ "<leader>Fe", "<Cmd>FlutterEmulators<CR>", desc = "Select Emulator", mode = "n" },
 	{ "<leader>Fv", "<Cmd>FlutterDevTools<CR>", desc = "Open DevTools", mode = "n" },
 
-	-- OpenCode
-	{ "<leader>a", group = "OpenCode" },
-	{
-		"<leader>aa",
-		function()
-			require("opencode").toggle()
-		end,
-		desc = "Toggle Terminal",
-		mode = { "n", "x" },
-	},
-	{
-		"<leader>as",
-		function()
-			require("opencode").ask("@this: ", { submit = true })
-		end,
-		desc = "Ask opencode",
-		mode = { "n", "x" },
-	},
-	{
-		"<leader>ax",
-		function()
-			require("opencode").select()
-		end,
-		desc = "Execute Action",
-		mode = { "n", "x" },
-	},
-	{
-		"<leader>ap",
-		function()
-			require("opencode").prompt("@this")
-		end,
-		desc = "Add to opencode",
-		mode = { "n", "x" },
-	},
-	{
-		"<leader>aU",
-		function()
-			require("opencode").command("session.half.page.up")
-		end,
-		desc = "Half Page Up",
-		mode = "n",
-	},
-	{
-		"<leader>aD",
-		function()
-			require("opencode").command("session.half.page.down")
-		end,
-		desc = "Half Page Down",
-		mode = "n",
-	},
-
 	-- LSP
-	{ "<leader>", group = "LSP" },
-	{ "g", group = "LSP" },
 	{ "K", vim.lsp.buf.hover, desc = "Hover", mode = "n" },
-	{ "gd", vim.lsp.buf.definition, desc = "Goto Definition", mode = "n" },
-	{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", mode = "n" },
-	{ "gi", vim.lsp.buf.implementation, desc = "Goto Implementation", mode = "n" },
-	{ "go", vim.lsp.buf.type_definition, desc = "Goto Type Definition", mode = "n" },
-	{ "gr", vim.lsp.buf.references, desc = "Goto References", mode = "n" },
-	{ "gs", vim.lsp.buf.signature_help, desc = "Signature Help", mode = "n" },
-	{ "<leader>crn", vim.lsp.buf.rename, desc = "Rename", mode = "n" },
+	-- { "g", group = "LSP" },
+	-- { "gd", vim.lsp.buf.definition, desc = "Goto Definition", mode = "n" },
+	-- { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", mode = "n" },
+	-- { "gi", vim.lsp.buf.implementation, desc = "Goto Implementation", mode = "n" },
+	-- { "go", vim.lsp.buf.type_definition, desc = "Goto Type Definition", mode = "n" },
+	-- { "gr", vim.lsp.buf.references, desc = "Goto References", mode = "n" },
+	-- { "gs", vim.lsp.buf.signature_help, desc = "Signature Help", mode = "n" },
+	{
+		"gd",
+		function()
+			Snacks.picker.lsp_definitions()
+		end,
+		desc = "Goto Definition",
+	},
+	{
+		"gD",
+		function()
+			Snacks.picker.lsp_declarations()
+		end,
+		desc = "Goto Declaration",
+	},
+	{
+		"gr",
+		function()
+			Snacks.picker.lsp_references()
+		end,
+		nowait = true,
+		desc = "References",
+	},
+	{
+		"gI",
+		function()
+			Snacks.picker.lsp_implementations()
+		end,
+		desc = "Goto Implementation",
+	},
+	{
+		"gy",
+		function()
+			Snacks.picker.lsp_type_definitions()
+		end,
+		desc = "Goto T[y]pe Definition",
+	},
+	{
+		"gai",
+		function()
+			Snacks.picker.lsp_incoming_calls()
+		end,
+		desc = "C[a]lls Incoming",
+	},
+	{
+		"gao",
+		function()
+			Snacks.picker.lsp_outgoing_calls()
+		end,
+		desc = "C[a]lls Outgoing",
+	},
+	{ "<leader>c", group = "Code Stuff" },
+	{
+		"<leader>crn",
+		function()
+			Snacks.rename.rename_file()
+		end,
+		desc = "Rename",
+		mode = "n",
+	},
 	{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = "n" },
 	{ "<leader>ce", ":w<CR>:e<CR>", desc = "Save & Reload", mode = "n" },
 
@@ -259,8 +231,110 @@ M.spec = {
 	{ "<leader>Ka", desc = "Send all requests", mode = "n" },
 	{ "<leader>Kb", desc = "Open scratchpad", mode = "n" },
 
-	-- live preview
-	{ "<leader>M", group = "Live Preview" },
-	{ "<leader>Ms", "<cmd>LivePreview start<cr>", group = "Live Preview" },
+	-- Opencode
+	{ "<leader>O", group = "Opencode" },
+	{
+		"<leader>Ot",
+		function()
+			require("opencode").toggle()
+		end,
+		desc = "Toggle Opencode Terminal",
+		mode = { "n", "x" },
+	},
+	{
+		"<leader>Oa",
+		function()
+			require("opencode").ask("@this: ", { submit = true })
+		end,
+		desc = "Ask opencode",
+		mode = { "n", "x" },
+	},
+	{
+		"<leader>Ox",
+		function()
+			require("opencode").select()
+		end,
+		desc = "Execute opencode action…",
+		mode = { "n", "x" },
+	},
+	{
+		"<leader>Op",
+		function()
+			require("opencode").prompt("@this")
+		end,
+		desc = "Add to opencode",
+		mode = { "n", "x" },
+	},
+
+	-- Terminal
+	{ "<leader>t", group = "Terminal" },
+	{
+		"<leader>tt",
+		function()
+			Snacks.terminal.toggle()
+		end,
+		desc = "Toggle Terminal",
+	},
+
+	-- Picker
+	{
+		"<leader>e",
+		function()
+			Snacks.explorer()
+		end,
+		desc = "File Explorer",
+	},
+	{ "<leader>f", group = "Finder" },
+	{
+		"<leader>fgg",
+		function()
+			Snacks.picker.grep()
+		end,
+		desc = "Grep",
+	},
+	{
+		"<leader>fgw",
+		function()
+			Snacks.picker.grep_word()
+		end,
+		desc = "Visual selection or word",
+		mode = { "n", "x" },
+	},
+	{
+		"<leader>fD",
+		function()
+			Snacks.picker.diagnostics()
+		end,
+		desc = "Diagnostics",
+	},
+	{
+		"<leader>fd",
+		function()
+			Snacks.picker.diagnostics_buffer()
+		end,
+		desc = "Buffer Diagnostics",
+	},
+	-- find
+	{
+		"<leader>fb",
+		function()
+			Snacks.picker.buffers()
+		end,
+		desc = "Buffers",
+	},
+	{
+		"<leader>fc",
+		function()
+			Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+		end,
+		desc = "Find Config File",
+	},
+	{
+		"<leader>ff",
+		function()
+			Snacks.picker.files({ cmd = "rg", hidden = true })
+		end,
+		desc = "Find Files",
+	},
 }
 return M
