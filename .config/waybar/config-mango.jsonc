@@ -25,6 +25,7 @@
     "ipc": false,
     "layer": "top",
     "position": "top",
+    "reload_style_on_change": true,
 
     "modules-left": [
       // "systemd-failed-units",
@@ -36,6 +37,7 @@
       "dwl/window",
     ],
     // "modules-center": ["custom/playerinfo"],
+    // "modules-center": ["image#album", "mpris"],
     "modules-center": ["mpris"],
     "modules-right": [
       "group/tray",
@@ -132,16 +134,20 @@
       "tooltip-format-connected": "{device_alias} - {device_battery_percentage}%",
       "on-click": "kitty -e bluetui",
     },
-
+    // "image#album": {
+    //   "exec": "~/.config/waybar/scripts/album-art.sh",
+    //   "size": 25,
+    //   "interval": 60,
+    // },
     "mpris": {
       "format": "{player_icon} {artist} - {title}",
       "format-paused": "{status_icon} <i>{artist} - {title}</i>",
-      "player-icons": {
-        "default": "▶",
-      },
-      "status-icons": {
-        "paused": "⏸",
-      },
+      // "player-icons": {
+      //   "default": "▶",
+      // },
+      // "status-icons": {
+      //   "paused": "⏸",
+      // },
       "on-click": "playerctl previous",
       "on-click-right": "playerctl next",
     },
