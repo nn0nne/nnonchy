@@ -1,0 +1,11 @@
+language = en
+
+font-family = "JetBrainsMono Nerd Font"
+
+font-size = 10
+
+background = "#141415"
+foreground = "#cdcdcd"
+
+selection-foreground = "#cdcdcd"
+selection-background = "#252530"
