@@ -20,14 +20,13 @@ while true; do
         elif [[ $percentage -le 30 ]]; then
             notify-send -r 9999991 -u critical "Warning" "Battery is currently at: $percentage%"
         fi
+        sleep 60
     fi
 
     if [[ $status == "Charging" ]]; then
         if [[ $percentage == 100 ]]; then
             notify-send -r 9999991 "Full" "Battery is currently at: $percentage%"
         fi
+        sleep 2073600 # 24 days (https://stackoverflow.com/questions/2935183/bash-infinite-sleep-infinite-blocking)
     fi
-
-    sleep 60
-
 done

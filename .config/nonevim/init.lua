@@ -19,8 +19,8 @@ augroup END
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = { "*.md" },
 	callback = function()
-		vim.opt.colorcolumn = "80"
-		vim.opt.textwidth = 80
+		vim.opt.colorcolumn = "100"
+		vim.opt.textwidth = 100
 		vim.opt.wrap = true
 	end,
 })
