@@ -1,0 +1,294 @@
+[
+  // {
+  //   "name": "overlay",
+  //   "height": 30,
+  //   "width": 100,
+  //
+  //   // i had some problem with `"mode" : "overlay"` so i use these properties
+  //   "layer": "bottom",
+  //   "position": "top",
+  //   "margin-top": -30,
+  //   "exclusive": false,
+  //   "passtrough": true,
+  //
+  //   "modules-center": ["custom/cava"],
+  //   "custom/cava": {
+  //     "format": "{}",
+  //     "exec": "$HOME/.config/waybar/cava.sh",
+  //   },
+  // },
+  {
+    "height": 25,
+    "spacing": 4,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "ipc": false,
+    "layer": "top",
+    "position": "top",
+    "reload_style_on_change": true,
+
+    "modules-left": [
+      // "systemd-failed-units",
+      "custom/updates",
+      "clock",
+      "custom/window-counter",
+    ],
+    // "modules-center": ["custom/playerinfo"],
+    // "modules-center": ["image#album", "mpris"],
+    "modules-center": ["mpris"],
+    "modules-right": [
+      "group/tray",
+      "idle_inhibitor",
+      "temperature",
+      "cpu",
+      "memory",
+      "pulseaudio",
+      "backlight",
+      "privacy",
+      "bluetooth",
+      "network",
+      "power-profiles-daemon",
+      "battery",
+    ],
+
+    // --- Modules ---
+    // "custom/playerinfo": {
+    //   "format": "{}",
+    //   "exec": "~/.config/waybar/playerinfo.sh",
+    //   "escape": true,
+    //   "return-type": "json",
+    //   "interval": 1,
+    //   "tooltip": true,
+    //   "on-click-middle": "playerctl play-pause",
+    //   "on-click": "playerctl next",
+    //   "on-click-left": "playerctl previous",
+    // },
+    "custom/window-counter": {
+      "exec": "~/.config/waybar/scripts/scrolling-window-list.sh",
+      "return-type": "json",
+      "format": "{}",
+      "tooltip-format": "{}",
+    },
+    "custom/updates": {
+      "format": " {} {icon}",
+      "return-type": "json",
+      "format-icons": {
+        "has-updates": "󱍷",
+        "updated": "",
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      "exec": "waybar-module-pacman-updates --no-zero-output --interval-seconds 300 --network-interval-seconds 600 --column-color-overrides #cdcdcd,#606079,#f3be7c,#7fa563",
+    },
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 14,
+      "tooltip-format": "{title}",
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": "",
+      },
+    },
+    "systemd-failed-units": {
+      "format": "  <span color='#d8647e'>✗</span> {nr_failed}",
+    },
+    "privacy": {
+      "icon-spacing": 2,
+      "icon-size": 14,
+      "modules": [
+        {
+          "type": "screenshare",
+          "tooltip": true,
+          "tooltip-icon-size": 14,
+        },
+        {
+          "type": "audio-out",
+          "tooltip": true,
+          "tooltip-icon-size": 14,
+        },
+        {
+          "type": "audio-in",
+          "tooltip": true,
+          "tooltip-icon-size": 14,
+        },
+      ],
+    },
+    "network": {
+      "interface": "wlan0",
+      "format": "{icon}",
+      "format-wifi": "󰖩",
+      "format-disconnected": "",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
+      "on-click": "kitty -e impala",
+    },
+    "bluetooth": {
+      "format": "",
+      "format-connected": "",
+      "format-on": "",
+      "tooltip": true,
+      "tooltip-format-connected": "{device_alias} - {device_battery_percentage}%",
+      "on-click": "kitty -e bluetui",
+    },
+    // "image#album": {
+    //   "exec": "~/.config/waybar/scripts/album-art.sh",
+    //   "size": 25,
+    //   "interval": 60,
+    // },
+    "mpris": {
+      "format": "{player_icon} {artist} - {title}",
+      "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+      // "player-icons": {
+      //   "default": "▶",
+      // },
+      // "status-icons": {
+      //   "paused": "⏸",
+      // },
+      "on-click": "playerctl previous",
+      "on-click-right": "playerctl next",
+    },
+
+    "temperature": {
+      "interval": 30,
+      "critical-threshold": 50,
+      "warning-threshold": 60,
+      "format": "{temperatureC}°C",
+    },
+
+    "memory": {
+      "interval": 30,
+      "format": "{percentage}%   {swapPercentage}% 󰓡",
+      "tooltip": true,
+      "tooltip-format": "{used:0.1f}GiB   {swapUsed:0.1f}GiB 󰓡",
+    },
+
+    "cpu": {
+      "interval": 30,
+      "format": "{usage}% ",
+      "on-click": "kitty -e btm",
+    },
+
+    "disk": {
+      "format": "{percentage_used}% {path}",
+      "path": "/",
+    },
+
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "{icon}",
+      "format-icons": ["", "", "", "", "", "", "", "", ""],
+      "tooltip": true,
+      "tooltip-format": "{icon} {percent}%",
+      "interval": 1,
+    },
+
+    "ext/workspaces": {
+      "format": "{icon}",
+      "ignore-hidden": true,
+      "on-click": "activate",
+      "sort-by-id": true,
+    },
+    "dwl/tags": {
+      "num-tags": 9,
+      "disable-click": true,
+      "tag-labels": ["一", "二", "三", "四", "五", "六", "七", "八", "九"],
+    },
+
+    "dwl/window": {
+      "format": "[{layout}] {app_id}",
+      "rewrite": {
+        "^\\[(.*)\\] brave-browser$": "[$1] Brave",
+        "^\\[(.*)\\] thunar$": "[$1] Thunar",
+        "^\\[(.*)\\] vesktop$": "[$1] Vesktop",
+        "^\\[(.*)\\] blueman-manager$": "[$1] Bluetooh Manager",
+        "^\\[(.*)\\] com.github.wwmm.easyeffects$": "[$1] Easy Effects",
+        "^\\[(.*)\\] localsend$": "[$1] LocalSend",
+        "^\\[(.*)\\] org.gnome.gThumb$": "[$1] GThumb",
+        "^\\[(.*)\\] com.obsproject.Studio$": "[$1] OBS Studio",
+        "^\\[(.*)\\] .*cinhimbnkkaeohfgghhklpknlkffjgod.*$": "[$1] Youtube Music",
+        "^\\[(.*)\\] .*agimnkijcaahngcdmfeangaknmldooml.*$": "[$1] Youtube",
+        "^\\[(.*)\\] .*eikjhbkpemdappjfcmdeeeamdpkgabmk.*$": "[$1] Soundcloud",
+        "^\\[(.*)\\] .*hnpfjngllnobngcgfapefoaidbinmjnm.*$": "[$1] Whatsapp",
+        "^\\[(.*)\\] .*ibblmnobmgdmpoeblocemifbpglakpoi.*$": "[$1] Telegram",
+        "^\\[(.*)\\] .*pjibgclleladliembfgfagdaldikeohf.*$": "[$1] Spotify",
+      },
+    },
+
+    "clock": {
+      "format": "{:%A %H:%M, %Y-%m-%d}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "mode": "year",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "format": {
+          "months": "<span color='#bb9dbd'><b>{}</b></span>",
+          "weeks": "<span color='#6e94b2'><b>W{}</b></span>",
+          "days": "<span color='#cdcdcd'><b>{}</b></span>",
+          "weekdays": "<span color='#7fa563'><b>{}</b></span>",
+          "today": "<span color='#f3be7c'><b><u>{}</u></b></span>",
+        },
+      },
+      "actions": {
+        "on-click-right": "mode",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down",
+      },
+    },
+
+    "group/tray": {
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": 200,
+        "children-class": "tray-child",
+        "click-to-reveal": true,
+      },
+      "modules": ["custom/tray-toggle", "tray"],
+    },
+    "custom/tray-toggle": {
+      "format": "",
+      "tooltip": false,
+    },
+    "tray": {
+      "icon-size": 15,
+      "spacing": 6,
+    },
+
+    "pulseaudio": {
+      "format": "{icon}",
+      "format-muted": " ",
+      "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇"],
+      "on-click": "kitty -e wiremix",
+      "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "tooltip": true,
+      "tooltip-format": "{icon} {volume}%",
+      "max-volume": 100,
+    },
+
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15,
+      },
+      "format": "{capacity}% {icon}",
+      "format-icons": {
+        "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      },
+      "tooltip": true,
+      "tooltip-format": "{timeTo}",
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "format-icons": {
+        "performance": "",
+        "balanced": "",
+        "power-saver": "",
+      },
+      "tooltip": true,
+      "tooltip-format": "{profile}\n{driver}",
+    },
+  },
+]

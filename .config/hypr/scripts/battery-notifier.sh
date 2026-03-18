@@ -9,8 +9,6 @@ filename=$(basename "$0")
 # shoutout to https://stackoverflow.com/a/15740548
 kill $(pgrep -f $filename | /usr/bin/grep -v ^$$\$)
 
-notified_full=false
-
 while true; do
 
     percentage=$(cat /sys/class/power_supply/BAT1/capacity)
@@ -27,13 +25,8 @@ while true; do
 
     if [[ $status == "Charging" ]]; then
         if [[ $percentage == 100 ]]; then
-            if [[ $notified_full == false ]]; then
-                notify-send -r 9999991 "Full" "Battery is currently at: $percentage%"
-                notified_full=true
-            fi
-        else
-            notified_full=false
+            notify-send -r 9999991 "Full" "Battery is currently at: $percentage%"
         fi
-        sleep 60
+        sleep 2073600 # 24 days (https://stackoverflow.com/questions/2935183/bash-infinite-sleep-infinite-blocking)
     fi
 done
