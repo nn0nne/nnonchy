@@ -21,6 +21,7 @@
     "height": 25,
     "spacing": 4,
     "passthrough": false,
+    "output": "eDP-1",
     "gtk-layer-shell": true,
     "ipc": false,
     "layer": "top",
