@@ -336,5 +336,13 @@ M.spec = {
 		end,
 		desc = "Find Files",
 	},
+
+	{
+		"<leader>0",
+		function()
+			Snacks.dashboard.open()
+		end,
+		desc = "Open dashboard",
+	},
 }
 return M
