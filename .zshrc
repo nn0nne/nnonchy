@@ -228,7 +228,6 @@ export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git || find .
 
 export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 {} 2>/dev/null || ls {}'"
 
-
 ### belows are setups ###
 
 
