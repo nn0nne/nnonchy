@@ -66,8 +66,10 @@ tooltip label {
 /* === Modules === */
 
 #tags button {
-  padding: 0 0.8rem; /*More horizontal padding for text */
+  padding: 0 2px; /*More horizontal padding for text */
   font-weight: normal;
+  transition: all 0.2s ease-in-out;
+  color: #606079;
 }
 
 #tags button:not(.occupied):not(.focused) {
@@ -96,12 +98,6 @@ tooltip label {
 
 #tags button:hover {
   background: transparent;
-}
-
-/* Optional: Add subtle transition for hover effects */
-#tags button {
-  transition: all 0.2s ease-in-out;
-  color: #606079;
 }
 
 @keyframes blink {
