@@ -18,7 +18,9 @@ update_window_counts_info() {
     if [[ $layout == "S" ]]; then
         for i in {0..8}; do
             if [[ "${active_workspace_status[$i]}" == "1" ]]; then
-                printf '{"text": "%s"}' "${get_mmsg_tag_array[${active_workspaces_window_counts_index[$((i))]}]}"
+                if [[ "${get_mmsg_tag_array[${active_workspaces_window_counts_index[$((i))]}]}" -gt 1 ]]; then
+                    printf '{"text": "%s"}' "${get_mmsg_tag_array[${active_workspaces_window_counts_index[$((i))]}]}"
+                fi
             fi
         done
     fi
