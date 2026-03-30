@@ -62,19 +62,27 @@ Logout)
     mmsg -q
     ;;
 Sleep)
-    sync && systemctl suspend && swaylock --clock --indicator
+    sync
+    systemctl suspend
+    swaylock --clock --indicator
     ;;
 Lock)
-    sync && swaylock --clock --indicator
+    sync
+    swaylock --clock --indicator
     ;;
 Reboot)
-    sync && systemctl reboot
+    sync
+    pkexec umount -l /mnt/external-harddrive/ || true
+    systemctl reboot
     ;;
 Poweroff)
-    sync && systemctl poweroff
+    sync
+    pkexec umount -l /mnt/external-harddrive/ || true
+    systemctl poweroff
     ;;
 Hibernate)
-    sync && systemctl hibernate
+    sync
+    systemctl hibernate
     ;;
 *)
     exit 0

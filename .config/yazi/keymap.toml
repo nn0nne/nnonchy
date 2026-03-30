@@ -5,6 +5,7 @@
 [mgr]
 
 prepend_keymap = [
+  { on = "M", run = "plugin mount", desc = "Open mounts window" },
   { on = [
     "R",
     "b",

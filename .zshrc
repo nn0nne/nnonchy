@@ -117,7 +117,7 @@ source ${ZIM_HOME}/init.zsh
 #################################
 
 # git auto fetch
-export GIT_AUTO_FETCH_INTERVAL=60
+export GIT_AUTO_FETCH_INTERVAL=30
 export GIT_AUTO_FETCH_CACHE_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/git_fetch_time"
 _git_auto_fetch() {
   git rev-parse --is-inside-work-tree &>/dev/null || return 0
