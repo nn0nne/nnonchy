@@ -92,7 +92,7 @@ return {
 		},
 		ft = { "dart", "yaml" },
 		config = function()
-			require("flutter-deps").setup()
+			require("flutter_deps").setup()
 		end,
 	},
 }
