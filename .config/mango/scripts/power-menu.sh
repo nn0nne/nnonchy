@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Options with Nerd Font icons
-options="  Lock
-󰍃  Logout
-󰤄  Sleep
-󰜉  Reboot
-  Poweroff
-󰒲  Hibernate"
+options="Lock
+Logout
+Sleep
+Reboot
+Poweroff
+Hibernate"
 
 # --- Custom color scheme ---
 BG="#252530FF"
@@ -19,43 +19,12 @@ PROMPT_BG="#6e94b2FF"
 PROMPT_FG="#252530FF"
 
 chosen=$(
-    echo -e "$options" | rofi -dmenu \
-        -i \
-        -p "Action:" \
-        -lines 5 \
-        -font "JetBrainsMono Nerd Font Mono 10" \
-        -theme-str "
-    * {
-      background: $BG;
-      foreground: $FG;
-      selected-background: $SEL_BG;
-      selected-foreground: $SEL_FG;
-    }
-    window {
-      background-color: $BG;
-      height: 30%;
-    }
-    prompt {
-      background-color: $PROMPT_BG;
-      text-color: $PROMPT_FG;
-      padding: 6px;
-    }
-    listview {
-      lines: 5;
-      spacing: 4px;
-    }
-    element {
-      padding: 6px;
-    }
-    element selected {
-      background-color: $SEL_BG;
-      text-color: $SEL_FG;
-    }
-  "
+    echo -e "$options" | fuzzel --dmenu \
+        --lines 5
 )
 
 # Strip icon + extra spaces, keep only the word
-action=$(echo "$chosen" | awk '{print $2}')
+action=$("$chosen")
 
 case "$action" in
 Logout)
