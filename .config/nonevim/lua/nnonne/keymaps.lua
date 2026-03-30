@@ -114,6 +114,49 @@ M.spec = {
 	{ "<leader>Fs", "<Cmd>FlutterDevices<CR>", desc = "Select Device", mode = "n" },
 	{ "<leader>Fe", "<Cmd>FlutterEmulators<CR>", desc = "Select Emulator", mode = "n" },
 	{ "<leader>Fv", "<Cmd>FlutterDevTools<CR>", desc = "Open DevTools", mode = "n" },
+	{ "<leader>Fp", group = "Pubspec" },
+	{
+		"<leader>Fpg",
+		"<Cmd>FlutterPubGet<CR>",
+		desc = "Flutter Pub Get",
+		mode = "n",
+	},
+	{
+		"<leader>Fpu",
+		"<Cmd>FlutterPubUpgrade<CR>",
+		desc = "Flutter Pub Upgrade",
+		mode = "n",
+	},
+	{
+		"<leader>Fpc",
+		"<Cmd>lua require('snacks').terminal.open('flutter clean')<CR>",
+		desc = "Flutter Clean",
+		mode = "n",
+	},
+	{
+		"<leader>Fpa",
+		"<Cmd>FlutterDepsAdd<CR>",
+		desc = "Add Pub Package",
+		mode = "n",
+	},
+	{
+		"<leader>Fpid",
+		"<Cmd>PubspecAssistAddDevPackage<CR>",
+		desc = "Add Pub Dev Package (inline)",
+		mode = "n",
+	},
+	{
+		"<leader>Fpia",
+		"<Cmd>PubspecAssistAddPackage<CR>",
+		desc = "Add Pub Package (inline)",
+		mode = "n",
+	},
+	{
+		"<leader>Fpip",
+		"<Cmd>PubspecAssistPickVersion<CR>",
+		desc = "Pick Pub Package version (inline)",
+		mode = "n",
+	},
 
 	-- LSP
 	{ "K", vim.lsp.buf.hover, desc = "Hover", mode = "n" },
