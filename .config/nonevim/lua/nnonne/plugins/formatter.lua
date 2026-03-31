@@ -4,62 +4,30 @@ return {
 	event = { "BufReadPre" },
 	config = function()
 		local conform = require("conform")
-		local ft_formatters =
-			{
-				python = { "ruff" },
-				javascript = { "biome", "prettier_d", "prettier" },
-				javascriptreact = { "biome", "prettier_d", "prettier" },
-				typescript = { "biome", "prettier_d", "prettier" },
-				typescriptreact = { "biome", "prettier_d", "prettier" },
-				lua = { "stylua" },
-				css = { "prettier_d", "prettier" },
-				html = { "prettier_d", "prettier" },
-				json = { "biome", "prettier_d", "prettier" },
-				jsonc = { "biome", "prettier_d", "prettier" },
-				kdl = { "kdlfmt" },
-				rasi = { "biome", "prettier_d", "prettier" },
-				yaml = { "prettier_d", "prettier" },
-				markdown = { "mdformat", "prettier_d", "prettier" },
-				go = { "gofumpt", "goimports" },
-				sh = { "shfmt" },
-				bash = { "shfmt" },
-				prisma = { "prisma", lsp_format = "fallback" },
-				groovy = { "npm-groovy-lint" },
-				toml = { "taplo" },
-				zig = { "zig", lsp_format = "fallback" }, -- zls can format
-				c = { "clang-format" },
-				cpp = { "clang-format" },
-				dart = { "dcm" },
-				http = { "kulala-fmt" },
-			}, conform.setup({
-				-- formatters = {
-				-- 	prettier = {
-				-- 		prepend_args = {
-				-- 			"--prose-wrap",
-				-- 			"always",
-				-- 			"--print-width",
-				-- 			"100",
-				-- 			"--single-quote",
-				-- 			"false",
-				-- 			"--trailing-comma",
-				-- 			"es5",
-				-- 		},
-				-- 	},
-				-- 	shfmt = {
-				-- 		prepend_args = { "-i", "2" }, -- 2 spaces indentation
-				-- 	},
-				-- 	beautysh = {
-				-- 		prepend_args = { "--indent-size", "2" },
-				-- 	},
-				-- 	black = {
-				-- 		prepend_args = { "--line-length", "100" },
-				-- 	},
-				-- 	sqlfluff = {
-				-- 		prepend_args = { "fix", "-f" }, -- Auto-fix mode
-				-- 	},
-				-- },
-			})
-		-- Filter out unavailable formatters
+		local ft_formatters = {
+			python = { "ruff" },
+			javascript = { "biome", "prettier_d", "prettier" },
+			javascriptreact = { "biome", "prettier_d", "prettier" },
+			typescript = { "biome", "prettier_d", "prettier" },
+			typescriptreact = { "biome", "prettier_d", "prettier" },
+			lua = { "stylua" },
+			css = { "prettier_d", "prettier" },
+			html = { "prettier_d", "prettier" },
+			json = { "biome", "prettier_d", "prettier" },
+			jsonc = { "biome", "prettier_d", "prettier" },
+			kdl = { "kdlfmt" },
+			rasi = { "biome", "prettier_d", "prettier" },
+			yaml = { "prettier_d", "prettier" },
+			markdown = { "mdformat", "prettier_d", "prettier" },
+			go = { "gofumpt", "goimports" },
+			sh = { "shfmt" },
+			bash = { "shfmt" },
+			groovy = { "npm-groovy-lint" },
+			toml = { "taplo" },
+			c = { "clang-format" },
+			cpp = { "clang-format" },
+			http = { "kulala-fmt" },
+		}
 		local function available_formatters(ft)
 			local list = ft_formatters[ft] or {}
 			local result = {}
@@ -90,6 +58,15 @@ return {
 			callback = function(args)
 				local ft = vim.bo[args.buf].filetype
 				local formatters = available_formatters(ft)
+				local fallback_languages = {
+					dart = true,
+					prisma = true,
+					zig = true,
+					rust = true,
+				}
+				if fallback_languages[ft] then
+					conform.format({ bufnr = args.buf, lsp_format = "fallback" })
+				end
 				if #formatters > 0 then
 					conform.format({ bufnr = args.buf, formatters = formatters })
 				end
