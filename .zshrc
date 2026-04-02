@@ -242,3 +242,4 @@ eval "$(starship init zsh)"
 
 # Added by Hugging Face CLI installer
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH":"$HOME/.pub-cache/bin"

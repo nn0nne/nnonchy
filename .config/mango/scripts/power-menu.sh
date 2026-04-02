@@ -23,8 +23,7 @@ chosen=$(
         --lines 5
 )
 
-# Strip icon + extra spaces, keep only the word
-action=$("$chosen")
+action=$(echo "$chosen" | xargs)
 
 case "$action" in
 Logout)

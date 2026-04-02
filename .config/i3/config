@@ -32,14 +32,14 @@ exec --no-startup-id easyeffects --gapplication-service
 exec --no-startup-id fcitx -d
 exec_always feh --bg-scale ~/.config/i3/wallpaper.png
 exec_always --no-startup-id killall polybar
-exec_always --no-startup-id /home/nnonne/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always --no-startup-id /usr/bin/autotiling
 exec --no-startup-id xrandr -r 60
 exec --no-startup-id picom &
 exec --no-startup-id /usr/bin/lxpolkit &
 
 # lockscreen
-bindsym $mod+Shift+Control+l exec /home/nnonne/.config/scripts/lock.sh
+bindsym $mod+Shift+Control+l exec ~/.config/scripts/lock.sh
 
 # screenshots
 # Selection to clipboard
@@ -126,7 +126,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock -- /home/nnonne/.config/scripts/lock.sh -n
+exec --no-startup-id xss-lock -- ~/.config/scripts/lock.sh -n
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
