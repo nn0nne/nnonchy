@@ -1,0 +1,58 @@
+* {
+    font-size: 12px;
+    font-family: "JetBrainsMono Nerd Font";
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.background {
+    background: transparent;
+}
+
+button,
+button:hover,
+button:active button:focus {
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0 10px;
+}
+
+.popup-custom,
+.popup {
+    background-color: #282828;
+    border: 0 solid #444444;
+    border-radius: 0;
+    padding: 0;
+}
+
+.popup-custom * {
+    background: none;
+}
+
+#tray-toggle-btn {
+    font-size: 16px;
+    padding: 0 0;
+    color: #bd93f9;
+}
+
+.tray .item {
+    font-size: 16px;
+    padding: 0 5px;
+}
+
+.bluetooth-module button,
+.wifi-module button {
+    padding: 0 0;
+}
+
+#volume-script {
+    margin-left: 15px;
+    margin-right: 5px;
+}

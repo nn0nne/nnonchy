@@ -1,0 +1,67 @@
+max-history=50
+sort=-time
+default-timeout=7000
+ignore-timeout=0
+
+font=monospace 10
+background-color=#1E1E2EFF
+text-color=#CDD6F4FF
+border-size=2
+border-color=#89B4FAFF
+border-radius=8
+width=350
+height=120
+margin=10,10,10,10
+padding=12
+progress-color=over #F38BA8FF
+
+icons=0
+max-icon-size=64
+icon-location=left
+icon-border-radius=4
+icon-path=~/.local/share/icons:/usr/share/icons/Papirus:/usr/share/icons/hicolor
+
+markup=1
+actions=1
+history=1
+group-by=app-name,urgency
+max-visible=7
+anchor=top-right
+layer=overlay
+output=
+
+# === Format ===
+format=<b>%s</b>\n%b
+[grouped]
+format=(%g) <b>%s</b>\n%b
+invisible=0
+[group-index=0]
+invisible=0
+
+# === Bindings ===
+on-button-left=invoke-default-action
+on-button-right=dismiss
+on-button-middle=exec makoctl menu -n "$id" -- tofi -p "Action: "
+on-touch=dismiss
+on-notify=none
+
+# === Criteria: Urgency ===
+[urgency=low]
+border-color=#A6ADC8FF
+default-timeout=4000
+
+[urgency=normal]
+border-color=#89B4FAFF
+
+[urgency=critical]
+border-color=#F38BA8FF
+border-size=3
+default-timeout=0
+
+# === Modes ===
+[mode=do-not-disturb]
+invisible=1
+
+[mode=presentation]
+max-visible=1
+anchor=center

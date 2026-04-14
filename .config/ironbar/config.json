@@ -1,0 +1,158 @@
+{
+    "position": "top",
+    "height": 15,
+    "anchor_to_edges": true,
+    "margin.left": 5,
+    "margin.right": 5,
+    "layer": "top",
+    "start": [
+        {
+            "type": "clock",
+            "format": "%d/%m/%Y %H:%M"
+        },
+        {
+            "type": "script",
+            "name": "mangowm-workspaces",
+            "cmd": "/home/nnonne/.config/ironbar/scripts/workspaces.sh",
+            "mode": "poll",
+            "interval": 1000
+        },
+        {
+            "type": "focused",
+            "show_icon": false,
+            "show_title": true,
+            "truncate": {
+                "mode": "end",
+                "max_length": 50
+            }
+        }
+    ],
+    "center": [
+        {
+            "type": "music",
+            "player_type": "mpris",
+            "format": "{title} / {artist}",
+            "truncate": {
+                "mode": "end",
+                "max_length": 50
+            },
+            "icons": {
+                "play": "",
+                "pause": ""
+            }
+        }
+    ],
+    "end": [
+        {
+            "type": "custom",
+            "class": "tray-menu",
+            "bar": [
+                {
+                    "type": "button",
+                    "name": "tray-toggle-btn",
+                    "label": "󱊖",
+                    "on_click": "popup:toggle"
+                }
+            ],
+            "popup": [
+                {
+                    "type": "box",
+                    "orientation": "horizontal",
+                    "widgets": [
+                        {
+                            "type": "tray",
+                            "direction": "horizontal",
+                            "icon_size": 16
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "inhibit",
+            "default_duration": "inf",
+            "on_click_left": "toggle",
+            "format_on": "☕",
+            "format_off": "💤"
+        },
+        {
+            "format": [
+                "|  {cpu_percent}% {temp_c@coretemp Package id 0}°C |",
+                " {memory_percent}% {swap_percent}% |"
+            ],
+            "interval": {
+                "cpu": 60,
+                "memory": 60
+            },
+            "type": "sys_info"
+        },
+        {
+            "type": "custom",
+            "class": "bluetooth-module",
+            "bar": [
+                {
+                    "type": "button",
+                    "label": "{{2000:bluetoothctl show | grep -q 'Powered: yes' && (bluetoothctl info | grep -q 'Device' && echo '' || echo '') || echo '󰂲'}}",
+                    "on_click": "!foot bluetui"
+                }
+            ]
+        },
+        {
+            "type": "custom",
+            "class": "wifi-module",
+            "bar": [
+                {
+                    "type": "button",
+                    "label": "{{2000:iwctl station wlan0 show | grep -q 'Connected network' && echo '' || echo '󰖪'}}",
+                    "on_click": "!foot impala"
+                }
+            ]
+        },
+        {
+            "type": "script",
+            "name": "volume-script",
+            "interval": 60,
+            "cmd": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{val=int($2*100); if ($3==\"[MUTED]\") printf \"󰝟\\n\"; else printf \"󰕾 %d%%\\n\", val}'",
+            "on_click_left": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+            "on_scroll_up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+            "on_scroll_down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+            "on_click_right": "foot wiremix -v output"
+        },
+        {
+            "type": "brightness",
+            "format": "{percentage}%",
+            "smooth_scroll_speed": 0.5,
+            "mode": {
+                "type": "systemd",
+                "subsystem": "backlight",
+                "name": "intel_backlight"
+            },
+            "profiles": {
+                "low": {
+                    "when": 25,
+                    "format": "{percentage}%",
+                    "icon_label": ""
+                },
+                "high": {
+                    "when": 100,
+                    "format": "{percentage}%",
+                    "icon_label": ""
+                }
+            }
+        },
+        {
+            "type": "battery",
+            "format": "{percentage}%",
+            "icon_size": 10,
+            "profiles": {
+                "critical": {
+                    "when": {
+                        "percent": 15,
+                        "charging": false
+                    },
+                    "format": "[LOW] {percentage}%"
+                }
+            }
+        }
+    ]
+}

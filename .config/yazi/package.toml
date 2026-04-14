@@ -98,5 +98,20 @@ use = "yazi-rs/plugins:mount"
 rev = "1962818"
 hash = "91937a4a9b779eabc6983e258befdfe9"
 
+[[plugin.deps]]
+use = "GianniBYoung/rsync"
+rev = "44f6979"
+hash = "9e85283824277bf66011a3977d266edb"
+
+[[plugin.deps]]
+use = "Ape/reflink"
+rev = "00f0fd0"
+hash = "4a64788e4802ad27c75a9977c29f0e55"
+
+[[plugin.deps]]
+use = "nsavvide/duck-radar"
+rev = "c54830c"
+hash = "c553a03f9141cfbfa21027b52dacaca4"
+
 [flavor]
 deps = []

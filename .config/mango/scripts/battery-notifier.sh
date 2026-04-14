@@ -22,7 +22,6 @@ while true; do
         elif [[ $percentage -le 30 ]]; then
             notify-send -r 9999991 -u critical "Warning" "Battery is currently at: $percentage%"
         fi
-        sleep 60
     fi
 
     if [[ $status == "Charging" ]]; then
@@ -34,6 +33,6 @@ while true; do
         else
             notified_full=false
         fi
-        sleep 60
     fi
+    sleep 60
 done

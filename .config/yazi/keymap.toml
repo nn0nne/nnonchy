@@ -5,6 +5,9 @@
 [mgr]
 
 prepend_keymap = [
+  { on = ["<C-r>"], run = "plugin duck-radar", desc = "Duck Radar - Recent Files" },
+  { on = ["_","R"], run = "plugin reflink", desc = "Reflink the yanked files" },
+  { on = "R", run = "plugin rsync", desc = "Copy files using rsync" },
   { on = "M", run = "plugin mount", desc = "Open mounts window" },
   { on = [
     "R",
@@ -275,11 +278,15 @@ keymap = [
   ], run = "cd ~/Downloads", desc = "Go ~/Downloads" },
   { on = [
     "g",
+    "f",
+  ], run = "cd ~/dotfiles", desc = "Go ~/dotfiles" },
+  { on = [
+    "g",
     "<Space>",
   ], run = "cd --interactive", desc = "Jump interactively" },
   { on = [
     "g",
-    "f",
+    "s",
   ], run = "follow", desc = "Follow hovered symlink" },
 
   # Tabs

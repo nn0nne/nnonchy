@@ -1,11 +1,7 @@
 # https://github.com/jdx/mise/discussions/8338 flutter mise error fix
 
 [tools]
-go = "latest"
 node = "24"
-java = "openjdk"
-zig = "latest"
+java = "21"
 flutter = { version = "3.41.6", platforms = { linux-arm64 = { url = 'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_arm64_{{ version | replace(from="-stable", to="") }}-stable.tar.xz' }, linux-x64 = { url = 'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_{{ version | replace(from="-stable", to="") }}-stable.tar.xz' } }, url = "https://sjorage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_{{ version }}-stable.zip", version_expr = 'fromJSON(body).releases | filter({ #.channel == "stable" }) | map({ #.version }) | sortVersions()', version_list_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json" }
-uv = "latest"
-rust = "stable"
 android-sdk = "latest"
