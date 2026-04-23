@@ -1,0 +1,123 @@
+bar:
+  height: 20
+  location: top
+  background: 141415ff
+  foreground: cdcdcdff
+  font: monospace:size=11
+  spacing: 5
+  margin: 10
+  layer: top
+  border:
+    width: 0
+
+  left:
+    - clock:
+        time-format: "%A %H:%M, %Y-%m-%d"
+        content:
+          string: { text: "{time}" }
+    - script:
+        path: ~/.config/yambar/scripts/mango-tags.sh
+        args: []
+        poll-interval: 1000
+        content:
+          string:
+            text: "{mmsg_info}"
+
+  center:
+    - foreign-toplevel:
+        content:
+          map:
+            conditions:
+              ~activated: { empty: {} }
+              activated:
+                - string: { text: "{title}", max: 100 }
+  right:
+    - script:
+        path: ~/.config/yambar/scripts/inhibit.sh
+        args: []
+        poll-interval: 15000
+        content:
+          string:
+            text: "{icon}"
+
+    - script:
+        path: /usr/sbin/sh
+        args:
+          - "-c"
+          - 'echo "temp|int|$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))"; echo ""'
+        poll-interval: 15000
+        content:
+          string: { text: "{temp}°C" }
+    - cpu:
+        poll-interval: 15000
+        content:
+          map:
+            conditions:
+              id < 0:
+                - string: { text: "{cpu}% " }
+    - script:
+        path: ~/.config/yambar/scripts/mem.sh
+        poll-interval: 15000
+        content:
+          list:
+            items:
+              - string:
+                  text: "{ram_perc}% "
+                  margin: 5
+              - string:
+                  text: " {swap_perc}% 󰓡 "
+    - pipewire:
+        anchors:
+          volume: &volume
+            conditions:
+              muted: { string: { text: "" } }
+              ~muted: { string: { text: "" } }
+        content:
+          list:
+            items:
+              - map:
+                  conditions:
+                    muted: { string: { text: "" } }
+                    type == "sink":
+                      map:
+                        conditions:
+                          icon == "audio-headset-bluetooth":
+                            string: { text: "🎧" }
+                        default:
+                          - ramp:
+                              tag: cubic_volume
+                              items:
+                                - string: { text: "▁" }
+                                - string: { text: "▂" }
+                                - string: { text: "▃" }
+                                - string: { text: "▄" }
+                                - string: { text: "▅" }
+                                - string: { text: "▆" }
+                                - string: { text: "▇" }
+              - map:
+                  <<: *volume
+    - script:
+        path: ~/.config/yambar/scripts/sys-info.sh
+        poll-interval: 15000
+        content:
+          list:
+            items:
+              # Bluetooth Module (Opens foot with bluetui)
+              - string:
+                  text: "{bt_status}"
+                  margin: 5
+                  on-click: foot -e bluetui
+              # WiFi Module (Opens foot with impala)
+              - string:
+                  text: "{wifi_status}"
+                  margin: 5
+                  on-click: foot -e impala
+              # Power Profiles (Clicking this forces TLP to battery or ac mode)
+              - string:
+                  text: "{power_icon}"
+                  margin: 5
+    - battery:
+        name: BAT1
+        poll-interval: 30000
+        content:
+          string: { text: "{capacity}% 󰁹" }

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 update_window_counts_info() {
     active_workspace_status=()
 
@@ -27,6 +29,16 @@ update_window_counts_info() {
 }
 
 mmsg -w | while read -r event; do
-    update_window_counts_info
-    stdbuf -oL echo
+    result=$(update_window_counts_info)
+    
+    if [[ -n "$result" ]]; then
+        echo "$result"
+    else
+        echo '{"text": ""}'
+    fi
 done
+
+# mmsg -w | while read -r event; do
+#     update_window_counts_info
+#     stdbuf -oL
+# done

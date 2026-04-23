@@ -1,22 +1,4 @@
 [
-    // {
-    //   "name": "overlay",
-    //   "height": 30,
-    //   "width": 100,
-    //
-    //   // i had some problem with `"mode" : "overlay"` so i use these properties
-    //   "layer": "bottom",
-    //   "position": "top",
-    //   "margin-top": -30,
-    //   "exclusive": false,
-    //   "passtrough": true,
-    //
-    //   "modules-center": ["custom/cava"],
-    //   "custom/cava": {
-    //     "format": "{}",
-    //     "exec": "$HOME/.config/waybar/cava.sh",
-    //   },
-    // },
     {
         "height": 25,
         "spacing": 4,
@@ -28,19 +10,12 @@
         "position": "top",
         "reload_style_on_change": true,
         "modules-left": [
-            // "systemd-failed-units",
-            // "custom/updates",
             "clock",
             "dwl/tags",
             "custom/window-counter",
-            // "ext/workspaces",
             "dwl/window"
         ],
-        // "modules-center": ["custom/playerinfo"],
-        // "modules-center": ["image#album", "mpris"],
-        "modules-center": [
-            "mpris"
-        ],
+        "modules-center": [],
         "modules-right": [
             "group/tray",
             "idle_inhibitor",
@@ -55,34 +30,13 @@
             "power-profiles-daemon",
             "battery"
         ],
-        // --- Modules ---
-        // "custom/playerinfo": {
-        //   "format": "{}",
-        //   "exec": "~/.config/waybar/playerinfo.sh",
-        //   "escape": true,
-        //   "return-type": "json",
-        //   "interval": 1,
-        //   "tooltip": true,
-        //   "on-click-middle": "playerctl play-pause",
-        //   "on-click": "playerctl next",
-        //   "on-click-left": "playerctl previous",
-        // },
         "custom/window-counter": {
-            "exec": "~/.config/waybar/scripts/scrolling-window-list.sh",
+            "exec": "stdbuf -oL ~/.config/waybar/scripts/scrolling-window-list.sh",
             "return-type": "json",
             "format": "{}",
+            "escape": true,
             "tooltip-format": "{}"
         },
-        // "custom/updates": {
-        //   "format": " {} {icon}",
-        //   "return-type": "json",
-        //   "format-icons": {
-        //     "has-updates": "󱍷",
-        //     "updated": "",
-        //   },
-        //   "exec-if": "which waybar-module-pacman-updates",
-        //   "exec": "waybar-module-pacman-updates --no-zero-output --interval-seconds 300 --network-interval-seconds 600 --column-color-overrides #cdcdcd,#606079,#f3be7c,#7fa563",
-        // },
         "wlr/taskbar": {
             "format": "{icon}",
             "icon-size": 14,
@@ -135,23 +89,6 @@
             "tooltip-format-connected": "{device_alias} - {device_battery_percentage}%",
             "on-click": "foot bluetui"
         },
-        // "image#album": {
-        //   "exec": "~/.config/waybar/scripts/album-art.sh",
-        //   "size": 25,
-        //   "interval": 60,
-        // },
-        "mpris": {
-            "format": "{player_icon} {artist} - {title}",
-            "format-paused": "{status_icon} <i>{artist} - {title}</i>",
-            // "player-icons": {
-            //   "default": "▶",
-            // },
-            // "status-icons": {
-            //   "paused": "⏸",
-            // },
-            "on-click": "playerctl previous",
-            "on-click-right": "playerctl next"
-        },
         "temperature": {
             "interval": 30,
             "critical-threshold": 50,
@@ -167,7 +104,7 @@
         "cpu": {
             "interval": 30,
             "format": "{usage}% ",
-            "on-click": "kitty -e btm"
+            "on-click": "foot -e htop"
         },
         "disk": {
             "format": "{percentage_used}% {path}",
@@ -284,7 +221,7 @@
                 "▆",
                 "▇"
             ],
-            "on-click": "kitty -e wiremix",
+            "on-click": "foot -e wiremix",
             "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
             "tooltip": true,
             "tooltip-format": "{icon} {volume}%",
