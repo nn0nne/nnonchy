@@ -24,9 +24,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf }
 
-		-- Example keymap
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "ca", vim.lsp.buf.code_action, opts)
 	end,
 })
 
@@ -214,13 +212,6 @@ require("blink.cmp").setup({
 	snippets = { preset = "mini_snippets" },
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
-		providers = {
-			snippets = {
-				opts = {
-					friendly_snippets = true,
-				},
-			},
-		},
 	},
 	fuzzy = { implementation = "prefer_rust_with_warning" },
 })
@@ -233,7 +224,55 @@ require("conform").setup({
 require("lazydev").setup({
 	enable = true,
 })
-require("vim._core.ui2").enable()
+--
+-- source https://www.reddit.com/r/neovim/comments/1sa95g4/no_more_press_enter_with_ui2_with_example/
+vim.opt.cmdheight = 0
+require("vim._core.ui2").enable({
+	enable = true,
+	msg = {
+		targets = {
+			[""] = "msg",
+			empty = "cmd",
+			bufwrite = "msg",
+			confirm = "cmd",
+			emsg = "pager",
+			echo = "msg",
+			echomsg = "msg",
+			echoerr = "pager",
+			completion = "cmd",
+			list_cmd = "pager",
+			lua_error = "pager",
+			lua_print = "msg",
+			progress = "pager",
+			rpc_error = "pager",
+			quickfix = "msg",
+			search_cmd = "cmd",
+			search_count = "cmd",
+			shell_cmd = "pager",
+			shell_err = "pager",
+			shell_out = "pager",
+			shell_ret = "msg",
+			undo = "msg",
+			verbose = "pager",
+			wildlist = "cmd",
+			wmsg = "msg",
+			typed_cmd = "cmd",
+		},
+		cmd = {
+			height = 0.5,
+		},
+		dialog = {
+			height = 0.5,
+		},
+		msg = {
+			height = 0.3,
+			timeout = 5000,
+		},
+		pager = {
+			height = 0.5,
+		},
+	},
+})
 require("mini.surround").setup()
 require("mini.pairs").setup()
 require("mini.diff").setup()
@@ -243,17 +282,38 @@ require("mini.hipatterns").setup({
 		hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
 		todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
 		note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-
-		-- Highlight hex color strings (`#rrggbb`) using that color
 		hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 	},
 })
 require("mini.icons").setup()
-require("mini.indentscope").setup()
+require("mini.indentscope").setup({
+	draw = {
+		animation = function(s, n)
+			return 0
+		end,
+	},
+	delay = 50,
+})
 require("mini.pick").setup()
 require("mini.files").setup()
 require("mini.ai").setup()
-require("mini.notify").setup()
+require("mini.notify").setup({
+	-- window = {
+	-- 	config = function()
+	-- 		local has_statusline = vim.o.laststatus > 0
+	-- 		-- Offset to sit above the statusline and command line
+	-- 		local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
+	--
+	-- 		return {
+	-- 			anchor = "SE",
+	-- 			-- col = vim.o.columns, -- for SE anchor {bottom right}
+	-- 			col = 0, -- for SW anchor (bottom left)
+	-- 			row = vim.o.lines - pad,
+	-- 			border = "single", -- You can keep your rounded border theme here too!
+	-- 		}
+	-- 	end,
+	-- },
+})
 require("mini.snippets").setup()
 require("mini.statusline").setup()
 require("mini.cursorword").setup()
@@ -693,6 +753,7 @@ vim.g.clipboard = {
 		["*"] = paste,
 	},
 }
+opt.winborder = "single"
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
@@ -746,7 +807,7 @@ opt.softtabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.timeoutlen = 50 -- Lower than default (1000) to quickly trigger which-key
 opt.undofile = true
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undodir = "undodir"
 opt.showcmd = true
 opt.swapfile = false
 opt.backup = false
@@ -762,3 +823,5 @@ opt.inccommand = "split"
 opt.background = "dark"
 opt.foldenable = true
 opt.foldcolumn = "0"
+
+vim.lsp.handlers["$/progress"] = function() end -- to remove lsp progress
