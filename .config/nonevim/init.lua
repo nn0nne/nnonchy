@@ -315,9 +315,85 @@ require("mini.notify").setup({
 	-- },
 })
 require("mini.snippets").setup()
-require("mini.statusline").setup()
+
+require("mini.statusline").setup({
+	content = {
+		active = function()
+			-- 1. Custom Mode Mapping
+			local mode_labels = {
+				["n"] = "🈚 ノーマル",
+				["v"] = "👁️ ビジュアル",
+				["V"] = "📏 ビジュアルライン",
+				["\22"] = "🔲 ビジュアルブロック", -- This is the code for CTRL-V
+				["s"] = "🔤 セレクト",
+				["S"] = "🧾 セレクトライン",
+				["\19"] = "🟦 セレクトブロック",
+				["i"] = "✍️ インサート",
+				["R"] = "📝 リプレイス",
+				["c"] = "⌨️ コマンド",
+				["r"] = "❓ プロンプト",
+				["!"] = "🐚 シェル",
+				["t"] = "💻 ターミナル",
+			}
+
+			-- Get current mode and its highlight group
+			local cur_mode = vim.api.nvim_get_mode().mode
+			local mode_text = mode_labels[cur_mode] or cur_mode
+
+			-- We still use section_mode just to get the correct highlight group for the mode
+			local _, mode_hl = require("mini.statusline").section_mode({ trunc_width = 120 })
+
+			-- 2. Standard Sections
+			local git = require("mini.statusline").section_git({ trunc_width = 40 })
+			local diff = require("mini.statusline").section_diff({ trunc_width = 75 })
+			local filename = require("mini.statusline").section_filename({ trunc_width = 140 })
+			local fileinfo = require("mini.statusline").section_fileinfo({ trunc_width = 120 })
+			local location = require("mini.statusline").section_location({ trunc_width = 75 })
+
+			-- 3. Diagnostics
+			local diagnostics = require("mini.statusline").section_diagnostics({
+				trunc_width = 75,
+				signs = {
+					ERROR = "%#DiagnosticError#󰅚 %#MiniStatuslineDevinfo#",
+					WARN = "%#DiagnosticWarn#󰀪 %#MiniStatuslineDevinfo#",
+					INFO = "%#DiagnosticInfo#󰋽 %#MiniStatuslineDevinfo#",
+					HINT = "%#DiagnosticHint#󰌶 %#MiniStatuslineDevinfo#",
+				},
+			})
+
+			-- 4. Combine
+			return require("mini.statusline").combine_groups({
+				{ hl = mode_hl, strings = { mode_text } }, -- Use our custom mode_text
+				{ hl = "MiniStatuslineDevinfo", strings = { git, diff, diagnostics } },
+				"%<",
+				{ hl = "MiniStatuslineFilename", strings = { filename } },
+				"%=",
+				{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+				{ hl = mode_hl, strings = { location } },
+			})
+		end,
+	},
+})
 require("mini.cursorword").setup()
-require("mini.tabline").setup()
+require("mini.tabline").setup({
+	show_icons = true,
+	format = function(buf_id, label)
+		-- Get diagnostic counts for the specific buffer
+		local errors = #vim.diagnostic.get(buf_id, { severity = vim.diagnostic.severity.ERROR })
+		local warnings = #vim.diagnostic.get(buf_id, { severity = vim.diagnostic.severity.WARN })
+
+		local diagnostic_suffix = ""
+		if errors > 0 then
+			diagnostic_suffix = diagnostic_suffix .. "  " .. errors
+		end
+		if warnings > 0 then
+			diagnostic_suffix = diagnostic_suffix .. "  " .. warnings
+		end
+
+		-- Use the default format (handles icons/padding) and append our diagnostics
+		return require("mini.tabline").default_format(buf_id, label) .. diagnostic_suffix
+	end,
+})
 require("mini.bracketed").setup()
 require("mini.clue").setup()
 require("mini.extra").setup()
