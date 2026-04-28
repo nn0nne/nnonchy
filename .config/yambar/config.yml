@@ -3,7 +3,7 @@ bar:
   location: top
   background: 141415ff
   foreground: cdcdcdff
-  font: monospace:size=11
+  font: monospace:size=8
   spacing: 5
   margin: 10
   layer: top

@@ -60,6 +60,9 @@ scan_timeout = 5000
 # Don't print a new line at the start of the prompt
 add_newline = true
 
+[lua]
+symbol = "󰢱 "
+
 [git_branch]
 symbol = ' '              # branch symbol
 style = 'bold purple'

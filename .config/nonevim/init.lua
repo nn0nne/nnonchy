@@ -222,8 +222,12 @@ require("conform").setup({
 	},
 })
 require("lazydev").setup({
-	enable = true,
+	library = {
+		-- Load luvit types when the `vim.uv` word is found
+		{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+	},
 })
+require("trouble").setup({})
 --
 -- source https://www.reddit.com/r/neovim/comments/1sa95g4/no_more_press_enter_with_ui2_with_example/
 vim.opt.cmdheight = 0
@@ -273,6 +277,18 @@ require("vim._core.ui2").enable({
 		},
 	},
 })
+
+if os.getenv("TERM") == "xterm-kitty" or os.getenv("KITTY_WINDOW_ID") then
+	-- Do nothing, let the plugin load naturally
+else
+	-- We are in Foot: Disable the plugin and set standard mappings
+	vim.g.loaded_kitty_navigator = 1
+	vim.keymap.set("n", "<C-h>", "<C-w>h")
+	vim.keymap.set("n", "<C-j>", "<C-w>j")
+	vim.keymap.set("n", "<C-k>", "<C-w>k")
+	vim.keymap.set("n", "<C-l>", "<C-w>l")
+end
+
 require("mini.surround").setup()
 require("mini.pairs").setup()
 require("mini.diff").setup()
@@ -295,7 +311,81 @@ require("mini.indentscope").setup({
 	delay = 50,
 })
 require("mini.pick").setup()
-require("mini.files").setup()
+
+local function get_diagnostic_status(path)
+	-- Get all diagnostics for the given path
+	-- Note: path must be an absolute path
+	local bufnr = vim.fn.bufnr(path)
+	if bufnr == -1 then
+		return nil
+	end
+
+	local diags = vim.diagnostic.get(bufnr)
+	if #diags == 0 then
+		return nil
+	end
+
+	-- Find the highest severity
+	local max_severity = vim.diagnostic.severity.HINT
+	for _, d in ipairs(diags) do
+		if d.severity < max_severity then
+			max_severity = d.severity
+		end
+	end
+
+	-- Map severity to icons/colors
+	local signs = {
+		[vim.diagnostic.severity.ERROR] = { text = " ", hl = "DiagnosticError" },
+		[vim.diagnostic.severity.WARN] = { text = " ", hl = "DiagnosticWarn" },
+		[vim.diagnostic.severity.INFO] = { text = " ", hl = "DiagnosticInfo" },
+		[vim.diagnostic.severity.HINT] = { text = "󰌵 ", hl = "DiagnosticHint" },
+	}
+
+	return signs[max_severity]
+end
+
+local ns_id = vim.api.nvim_create_namespace("mini_files_diagnostics")
+vim.api.nvim_create_autocmd("User", {
+	pattern = "MiniFilesBufferUpdate",
+	callback = function(args)
+		local buf_id = args.data.buf_id
+		vim.api.nvim_buf_clear_namespace(buf_id, ns_id, 0, -1)
+
+		local n_lines = vim.api.nvim_buf_line_count(buf_id)
+		for i = 1, n_lines do
+			local entry = MiniFiles.get_fs_entry(buf_id, i)
+			if entry then
+				local status = get_diagnostic_status(entry.path)
+				if status then
+					vim.api.nvim_buf_set_extmark(buf_id, ns_id, i - 1, 0, {
+						virt_text = { { status.text, status.hl } },
+						virt_text_pos = "inline",
+						priority = 100,
+					})
+				end
+			end
+		end
+	end,
+})
+
+require("mini.files").setup({
+	mappings = {
+		close = "<Esc>",
+		go_in = "l",
+		go_in_plus = "L",
+		go_out = "h",
+		go_out_plus = "H",
+		mark_goto = "'",
+		mark_set = "m",
+		reset = "<BS>",
+		reveal_cwd = "@",
+		show_help = "g?",
+		synchronize = "=",
+		trim_left = "<",
+		trim_right = ">",
+	},
+})
+
 require("mini.ai").setup()
 require("mini.notify").setup({
 	-- window = {
@@ -314,7 +404,7 @@ require("mini.notify").setup({
 	-- 	end,
 	-- },
 })
-require("mini.snippets").setup()
+require("mini.snippets").setup({})
 
 require("mini.statusline").setup({
 	content = {
@@ -395,7 +485,6 @@ require("mini.tabline").setup({
 	end,
 })
 require("mini.bracketed").setup()
-require("mini.clue").setup()
 require("mini.extra").setup()
 require("mini.jump").setup()
 require("mini.misc").setup()
@@ -508,13 +597,33 @@ require("mini.misc").setup()
 vim.cmd("packadd nvim.undotree")
 vim.cmd.colorscheme("vague")
 
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+vim.lsp.config("*", { capabilities = capabilities })
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
 			diagnostics = {
 				globals = { "vim" },
 			},
+			workspace = {
+				preloadFileSize = 1000,
+				maxPreload = 2000,
+				checkThirdParty = false,
+				ignoreDir = { ".git", "node_modules" },
+			},
+			telemetry = { enable = false },
 		},
+		single_file_support = true,
+	},
+	root_markers = {
+		".luarc.json",
+		".luarc.jsonc",
+		".git",
+		"init.lua",
+		"init.sls",
 	},
 })
 
@@ -804,10 +913,6 @@ vim.g.loaded_zipPlugin = 1
 vim.g.loaded_gzip = 1
 vim.g.loaded_tarPlugin = 1
 
-vim.g.deprecation_warnings = false
-
-vim.g.trouble_lualine = true
-
 local opt = vim.opt
 opt.autowrite = true -- Enable auto write
 -- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
@@ -881,13 +986,14 @@ opt.splitright = true -- Put new windows right of current
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.softtabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
-opt.timeoutlen = 50 -- Lower than default (1000) to quickly trigger which-key
+opt.timeoutlen = 50
 opt.undofile = true
-opt.undodir = "undodir"
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.showcmd = true
 opt.swapfile = false
 opt.backup = false
 opt.undolevels = 10000
+opt.undoreload = 10000
 opt.updatetime = 50 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
@@ -901,3 +1007,17 @@ opt.foldenable = true
 opt.foldcolumn = "0"
 
 vim.lsp.handlers["$/progress"] = function() end -- to remove lsp progress
+vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+	local default_config = {
+		border = "single", -- You can keep your border style here
+		timeout = 5000, -- Your desired timeout
+	}
+	return vim.lsp.handlers.hover(err, result, ctx, vim.tbl_extend("force", default_config, config or {}))
+end
+vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+	local default_config = {
+		border = "single",
+		timeout = 5000,
+	}
+	return vim.lsp.handlers.signatureHelp(err, result, ctx, vim.tbl_extend("force", default_config, config or {}))
+end
