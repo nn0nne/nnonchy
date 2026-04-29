@@ -267,13 +267,14 @@ require("mini.hipatterns").setup({
 		hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
 		todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
 		note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-		dart_color = {
-			pattern = "0x%x%x(%x%x%x%x%x%x)%f[%X]",
-			group = function(_, _, match)
-				local hex = "#" .. match:sub(-6)
-				return require("mini.hipatterns").compute_hex_color_group(hex, "bg")
-			end,
-		},
+		-- TODO Dart/Flutter color
+		-- dart_color = {
+		-- 	pattern = "0x%x%x(%x%x%x%x%x%x)%f[%X]",
+		-- 	group = function(_, _, match)
+		-- 		local hex = "#" .. match:sub(-6)
+		-- 		return require("mini.hipatterns").compute_hex_color_group(hex, "bg")
+		-- 	end,
+		-- },
 		hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 	},
 })
