@@ -42,6 +42,9 @@ play = [
   { run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
   { run = "mediainfo %s1 & pause", block = true, desc = "Show media info", for = "windows" },
 ]
+chmod = [
+  { run = 'shell "chmod +x \"$@\""', desc = "Make executable", for = "unix" }
+]
 open = [
   { run = "xdg-open %s1", desc = "Open", for = "linux" },
   { run = "open %s", desc = "Open", for = "macos" },

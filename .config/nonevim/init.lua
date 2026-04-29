@@ -1,71 +1,6 @@
--- =========== autocommands ===========
-
-local group = vim.api.nvim_create_augroup("OoO", { clear = true })
-
-local function au(typ, pattern, cmdOrFn)
-	if type(cmdOrFn) == "function" then
-		vim.api.nvim_create_autocmd(typ, { pattern = pattern, callback = cmdOrFn, group = group })
-	else
-		vim.api.nvim_create_autocmd(typ, { pattern = pattern, command = cmdOrFn, group = group })
-	end
-end
-
-au({ "CursorHold" }, nil, function()
-	local opts = {
-		focusable = false,
-		scope = "cursor",
-		close_events = { "BufLeave", "CursorMoved" },
-	}
-	vim.diagnostic.open_float(nil, opts)
-end)
-
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = group,
-	callback = function(event)
-		local opts = { buffer = event.buf }
-
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-	end,
-})
-
-vim.api.nvim_create_autocmd("PackChanged", {
-	callback = function(ev)
-		local name, kind = ev.data.spec.name, ev.data.kind
-		if name == "nvim-treesitter" and kind == "update" then
-			if not ev.data.active then
-				vim.cmd.packadd("nvim-treesitter")
-			end
-			vim.cmd("TSUpdate")
-		end
-	end,
-})
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlights text when yanking",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-})
-
--- autocmds
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	pattern = { "*.md" },
-	callback = function()
-		vim.opt.colorcolumn = "80"
-		vim.opt.textwidth = 80
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-	pattern = { "*.md" },
-	callback = function()
-		vim.opt.colorcolumn = "120"
-		vim.opt.textwidth = 120
-	end,
-})
-
--- =========== plugins ===========
+require("settings.options")
+require("commands.autocommands")
+local keymaps = require("settings.keymaps")
 
 local function add_plugins(plugins)
 	local expanded_list = {}
@@ -95,8 +30,6 @@ add_plugins({
 	"folke/ts-comments.nvim",
 	"knubie/vim-kitty-navigator",
 	"nvim-mini/mini.nvim",
-	-- "akinsho/bufferline.nvim",
-	-- "nvim-lualine/lualine.nvim",
 	"folke/lazydev.nvim",
 	"aspeddro/gitui.nvim",
 	"vyfor/cord.nvim",
@@ -104,6 +37,8 @@ add_plugins({
 	"rafamadriz/friendly-snippets",
 	"folke/trouble.nvim",
 })
+
+vim.cmd.colorscheme("vague")
 
 require("nvim-treesitter").setup({
 	ensure_installed = {
@@ -215,20 +150,52 @@ require("blink.cmp").setup({
 	},
 	fuzzy = { implementation = "prefer_rust_with_warning" },
 })
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+vim.lsp.config("*", { capabilities = capabilities })
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				preloadFileSize = 1000,
+				maxPreload = 2000,
+				checkThirdParty = false,
+				ignoreDir = { ".git", "node_modules" },
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			telemetry = { enable = false },
+		},
+		single_file_support = true,
+	},
+	root_markers = {
+		".luarc.json",
+		".luarc.jsonc",
+		".git",
+		"init.lua",
+		"init.sls",
+	},
+})
+
 require("conform").setup({
 	format_on_save = {
 		timout_ms = 500,
 		lsp_format = "fallback",
 	},
 })
+
 require("lazydev").setup({
 	library = {
-		-- Load luvit types when the `vim.uv` word is found
 		{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 	},
 })
+
 require("trouble").setup({})
---
+
 -- source https://www.reddit.com/r/neovim/comments/1sa95g4/no_more_press_enter_with_ui2_with_example/
 vim.opt.cmdheight = 0
 require("vim._core.ui2").enable({
@@ -279,9 +246,7 @@ require("vim._core.ui2").enable({
 })
 
 if os.getenv("TERM") == "xterm-kitty" or os.getenv("KITTY_WINDOW_ID") then
-	-- Do nothing, let the plugin load naturally
 else
-	-- We are in Foot: Disable the plugin and set standard mappings
 	vim.g.loaded_kitty_navigator = 1
 	vim.keymap.set("n", "<C-h>", "<C-w>h")
 	vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -291,130 +256,52 @@ end
 
 require("mini.surround").setup()
 require("mini.pairs").setup()
-require("mini.diff").setup()
+require("mini.diff").setup({
+	view = {
+		style = "sign",
+	},
+})
 require("mini.hipatterns").setup({
 	highlighters = {
 		fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
 		hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
 		todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
 		note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+		dart_color = {
+			pattern = "0x%x%x(%x%x%x%x%x%x)%f[%X]",
+			group = function(_, _, match)
+				local hex = "#" .. match:sub(-6)
+				return require("mini.hipatterns").compute_hex_color_group(hex, "bg")
+			end,
+		},
 		hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 	},
 })
 require("mini.icons").setup()
 require("mini.indentscope").setup({
 	draw = {
-		animation = function(s, n)
+		animation = function()
 			return 0
 		end,
 	},
-	delay = 50,
 })
 require("mini.pick").setup()
-
-local function get_diagnostic_status(path)
-	-- Get all diagnostics for the given path
-	-- Note: path must be an absolute path
-	local bufnr = vim.fn.bufnr(path)
-	if bufnr == -1 then
-		return nil
-	end
-
-	local diags = vim.diagnostic.get(bufnr)
-	if #diags == 0 then
-		return nil
-	end
-
-	-- Find the highest severity
-	local max_severity = vim.diagnostic.severity.HINT
-	for _, d in ipairs(diags) do
-		if d.severity < max_severity then
-			max_severity = d.severity
-		end
-	end
-
-	-- Map severity to icons/colors
-	local signs = {
-		[vim.diagnostic.severity.ERROR] = { text = " ", hl = "DiagnosticError" },
-		[vim.diagnostic.severity.WARN] = { text = " ", hl = "DiagnosticWarn" },
-		[vim.diagnostic.severity.INFO] = { text = " ", hl = "DiagnosticInfo" },
-		[vim.diagnostic.severity.HINT] = { text = "󰌵 ", hl = "DiagnosticHint" },
-	}
-
-	return signs[max_severity]
-end
-
-local ns_id = vim.api.nvim_create_namespace("mini_files_diagnostics")
-vim.api.nvim_create_autocmd("User", {
-	pattern = "MiniFilesBufferUpdate",
-	callback = function(args)
-		local buf_id = args.data.buf_id
-		vim.api.nvim_buf_clear_namespace(buf_id, ns_id, 0, -1)
-
-		local n_lines = vim.api.nvim_buf_line_count(buf_id)
-		for i = 1, n_lines do
-			local entry = MiniFiles.get_fs_entry(buf_id, i)
-			if entry then
-				local status = get_diagnostic_status(entry.path)
-				if status then
-					vim.api.nvim_buf_set_extmark(buf_id, ns_id, i - 1, 0, {
-						virt_text = { { status.text, status.hl } },
-						virt_text_pos = "inline",
-						priority = 100,
-					})
-				end
-			end
-		end
-	end,
-})
-
 require("mini.files").setup({
 	mappings = {
 		close = "<Esc>",
-		go_in = "l",
-		go_in_plus = "L",
-		go_out = "h",
-		go_out_plus = "H",
-		mark_goto = "'",
-		mark_set = "m",
-		reset = "<BS>",
-		reveal_cwd = "@",
-		show_help = "g?",
-		synchronize = "=",
-		trim_left = "<",
-		trim_right = ">",
 	},
 })
-
 require("mini.ai").setup()
-require("mini.notify").setup({
-	-- window = {
-	-- 	config = function()
-	-- 		local has_statusline = vim.o.laststatus > 0
-	-- 		-- Offset to sit above the statusline and command line
-	-- 		local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
-	--
-	-- 		return {
-	-- 			anchor = "SE",
-	-- 			-- col = vim.o.columns, -- for SE anchor {bottom right}
-	-- 			col = 0, -- for SW anchor (bottom left)
-	-- 			row = vim.o.lines - pad,
-	-- 			border = "single", -- You can keep your rounded border theme here too!
-	-- 		}
-	-- 	end,
-	-- },
-})
+require("mini.notify").setup()
 require("mini.snippets").setup({})
-
 require("mini.statusline").setup({
 	content = {
 		active = function()
-			-- 1. Custom Mode Mapping
 			local mode_labels = {
 				["n"] = "🈚 ノーマル",
 				["v"] = "👁️ ビジュアル",
 				["V"] = "📏 ビジュアルライン",
-				["\22"] = "🔲 ビジュアルブロック", -- This is the code for CTRL-V
+				["\22"] = "🔲 ビジュアルブロック",
 				["s"] = "🔤 セレクト",
 				["S"] = "🧾 セレクトライン",
 				["\19"] = "🟦 セレクトブロック",
@@ -426,21 +313,15 @@ require("mini.statusline").setup({
 				["t"] = "💻 ターミナル",
 			}
 
-			-- Get current mode and its highlight group
 			local cur_mode = vim.api.nvim_get_mode().mode
 			local mode_text = mode_labels[cur_mode] or cur_mode
-
-			-- We still use section_mode just to get the correct highlight group for the mode
 			local _, mode_hl = require("mini.statusline").section_mode({ trunc_width = 120 })
-
-			-- 2. Standard Sections
 			local git = require("mini.statusline").section_git({ trunc_width = 40 })
 			local diff = require("mini.statusline").section_diff({ trunc_width = 75 })
 			local filename = require("mini.statusline").section_filename({ trunc_width = 140 })
 			local fileinfo = require("mini.statusline").section_fileinfo({ trunc_width = 120 })
 			local location = require("mini.statusline").section_location({ trunc_width = 75 })
 
-			-- 3. Diagnostics
 			local diagnostics = require("mini.statusline").section_diagnostics({
 				trunc_width = 75,
 				signs = {
@@ -451,7 +332,6 @@ require("mini.statusline").setup({
 				},
 			})
 
-			-- 4. Combine
 			return require("mini.statusline").combine_groups({
 				{ hl = mode_hl, strings = { mode_text } }, -- Use our custom mode_text
 				{ hl = "MiniStatuslineDevinfo", strings = { git, diff, diagnostics } },
@@ -464,11 +344,9 @@ require("mini.statusline").setup({
 		end,
 	},
 })
-require("mini.cursorword").setup()
 require("mini.tabline").setup({
 	show_icons = true,
 	format = function(buf_id, label)
-		-- Get diagnostic counts for the specific buffer
 		local errors = #vim.diagnostic.get(buf_id, { severity = vim.diagnostic.severity.ERROR })
 		local warnings = #vim.diagnostic.get(buf_id, { severity = vim.diagnostic.severity.WARN })
 
@@ -480,544 +358,13 @@ require("mini.tabline").setup({
 			diagnostic_suffix = diagnostic_suffix .. "  " .. warnings
 		end
 
-		-- Use the default format (handles icons/padding) and append our diagnostics
 		return require("mini.tabline").default_format(buf_id, label) .. diagnostic_suffix
 	end,
 })
-require("mini.bracketed").setup()
 require("mini.extra").setup()
 require("mini.jump").setup()
-require("mini.misc").setup()
--- require("bufferline").setup({
--- 	options = {
--- 		indicator = {
--- 			icon = "| ",
--- 			style = "underline",
--- 		},
--- 		diagnostics = "nvim_lsp",
--- 		diagnostics_indicator = function(count, level)
--- 			local icon = level:match("error") and " " or " "
--- 			return " " .. icon .. count
--- 		end,
--- 	},
--- })
--- local icons = {
--- 	diagnostics = { Error = " ", Warn = " ", Info = " ", Hint = " " },
--- 	git = { added = " ", modified = " ", removed = " " },
--- }
--- require("lualine").setup({
--- 	options = {
--- 		icons_enabled = true,
--- 		theme = "auto",
--- 		component_separators = { left = "", right = "" },
--- 		section_separators = { left = "", right = "" },
--- 		disabled_filetypes = { statusline = {}, winbar = {} },
--- 		always_divide_middle = true,
--- 		always_show_tabline = true,
--- 		globalstatus = false,
--- 	},
--- 	sections = {
--- 		lualine_a = {
--- 			{
--- 				function()
--- 					local mode_map = {
--- 						n = "🈚 ノーマル",
--- 						i = "✍️ インサート",
--- 						v = "👁️ ビジュアル",
--- 						V = "📏 ビジュアルライン",
--- 						["␖"] = "🔲 ビジュアルブロック",
--- 						c = "⌨️ コマンド",
--- 						R = "📝 リプレイス",
--- 						s = "🔤 セレクト",
--- 						S = "🧾 セレクトライン",
--- 						t = "💻 ターミナル",
--- 					}
--- 					return mode_map[vim.api.nvim_get_mode().mode] or "?"
--- 				end,
--- 				color = { gui = "bold" },
--- 			},
--- 		},
--- 		lualine_b = {}, -- ⚠️ EMPTY: NO GIT OPERATIONS AT STARTUP
--- 		lualine_c = {
--- 			{
--- 				function()
--- 					return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
--- 				end,
--- 				icon = " ",
--- 			},
--- 			-- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
--- 			{
--- 				function()
--- 					return vim.fn.expand("%:~:.")
--- 				end,
--- 			},
--- 		},
--- 		lualine_x = {},
--- 		lualine_y = { { "location", padding = { left = 0, right = 1 } } },
--- 		lualine_z = {},
--- 	},
--- 	inactive_sections = { lualine_c = { "filename" }, lualine_x = { "location" } },
--- 	extensions = {},
--- })
--- vim.defer_fn(function()
--- 	if vim.g.lualine_full_loaded then
--- 		return
--- 	end
--- 	vim.g.lualine_full_loaded = true
---
--- 	require("lualine").setup({
--- 		sections = {
--- 			lualine_b = {
--- 				{ "branch", icon = " " },
--- 			},
--- 			lualine_c = {
--- 				{
--- 					function()
--- 						return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
--- 					end,
--- 					icon = " ",
--- 				},
--- 				{
--- 					"diagnostics",
--- 					symbols = icons.diagnostics,
--- 					colored = true,
--- 					update_in_insert = false,
--- 				},
--- 				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
--- 				{
--- 					function()
--- 						return vim.fn.expand("%:~:.")
--- 					end,
--- 				},
--- 			},
--- 		},
--- 	})
--- end, 100) -- 100ms delay = imperceptible to humans, avoids startup penalty
-
 vim.cmd("packadd nvim.undotree")
-vim.cmd.colorscheme("vague")
-
-local capabilities = require("blink.cmp").get_lsp_capabilities()
-vim.lsp.config("*", { capabilities = capabilities })
-vim.lsp.config("lua_ls", {
-	settings = {
-		Lua = {
-			runtime = {
-				version = "LuaJIT",
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				preloadFileSize = 1000,
-				maxPreload = 2000,
-				checkThirdParty = false,
-				ignoreDir = { ".git", "node_modules" },
-			},
-			telemetry = { enable = false },
-		},
-		single_file_support = true,
-	},
-	root_markers = {
-		".luarc.json",
-		".luarc.jsonc",
-		".git",
-		"init.lua",
-		"init.sls",
-	},
-})
-
--- =========== keymaps ===========
-
-local M = {}
-
-M.spec = {
-	-- Clear highlights
-	{
-		"<Esc>",
-		"<cmd>nohlsearch<CR>",
-		desc = "Clear highlights",
-		mode = "n",
-	},
-
-	-- Centered scrolling
-	{
-		"<C-d>",
-		"<C-d>zz",
-		desc = "Scroll down and center cursor",
-		mode = "n",
-	},
-	{
-		"<C-u>",
-		"<C-u>zz",
-		desc = "Scroll up and center cursor",
-		mode = "n",
-	},
-
-	-- Terminal
-	{
-		"<Esc><Esc>",
-		"<C-\\><C-n>",
-		desc = "Exit terminal mode",
-		mode = "t",
-	},
-
-	-- Smart search + centered (fixes duplicate mapping warning)
-	{
-		"n",
-		"nzzzv",
-		desc = "Next search result centered",
-		mode = "n",
-	},
-	{
-		"N",
-		"Nzzzv",
-		desc = "Previous search result centered",
-		mode = "n",
-	},
-
-	-- Better Up/Down
-	{
-		"j",
-		"v:count == 0 ? 'gj' : 'j'",
-		desc = "Down",
-		mode = { "n", "x" },
-		expr = true,
-		silent = true,
-	},
-	{
-		"<Down>",
-		"v:count == 0 ? 'gj' : 'j'",
-		desc = "Down",
-		mode = { "n", "x" },
-		expr = true,
-		silent = true,
-	},
-	{
-		"k",
-		"v:count == 0 ? 'gk' : 'k'",
-		desc = "Up",
-		mode = { "n", "x" },
-		expr = true,
-		silent = true,
-	},
-	{
-		"<Up>",
-		"v:count == 0 ? 'gk' : 'k'",
-		desc = "Up",
-		mode = { "n", "x" },
-		expr = true,
-		silent = true,
-	},
-
-	-- Window Resizing
-	{
-		"<C-Up>",
-		"<cmd>resize +2<cr>",
-		desc = "Increase Window Height",
-		mode = "n",
-	},
-	{
-		"<C-Down>",
-		"<cmd>resize -2<cr>",
-		desc = "Decrease Window Height",
-		mode = "n",
-	},
-	{
-		"<C-Left>",
-		"<cmd>vertical resize -2<cr>",
-		desc = "Decrease Window Width",
-		mode = "n",
-	},
-	{
-		"<C-Right>",
-		"<cmd>vertical resize +2<cr>",
-		desc = "Increase Window Width",
-		mode = "n",
-	},
-
-	-- Move Lines
-	{
-		"J",
-		":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv",
-		desc = "Move Down",
-		mode = "v",
-	},
-	{
-		"K",
-		":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv",
-		desc = "Move Up",
-		mode = "v",
-	},
-
-	-- Indenting
-	{
-		"<",
-		"<gv",
-		desc = "Indent left",
-		mode = "v",
-	},
-	{
-		">",
-		">gv",
-		desc = "Indent right",
-		mode = "v",
-	},
-
-	-- Join lines & keep cursor
-	{
-		"J",
-		"mzJ`z",
-		desc = "Join lines without moving cursor",
-		mode = "n",
-	},
-
-	-- Buffers
-	{
-		"<S-h>",
-		"<cmd>bprevious<cr>",
-		desc = "Prev Buffer",
-		mode = "n",
-	},
-	{
-		"<S-l>",
-		"<cmd>bnext<cr>",
-		desc = "Next Buffer",
-		mode = "n",
-	},
-	{ "<leader>b", group = "Buffers" },
-	{
-		"<leader>bd",
-		"<cmd>bdelete<cr>",
-		desc = "Delete Buffer",
-		mode = "n",
-	},
-	{
-		"<S-M-h>",
-		"<cmd>BufferLineMovePrev<cr>",
-		desc = "Move Buffer Left",
-		mode = "n",
-	},
-	{
-		"<S-M-l>",
-		"<cmd>BufferLineMoveNext<cr>",
-		desc = "Move Buffer Right",
-		mode = "n",
-	},
-
-	-- Windows
-	{
-		"<leader>wh",
-		"<C-W>s",
-		desc = "Split Window Below",
-		mode = "n",
-		remap = true,
-	},
-	{
-		"<leader>wv",
-		"<C-W>v",
-		desc = "Split Window Right",
-		mode = "n",
-		remap = true,
-	},
-	{ "<leader>w", group = "Windows" },
-	{
-		"<leader>wd",
-		"<C-W>c",
-		desc = "Delete Window",
-		mode = "n",
-		remap = true,
-	},
-	{
-		"<leader>we",
-		"<C-w>=",
-		desc = "Equalize split sizes",
-		mode = "n",
-	},
-
-	-- Files / Find
-	{ "<leader>f", group = "Find" },
-	{
-		"<leader>ff",
-		function()
-			require("mini.pick").builtin.files({ tool = "rg" })
-		end,
-		desc = "Find Files",
-		mode = "n",
-	},
-	{
-		"<leader>fg",
-		function()
-			require("mini.pick").builtin.grep_live({ tool = "rg" })
-		end,
-		desc = "Live Grep",
-		mode = "n",
-	},
-	-- Explorer
-	{
-		"<leader>e",
-		function()
-			require("mini.files").open(vim.uv.cwd(), true)
-		end,
-		desc = "Explorer (mini.files)",
-		mode = "n",
-	},
-	{
-		"<leader>E",
-		function()
-			local bufname = vim.api.nvim_buf_get_name(0)
-			if bufname == "" then
-				require("mini.files").open(vim.uv.cwd(), true)
-			else
-				require("mini.files").open(bufname, true)
-			end
-		end,
-		desc = "Explorer at current file",
-		mode = "n",
-	},
-
-	-- Trouble
-	{ "<leader>x", group = "Trouble" },
-	{ "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", desc = "Workspace Diagnostics", mode = "n" },
-	{ "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Document Diagnostics", mode = "n" },
-	{ "<leader>xq", "<cmd>Trouble quickfix toggle<CR>", desc = "Quickfix List", mode = "n" },
-	{ "<leader>xl", "<cmd>Trouble loclist toggle<CR>", desc = "Location List", mode = "n" },
-	{ "<leader>xt", "<cmd>Trouble todo toggle<CR>", desc = "Todos", mode = "n" },
-
-	-- Git
-	{ "<leader>g", group = "Git" },
-	{
-		"<leader>gg",
-		function()
-			require("gitui").open()
-		end,
-		desc = "Open GitUI",
-		mode = "n",
-	},
-}
-
-require("which-key").add(M.spec)
+require("which-key").add(keymaps.spec)
 require("which-key").setup({
 	preset = "helix",
 })
-
--- =========== options ===========
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_tutor_mode_plugin = 1
-vim.g.loaded_tohtml_plugin = 1
-vim.g.loaded_zipPlugin = 1
-vim.g.loaded_gzip = 1
-vim.g.loaded_tarPlugin = 1
-
-local opt = vim.opt
-opt.autowrite = true -- Enable auto write
--- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
-opt.clipboard = "unnamedplus" -- Sync with system clipboard
-local function paste()
-	return {
-		vim.fn.split(vim.fn.getreg(""), "\n"),
-		vim.fn.getregtype(""),
-	}
-end
-vim.g.clipboard = {
-	name = "OSC 52",
-	copy = {
-		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-	},
-	paste = {
-		["+"] = paste,
-		["*"] = paste,
-	},
-}
-opt.winborder = "single"
-opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
-opt.confirm = true -- Confirm to save changes before exiting modified buffer
-opt.cursorline = true -- Enable highlighting of the current line
-opt.expandtab = true -- Use spaces instead of tabs
-opt.autoindent = true
-opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	fold = " ",
-	foldsep = " ",
-	diff = "╱",
-	eob = " ",
-}
-opt.foldlevel = 99
-opt.foldmethod = "indent"
-opt.foldtext = ""
-opt.formatoptions = "jcroqlnt" -- tcqj
-opt.grepformat = "%f:%l:%c:%m"
-opt.grepprg = "rg --vimgrep"
-opt.ignorecase = true -- Ignore case
-opt.inccommand = "nosplit" -- preview incremental substitute
-opt.jumpoptions = "view"
-opt.laststatus = 3 -- global statusline
-opt.linebreak = false -- Wrap lines at convenient points
-opt.list = true -- Show some invisible characters (tabs...
-opt.mouse = "a" -- Enable mouse mode
-opt.number = true -- Print line number
-opt.pumblend = 10 -- Popup blend
-opt.pumheight = 10 -- Maximum number of entries in a popup
-opt.relativenumber = true -- Relative line numbers
-opt.ruler = false -- Disable the default ruler
-opt.scrolloff = 8 -- Lines of context
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
-opt.shiftround = true -- Round indent
-opt.shiftwidth = 4 -- Size of an indent
-opt.shortmess:append({ W = true, I = true, c = true, C = true })
-opt.showmode = false -- Dont show mode since we have a statusline
-opt.sidescrolloff = 8 -- Columns of context
-opt.signcolumn = "yes:2" -- Always show the signcolumn, otherwise it would shift the text each time
-opt.smartcase = true -- Don't ignore case with capitals
-opt.smartindent = true -- Insert indents automatically
-opt.smarttab = true
-opt.smoothscroll = false
-opt.spelllang = { "en", "id" }
-opt.splitbelow = true -- Put new windows below current
-opt.splitkeep = "screen"
-opt.splitright = true -- Put new windows right of current
-opt.tabstop = 4 -- Number of spaces tabs count for
-opt.softtabstop = 4 -- Number of spaces tabs count for
-opt.termguicolors = true -- True color support
-opt.timeoutlen = 50
-opt.undofile = true
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-opt.showcmd = true
-opt.swapfile = false
-opt.backup = false
-opt.undolevels = 10000
-opt.undoreload = 10000
-opt.updatetime = 50 -- Save swap file and trigger CursorHold
-opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
-opt.wildmode = "longest:full,full" -- Command-line completion mode
-opt.winminwidth = 5 -- Minimum window width
-opt.wrap = false -- Disable line wrap
-opt.hlsearch = true
-opt.incsearch = true
-opt.inccommand = "split"
-opt.background = "dark"
-opt.foldenable = true
-opt.foldcolumn = "0"
-
-vim.lsp.handlers["$/progress"] = function() end -- to remove lsp progress
-vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
-	local default_config = {
-		border = "single", -- You can keep your border style here
-		timeout = 5000, -- Your desired timeout
-	}
-	return vim.lsp.handlers.hover(err, result, ctx, vim.tbl_extend("force", default_config, config or {}))
-end
-vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
-	local default_config = {
-		border = "single",
-		timeout = 5000,
-	}
-	return vim.lsp.handlers.signatureHelp(err, result, ctx, vim.tbl_extend("force", default_config, config or {}))
-end

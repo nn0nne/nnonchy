@@ -5,6 +5,7 @@
 [mgr]
 
 prepend_keymap = [
+  { on = ["C","x"], run = 'shell "chmod +x \"$@\"" --block', desc = "chmod +x" },
   { on = ["<C-r>"], run = "plugin duck-radar", desc = "Duck Radar - Recent Files" },
   { on = ["_","R"], run = "plugin reflink", desc = "Reflink the yanked files" },
   { on = "R", run = "plugin rsync", desc = "Copy files using rsync" },
