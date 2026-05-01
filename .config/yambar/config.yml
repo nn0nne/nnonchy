@@ -14,7 +14,7 @@ bar:
     - clock:
         time-format: "%A %H:%M, %Y-%m-%d"
         content:
-          string: { text: "{time}" }
+          string: {text: "{time}"}
     - script:
         path: ~/.config/yambar/scripts/mango-tags.sh
         args: []
@@ -28,9 +28,9 @@ bar:
         content:
           map:
             conditions:
-              ~activated: { empty: {} }
+              ~activated: {empty: {}}
               activated:
-                - string: { text: "{title}", max: 100 }
+                - string: {text: "{title}", max: 100}
   right:
     - script:
         path: ~/.config/yambar/scripts/inhibit.sh
@@ -44,17 +44,18 @@ bar:
         path: /usr/sbin/sh
         args:
           - "-c"
-          - 'echo "temp|int|$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))"; echo ""'
+          - 'echo "temp|int|$(($(cat /sys/class/thermal/thermal_zone0/temp) /
+            1000))"; echo ""'
         poll-interval: 15000
         content:
-          string: { text: "{temp}°C" }
+          string: {text: "{temp}°C"}
     - cpu:
         poll-interval: 15000
         content:
           map:
             conditions:
               id < 0:
-                - string: { text: "{cpu}% " }
+                - string: {text: "{cpu}% "}
     - script:
         path: ~/.config/yambar/scripts/mem.sh
         poll-interval: 15000
@@ -70,30 +71,30 @@ bar:
         anchors:
           volume: &volume
             conditions:
-              muted: { string: { text: "" } }
-              ~muted: { string: { text: "" } }
+              muted: {string: {text: ""}}
+              ~muted: {string: {text: ""}}
         content:
           list:
             items:
               - map:
                   conditions:
-                    muted: { string: { text: "" } }
+                    muted: {string: {text: ""}}
                     type == "sink":
                       map:
                         conditions:
                           icon == "audio-headset-bluetooth":
-                            string: { text: "🎧" }
+                            string: {text: "🎧"}
                         default:
                           - ramp:
                               tag: cubic_volume
                               items:
-                                - string: { text: "▁" }
-                                - string: { text: "▂" }
-                                - string: { text: "▃" }
-                                - string: { text: "▄" }
-                                - string: { text: "▅" }
-                                - string: { text: "▆" }
-                                - string: { text: "▇" }
+                                - string: {text: "▁"}
+                                - string: {text: "▂"}
+                                - string: {text: "▃"}
+                                - string: {text: "▄"}
+                                - string: {text: "▅"}
+                                - string: {text: "▆"}
+                                - string: {text: "▇"}
               - map:
                   <<: *volume
     - script:
@@ -120,4 +121,4 @@ bar:
         name: BAT1
         poll-interval: 30000
         content:
-          string: { text: "{capacity}% 󰁹" }
+          string: {text: "{capacity}% 󰁹"}

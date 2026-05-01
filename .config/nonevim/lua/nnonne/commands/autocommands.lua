@@ -1,3 +1,5 @@
+-- Shout out https://oneofone.dev/post/neovim-diagnostics-float/
+-- Floating diagnostic
 local group = vim.api.nvim_create_augroup("OoO", { clear = true })
 
 local function au(typ, pattern, cmdOrFn)
@@ -12,31 +14,12 @@ au({ "CursorHold" }, nil, function()
 	local opts = {
 		focusable = false,
 		scope = "cursor",
-		close_events = { "BufLeave", "CursorMoved" },
+		close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
 	}
 	vim.diagnostic.open_float(nil, opts)
 end)
 
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = group,
-	callback = function(event)
-		local opts = { buffer = event.buf }
-
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-	end,
-})
-
-vim.api.nvim_create_autocmd("PackChanged", {
-	callback = function(ev)
-		local name, kind = ev.data.spec.name, ev.data.kind
-		if name == "nvim-treesitter" and kind == "update" then
-			if not ev.data.active then
-				vim.cmd.packadd("nvim-treesitter")
-			end
-			vim.cmd("TSUpdate")
-		end
-	end,
-})
+--
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlights text when yanking",

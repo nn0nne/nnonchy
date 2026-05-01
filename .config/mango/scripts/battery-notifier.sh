@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-# WARNING: My current implementation use -r to replace the notification sent by notify-send based on the notify-send's id
-# (see line 18, 20, and 26)
-# The number is pretty large so I don't think it will cause problems though if it is then just make it larger 😊
-
 filename=$(basename "$0")
 
-# shoutout to https://stackoverflow.com/a/15740548
 kill $(pgrep -f $filename | /usr/bin/grep -v ^$$\$)
 
 notified_full=false

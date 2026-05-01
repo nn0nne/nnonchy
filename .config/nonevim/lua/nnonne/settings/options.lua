@@ -9,7 +9,13 @@ vim.g.loaded_zipPlugin = 1
 vim.g.loaded_gzip = 1
 vim.g.loaded_tarPlugin = 1
 
+-- With this option set to true, the plugin will not start automatically. Instead, you'll need to manually initialize it by calling require('cord').setup().
+vim.g.cord_defer_startup = true
+
 local opt = vim.opt
+
+-- source https://www.reddit.com/r/neovim/comments/1sa95g4/no_more_press_enter_with_ui2_with_example/
+opt.cmdheight = 0
 
 -- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
@@ -86,7 +92,7 @@ opt.splitright = true -- Put new windows right of current
 opt.tabstop = 2 -- Number of spaces tabs count for
 opt.softtabstop = 2 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
-opt.timeoutlen = 350
+opt.timeoutlen = 50
 opt.undofile = true
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.showcmd = true
