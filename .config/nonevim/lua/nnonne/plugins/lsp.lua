@@ -17,6 +17,69 @@ function M.setup()
 	end)
 	vim.lsp.config("*", { capabilities = capabilities })
 
+	-- Shout out https://www.lazyvim.org/extras/lang/typescript/vtsls
+	vim.lsp.config("vtsls", {
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"javascript.jsx",
+			"typescript",
+			"typescriptreact",
+			"typescript.tsx",
+		},
+		settings = {
+			complete_function_calls = true,
+			vtsls = {
+				enableMoveToFileCodeAction = true,
+				autoUseWorkspaceTsdk = true,
+				experimental = {
+					maxInlayHintLength = 30,
+					completion = {
+						enableServerSideFuzzyMatch = true,
+					},
+				},
+			},
+			typescript = {
+				updateImportsOnFileMove = { enabled = "always" },
+				suggest = {
+					completeFunctionCalls = true,
+				},
+				inlayHints = {
+					enumMemberValues = { enabled = true },
+					functionLikeReturnTypes = { enabled = true },
+					parameterNames = { enabled = "literals" },
+					parameterTypes = { enabled = true },
+					propertyDeclarationTypes = { enabled = true },
+					variableTypes = { enabled = false },
+				},
+			},
+		},
+	})
+
+	-- Shout out https://www.lazyvim.org/extras/lang/typescript/tsgo
+	vim.lsp.config("tsgo", {
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"javascript.jsx",
+			"typescript",
+			"typescriptreact",
+			"typescript.tsx",
+		},
+		settings = {
+			typescript = {
+				inlayHints = {
+					enumMemberValues = { enabled = true },
+					functionLikeReturnTypes = { enabled = false },
+					parameterNames = { enabled = "literals", suppressWhenArgumentMatchesName = true },
+					parameterTypes = { enabled = true },
+					propertyDeclarationTypes = { enabled = true },
+					variableTypes = { enabled = false },
+				},
+			},
+		},
+	})
+
 	vim.lsp.config("tailwindcss", {
 		settings = {
 			tailwindCSS = {
@@ -37,7 +100,11 @@ function M.setup()
 		},
 	})
 
-	vim.lsp.config("html", { filetypes = { "html" } })
+	vim.lsp.config("eslint", {
+		settings = {
+			workingDirectories = { mode = "auto" },
+		},
+	})
 
 	vim.lsp.config("lua_ls", {
 		settings = {

@@ -14,6 +14,7 @@ M.tools = {
 	{ kind = "formatter", mason = "shfmt", ft = { "sh", "bash" } },
 	{ kind = "formatter", mason = "prettierd", ft = { "javascript", "typescript", "html", "css", "json", "jsonc" } },
 	{ kind = "formatter", mason = "biome", ft = { "javascript", "typescript", "html", "css", "json", "jsonc" } },
+	{ kind = "formatter", mason = "dart_format", ft = { "dart" } },
 	{ kind = "linter", mason = "eslint_d", ft = { "javascript", "typescript" } },
 	{ kind = "linter", mason = "biome", ft = { "javascript", "typescript" } },
 	{ kind = "linter", mason = "stylelint", ft = { "css" } },

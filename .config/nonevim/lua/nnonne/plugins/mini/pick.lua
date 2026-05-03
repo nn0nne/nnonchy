@@ -14,6 +14,13 @@ function M.setup()
 	vim.keymap.set("n", "<leader>fg", function()
 		require("mini.pick").builtin.grep_live({ tool = "rg" })
 	end, { desc = "Live Grep" })
+
+	vim.keymap.set("n", "<leader>ft", function()
+		require("mini.pick").builtin.grep({
+			tool = "rg",
+			pattern = "TODO|HACK|BUG|WARNING|NOTE|FIXME",
+		})
+	end, { desc = "Live Grep" })
 end
 
 return M

@@ -9,6 +9,9 @@ vim.g.loaded_zipPlugin = 1
 vim.g.loaded_gzip = 1
 vim.g.loaded_tarPlugin = 1
 
+vim.g.bullets_enabled_file_types = { "markdown", "text", "gitcommit", "scratch" }
+vim.g.bullets_enable_in_empty_buffers = 0
+
 -- With this option set to true, the plugin will not start automatically. Instead, you'll need to manually initialize it by calling require('cord').setup().
 vim.g.cord_defer_startup = true
 

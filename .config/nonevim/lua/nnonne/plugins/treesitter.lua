@@ -66,6 +66,7 @@ local ensure_installed = {
 }
 
 function M.setup()
+	-- pack.add({ "nvim-treesitter", "nvim-treesitter-textobjects" })
 	pack.add({ "nvim-treesitter" })
 
 	require("nvim-treesitter").setup({
@@ -103,6 +104,8 @@ function M.setup()
 			end
 		end,
 	})
+
+	-- require("nvim-treesitter-textobjects").setup({})
 end
 
 return M

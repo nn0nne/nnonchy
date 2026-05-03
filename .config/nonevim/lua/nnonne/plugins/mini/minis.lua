@@ -5,8 +5,12 @@ local pack = require("nnonne.commands.pack")
 function M.setup()
 	pack.add({ "mini.nvim" })
 
-	require("mini.surround").setup()
 	require("mini.pairs").setup()
+	require("mini.icons").setup()
+	require("mini.notify").setup()
+	require("mini.extra").setup()
+	require("mini.jump").setup()
+	require("mini.snippets").setup()
 	require("mini.diff").setup({
 		view = {
 			style = "sign",
@@ -29,7 +33,6 @@ function M.setup()
 			hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 		},
 	})
-	require("mini.icons").setup()
 	require("mini.indentscope").setup({
 		draw = {
 			animation = function()
@@ -37,79 +40,49 @@ function M.setup()
 			end,
 		},
 	})
-	require("mini.ai").setup()
-	require("mini.notify").setup()
-	require("mini.snippets").setup({})
-	require("mini.statusline").setup({
-		content = {
-			active = function()
-				local mode_labels = {
-					["n"] = "🈚 ノーマル",
-					["v"] = "👁️ ビジュアル",
-					["V"] = "📏 ビジュアルライン",
-					["\22"] = "🔲 ビジュアルブロック",
-					["s"] = "🔤 セレクト",
-					["S"] = "🧾 セレクトライン",
-					["\19"] = "🟦 セレクトブロック",
-					["i"] = "✍️ インサート",
-					["R"] = "📝 リプレイス",
-					["c"] = "⌨️ コマンド",
-					["r"] = "❓ プロンプト",
-					["!"] = "🐚 シェル",
-					["t"] = "💻 ターミナル",
-				}
+	require("mini.ai").setup({
+		mappings = {
+			around = "a",
+			inside = "i",
 
-				local cur_mode = vim.api.nvim_get_mode().mode
-				local mode_text = mode_labels[cur_mode] or cur_mode
-				local _, mode_hl = require("mini.statusline").section_mode({ trunc_width = 120 })
-				local git = require("mini.statusline").section_git({ trunc_width = 40 })
-				local diff = require("mini.statusline").section_diff({ trunc_width = 75 })
-				local filename = require("mini.statusline").section_filename({ trunc_width = 140 })
-				local fileinfo = require("mini.statusline").section_fileinfo({ trunc_width = 120 })
-				local location = require("mini.statusline").section_location({ trunc_width = 75 })
+			around_next = "an",
+			inside_next = "in",
+			around_last = "al",
+			inside_last = "il",
 
-				local diagnostics = require("mini.statusline").section_diagnostics({
-					trunc_width = 75,
-					signs = {
-						ERROR = "%#DiagnosticError#󰅚 %#MiniStatuslineDevinfo#",
-						WARN = "%#DiagnosticWarn#󰀪 %#MiniStatuslineDevinfo#",
-						INFO = "%#DiagnosticInfo#󰋽 %#MiniStatuslineDevinfo#",
-						HINT = "%#DiagnosticHint#󰌶 %#MiniStatuslineDevinfo#",
-					},
-				})
-
-				return require("mini.statusline").combine_groups({
-					{ hl = mode_hl, strings = { mode_text } }, -- Use our custom mode_text
-					{ hl = "MiniStatuslineDevinfo", strings = { git, diff, diagnostics } },
-					"%<",
-					{ hl = "MiniStatuslineFilename", strings = { filename } },
-					"%=",
-					{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
-					{ hl = mode_hl, strings = { location } },
-				})
-			end,
+			goto_left = "g[",
+			goto_right = "g]",
 		},
 	})
-	require("mini.tabline").setup({
-		show_icons = true,
-		format = function(buf_id, label)
-			local errors = #vim.diagnostic.get(buf_id, { severity = vim.diagnostic.severity.ERROR })
-			local warnings = #vim.diagnostic.get(buf_id, { severity = vim.diagnostic.severity.WARN })
-
-			local diagnostic_suffix = ""
-			if errors > 0 then
-				diagnostic_suffix = diagnostic_suffix .. "  " .. errors
-			end
-			if warnings > 0 then
-				diagnostic_suffix = diagnostic_suffix .. "  " .. warnings
-			end
-
-			return require("mini.tabline").default_format(buf_id, label) .. diagnostic_suffix
-		end,
+	require("mini.bracketed").setup({
+		buffer = { suffix = "b", options = {} },
+		comment = { suffix = "c", options = {} },
+		conflict = { suffix = "x", options = {} },
+		diagnostic = { suffix = "d", options = {} },
+		file = { suffix = "f", options = {} },
+		indent = { suffix = "i", options = {} },
+		jump = { suffix = "j", options = {} },
+		location = { suffix = "l", options = {} },
+		oldfile = { suffix = "o", options = {} },
+		quickfix = { suffix = "q", options = {} },
+		treesitter = { suffix = "t", options = {} },
+		undo = { suffix = "u", options = {} },
+		window = { suffix = "w", options = {} },
+		yank = { suffix = "y", options = {} },
 	})
-	require("mini.bracketed").setup()
-	require("mini.extra").setup()
-	require("mini.jump").setup()
+	require("mini.surround").setup({
+		mappings = {
+			add = "<leader>sa",
+			delete = "<leader>sd",
+			find = "<leader>sf",
+			find_left = "<leader>sF",
+			highlight = "<leader>sh",
+			replace = "<leader>sr",
+
+			suffix_last = "<leader>l",
+			suffix_next = "<leader>n",
+		},
+	})
 end
 
 return M

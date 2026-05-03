@@ -4,7 +4,16 @@ local M = {}
 
 M.map = {
 	["vague.nvim"] = { name = "vague", src = "https://github.com/vague-theme/vague.nvim" },
-	["nvim-treesitter"] = { name = "nvim-treesitter", src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+	["nvim-treesitter"] = {
+		name = "nvim-treesitter",
+		src = "https://github.com/nvim-treesitter/nvim-treesitter",
+		version = "main",
+	},
+	["nvim-treesitter-textobjects"] = {
+		name = "nvim-treesitter-textobjects",
+		src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+		version = "main",
+	},
 	["nvim-lspconfig"] = { name = "nvim-lspconfig", src = "https://github.com/neovim/nvim-lspconfig" },
 	["blink.cmp"] = {
 		name = "blink-cmp",
@@ -24,6 +33,18 @@ M.map = {
 	["which-key.nvim"] = { name = "which-key", src = "https://github.com/folke/which-key.nvim" },
 	["friendly-snippets"] = { name = "friendly-snippets", src = "https://github.com/rafamadriz/friendly-snippets" },
 	["trouble.nvim"] = { name = "trouble.nvim", src = "https://github.com/folke/trouble.nvim" },
+	["bullets.vim"] = { name = "bullets.vim", src = "https://github.com/bullets-vim/bullets.vim" },
+	["nvim-ts-autotag"] = { name = "nvim-ts-autotag", src = "https://github.com/windwp/nvim-ts-autotag" },
+	["grug-far.nvim"] = { name = "grug-far.nvim", src = "https://github.com/MagicDuck/grug-far.nvim" },
+	["flutter-tools.nvim"] = { name = "flutter-tools.nvim", src = "https://github.com/nvim-flutter/flutter-tools.nvim" },
+	["dressing.nvim"] = { name = "dressing.nvim", src = "https://github.com/stevearc/dressing.nvim" },
+	["plenary.nvim"] = { name = "plenary.nvim", src = "https://github.com/nvim-lua/plenary.nvim" },
+	["render-markdown.nvim"] = {
+		name = "render-markdown.nvim",
+		src = "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+	},
+	["snacks.nvim"] = { name = "snacks.nvim", src = "https://github.com/folke/snacks.nvim" },
+	["image.nvim"] = { name = "image.nvim", src = "https://github.com/3rd/image.nvim" },
 }
 
 function M.by_names(names)
