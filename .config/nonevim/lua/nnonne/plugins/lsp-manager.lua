@@ -10,16 +10,19 @@ M.tools = {
 	{ kind = "lsp", lsp = "lua_ls", mason = "lua-language-server" },
 	{ kind = "lsp", lsp = "tailwindcss", mason = "tailwindcss-language-server" },
 	{ kind = "lsp", lsp = "vtsls", mason = "vtsls" },
+	{ kind = "lsp", lsp = "pyright", mason = "pyright" },
 	{ kind = "formatter", mason = "stylua", ft = { "lua" } },
 	{ kind = "formatter", mason = "shfmt", ft = { "sh", "bash" } },
 	{ kind = "formatter", mason = "prettierd", ft = { "javascript", "typescript", "html", "css", "json", "jsonc" } },
 	{ kind = "formatter", mason = "biome", ft = { "javascript", "typescript", "html", "css", "json", "jsonc" } },
 	{ kind = "formatter", mason = "dart_format", ft = { "dart" } },
+	{ kind = "formatter", mason = "ruff", ft = { "python" } },
 	{ kind = "linter", mason = "eslint_d", ft = { "javascript", "typescript" } },
 	{ kind = "linter", mason = "biome", ft = { "javascript", "typescript" } },
 	{ kind = "linter", mason = "stylelint", ft = { "css" } },
 	{ kind = "linter", mason = "shellcheck", ft = { "sh", "bash" } },
 	{ kind = "linter", mason = "htmllint", ft = { "html" } },
+	{ kind = "linter", mason = "ruff", ft = { "python" } },
 }
 
 function M.lsp_names()

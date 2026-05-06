@@ -5,18 +5,18 @@ def draw_title(data):
     title = data.get("title") or ""
     layout = data.get("layout_name") or ""
     bell = data.get("bell_symbol") or ""
-    activity = data.get("activity_symbol") or ""
     progress = data.get("tab.last_focused_progress_percent") or ""
     num_windows = data.get("num_windows") or 0
     progress_percent = data.get("tab.progress_percent") or ""
 
-    # Clean title
-    title = title.split("/")[-1].split(":")[-1]
+    command = title.split(" ")[0]
+    if command == "sudo":
+        command = "# " + title.split(" ")[1]
 
-    # Short layout name (first letter, uppercase)
+    title = command.split("/")[-1].split(":")[-1]
+
     layout_short = layout[0].upper() if layout else ""
 
-    # If layout is stack, show number of windows
     if layout.lower() == "stack":
         layout_display = f"{layout_short}({num_windows})"
     else:
@@ -29,7 +29,7 @@ def draw_title(data):
         parts.append(session + " | ")
 
     parts.append(fmt.fg.color1)
-    parts.append(bell + activity)
+    parts.append(bell)
 
     parts.append(fmt.fg.color3)
     parts.append(progress)
@@ -43,6 +43,6 @@ def draw_title(data):
     parts.append(fmt.fg.color1)
     parts.append(progress_percent)
 
-    parts.append(fmt.fg.tab)  # reset to tab default color
+    parts.append(fmt.fg.tab)
 
     return "".join(parts)

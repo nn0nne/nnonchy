@@ -42,7 +42,7 @@ local ensure_installed = {
 	-- "phpdoc",
 	"printf",
 	"prisma",
-	-- "python",
+	"python",
 	"query",
 	-- "rasi",
 	"regex",
