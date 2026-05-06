@@ -21,6 +21,7 @@ require("nnonne.plugins.lazydev").setup()
 require("nnonne.plugins.completion").setup()
 require("nnonne.plugins.trouble").setup()
 
+require("nnonne.plugins.mini.starter").setup()
 require("nnonne.plugins.mini.pick").setup()
 require("nnonne.plugins.mini.files").setup()
 require("nnonne.plugins.mini.statusline").setup()
