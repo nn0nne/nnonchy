@@ -33,7 +33,7 @@ function M.setup()
 		vim.notify("PackInstall: ensured all configured plugins are installed", vim.log.levels.INFO)
 	end, { desc = "Install all configured vim.pack plugins without loading" })
 
-	vim.api.nvim_create_user_command("PackUpdate", function()
+	vim.api.nvim_create_user_command("PackUpdate", function(opts)
 		local names = (#opts.fargs > 0) and opts.fargs or nil
 		vim.pack.update(names)
 	end, {
