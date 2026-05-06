@@ -45,7 +45,7 @@ function M.setup()
 					auto_open = false,
 				},
 				lsp = {
-					color = { enabled = true, virtual_text = true, virtual_text_str = "■" },
+					-- color = { enabled = true, virtual_text = true, virtual_text_str = "■" },
 					on_attach = function(client, bufnr)
 						-- Default keymaps
 						local buf_map = function(mode, lhs, rhs, opts)
@@ -93,6 +93,12 @@ function M.setup()
 		"<Cmd>lua require('snacks').terminal.open('flutter clean')<CR>",
 		{ desc = "Flutter Clean" }
 	)
+
+	vim.api.nvim_create_autocmd("LspAttach", {
+		callback = function(ev)
+			vim.lsp.document_color.enable(true, { bufnr = ev.buf })
+		end,
+	})
 end
 
 return M
