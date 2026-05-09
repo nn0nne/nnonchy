@@ -39,7 +39,22 @@ prepend_keymap = [
     "a",
     "u",
   ], run = "plugin compress -phl", desc = "Archive selected files (password+header+level)" },
-  { on = "M", run = "plugin mount", desc = "Mount" },
+  { on = [
+    "M",
+    "m",
+  ], run = "plugin gvfs -- select-then-mount --jump", desc = "Mount Android phone jump to it" },
+  { on = [
+    "M",
+    "u",
+  ], run = "plugin gvfs -- select-then-unmount --eject", desc = "Unmount/Eject Android phone" },
+  { on = [
+    "g",
+    "m",
+  ], run = "plugin gvfs -- jump-to-device", desc = "Jump to already mounted phone" },
+  { on = [
+    "M",
+    "M",
+  ], run = "plugin mount", desc = "Interact with mounted storage" },
   { on = "!", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
   { on = "f", run = "plugin smart-filter", desc = "Smart Filter" },
   { on = "K", run = "plugin parent-arrow -1" },

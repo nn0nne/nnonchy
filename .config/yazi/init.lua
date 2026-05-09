@@ -8,6 +8,10 @@ require("recycle-bin"):setup({
 	trash_dir = "~/.local/share/Trash/",
 })
 
+require("gvfs"):setup({
+	input_position = { "center", y = 0, w = 60 },
+})
+
 require("starship"):setup({
 	hide_flags = true,
 	flags_after_prompt = true,

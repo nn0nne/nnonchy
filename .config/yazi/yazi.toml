@@ -111,6 +111,7 @@ image_bound = [10000, 10000]
 suppress_preload = true
 
 [plugin]
+prepend_preloaders = [{ url = "/run/user/1000/gvfs/**/*", run = "noop" }]
 prepend_previewers = [
   { mime = "application/openxmlformats-officedocument.*", run = "office" },
   { mime = "application/oasis.opendocument.*", run = "office" },
@@ -124,6 +125,7 @@ prepend_previewers = [
   { url = "*.ipynb", run = "rich-preview" },
   { url = "*.json", run = "rich-preview" },
   { mime = "{audio,video,image}/*", run = "mediainfo" },
+  { url = "/run/user/1000/gvfs/**/*", run = "noop" },
 ]
 prepend_fetchers = [
   { url = "local://", run = "mime-ext.local", prio = "high", group = "mime" },
