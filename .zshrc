@@ -168,17 +168,6 @@ alias cp="cpx"
 alias ping="prettyping"
 # alias "?"="opencode run '$*'"
 
-# cd via yazi
-function yg() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    zoxide add "$cwd"
-    cd -- "$cwd"
-  fi
-  rm -f -- "$tmp"
-}
-
 # function to easily use opencde run
 'ask'() {
     opencode run "$*" | rich - --markdown --force-terminal

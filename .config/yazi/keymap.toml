@@ -6,11 +6,10 @@
 [mgr]
 
 prepend_keymap = [
-  { on = ["C","x"], run = 'shell "chmod +x \"$@\"" --block', desc = "chmod +x" },
-  { on = ["<C-r>"], run = "plugin duck-radar", desc = "Duck Radar - Recent Files" },
-  { on = ["_","R"], run = "plugin reflink", desc = "Reflink the yanked files" },
-  { on = "R", run = "plugin rsync", desc = "Copy files using rsync" },
-  { on = "M", run = "plugin mount", desc = "Open mounts window" },
+  { on = [
+    "C",
+    "x",
+  ], run = 'shell "chmod +x \"$@\"" --block', desc = "chmod +x" },
   { on = [
     "R",
     "b",
@@ -40,9 +39,14 @@ prepend_keymap = [
     "a",
     "u",
   ], run = "plugin compress -phl", desc = "Archive selected files (password+header+level)" },
-  { on = "p", run = "plugin ucp paste notify", desc = "Paste" },
-  { on = "y", run = "plugin ucp copy notify", desc = "Copy" },
-  { on = "F", run = "plugin smart-filter", desc = "Smart Filter" },
+  { on = "!", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+  { on = "f", run = "plugin smart-filter", desc = "Smart Filter" },
+  { on = "K", run = "plugin parent-arrow -1" },
+  { on = "J", run = "plugin parent-arrow 1" },
+  { on = "y", run = [
+    'shell -- for path in %s; do echo "file://$path"; done | wl-copy -t text/uri-list',
+    "yank",
+  ], desc = "Copy files to Clipboard" },
   { on = "<C-w>", run = "plugin close-and-restore-tab close_to_left", desc = "Close the current tab and turn to left tab, or quit if it is last tab" },
   { on = "<C-w>", run = "plugin close-and-restore-tab close_to_right", desc = "Close the current tab and turn to right tab, or quit if it is last tab" },
   { on = "<C-t>", run = "plugin close-and-restore-tab restore", desc = "Restore the closed tab" },
@@ -52,7 +56,6 @@ prepend_keymap = [
     "G",
   ], run = "plugin gitui", desc = "run gitui" },
 ]
-
 keymap = [
   { on = "<Esc>", run = "escape", desc = "Exit visual mode, clear selection, or cancel search" },
   { on = "<C-[>", run = "escape", desc = "Exit visual mode, clear selection, or cancel search" },
@@ -170,19 +173,19 @@ keymap = [
   { on = [
     "c",
     "c",
-  ], run = "copy path", desc = "Copy the file path" },
+  ], run = "copy path", desc = "Copy file URL" },
   { on = [
     "c",
     "d",
-  ], run = "copy dirname", desc = "Copy the directory path" },
+  ], run = "copy dirname", desc = "Copy directory URL" },
   { on = [
     "c",
     "f",
-  ], run = "copy filename", desc = "Copy the filename" },
+  ], run = "copy filename", desc = "Copy filename" },
   { on = [
     "c",
     "n",
-  ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
+  ], run = "copy name_without_ext", desc = "Copy filename without extension" },
 
   # Filter
   { on = "f", run = "filter --smart", desc = "Filter files" },
@@ -280,19 +283,22 @@ keymap = [
   ], run = "cd ~/Downloads", desc = "Go ~/Downloads" },
   { on = [
     "g",
-    "f",
-  ], run = "cd ~/dotfiles", desc = "Go ~/dotfiles" },
-  { on = [
-    "g",
     "<Space>",
   ], run = "cd --interactive", desc = "Jump interactively" },
   { on = [
     "g",
-    "s",
+    "f",
   ], run = "follow", desc = "Follow hovered symlink" },
 
   # Tabs
-  { on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
+  { on = [
+    "t",
+    "t",
+  ], run = "tab_create --current", desc = "Create a new tab in CWD" },
+  { on = [
+    "t",
+    "r",
+  ], run = "tab_rename --interactive", desc = "Rename current tab" },
 
   { on = "1", run = "tab_switch 0", desc = "Switch to first tab" },
   { on = "2", run = "tab_switch 1", desc = "Switch to second tab" },
