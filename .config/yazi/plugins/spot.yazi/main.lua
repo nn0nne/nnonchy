@@ -1,4 +1,4 @@
---- @since 25.12.29
+--- @since 26.5.6
 
 local M = {}
 
@@ -171,7 +171,7 @@ local get_total_size = function(urls)
   local total = 0
   for _, url in ipairs(urls) do
     local it = fs.calc_size(url)
-    while true do
+    while it do
       local next = it:recv() ---@diagnostic disable-line: undefined-field
       if next then
         total = total + next
@@ -277,24 +277,20 @@ function M:render_table(job, extra, config)
 
   -- Plugins
   if config.plugins_section.enable then
-    local spotter = rt.plugin.spotter(job.file, job.mime) ---@diagnostic disable-line: undefined-field
-    local previewer = rt.plugin.previewer(job.file, job.mime) ---@diagnostic disable-line: undefined-field
-    local fetchers = rt.plugin.fetchers(job.file, job.mime) ---@diagnostic disable-line: undefined-field
-    local preloaders = rt.plugin.preloaders(job.file, job.mime) ---@diagnostic disable-line: undefined-field
-
-    for i, v in ipairs(fetchers) do
-      fetchers[i] = v.cmd
+    local get_plugin = function(type)
+      local text = ''
+      for _, plugin in pairs(rt.plugin[type]:match({ mime = job.mime, file = job.file })) do
+        text = text .. plugin.name .. ', '
+      end
+      ya.dbg(text)
+      return text:sub(1, -3)
     end
-    for i, v in ipairs(preloaders) do
-      preloaders[i] = v.cmd
-    end
-
     add_section {
       title = 'Plugins',
-      { 'Spotter', spotter and spotter.cmd or '-' },
-      { 'Previewer', previewer and previewer.cmd or '-' },
-      { 'Fetchers', #fetchers ~= 0 and table.concat(fetchers, ', ') or '-' },
-      { 'Preloaders', #preloaders ~= 0 and table.concat(preloaders, ', ') or '-' },
+      { 'Spotter', get_plugin('spotters') },
+      { 'Previewer', get_plugin('previewers') },
+      { 'Fetchers', get_plugin('fetchers') },
+      { 'Preloaders', get_plugin('preloaders') },
     }
   end
 

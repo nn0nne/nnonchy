@@ -4,6 +4,7 @@ local M = {}
 local pack = require("nnonne.commands.pack")
 
 local ensure_installed = {
+	"astro",
 	"bash",
 	-- "c",
 	-- "caddy",

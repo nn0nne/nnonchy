@@ -11,6 +11,7 @@ M.tools = {
 	{ kind = "lsp", lsp = "tailwindcss", mason = "tailwindcss-language-server" },
 	{ kind = "lsp", lsp = "vtsls", mason = "vtsls" },
 	{ kind = "lsp", lsp = "pyright", mason = "pyright" },
+	{ kind = "lsp", lsp = "astro", mason = "astro-language-server" },
 	{ kind = "formatter", mason = "stylua", ft = { "lua" } },
 	{ kind = "formatter", mason = "shfmt", ft = { "sh", "bash" } },
 	{ kind = "formatter", mason = "prettierd", ft = { "javascript", "typescript", "html", "css", "json", "jsonc" } },
