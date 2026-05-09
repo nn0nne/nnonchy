@@ -59,11 +59,6 @@ rev = "46a6b9f"
 hash = "771af2becc575a3f43d0542de823969d"
 
 [[plugin.deps]]
-use = "macydnah/office"
-rev = "41ebef8"
-hash = "5805affd3ae8adcb3c72b6997d21c0a6"
-
-[[plugin.deps]]
 use = "AminurAlam/yazi-plugins:spot"
 rev = "8a3b35d"
 hash = "808b8bce8e17aa78b26cda90dd8fbf8d"
@@ -82,6 +77,21 @@ hash = "e3260d0b1feded8c8e3ae3afa1169e30"
 use = "boydaihungst/gvfs"
 rev = "3abc0a2"
 hash = "eed89e75671723c8f9390a2862af0e4e"
+
+[[plugin.deps]]
+use = "macydnah/office"
+rev = "41ebef8"
+hash = "5805affd3ae8adcb3c72b6997d21c0a6"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "1db18bb"
+hash = "f0c8c378184d5f8abd1b095a443d336d"
+
+[[plugin.deps]]
+use = "XYenon/clipboard"
+rev = "bda3e09"
+hash = "3c3e40d869946b5548815db7444e2a23"
 
 [flavor]
 deps = []

@@ -55,14 +55,19 @@ prepend_keymap = [
     "M",
     "M",
   ], run = "plugin mount", desc = "Interact with mounted storage" },
+  { on = [
+    "c",
+    "m",
+  ], run = "plugin chmod", desc = "Chmod on selected files" },
   { on = "!", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
   { on = "f", run = "plugin smart-filter", desc = "Smart Filter" },
   { on = "K", run = "plugin parent-arrow -1" },
   { on = "J", run = "plugin parent-arrow 1" },
   { on = "y", run = [
-    'shell -- for path in %s; do echo "file://$path"; done | wl-copy -t text/uri-list',
     "yank",
-  ], desc = "Copy files to Clipboard" },
+    'plugin clipboard -- --action=copy',
+  ], desc = "Copy files to clipboard" },
+  { on = "<C-p>", run = "plugin clipboard -- --action=paste", desc = "Paste files from clipboard" },
   { on = "<C-w>", run = "plugin close-and-restore-tab close_to_left", desc = "Close the current tab and turn to left tab, or quit if it is last tab" },
   { on = "<C-w>", run = "plugin close-and-restore-tab close_to_right", desc = "Close the current tab and turn to right tab, or quit if it is last tab" },
   { on = "<C-t>", run = "plugin close-and-restore-tab restore", desc = "Restore the closed tab" },
@@ -293,6 +298,10 @@ keymap = [
     "g",
     "c",
   ], run = "cd ~/.config", desc = "Go ~/.config" },
+  { on = [
+    "g",
+    "f",
+  ], run = "cd ~/dotfiles/.config/", desc = "Go ~/dotfiles/.config/" },
   { on = [
     "g",
     "d",
