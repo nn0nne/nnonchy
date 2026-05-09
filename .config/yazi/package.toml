@@ -73,5 +73,10 @@ use = "AminurAlam/yazi-plugins:spot-audio"
 rev = "8a3b35d"
 hash = "5f55cfa8993d3cb94ed217ffabda9366"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "1db18bb"
+hash = "e3260d0b1feded8c8e3ae3afa1169e30"
+
 [flavor]
 deps = []
