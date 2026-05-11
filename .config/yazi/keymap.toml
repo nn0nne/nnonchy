@@ -61,8 +61,8 @@ prepend_keymap = [
   ], run = "plugin chmod", desc = "Chmod on selected files" },
   { on = "!", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
   { on = "f", run = "plugin smart-filter", desc = "Smart Filter" },
-  { on = "K", run = "plugin parent-arrow -1" },
-  { on = "J", run = "plugin parent-arrow 1" },
+  { on = "<C-k>", run = "plugin parent-arrow -1" },
+  { on = "<C-j>", run = "plugin parent-arrow 1" },
   { on = "y", run = [
     "yank",
     'plugin clipboard -- --action=copy',
@@ -302,6 +302,10 @@ keymap = [
     "g",
     "f",
   ], run = "cd ~/dotfiles/.config/", desc = "Go ~/dotfiles/.config/" },
+  { on = [
+    "g",
+    "C",
+  ], run = "cd ~/codingan", desc = "Go ~/codingan" },
   { on = [
     "g",
     "d",

@@ -23,7 +23,7 @@ eval "$(/usr/bin/mise activate zsh)"
 #
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
-# bindkey -v
+bindkey -e # set to emacs for yazi shell drop to not be vi-mode
 
 # Prompt for spelling correction of commands.
 #setopt CORRECT
