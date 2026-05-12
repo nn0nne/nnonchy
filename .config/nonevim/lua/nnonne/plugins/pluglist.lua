@@ -28,7 +28,7 @@ M.map = {
 	["vim-kitty-navigator"] = { name = "vim-kitty-navigator", src = "https://github.com/knubie/vim-kitty-navigator" },
 	["mini.nvim"] = { name = "mini.nvim", src = "https://github.com/nvim-mini/mini.nvim" },
 	["lazydev.nvim"] = { name = "lazydev.nvim", src = "https://github.com/folke/lazydev.nvim" },
-	["gitui.nvim"] = { name = "gitui.nvim", src = "https://github.com/aspeddro/gitui.nvim" },
+	-- ["gitui.nvim"] = { name = "gitui.nvim", src = "https://github.com/aspeddro/gitui.nvim" },
 	["cord.nvim"] = { name = "cord.nvim", src = "https://github.com/vyfor/cord.nvim" },
 	["which-key.nvim"] = { name = "which-key", src = "https://github.com/folke/which-key.nvim" },
 	["friendly-snippets"] = { name = "friendly-snippets", src = "https://github.com/rafamadriz/friendly-snippets" },

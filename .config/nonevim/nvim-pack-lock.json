@@ -37,10 +37,6 @@
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
-    "gitui.nvim": {
-      "rev": "686d74e79899af760ed9f5f0ad2bd1bb1c135e26",
-      "src": "https://github.com/aspeddro/gitui.nvim"
-    },
     "grug-far.nvim": {
       "rev": "21790e59dd0109a92a70cb874dd002af186314f5",
       "src": "https://github.com/MagicDuck/grug-far.nvim"
