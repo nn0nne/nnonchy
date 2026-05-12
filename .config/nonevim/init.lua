@@ -37,6 +37,7 @@ require("nnonne.plugins.flutter-tools").setup()
 require("nnonne.plugins.render-markdown").setup()
 require("nnonne.plugins.image").setup()
 require("nnonne.plugins.toggle-term").setup()
+require("nnonne.plugins.opencode").setup()
 
 require("nnonne.plugins.which-key").setup()
 require("nnonne.plugins.vim-kitty-nav").setup()

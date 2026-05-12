@@ -6,7 +6,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center cursor"
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center cursor" })
 
 -- Terminal
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Smart search + centered (fixes duplicate mapping warning)
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result centered" })

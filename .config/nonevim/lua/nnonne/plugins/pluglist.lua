@@ -49,6 +49,7 @@ M.map = {
 		name = "toggleterm.nvim",
 		src = "https://github.com/akinsho/toggleterm.nvim",
 	},
+	["opencode.nvim"] = { name = "opencode.nvim", src = "https://github.com/nickjvandyke/opencode.nvim" },
 }
 
 function M.by_names(names)
