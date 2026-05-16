@@ -9,6 +9,9 @@ function M.setup()
 		mappings = {
 			close = "<Esc>",
 		},
+		windows = {
+			preview = true,
+		},
 	})
 
 	vim.keymap.set("n", "<leader>e", function()

@@ -6,12 +6,12 @@ function M.setup()
 	pack.add({ "fff" })
 
 	require("fff").setup({
-		prompt = "> ",
+		prompt = "(づ｡◕‿‿◕｡)づ ",
 		layout = {
 			prompt_position = "top",
 		},
 		lazy_sync = true,
-		debug = { enabled = true, show_scores = true },
+		debug = { enabled = false, show_scores = false },
 	})
 
 	vim.api.nvim_create_autocmd("PackChanged", {

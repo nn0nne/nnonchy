@@ -5,7 +5,7 @@ require("git"):setup({
 require("confirm-quit"):setup()
 
 require("recycle-bin"):setup({
-	trash_dir = "~/.local/share/Trash/",
+	trash_dir = "/home/nnonne/.local/share/Trash",
 })
 
 require("gvfs"):setup({
