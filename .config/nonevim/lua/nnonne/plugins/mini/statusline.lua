@@ -57,7 +57,7 @@ function M.setup()
 
 				local custom_fileinfo = filetype .. search_text
 
-				local time_text = os.date(" 󰃭 %u 󱑒 %H:%M ")
+				local time_text = os.date(" 󰃭 %u %d%m 󱑒 %H%M ")
 
 				return require("mini.statusline").combine_groups({
 					{ hl = mode_hl, strings = { mode_text } }, -- Use our custom mode_text
