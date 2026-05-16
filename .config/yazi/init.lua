@@ -15,7 +15,7 @@ require("gvfs"):setup({
 require("starship"):setup({
 	hide_flags = true,
 	flags_after_prompt = true,
-	config_file = "~/.config/starship.toml", -- Default: nil
+	config_file = "./starship.toml", -- Default: nil
 	show_right_prompt = false,
 	hide_count = false,
 	count_separator = " ",

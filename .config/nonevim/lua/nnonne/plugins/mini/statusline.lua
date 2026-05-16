@@ -30,7 +30,6 @@ function M.setup()
 				local git = require("mini.statusline").section_git({ trunc_width = 40 })
 				local diff = require("mini.statusline").section_diff({ trunc_width = 75 })
 				local filename = require("mini.statusline").section_filename({ trunc_width = 140 })
-				local fileinfo = require("mini.statusline").section_fileinfo({ trunc_width = 120 })
 				local location = require("mini.statusline").section_location({ trunc_width = 75 })
 
 				local diagnostics = require("mini.statusline").section_diagnostics({
@@ -43,13 +42,31 @@ function M.setup()
 					},
 				})
 
+				local filetype = vim.bo.filetype
+				if filetype == "" then
+					filetype = "no ft"
+				end
+
+				local search_text = ""
+				if vim.v.hlsearch == 1 then
+					local ok, searchcount = pcall(vim.fn.searchcount, { readahead = 0, maxcount = 999 })
+					if ok and searchcount.total and searchcount.total > 0 then
+						search_text = string.format(" 🔍 %d/%d", searchcount.current, searchcount.total)
+					end
+				end
+
+				local custom_fileinfo = filetype .. search_text
+
+				local time_text = os.date(" 󰃭 %u 󱑒 %H:%M ")
+
 				return require("mini.statusline").combine_groups({
 					{ hl = mode_hl, strings = { mode_text } }, -- Use our custom mode_text
 					{ hl = "MiniStatuslineDevinfo", strings = { git, diff, diagnostics } },
 					"%<",
 					{ hl = "MiniStatuslineFilename", strings = { filename } },
 					"%=",
-					{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+					{ hl = "MiniStatuslineFileinfo", strings = { custom_fileinfo } },
+					{ hl = "MiniStatuslineDevinfo", strings = { time_text } },
 					{ hl = mode_hl, strings = { location } },
 				})
 			end,

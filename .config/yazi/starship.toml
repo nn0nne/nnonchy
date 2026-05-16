@@ -1,6 +1,4 @@
 format = """
-$fill${custom.time_day}${custom.time_date}${custom.time_clock}$battery${custom.inhibit}| ${custom.bluetooth}${custom.wifi}${custom.profile}\
-$line_break\
 $username\
 $hostname\
 $shlvl\
@@ -49,6 +47,7 @@ $jobs\
 $env_var\
 $crystal\
 $cmd_duration\
+$fill${custom.time_day}${custom.time_date}${custom.time_clock}$battery${custom.inhibit}| ${custom.bluetooth}${custom.wifi}${custom.profile}\
 $line_break\
 $status\
 $character"""
