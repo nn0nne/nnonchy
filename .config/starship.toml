@@ -1,4 +1,6 @@
 format = """
+$fill$time$battery${custom.inhibit}${custom.bluetooth}${custom.wifi}${custom.profile}\
+$line_break\
 $username\
 $hostname\
 $shlvl\
@@ -42,15 +44,12 @@ $memory_usage\
 $aws\
 $gcloud\
 $openstack\
-$env_var\
-$crystal\
-$custom\
-$cmd_duration\
-$fill$time\
-$line_break\
 $lua\
 $jobs\
-$battery\
+$env_var\
+$crystal\
+$cmd_duration\
+$line_break\
 $status\
 $character"""
 
@@ -146,21 +145,60 @@ format = "took [$duration]($style) "
 style = "bold cyan"
 disabled = false
 
+[custom.inhibit]
+when = 'pgrep -f "Yambar-Inhibit"'
+command = 'echo "(ᴗ_ ᴗ。)ᶻ𝗓𐰁"'
+style = "bold blue"
+format = "[$output]($style) "
+
+[custom.wifi]
+command = 'echo "󰖩"'
+when = 'iwctl station list | grep -q "connected"'
+style = "bold cyan"
+format = "[$output]($style) "
+
+[custom.bluetooth]
+command = 'echo "| "'
+when = 'bluetoothctl info | grep -q "Connected: yes"'
+style = "bold green"
+format = "[$output]($style) "
+
+[custom.profile]
+command = '''
+profile=$(tlpctl get)
+if [ "$profile" = "performance" ]; then
+    echo "(🔥_🔥)"
+elif [ "$profile" = "power-saver" ]; then
+    echo "(つ_-)zZ"
+else
+    echo "(・_・)"
+fi
+'''
+when = "command -v tlpctl"
+style = "bold yellow"
+format = "[$output]($style) "
+
 [time]
-disabled = true
-time_format = "%T"
-format = "at 🕙 [$time]($bold blue) "
+disabled = false
+time_format = "%a %d.%m %R"
+format = "[$time]($bold blue) "
 
 [battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
+disabled = false
+format = "[$percentage]($style) "
+# full_symbol = "🔋"
+# charging_symbol = "⚡️"
+# discharging_symbol = "💀"
 
-[[battery.display]] # "bold red" style when capacity is between 0% and 10%
+[[battery.display]]
+threshold = 100
+style = "bold white"
+
+[[battery.display]]
 threshold = 10
 style = "bold red"
 
-[[battery.display]] # "bold yellow" style when capacity is between 10% and 30%
+[[battery.display]]
 threshold = 30
 style = "bold yellow"
 
