@@ -10,10 +10,10 @@ read -r active_tag window_count <<<$(echo "$status_output" | awk '$1 == "eDP-1" 
 # Send the notification if a tag was found
 if [ -n "$active_tag" ]; then
   message="$active_tag"
-  if [ "$window_count" -gt 0 ]; then
+  if [ "$window_count" -gt 1 ]; then
     message="$message-$window_count"
   else
-    message="$message-0"
+    message="$message"
   fi
 
   notify-send -a "MangoWM" -i dialog-information "$message"
