@@ -1,5 +1,5 @@
 format = """
-$fill$time$battery${custom.inhibit}${custom.bluetooth}${custom.wifi}${custom.profile}\
+$fill${custom.time_day}${custom.time_date}${custom.time_clock}$battery${custom.inhibit}| ${custom.bluetooth}${custom.wifi}${custom.profile}\
 $line_break\
 $username\
 $hostname\
@@ -114,12 +114,7 @@ symbol = ' '
 [line_break]
 disabled = false
 
-# Replace the "❯" symbol in the prompt with "➜"
 [character]
-# The "success_symbol" segment is being set to "➜" with the color "bold green"
-# use_symbol_for_status = true
-# success_symbol = "[ ](bold blue)"
-# error_symbol = "[ ](bold red)"
 success_symbol = "[➜](bold blue)"
 error_symbol = "[✘](bold red)"
 
@@ -147,20 +142,20 @@ disabled = false
 
 [custom.inhibit]
 when = 'pgrep -f "Yambar-Inhibit"'
-command = 'echo "(ᴗ_ ᴗ。)ᶻ𝗓𐰁"'
-style = "bold blue"
+command = 'echo "(ᴗ_ ᴗ。)"'
+style = "bold bright-cyan"
 format = "[$output]($style) "
 
 [custom.wifi]
 command = 'echo "󰖩"'
 when = 'iwctl station list | grep -q "connected"'
-style = "bold cyan"
+style = "bold bright-green"
 format = "[$output]($style) "
 
 [custom.bluetooth]
-command = 'echo "| "'
+command = 'echo ""'
 when = 'bluetoothctl info | grep -q "Connected: yes"'
-style = "bold green"
+style = "bold bright-green"
 format = "[$output]($style) "
 
 [custom.profile]
@@ -169,19 +164,38 @@ profile=$(tlpctl get)
 if [ "$profile" = "performance" ]; then
     echo "(🔥_🔥)"
 elif [ "$profile" = "power-saver" ]; then
-    echo "(つ_-)zZ"
+    echo "(つ_-)"
 else
     echo "(・_・)"
 fi
 '''
 when = "command -v tlpctl"
-style = "bold yellow"
+style = "bold bright-green"
 format = "[$output]($style) "
 
+# 1. Day of the week number (e.g., "7")
+[custom.time_day]
+command = "printf $(date +%u)"
+when = true
+style = "blue"
+format = "[$output]($style)"
+
+# 2. Date (e.g., "1705")
+[custom.time_date]
+command = "printf $(date +%d%m)"
+when = true
+style = "bold blue"
+format = "[$output]($style)"
+
+# 3. Clock (e.g., "0227")
+[custom.time_clock]
+command = "printf $(date +%H%M)"
+when = true
+style = "bold bright-blue"
+format = "[$output]($style) "    # Exactly one trailing space to separate it from the battery component
+
 [time]
-disabled = false
-time_format = "%a %d.%m %R"
-format = "[$time]($bold blue) "
+disabled = true
 
 [battery]
 disabled = false
