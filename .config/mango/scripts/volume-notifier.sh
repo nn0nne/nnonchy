@@ -12,7 +12,7 @@ VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print $5}' | t
 IS_MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
 
 if [ "$IS_MUTED" = "yes" ]; then
-  notify-send -h string:x-canonical-private-synchronous:volume_notif -h int:value:0 "Muted" -i audio-volume-muted
+  notify-send "Muted"
 else
   notify-send -h string:x-canonical-private-synchronous:volume_notif -h int:value:"$VOLUME" "Volume: ${VOLUME}%" -i audio-volume-high
 fi
