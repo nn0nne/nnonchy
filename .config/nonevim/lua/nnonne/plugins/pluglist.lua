@@ -52,6 +52,7 @@ M.map = {
 	["opencode.nvim"] = { name = "opencode.nvim", src = "https://github.com/nickjvandyke/opencode.nvim" },
 	["yazi.nvim"] = { name = "yazi.nvim", src = "https://github.com/mikavilpas/yazi.nvim" },
 	["fff"] = { name = "fff", src = "https://github.com/dmtrKovalenko/fff" },
+	["git-blame.nvim"] = { name = "git-blame.nvim", src = "https://github.com/f-person/git-blame.nvim" },
 }
 
 function M.by_names(names)
