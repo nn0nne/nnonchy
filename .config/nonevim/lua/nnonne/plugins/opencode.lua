@@ -7,7 +7,7 @@ function M.setup()
 
 	vim.opt.autoread = true
 
-	vim.keymap.set("n", "<leader>ot", function()
+	vim.keymap.set({ "n", "t" }, "<leader>ot", function()
 		require("opencode").toggle()
 	end, { desc = "Toggle embedded" })
 	vim.keymap.set("n", "<leader>oa", function()

@@ -38,7 +38,25 @@ vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines without moving cursor" })
 -- Buffers
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete Buffer" })
+-- vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete Buffer" })
+vim.keymap.set("n", "<leader>bd", function()
+	local current_buf = vim.api.nvim_get_current_buf()
+
+	-- Get a list of all listed/valid buffers
+	local valid_buffers = vim.fn.getbufinfo({ buflisted = 1 })
+
+	if #valid_buffers <= 1 then
+		-- If this is the last file open, create a clean scratch buffer FIRST
+		local scratch = vim.api.nvim_create_buf(true, false)
+		vim.api.nvim_set_current_buf(scratch)
+		-- Safely delete the old buffer in the background
+		pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
+	else
+		-- If there are other open files, switch to the next one before closing this one
+		vim.cmd("bnext")
+		pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
+	end
+end, { desc = "Safely close buffer preserving layout" })
 
 -- Windows
 vim.keymap.set("n", "<leader>wh", "<C-W>s", { remap = true, desc = "Split Window Below" })
