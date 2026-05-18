@@ -5,7 +5,7 @@ local pack = require("nnonne.commands.pack")
 
 function M.setup()
 	vim.api.nvim_create_autocmd("FileType", {
-		pattern = { "html", "xml", "javascriptreact", "typescriptreact" },
+		pattern = { "html", "xml", "javascriptreact", "typescriptreact", "astro" },
 		once = true,
 		callback = function()
 			pack.add({ "nvim-ts-autotag" })
