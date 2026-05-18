@@ -7,3 +7,5 @@ configs are not based on distros) but there are some configs that are specifical
 specific distro.
 
 Feel free to explore, fork, or adapt these for your own use!😊
+
+![](./extras/image/home.png)

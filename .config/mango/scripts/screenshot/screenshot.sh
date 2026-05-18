@@ -14,7 +14,7 @@ if [ "$MODE" = "region" ]; then
   PIPE=$(mktemp -u).fifo
   mkfifo "$PIPE"
 
-  wayfreeze --after-freeze-timeout 100 --after-freeze-cmd "echo > $PIPE" &
+  wayfreeze --hide-cursor --after-freeze-timeout 100 --after-freeze-cmd "echo > $PIPE" &
   WAYFREEZE_PID=$!
   read -r <"$PIPE"
   rm -f "$PIPE"
@@ -43,7 +43,7 @@ else
   PIPE=$(mktemp -u).fifo
   mkfifo "$PIPE"
 
-  wayfreeze --after-freeze-timeout 100 --after-freeze-cmd "echo > $PIPE" &
+  wayfreeze --hide-cursor --after-freeze-timeout 100 --after-freeze-cmd "echo > $PIPE" &
   WAYFREEZE_PID=$!
   read -r <"$PIPE"
   rm -f "$PIPE"
