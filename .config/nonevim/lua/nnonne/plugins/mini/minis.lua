@@ -84,8 +84,6 @@ function M.setup()
 			local opts = { buffer = ev.buf, silent = true }
 			local extra = require("mini.extra")
 
-			-- Keymaps
-
 			opts.desc = "Show LSP references"
 			-- Replaces Telescope lsp_references
 			vim.keymap.set("n", "gR", function()
@@ -116,27 +114,11 @@ function M.setup()
 			opts.desc = "See available code actions"
 			vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, opts)
 
-			opts.desc = "Smart rename"
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
-			opts.desc = "Show buffer diagnostics"
-			-- Replaces Telescope diagnostics
-			vim.keymap.set("n", "<leader>D", function()
-				extra.pickers.diag({ scope = "current" })
-			end, opts)
-
-			opts.desc = "Show line diagnostics"
-			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-
 			opts.desc = "Show documentation"
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
-			opts.desc = "Restart LSP"
-			vim.keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
-
 			opts.desc = "Signature Help"
 			vim.keymap.set("i", "<C-h>", function()
-				-- Using blink.cmp for signature help is much smoother
 				require("blink.cmp").show_signature()
 			end, opts)
 		end,

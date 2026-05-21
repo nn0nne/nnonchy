@@ -183,6 +183,10 @@ _mc_homecache() {
       ! -path '*/yazi/*'
       ! -path '*/nvim/*'
       ! -path '*/nonevim/*'
+      ! -path '*/zsh/*'
+      ! -path '*/mpv/*'
+      ! -path '*/fsh/*'
+      ! -path '*/fsh/*'
     )
     unset _mc_quicksums _mc_quicksums2
     _mc_calcfir ~/.cache >/dev/null 2>&1

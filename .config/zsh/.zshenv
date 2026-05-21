@@ -11,7 +11,7 @@ export TERMINAL="foot"
 
 # Pager
 if command -v bat >/dev/null 2>&1; then
-  export MANPAGER="bat -l man -p"
+  export PAGER="bat -l man -p"
 fi
 
 # GPG
@@ -29,3 +29,5 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 # Personal .env
 [ -f $ZDOTDIR/.zsh_env ] && source $ZDOTDIR/.zsh_env
 
+# For rust/cargo compilation
+export CARGO_BUILD_JOBS=4

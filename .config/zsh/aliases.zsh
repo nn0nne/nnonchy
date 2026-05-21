@@ -7,7 +7,6 @@ alias szsh="source $ZDOTDIR/.zshrc"
 
 alias df="duf"
 alias ls="eza -l -F --icons --smart-group"
-compdef eza=ls
 alias du="dua i"
 alias find="fd"
 alias grep="rg --color=auto"
@@ -61,9 +60,9 @@ if whence dircolors >/dev/null && ls --version &>/dev/null; then
     elif (( ! ${+LS_COLORS} )); then
       export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43'
     fi
-    alias ls='ls --group-directories-first --color=auto'
+    # alias ls='ls --group-directories-first --color=auto'
   else
-    alias ls='ls --group-directories-first'
+    # alias ls='ls --group-directories-first'
   fi
 
   # Always wear a condom
@@ -78,7 +77,7 @@ else
     if (( ! ${+LSCOLORS} )) export LSCOLORS=ExfxcxdxbxGxDxabagacad
     # Stock OpenBSD ls does not support colors at all, but colorls does.
     if [[ ${OSTYPE} == openbsd* && ${+commands[colorls]} -ne 0 ]]; then
-      alias ls=colorls
+      # alias ls=colorls
     fi
   fi
 fi

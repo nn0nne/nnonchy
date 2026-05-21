@@ -43,7 +43,7 @@ M.map = {
 		name = "render-markdown.nvim",
 		src = "https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	},
-	["snacks.nvim"] = { name = "snacks.nvim", src = "https://github.com/folke/snacks.nvim" },
+	-- ["snacks.nvim"] = { name = "snacks.nvim", src = "https://github.com/folke/snacks.nvim" },
 	["image.nvim"] = { name = "image.nvim", src = "https://github.com/3rd/image.nvim" },
 	["toggleterm.nvim"] = {
 		name = "toggleterm.nvim",
@@ -54,6 +54,12 @@ M.map = {
 	["fff"] = { name = "fff", src = "https://github.com/dmtrKovalenko/fff" },
 	["git-blame.nvim"] = { name = "git-blame.nvim", src = "https://github.com/f-person/git-blame.nvim" },
 	-- ["edgy.nvim"] = { name = "edgy.nvim", src = "https://github.com/folke/edgy.nvim" },
+	["nvim-dap"] = { name = "nvim-dap", src = "https://github.com/mfussenegger/nvim-dap" },
+	["nvim-dap-view"] = {
+		name = "nvim-dap-view",
+		src = "https://github.com/igorlfs/nvim-dap-view",
+		version = vim.version.range("1.*"),
+	},
 }
 
 function M.by_names(names)

@@ -63,6 +63,12 @@ download = [
   { run = "ya emit download --open %S", desc = "Download and open" },
   { run = "ya emit download %S", desc = "Download" },
 ]
+mpv-image = [
+  { run = 'mpv "%s"', desc = "View with MPV", for = "linux", orphan = true },
+]
+gthumb = [
+  { run = 'gthumb "%s"', desc = "Edit with gThumb", for = "linux", orphan = true },
+]
 
 [open]
 rules = [
@@ -77,6 +83,7 @@ rules = [
   ] },
   { mime = "image/*", use = [
     "open",
+    "gthumb",
     "reveal",
   ] },
   { mime = "{audio,video}/*", use = [
@@ -103,12 +110,15 @@ rules = [
 ]
 
 [tasks]
-micro_workers = 6
-macro_workers = 4
+file_workers = 3
+plugin_workers = 5
+fetch_workers = 5
+preload_workers = 2
+process_workers = 5
 bizarre_retry = 3
 image_alloc = 1073741824     # 1GB
 image_bound = [10000, 10000]
-suppress_preload = true
+suppress_preload = false
 
 [plugin]
 prepend_preloaders = [{ url = "/run/user/1000/gvfs/**/*", run = "noop" }]
