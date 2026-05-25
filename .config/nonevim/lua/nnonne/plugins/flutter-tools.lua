@@ -21,9 +21,7 @@ function M.setup()
 					},
 				},
 				debugger = {
-					enabled = true, -- enable nvim-dap integration -- idk have nvim-dap so disabled
-					exception_breakpoints = { "all" },
-					evaluate_to_string_in_debug_views = true,
+					enabled = false, -- enable nvim-dap integration -- idk have nvim-dap so disabled
 				},
 				root_patterns = { ".git", "pubspec.yaml" },
 				widget_guides = { enabled = true },
@@ -42,19 +40,6 @@ function M.setup()
 					auto_open = false,
 				},
 				lsp = {
-					-- color = { enabled = true, virtual_text = true, virtual_text_str = "■" },
-					-- on_attach = function(client, bufnr)
-					-- 	-- Default keymaps
-					-- 	local buf_map = function(mode, lhs, rhs, opts)
-					-- 		opts = opts or { noremap = true, silent = true }
-					-- 		vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
-					-- 	end
-					--
-					-- 	-- buf_map("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>")
-					-- 	-- buf_map("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-					-- 	-- buf_map("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
-					-- 	-- buf_map("x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>")
-					-- end,
 					capabilities = vim.lsp.protocol.make_client_capabilities(),
 					settings = {
 						showTodos = true,

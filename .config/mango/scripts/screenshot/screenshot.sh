@@ -66,14 +66,6 @@ else
   kill "$WAYFREEZE_PID" 2>/dev/null
 fi
 
-# 6. Route to Satty for annotation if requested
-if [ "$ANNOTATE" = "true" ] && [ -f "$FILEPATH" ]; then
-  satty --filename "$FILEPATH" \
-    --output-filename "$FILEPATH" \
-    --actions-on-enter save-to-file \
-    --early-exit
-fi
-
 # 7. Copy to clipboard if requested
 if [ "$COPY_CLIP" = "true" ] && [ -f "$FILEPATH" ]; then
   wl-copy <"$FILEPATH"

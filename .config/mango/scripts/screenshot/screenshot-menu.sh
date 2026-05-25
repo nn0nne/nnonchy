@@ -8,9 +8,6 @@ OPTIONS=(
   "s2 📋 Screen ➜ Clipboard & File"
   "r2 📋 Region ➜ Clipboard & File"
   "w2 📋 Window ➜ Clipboard & File"
-  "s3 ✏️ Screen ➜ Annotate & Clipboard"
-  "r3 ✏️ Region ➜ Annotate & Clipboard"
-  "w3 ✏️ Window ➜ Annotate & Clipboard"
 )
 
 # Render menu and return the selected index (0-indexed)
@@ -33,8 +30,5 @@ case "$SELECTION" in
 4) exec "$SCRIPT" region false true ;;     # r2
 5) exec "$SCRIPT" window false true ;;     # w2
 
-6) exec "$SCRIPT" fullscreen true true ;; # s3
-7) exec "$SCRIPT" region true true ;;     # r3
-8) exec "$SCRIPT" window true true ;;     # w3
 *) exit 0 ;;
 esac
