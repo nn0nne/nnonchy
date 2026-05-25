@@ -1,83 +1,57 @@
-# Main background
+# vague btop theme
+# https://github.com/aristocratos/btop
+
 theme[main_bg]="#141415"
-
-# Main text color
 theme[main_fg]="#cdcdcd"
-
-# Title color for boxes
 theme[title]="#cdcdcd"
-
-# Highlight color for keyboard shortcuts
-theme[hi_fg]="#6e94b2"  # Blue
-
-# Background color of selected item in processes box
+theme[hi_fg]="#f3be7c"
 theme[selected_bg]="#252530"
-
-# Foreground color of selected item in processes box
-theme[selected_fg]="#cdcdcd"
-
-# Color of inactive/disabled text
-theme[inactive_fg]="#606079"  # Dim gray (color8)
-
-# Color of text on graphs (e.g., uptime, network scaling)
-theme[graph_text]="#f3be7c"  # Yellow – soft but readable
-
-# Background of percentage meters
+theme[selected_fg]="#c3c3d5"
+theme[inactive_fg]="#606079"
+theme[graph_text]="#878787"
 theme[meter_bg]="#252530"
+theme[proc_misc]="#606079"
 
-# Misc colors (mini CPU graphs, memory graph, status text)
-theme[proc_misc]="#aeaed1"  # Cyan – neutral highlight
+# Box outlines
+theme[cpu_box]="#606079"
+theme[mem_box]="#606079"
+theme[net_box]="#606079"
+theme[proc_box]="#606079"
+theme[div_line]="#606079"
 
-# Box outline colors
-theme[cpu_box]="#bb9dbd"   # Magenta
-theme[mem_box]="#7fa563"   # Green
-theme[net_box]="#d8647e"   # Red – matches "network danger" feel
-theme[proc_box]="#6e94b2"  # Blue
+# Temperature
+theme[temp_start]="#7e98e8"
+theme[temp_mid]="#f3be7c"
+theme[temp_end]="#d8647e"
 
-# Divider lines
-theme[div_line]="#606079"  # Dim gray
+# CPU
+theme[cpu_start]="#7fa563"
+theme[cpu_mid]="#7fa563"
+theme[cpu_end]="#7fa563"
 
-# Temperature gradient (cool → warm → hot)
-theme[temp_start]="#7fa563"   # Green (cool)
-theme[temp_mid]="#f3be7c"     # Yellow (warm)
-theme[temp_end]="#d8647e"     # Red (hot)
+# Memory/Disk bars
+theme[free_start]="#606079"
+theme[free_mid]="#7fa563"
+theme[free_end]="#7fa563"
+theme[cached_start]="#7e98e8"
+theme[cached_mid]="#7e98e8"
+theme[cached_end]="#7e98e8"
+theme[available_start]="#f3be7c"
+theme[available_mid]="#f3be7c"
+theme[available_end]="#f3be7c"
+theme[used_start]="#d8647e"
+theme[used_mid]="#d8647e"
+theme[used_end]="#d8647e"
 
-# CPU usage gradient (low → mid → high)
-theme[cpu_start]="#7fa563"    # Green
-theme[cpu_mid]="#aeaed1"      # Cyan
-theme[cpu_end]="#d8647e"      # Red
+# Network
+theme[upload_start]="#bb9dbd"
+theme[upload_mid]="#bb9dbd"
+theme[upload_end]="#bb9dbd"
+theme[download_start]="#6e94b2"
+theme[download_mid]="#6e94b2"
+theme[download_end]="#6e94b2"
 
-# Memory/Disk free space (more free = cooler)
-theme[free_start]="#bb9dbd"   # Magenta (high free)
-theme[free_mid]="#6e94b2"     # Blue
-theme[free_end]="#7fa563"     # Green (fully free)
-
-# Cached memory/disk (neutral tones)
-theme[cached_start]="#aeaed1" # Cyan
-theme[cached_mid]="#bb9dbd"   # Magenta
-theme[cached_end]="#6e94b2"   # Blue
-
-# Available memory/disk (peach → red analog: yellow → red)
-theme[available_start]="#f3be7c"  # Yellow
-theme[available_mid]="#e08398"    # Bright red (color9)
-theme[available_end]="#d8647e"    # Red
-
-# Used memory/disk (green → sky analog: green → cyan)
-theme[used_start]="#7fa563"       # Green
-theme[used_mid]="#aeaed1"         # Cyan
-theme[used_end]="#6e94b2"         # Blue
-
-# Download graph (yellow → red)
-theme[download_start]="#f3be7c"   # Yellow
-theme[download_mid]="#e08398"     # Bright red
-theme[download_end]="#d8647e"     # Red
-
-# Upload graph (green → cyan)
-theme[upload_start]="#7fa563"     # Green
-theme[upload_mid]="#aeaed1"       # Cyan
-theme[upload_end]="#6e94b2"       # Blue
-
-# Process usage gradient (CPU/mem/thread intensity)
-theme[process_start]="#7fa563"    # Low usage – green
-theme[process_mid]="#aeaed1"      # Mid – cyan
-theme[process_end]="#d8647e"      # High – red
+# Process list
+theme[process_start]="#aeaed1"
+theme[process_mid]="#aeaed1"
+theme[process_end]="#aeaed1"
