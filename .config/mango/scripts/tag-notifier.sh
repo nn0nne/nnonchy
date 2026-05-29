@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Fetch the status from MangoWM's IPC
-status_output=$(mmsg -gt)
+status_output=$(mmsg -gt) # FIXME: mmsg have breaking changes
 
 # Parse out the active tag and its window count
 # Looks for lines starting with your monitor (eDP-1) and 'tag', where the 4th column is 1 (Active)

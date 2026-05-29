@@ -70,12 +70,9 @@ function M.setup()
 	-- Pubspec Keymaps
 	vim.keymap.set("n", "<leader>Fpg", "<Cmd>FlutterPubGet<CR>", { desc = "Flutter Pub Get" })
 	vim.keymap.set("n", "<leader>Fpu", "<Cmd>FlutterPubUpgrade<CR>", { desc = "Flutter Pub Upgrade" })
-	vim.keymap.set(
-		"n",
-		"<leader>Fpc",
-		"<Cmd>lua require('snacks').terminal.open('flutter clean')<CR>",
-		{ desc = "Flutter Clean" }
-	)
+	vim.keymap.set("n", "<leader>Fpc", function()
+		require("toggleterm.terminal").Terminal:new({ cmd = "flutter clean", hidden = true }):toggle()
+	end, { desc = "Flutter Clean" })
 
 	vim.api.nvim_create_autocmd("LspAttach", {
 		callback = function(ev)

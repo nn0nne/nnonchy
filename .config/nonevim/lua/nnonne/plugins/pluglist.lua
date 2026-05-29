@@ -28,7 +28,6 @@ M.map = {
 	["vim-kitty-navigator"] = { name = "vim-kitty-navigator", src = "https://github.com/knubie/vim-kitty-navigator" },
 	["mini.nvim"] = { name = "mini.nvim", src = "https://github.com/nvim-mini/mini.nvim" },
 	["lazydev.nvim"] = { name = "lazydev.nvim", src = "https://github.com/folke/lazydev.nvim" },
-	-- ["gitui.nvim"] = { name = "gitui.nvim", src = "https://github.com/aspeddro/gitui.nvim" },
 	["cord.nvim"] = { name = "cord.nvim", src = "https://github.com/vyfor/cord.nvim" },
 	["which-key.nvim"] = { name = "which-key", src = "https://github.com/folke/which-key.nvim" },
 	["friendly-snippets"] = { name = "friendly-snippets", src = "https://github.com/rafamadriz/friendly-snippets" },
@@ -43,7 +42,6 @@ M.map = {
 		name = "render-markdown.nvim",
 		src = "https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	},
-	-- ["snacks.nvim"] = { name = "snacks.nvim", src = "https://github.com/folke/snacks.nvim" },
 	["image.nvim"] = { name = "image.nvim", src = "https://github.com/3rd/image.nvim" },
 	["toggleterm.nvim"] = {
 		name = "toggleterm.nvim",
@@ -53,13 +51,8 @@ M.map = {
 	["yazi.nvim"] = { name = "yazi.nvim", src = "https://github.com/mikavilpas/yazi.nvim" },
 	["fff"] = { name = "fff", src = "https://github.com/dmtrKovalenko/fff" },
 	["git-blame.nvim"] = { name = "git-blame.nvim", src = "https://github.com/f-person/git-blame.nvim" },
-	-- ["edgy.nvim"] = { name = "edgy.nvim", src = "https://github.com/folke/edgy.nvim" },
 	["nvim-dap"] = { name = "nvim-dap", src = "https://github.com/mfussenegger/nvim-dap" },
-	["nvim-dap-view"] = {
-		name = "nvim-dap-view",
-		src = "https://github.com/igorlfs/nvim-dap-view",
-		version = vim.version.range("1.*"),
-	},
+	["bufferline.nvim"] = { name = "bufferline.nvim", src = "https://github.com/akinsho/bufferline.nvim" },
 }
 
 function M.by_names(names)

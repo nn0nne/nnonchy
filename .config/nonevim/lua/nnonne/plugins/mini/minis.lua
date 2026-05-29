@@ -10,7 +10,33 @@ function M.setup()
 	require("mini.notify").setup()
 	require("mini.extra").setup()
 	require("mini.jump").setup()
-	require("mini.snippets").setup()
+
+	require("mini.cmdline").setup({
+		autocorrect = { enable = false },
+		autocomplete = { enable = false },
+	})
+
+	require("mini.snippets").setup({
+		snippets = {
+			require("mini.snippets").gen_loader.from_lang(),
+		},
+		expand = {
+			insert = function(snippet)
+				MiniSnippets.default_insert(snippet, { empty_tabstop = "" })
+			end,
+		},
+	})
+	require("mini.snippets").start_lsp_server({ match = false })
+	vim.api.nvim_create_autocmd("ColorScheme", {
+		callback = function()
+			vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
+			vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
+			vim.api.nvim_set_hl(0, "MiniSnippetsFinal", {})
+			vim.api.nvim_set_hl(0, "MiniSnippetsUnvisited", {})
+			vim.api.nvim_set_hl(0, "MiniSnippetsVisited", {})
+		end,
+	})
+
 	require("mini.diff").setup({
 		view = {
 			style = "sign",
@@ -85,7 +111,6 @@ function M.setup()
 			local extra = require("mini.extra")
 
 			opts.desc = "Show LSP references"
-			-- Replaces Telescope lsp_references
 			vim.keymap.set("n", "gR", function()
 				extra.pickers.lsp({ scope = "references" })
 			end, opts)
@@ -94,32 +119,18 @@ function M.setup()
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
 			opts.desc = "Show LSP definitions"
-			-- Replaces Telescope lsp_definitions
 			vim.keymap.set("n", "gd", function()
 				extra.pickers.lsp({ scope = "definition" })
 			end, opts)
 
 			opts.desc = "Show LSP implementations"
-			-- Replaces Telescope lsp_implementations
 			vim.keymap.set("n", "gi", function()
 				extra.pickers.lsp({ scope = "implementation" })
 			end, opts)
 
 			opts.desc = "Show LSP type definitions"
-			-- Replaces Telescope lsp_type_definitions
 			vim.keymap.set("n", "gt", function()
 				extra.pickers.lsp({ scope = "type_definition" })
-			end, opts)
-
-			opts.desc = "See available code actions"
-			vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, opts)
-
-			opts.desc = "Show documentation"
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-			opts.desc = "Signature Help"
-			vim.keymap.set("i", "<C-h>", function()
-				require("blink.cmp").show_signature()
 			end, opts)
 		end,
 	})

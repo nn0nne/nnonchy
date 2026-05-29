@@ -3,13 +3,7 @@ local M = {}
 local pack = require("nnonne.commands.pack")
 
 function M.setup()
-	pack.add({ "nvim-dap", "nvim-dap-view" })
-
-	require("dap-view").setup({
-		windows = {
-			position = "left",
-		},
-	})
+	pack.add({ "nvim-dap" })
 
 	vim.keymap.set("n", "<leader>Dc", require("dap").continue, { desc = "DAP: Start/Continue Session" })
 
@@ -22,10 +16,6 @@ function M.setup()
 	vim.keymap.set("n", "<leader>Dx", require("dap").step_out, { desc = "DAP: Step Out" })
 
 	vim.keymap.set("n", "<leader>Dq", require("dap").terminate, { desc = "DAP: Stop Debugging" })
-
-	vim.keymap.set("n", "<leader>Dt", function()
-		require("dap-view").toggle()
-	end, { desc = "Toggle Dap View" })
 end
 
 return M

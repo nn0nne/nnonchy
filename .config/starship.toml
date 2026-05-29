@@ -53,7 +53,7 @@ $line_break\
 $status\
 $character"""
 
-command_timeout = 1000
+command_timeout = 5000
 scan_timeout = 5000
 
 # Don't print a new line at the start of the prompt
