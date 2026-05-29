@@ -8,6 +8,9 @@ function M.setup()
 	require("mini.statusline").setup({
 		content = {
 			active = function()
+				if vim.bo.filetype == "ministarter" then
+					return ""
+				end
 				local mode_labels = {
 					["n"] = "🈚 ノーマル",
 					["v"] = "👁️ ビジュアル",
@@ -30,6 +33,7 @@ function M.setup()
 				local git = require("mini.statusline").section_git({ trunc_width = 40 })
 				local diff = require("mini.statusline").section_diff({ trunc_width = 75 })
 				local filename = require("mini.statusline").section_filename({ trunc_width = 140 })
+				local search = MiniStatusline.section_searchcount({ trunc_width = 75 })
 				local location = require("mini.statusline").section_location({ trunc_width = 75 })
 
 				local diagnostics = require("mini.statusline").section_diagnostics({
@@ -47,16 +51,6 @@ function M.setup()
 					filetype = "no ft"
 				end
 
-				local search_text = ""
-				if vim.v.hlsearch == 1 then
-					local ok, searchcount = pcall(vim.fn.searchcount, { readahead = 0, maxcount = 999 })
-					if ok and searchcount.total and searchcount.total > 0 then
-						search_text = string.format(" 🔍 %d/%d", searchcount.current, searchcount.total)
-					end
-				end
-
-				local custom_fileinfo = filetype .. search_text
-
 				local time_text = os.date(" 󰃭 %u %d%m 󱑒 %H%M ")
 
 				return require("mini.statusline").combine_groups({
@@ -65,9 +59,9 @@ function M.setup()
 					"%<",
 					{ hl = "MiniStatuslineFilename", strings = { filename } },
 					"%=",
-					{ hl = "MiniStatuslineFileinfo", strings = { custom_fileinfo } },
+					{ hl = "MiniStatuslineFileinfo", strings = { filetype } },
 					{ hl = "MiniStatuslineDevinfo", strings = { time_text } },
-					{ hl = mode_hl, strings = { location } },
+					{ hl = mode_hl, strings = { search, location } },
 				})
 			end,
 		},
