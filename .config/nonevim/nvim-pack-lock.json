@@ -49,10 +49,6 @@
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
     },
-    "lualine.nvim": {
-      "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
-      "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
     "mason": {
       "rev": "bb639d4bf385a4d89f478b83af4d770be05ab7eb",
       "src": "https://github.com/mason-org/mason.nvim"
@@ -68,11 +64,6 @@
     "nvim-dap": {
       "rev": "531771530d4f82ad2d21e436e3cc052d68d7aebb",
       "src": "https://github.com/mfussenegger/nvim-dap"
-    },
-    "nvim-dap-view": {
-      "rev": "e44892210cfa98d23bf22b82b345213d742b9bee",
-      "src": "https://github.com/igorlfs/nvim-dap-view",
-      "version": "1.0.0 - 2.0.0"
     },
     "nvim-lint": {
       "rev": "d48f3a76189d03b2239f6df1b2f7e3fa8353743b",

@@ -16,6 +16,7 @@ alias mpv="nice -n 19 env MESA_VK_DEVICE_SELECT_FORCE_DEFAULT_DEVICE=1 mpv"
 alias celluloid="env DRI_PRIME=0 celluloid"
 alias cp="cpx"
 alias ping="prettyping"
+alias lg="lazygit"
 
 ### zim-utility ###
 

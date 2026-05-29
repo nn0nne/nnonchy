@@ -6,7 +6,6 @@ mkdir -p "$TARGET_DIR"
 FILEPATH="$TARGET_DIR/$(date +%Y-%m-%d_%H-%M-%S).png"
 
 MODE="${1:-fullscreen}" # fullscreen, region, window
-ANNOTATE="${2:-false}"  # true, false
 COPY_CLIP="${3:-false}" # true, false
 
 if [ "$MODE" = "region" ]; then
