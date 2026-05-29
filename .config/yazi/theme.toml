@@ -11,21 +11,21 @@ overall = {}
 # : }}}
 # : Manager {{{
 [mgr]
-cwd = { fg = "#aeaed1" }
+cwd = { fg = "#b4d4cf" }
 # Find
 find_keyword = { fg = "#f3be7c", bold = true, italic = true, underline = true }
-find_position = { fg = "#bb9dbd", bg = "reset", bold = true, italic = true }
+find_position = { fg = "#aeaed1", bg = "reset", bold = true, italic = true }
 # Symlink
 symlink_target = { italic = true }
 # Marker
 marker_copied = { fg = "#7fa563", bg = "#7fa563" }
 marker_cut = { fg = "#d8647e", bg = "#d8647e" }
-marker_marked = { fg = "#aeaed1", bg = "#aeaed1" }
+marker_marked = { fg = "#b4d4cf", bg = "#b4d4cf" }
 marker_selected = { fg = "#f3be7c", bg = "#f3be7c" }
-marker_symbol = "│ "
+marker_symbol = "│"
 # Count
-count_copied = { fg = "#cdcdcd", bg = "#7fa563" }
-count_cut = { fg = "#cdcdcd", bg = "#d8647e" }
+count_copied = { fg = "#141415", bg = "#7fa563" }
+count_cut = { fg = "#141415", bg = "#d8647e" }
 count_selected = { fg = "#141415", bg = "#f3be7c" }
 # Border
 border_symbol = "│"
@@ -154,9 +154,9 @@ footer = { fg = "#252530", bg = "#cdcdcd" }
 [filetype]
 rules = [
   # Image
-  { mime = "image/*", fg = "#f3be7c" },
+  { mime = "image/*", fg = "#b4d4cf" },
   # Media
-  { mime = "{audio,video}/*", fg = "#bb9dbd" },
+  { mime = "{audio,video}/*", fg = "#f3be7c" },
   # Archive
   { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#aeaed1" },
   # Document
@@ -170,6 +170,7 @@ rules = [
   { url = "*", is = "dummy", bg = "#d8647e" },
   { url = "*/", is = "dummy", bg = "#d8647e" },
   # Fallback
+  { url = "*", fg = "#cdcdcd" },
   { url = "*/", fg = "#6e94b2" },
 ]
 # : }}}

@@ -239,9 +239,9 @@ show_always = false
 [status]
 style = "bg:background"
 symbol = " "
-format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
-map_symbol = true
-disabled = false
+format = '[\[$symbol\]]($style) '
+map_symbol = false
+disabled = true
 
 [aws]
 symbol = " "
