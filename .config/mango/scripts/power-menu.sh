@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Options with Nerd Font icons
 options="Lock
 Logout
 Sleep
@@ -8,51 +7,45 @@ Reboot
 Poweroff
 Hibernate"
 
-# --- Custom color scheme ---
-BG="#252530FF"
-FG="#cdcdcdFF"
-
-SEL_BG="#606079FF"
-SEL_FG="#d7d7d7FF"
-
-PROMPT_BG="#6e94b2FF"
-PROMPT_FG="#252530FF"
-
 chosen=$(
-    echo -e "$options" | fuzzel --dmenu \
-        --lines 5
+  echo -e "$options" | fuzzel --dmenu \
+    --lines 6
 )
 
 action=$(echo "$chosen" | xargs)
 
 case "$action" in
 Logout)
-    mmsg -q
-    ;;
+  mmsg dispatch quit
+  ;;
 Sleep)
-    sync
-    systemctl suspend
-    swaylock --clock --indicator
-    ;;
+  sync
+  systemctl suspend
+  swaylock --clock --indicator
+  ;;
 Lock)
-    sync
-    swaylock --clock --indicator
-    ;;
+  sync
+  swaylock --clock --indicator
+  ;;
 Reboot)
-    sync
-    pkexec umount -l /mnt/external-harddrive/ || true
-    systemctl reboot
-    ;;
+  sync
+  if mountpoint -q "/mnt/external-harddrive/"; then
+    pkexec umount -l /mnt/external-harddrive/
+  fi
+  systemctl reboot
+  ;;
 Poweroff)
-    sync
-    pkexec umount -l /mnt/external-harddrive/ || true
-    systemctl poweroff
-    ;;
+  sync
+  if mountpoint -q "/mnt/external-harddrive/"; then
+    pkexec umount -l /mnt/external-harddrive/
+  fi
+  systemctl poweroff
+  ;;
 Hibernate)
-    sync
-    systemctl hibernate
-    ;;
+  sync
+  systemctl hibernate
+  ;;
 *)
-    exit 0
-    ;;
+  exit 0
+  ;;
 esac

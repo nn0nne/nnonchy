@@ -110,15 +110,15 @@ rules = [
 ]
 
 [tasks]
-file_workers = 3
-plugin_workers = 5
-fetch_workers = 5
-preload_workers = 2
-process_workers = 5
+file_workers = 4
+plugin_workers = 7
+fetch_workers = 8
+preload_workers = 3
+process_workers = 7
 bizarre_retry = 3
+suppress_preload = false
 image_alloc = 1073741824     # 1GB
 image_bound = [10000, 10000]
-suppress_preload = false
 
 [plugin]
 prepend_preloaders = [{ url = "/run/user/1000/gvfs/**/*", run = "noop" }]
