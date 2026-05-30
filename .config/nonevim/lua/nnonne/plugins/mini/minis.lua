@@ -6,7 +6,13 @@ function M.setup()
 	pack.add({ "mini.nvim" })
 
 	require("mini.pairs").setup()
-	require("mini.icons").setup()
+
+	require("mini.icons").setup({})
+	package.preload["nvim-web-devicons"] = function()
+		require("mini.icons").mock_nvim_web_devicons()
+		return package.loaded["nvim-web-devicons"]
+	end
+
 	require("mini.notify").setup()
 	require("mini.extra").setup()
 	require("mini.jump").setup()

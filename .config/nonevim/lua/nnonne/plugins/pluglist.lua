@@ -53,6 +53,18 @@ M.map = {
 	["git-blame.nvim"] = { name = "git-blame.nvim", src = "https://github.com/f-person/git-blame.nvim" },
 	["nvim-dap"] = { name = "nvim-dap", src = "https://github.com/mfussenegger/nvim-dap" },
 	["bufferline.nvim"] = { name = "bufferline.nvim", src = "https://github.com/akinsho/bufferline.nvim" },
+	["lualine.nvim"] = { name = "lualine.nvim", src = "https://github.com/nvim-lualine/lualine.nvim" },
+	["oil.nvim"] = { name = "oil.nvim", src = "https://github.com/stevearc/oil.nvim" },
+	["oil-lsp-diagnostics.nvim"] = {
+		name = "oil-lsp-diagnostics.nvim",
+		src = "https://github.com/JezerM/oil-lsp-diagnostics.nvim",
+	},
+	["oil-git-status.nvim"] = {
+		name = "oil-git-status.nvim",
+		src = "https://github.com/refractalize/oil-git-status.nvim",
+	},
+	["oil-git.nvim"] = { name = "oil-git.nvim", src = "https://github.com/malewicz1337/oil-git.nvim" },
+	["focal.nvim"] = { name = "focal.nvim", src = "https://github.com/hmdfrds/focal.nvim" },
 }
 
 function M.by_names(names)

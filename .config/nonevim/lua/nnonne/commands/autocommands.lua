@@ -48,3 +48,21 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 		vim.opt.wrap = false
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	desc = "Disable mini.indentscope for specific non-code filetypes",
+	pattern = {
+		"alpha", -- Disables it specifically on your Alpha Dashboard
+		"dashboard",
+		"snacks_dashboard",
+		"lazy",
+		"mason",
+		"help",
+		"NvimTree",
+		"neo-tree",
+		"trouble",
+	},
+	callback = function()
+		vim.b.miniindentscope_disable = true
+	end,
+})

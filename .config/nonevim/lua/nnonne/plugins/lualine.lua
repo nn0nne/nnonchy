@@ -5,20 +5,37 @@ local pack = require("nnonne.commands.pack")
 function M.setup()
 	pack.add({ "lualine.nvim" })
 
-	local icons = {
-		diagnostics = { Error = " ", Warn = " ", Info = " ", Hint = " " },
-		git = { added = " ", modified = " ", removed = " " },
-	}
-
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			component_separators = { left = "|", right = "|" },
-			section_separators = { left = "|", right = "|" },
-			disabled_filetypes = { statusline = {}, winbar = {} },
+			theme = "auto",
+			component_separators = { left = "│", right = "│" },
+			section_separators = { left = "█", right = "█" },
+			disabled_filetypes = {
+				statusline = { "alpha", "ministarter" },
+			},
+			ignore_focus = {},
 			always_divide_middle = true,
-			always_show_tabline = false,
+			always_show_tabline = true,
 			globalstatus = true,
+			refresh = {
+				statusline = 1000,
+				tabline = 1000,
+				winbar = 1000,
+				refresh_time = 16, -- ~60fps
+				events = {
+					"WinEnter",
+					"BufEnter",
+					"BufWritePost",
+					"SessionLoadPost",
+					"FileChangedShellPost",
+					"VimResized",
+					"Filetype",
+					"CursorMoved",
+					"CursorMovedI",
+					"ModeChanged",
+				},
+			},
 		},
 		sections = {
 			lualine_a = {
@@ -38,75 +55,45 @@ function M.setup()
 						}
 						return mode_map[vim.api.nvim_get_mode().mode] or "?"
 					end,
-					color = { gui = "bold" },
 				},
 			},
-			lualine_b = {},
+			lualine_b = {
+				"branch",
+				"diff",
+				"diagnostics",
+			},
 			lualine_c = {
 				{
-					function()
-						return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-					end,
-					icon = " ",
-				},
-				-- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-				{
-					function()
-						return vim.fn.expand("%:~:.")
-					end,
+					"filename",
+					file_status = true,
+					newfile_status = false,
+					path = 4,
+					symbols = {
+						modified = "[+]",
+						readonly = "[-]",
+						unnamed = "",
+						newfile = "[New]",
+					},
 				},
 			},
-			lualine_x = {},
-			lualine_y = { { "location", padding = { left = 0, right = 1 } } },
-			lualine_z = {},
+			lualine_x = { { "filetype", colored = true, icon_only = true } },
+			lualine_y = { { "datetime", style = "%d%u%m%H%M" } },
+			lualine_z = { { "searchcount", maxcount = 999, timeout = 500 }, "selectioncount", "location" },
 		},
-		inactive_sections = { lualine_c = { "filename" }, lualine_x = { "location" } },
-		extensions = {},
-	})
-
-	-- ✨ RESTORE FULL FEATURES AFTER STARTUP (non-blocking)
-	vim.defer_fn(function()
-		if vim.g.lualine_full_loaded then
-			return
-		end
-		vim.g.lualine_full_loaded = true
-
-		require("lualine").setup({
-			sections = {
-				lualine_b = {
-					{ "branch", icon = " " },
-					{
-						"diff",
-						symbols = {
-							added = icons.git.added,
-							modified = icons.git.modified,
-							removed = icons.git.removed,
-						},
-					},
-				},
-				lualine_c = {
-					{
-						function()
-							return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-						end,
-						icon = " ",
-					},
-					{
-						"diagnostics",
-						symbols = icons.diagnostics,
-						colored = true,
-						update_in_insert = false,
-					},
-					{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-					{
-						function()
-							return vim.fn.expand("%:~:.")
-						end,
-					},
-				},
+		inactive_sections = {
+			lualine_a = { "mode" },
+			lualine_b = {
+				"branch",
+				"diff",
+				"diagnostics",
+				"lsp_status",
 			},
-		})
-	end, 100) -- 100ms delay = imperceptible to humans, avoids startup penalty
+			lualine_c = { "filename" },
+			lualine_x = { "filetype" },
+			lualine_y = { "datetype" },
+			lualine_z = { "searchcount", "selectioncount", "location" },
+		},
+	})
 end
 
 return M

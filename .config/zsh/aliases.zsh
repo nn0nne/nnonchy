@@ -1,5 +1,4 @@
-alias n="~/.config/kitty/scripts/kitty_none.sh"
-alias none="~/.config/kitty/scripts/kitty_none.sh"
+alias n="~/.config/kitty/scripts/kitty_nvim.sh"
 alias v="~/.config/kitty/scripts/kitty_nvim.sh"
 
 alias nzsh="n $ZDOTDIR/.zshrc"

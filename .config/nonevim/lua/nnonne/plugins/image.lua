@@ -3,7 +3,7 @@ local M = {}
 local pack = require("nnonne.commands.pack")
 
 function M.setup()
-	pack.add({ "image.nvim" })
+	pack.add({ "image.nvim", "focal.nvim" })
 
 	local backend = "kitty"
 	local term = os.getenv("TERM") or ""
@@ -59,6 +59,8 @@ function M.setup()
 			},
 		},
 	})
+
+	require("focal").setup({})
 end
 
 return M

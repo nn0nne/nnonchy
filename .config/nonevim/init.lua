@@ -22,10 +22,10 @@ require("nnonne.plugins.completion").setup()
 require("nnonne.plugins.trouble").setup()
 
 require("nnonne.plugins.mini.starter").setup()
-require("nnonne.plugins.mini.files").setup()
-require("nnonne.plugins.mini.statusline").setup()
+require("nnonne.plugins.oil").setup()
+require("nnonne.plugins.lualine").setup()
 require("nnonne.plugins.bufferline").setup()
-require("nnonne.plugins.yazi").setup()
+-- require("nnonne.plugins.yazi").setup()
 require("nnonne.plugins.fff").setup()
 
 require("nnonne.plugins.comments").setup()

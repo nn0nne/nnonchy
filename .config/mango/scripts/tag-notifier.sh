@@ -1,19 +1,20 @@
 #!/bin/bash
 
-# Fetch the status from MangoWM's IPC
-status_output=$(mmsg -gt) # FIXME: mmsg have breaking changes
+status_output=$(mmsg get all-tags)
 
-# Parse out the active tag and its window count
-# Looks for lines starting with your monitor (eDP-1) and 'tag', where the 4th column is 1 (Active)
-read -r active_tag window_count <<<$(echo "$status_output" | awk '$1 == "eDP-1" && $2 == "tag" && $4 == 1 {print $3, $5}')
+read -r active_tag window_count <<<$(echo "$status_output" | jq -r '
+  .all_tags[] 
+  | select(.monitor == "eDP-1") 
+  | .tags[] 
+  | select(.is_active == true) 
+  | "\(.index) \(.client_count)"
+')
 
-# Send the notification if a tag was found
 if [ -n "$active_tag" ]; then
-  message="$active_tag"
   if [ "$window_count" -gt 1 ]; then
-    message="$message-$window_count"
+    message="$active_tag-$window_count"
   else
-    message="$message"
+    message="$active_tag"
   fi
 
   notify-send -a "MangoWM" -i dialog-information "$message"

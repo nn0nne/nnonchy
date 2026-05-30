@@ -18,7 +18,7 @@ vim.g.cord_defer_startup = true
 local opt = vim.opt
 
 -- source https://www.reddit.com/r/neovim/comments/1sa95g4/no_more_press_enter_with_ui2_with_example/
-opt.cmdheight = 0
+-- opt.cmdheight = 0
 
 -- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
@@ -104,7 +104,7 @@ opt.swapfile = false
 opt.backup = false
 opt.undolevels = 10000
 opt.undoreload = 10000
-opt.updatetime = 50 -- Save swap file and trigger CursorHold
+opt.updatetime = 300 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width

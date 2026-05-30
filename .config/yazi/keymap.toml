@@ -75,7 +75,7 @@ prepend_keymap = [
   { on = [
     "g",
     "G",
-  ], run = "plugin gitui", desc = "run gitui" },
+  ], run = "plugin lazygit", desc = "run lazygit" },
 ]
 keymap = [
   { on = "<Esc>", run = "escape", desc = "Exit visual mode, clear selection, or cancel search" },

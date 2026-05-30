@@ -49,15 +49,6 @@ require("spot"):setup({
 	},
 })
 
-Status:children_add(function(self)
-	local h = self._current.hovered
-	if h and h.link_to then
-		return " -> " .. tostring(h.link_to)
-	else
-		return ""
-	end
-end, 3300, Status.LEFT)
-
 Status:children_add(function()
 	local h = cx.active.current.hovered
 	if not h or ya.target_family() ~= "unix" then
@@ -71,3 +62,16 @@ Status:children_add(function()
 		" ",
 	})
 end, 500, Status.RIGHT)
+
+function Linemode:custom_mtime()
+	local time = math.floor(self._file.cha.mtime or 0)
+	if time == 0 then
+		time = ""
+	elseif os.date("%Y", time) == os.date("%Y") then
+		time = os.date("%u%d%m%H%M", time)
+	else
+		time = os.date("%u%d%m%y", time)
+	end
+
+	return string.format("%s", time)
+end
