@@ -59,7 +59,7 @@ prepend_keymap = [
     "c",
     "m",
   ], run = "plugin chmod", desc = "Chmod on selected files" },
-  { on = "!", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+  { on = "!", for = "unix", run = 'shell "zoxide add \".\" && $SHELL" --block', desc = "Open $SHELL here" },
   { on = "f", run = "plugin smart-filter", desc = "Smart Filter" },
   { on = "<C-k>", run = "plugin parent-arrow -1" },
   { on = "<C-j>", run = "plugin parent-arrow 1" },

@@ -113,6 +113,7 @@ opt.incsearch = true
 opt.background = "dark"
 opt.foldenable = true
 opt.foldcolumn = "0"
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkon400-blinkoff400"
 
 vim.lsp.handlers["$/progress"] = function() end -- to remove lsp progress
 vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)

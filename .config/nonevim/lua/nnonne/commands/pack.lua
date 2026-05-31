@@ -55,9 +55,14 @@ function M.setup()
 	end, { desc = "Sync installed plugins to nvim-pack-lock.json" })
 
 	vim.api.nvim_create_user_command("PackClean", function()
+		local ignored_plugins = {
+			["trouble.nvim"] = true,
+			["nvim-ts-autotag"] = true,
+		}
+
 		local stale = vim.iter(vim.pack.get())
 			:filter(function(plugin)
-				return not plugin.active
+				return not plugin.active and not ignored_plugins[plugin.spec.name]
 			end)
 			:map(function(plugin)
 				return plugin.spec.name

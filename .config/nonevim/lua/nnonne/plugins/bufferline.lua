@@ -10,9 +10,9 @@ function M.setup()
 			diagnostics = "nvim_lsp",
 			diagnostics_indicator = function(count, level)
 				local icon = level:match("error") and " " or " "
-				return " " .. icon .. count
+				return icon .. count
 			end,
-			separator_style = "thin",
+			separator_style = "thick",
 			sort_by = "insert_after_current",
 		},
 	})

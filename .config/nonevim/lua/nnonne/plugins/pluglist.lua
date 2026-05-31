@@ -2,70 +2,68 @@
 
 local M = {}
 
-M.map = {
-	["vague.nvim"] = { name = "vague", src = "https://github.com/vague-theme/vague.nvim" },
-	["nvim-treesitter"] = {
-		name = "nvim-treesitter",
+local plugins = {
+	{ src = "https://github.com/vague-theme/vague.nvim" },
+	{ src = "https://github.com/sainnhe/gruvbox-material" },
+	{
 		src = "https://github.com/nvim-treesitter/nvim-treesitter",
 		version = "main",
 	},
-	["nvim-treesitter-textobjects"] = {
-		name = "nvim-treesitter-textobjects",
+	{
 		src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 		version = "main",
 	},
-	["nvim-lspconfig"] = { name = "nvim-lspconfig", src = "https://github.com/neovim/nvim-lspconfig" },
-	["blink.cmp"] = {
-		name = "blink-cmp",
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
+	{
 		src = "https://github.com/Saghen/blink.cmp",
 		version = vim.version.range("1.*"),
 	},
-	["conform.nvim"] = { name = "conform", src = "https://github.com/stevearc/conform.nvim" },
-	["nvim-lint"] = { name = "nvim-lint", src = "https://github.com/mfussenegger/nvim-lint" },
-	["mason.nvim"] = { name = "mason", src = "https://github.com/mason-org/mason.nvim" },
-	["mason-lspconfig.nvim"] = { name = "mason-lspconfig", src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-	["ts-comments.nvim"] = { name = "ts-comments", src = "https://github.com/folke/ts-comments.nvim" },
-	["vim-kitty-navigator"] = { name = "vim-kitty-navigator", src = "https://github.com/knubie/vim-kitty-navigator" },
-	["mini.nvim"] = { name = "mini.nvim", src = "https://github.com/nvim-mini/mini.nvim" },
-	["lazydev.nvim"] = { name = "lazydev.nvim", src = "https://github.com/folke/lazydev.nvim" },
-	["cord.nvim"] = { name = "cord.nvim", src = "https://github.com/vyfor/cord.nvim" },
-	["which-key.nvim"] = { name = "which-key", src = "https://github.com/folke/which-key.nvim" },
-	["friendly-snippets"] = { name = "friendly-snippets", src = "https://github.com/rafamadriz/friendly-snippets" },
-	["trouble.nvim"] = { name = "trouble.nvim", src = "https://github.com/folke/trouble.nvim" },
-	["bullets.vim"] = { name = "bullets.vim", src = "https://github.com/bullets-vim/bullets.vim" },
-	["nvim-ts-autotag"] = { name = "nvim-ts-autotag", src = "https://github.com/windwp/nvim-ts-autotag" },
-	["grug-far.nvim"] = { name = "grug-far.nvim", src = "https://github.com/MagicDuck/grug-far.nvim" },
-	["flutter-tools.nvim"] = { name = "flutter-tools.nvim", src = "https://github.com/nvim-flutter/flutter-tools.nvim" },
-	["dressing.nvim"] = { name = "dressing.nvim", src = "https://github.com/stevearc/dressing.nvim" },
-	["plenary.nvim"] = { name = "plenary.nvim", src = "https://github.com/nvim-lua/plenary.nvim" },
-	["render-markdown.nvim"] = {
-		name = "render-markdown.nvim",
-		src = "https://github.com/MeanderingProgrammer/render-markdown.nvim",
-	},
-	["image.nvim"] = { name = "image.nvim", src = "https://github.com/3rd/image.nvim" },
-	["toggleterm.nvim"] = {
-		name = "toggleterm.nvim",
-		src = "https://github.com/akinsho/toggleterm.nvim",
-	},
-	["opencode.nvim"] = { name = "opencode.nvim", src = "https://github.com/nickjvandyke/opencode.nvim" },
-	["yazi.nvim"] = { name = "yazi.nvim", src = "https://github.com/mikavilpas/yazi.nvim" },
-	["fff"] = { name = "fff", src = "https://github.com/dmtrKovalenko/fff" },
-	["git-blame.nvim"] = { name = "git-blame.nvim", src = "https://github.com/f-person/git-blame.nvim" },
-	["nvim-dap"] = { name = "nvim-dap", src = "https://github.com/mfussenegger/nvim-dap" },
-	["bufferline.nvim"] = { name = "bufferline.nvim", src = "https://github.com/akinsho/bufferline.nvim" },
-	["lualine.nvim"] = { name = "lualine.nvim", src = "https://github.com/nvim-lualine/lualine.nvim" },
-	["oil.nvim"] = { name = "oil.nvim", src = "https://github.com/stevearc/oil.nvim" },
-	["oil-lsp-diagnostics.nvim"] = {
-		name = "oil-lsp-diagnostics.nvim",
-		src = "https://github.com/JezerM/oil-lsp-diagnostics.nvim",
-	},
-	["oil-git-status.nvim"] = {
-		name = "oil-git-status.nvim",
-		src = "https://github.com/refractalize/oil-git-status.nvim",
-	},
-	["oil-git.nvim"] = { name = "oil-git.nvim", src = "https://github.com/malewicz1337/oil-git.nvim" },
-	["focal.nvim"] = { name = "focal.nvim", src = "https://github.com/hmdfrds/focal.nvim" },
+	{ src = "https://github.com/stevearc/conform.nvim" },
+	{ src = "https://github.com/mfussenegger/nvim-lint" },
+	{ src = "https://github.com/mason-org/mason.nvim" },
+	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+	{ src = "https://github.com/folke/ts-comments.nvim" },
+	{ src = "https://github.com/knubie/vim-kitty-navigator" },
+	{ src = "https://github.com/nvim-mini/mini.nvim" },
+	{ src = "https://github.com/folke/lazydev.nvim" },
+	{ src = "https://github.com/vyfor/cord.nvim" },
+	{ src = "https://github.com/folke/which-key.nvim" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
+	{ src = "https://github.com/folke/trouble.nvim" },
+	{ src = "https://github.com/bullets-vim/bullets.vim" },
+	{ src = "https://github.com/windwp/nvim-ts-autotag" },
+	{ src = "https://github.com/MagicDuck/grug-far.nvim" },
+	{ src = "https://github.com/nvim-flutter/flutter-tools.nvim" },
+	{ src = "https://github.com/stevearc/dressing.nvim" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+	{ src = "https://github.com/3rd/image.nvim" },
+	{ src = "https://github.com/akinsho/toggleterm.nvim" },
+	{ src = "https://github.com/nickjvandyke/opencode.nvim" },
+	{ src = "https://github.com/dmtrKovalenko/fff" },
+	{ src = "https://github.com/f-person/git-blame.nvim" },
+	{ src = "https://github.com/mfussenegger/nvim-dap" },
+	{ src = "https://github.com/akinsho/bufferline.nvim" },
+	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/JezerM/oil-lsp-diagnostics.nvim" },
+	{ src = "https://github.com/refractalize/oil-git-status.nvim" },
+	{ src = "https://github.com/malewicz1337/oil-git.nvim" },
+	{ src = "https://github.com/hmdfrds/focal.nvim" },
 }
+
+M.map = {}
+for _, plugin in ipairs(plugins) do
+	local key = plugin.src:match("([^/]+)$"):gsub("%.git$", ""):gsub("/$", "")
+
+	if key and key ~= "" then
+		M.map[key] = vim.tbl_extend("force", {
+			name = key,
+		}, plugin)
+	else
+		error("Failed to parse repo name from GitHub URL: " .. tostring(plugin.src))
+	end
+end
 
 function M.by_names(names)
 	local out = {}

@@ -9,7 +9,7 @@ function M.setup()
 		border = "single",
 	} })
 
-	vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle floating terminal" })
+	vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle floating terminal" })
 	vim.keymap.set("n", "<leader>gt", function()
 		require("toggleterm.terminal").Terminal:new({ cmd = "lazygit", hidden = true }):toggle()
 	end, { desc = "Toggle GitUI" })

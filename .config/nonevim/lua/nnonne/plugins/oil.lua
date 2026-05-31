@@ -12,9 +12,9 @@ function M.setup()
 		-- Id is automatically added at the beginning, and name at the end
 		-- See :help oil-columns
 		columns = {
-			"permissions",
-			"size",
-			"mtime",
+			-- "permissions",
+			-- "size",
+			-- { "mtime", format = "%u%d%m%H%M" },
 			"icon",
 		},
 		-- Buffer-local options to use for oil buffers
@@ -210,11 +210,11 @@ function M.setup()
 		-- Configuration for the floating window in oil.open_float
 		float = {
 			-- Padding around the floating window
-			padding = 2,
+			padding = 0,
 			-- max_width and max_height can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
-			max_width = 0.7,
-			max_height = 0.8,
-			border = nil,
+			max_width = 0.3,
+			max_height = 0.4,
+			border = "solid",
 			win_options = {
 				winblend = 0,
 			},

@@ -59,3 +59,8 @@ vim.keymap.set("n", "<leader>wh", "<C-W>s", { remap = true, desc = "Split Window
 vim.keymap.set("n", "<leader>wv", "<C-W>v", { remap = true, desc = "Split Window Right" })
 vim.keymap.set("n", "<leader>wd", "<C-W>c", { remap = true, desc = "Delete Window" })
 vim.keymap.set("n", "<leader>we", "<C-w>=", { desc = "Equalize split sizes" })
+vim.keymap.set("n", "<leader>wz", "<C-w>_<C-w>|", { desc = "Toggle Window Zoom" })
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })

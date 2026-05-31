@@ -3,7 +3,7 @@ local M = {}
 local pack = require("nnonne.commands.pack")
 
 function M.setup()
-	pack.add({ "lualine.nvim" })
+	pack.add({ "lualine.nvim", "opencode.nvim" })
 
 	require("lualine").setup({
 		options = {
@@ -76,7 +76,7 @@ function M.setup()
 					},
 				},
 			},
-			lualine_x = { { "filetype", colored = true, icon_only = true } },
+			lualine_x = { { require("opencode").statusline }, { "filetype", colored = true, icon_only = true } },
 			lualine_y = { { "datetime", style = "%d%u%m%H%M" } },
 			lualine_z = { { "searchcount", maxcount = 999, timeout = 500 }, "selectioncount", "location" },
 		},
@@ -92,6 +92,15 @@ function M.setup()
 			lualine_x = { "filetype" },
 			lualine_y = { "datetype" },
 			lualine_z = { "searchcount", "selectioncount", "location" },
+		},
+		extensions = {
+			"oil",
+			"man",
+			"mason",
+			"quickfix",
+			"toggleterm",
+			"trouble",
+			"nvim-dap-ui",
 		},
 	})
 end

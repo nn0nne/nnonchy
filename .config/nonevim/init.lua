@@ -11,7 +11,7 @@ require("nnonne.settings.keymaps")
 require("nnonne.commands.autocommands")
 
 require("nnonne.plugins.core-ui2").setup()
-require("nnonne.plugins.vague").setup()
+require("nnonne.plugins.colorscheme").setup()
 require("nnonne.plugins.mini.minis").setup()
 
 require("nnonne.plugins.treesitter").setup()
