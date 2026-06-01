@@ -1,8 +1,8 @@
 # Config relating to the Lazygit UI
 gui:
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-author-color
-  authorColors: 
-  "*": "#f3be7c"
+  authorColors:
+    "*": "#f3be7c"
 
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-branch-color
   branchColorPatterns: {}
@@ -280,9 +280,9 @@ gui:
   spinner:
     # The frames of the spinner animation.
     frames:
-      - '|'
+      - "|"
       - /
-      - '-'
+      - "-"
       - \
 
     # The "speed" of the spinner in milliseconds.
@@ -327,7 +327,7 @@ git:
   #
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
   # for more information.
-  pagers: 
+  pagers:
     - pager: delta --dark --paging=never --syntax-theme base16-256 -s
       colorArg: "always"
 
@@ -436,7 +436,7 @@ git:
     #
     # Can be changed from within Lazygit with `Log menu -> Commit sort order`
     # (`<ctrl+l>` in the commits window by default).
-    order: topo-order
+    order: default # topo-order
 
     # This determines whether the git graph is rendered in the commits panel
     # One of 'always' | 'never' | 'when-maximised'
@@ -494,7 +494,7 @@ quitOnTopLevelReturn: false
 # copying to clipboard, etc
 os:
   # Command for editing a file. Should contain "{{filename}}".
-  edit: ""
+  edit: "vi {{filename}}"
 
   # Command for editing a file at a given line number. Should contain
   # "{{filename}}", and may optionally contain "{{line}}".
@@ -570,12 +570,12 @@ keybinding:
     togglePanel: <tab>
     prevItem: [<up>, k]
     nextItem: [<down>, j]
-    prevPage: ','
+    prevPage: ","
     nextPage: .
     scrollLeft: H
     scrollRight: L
     gotoTop: [<, <home>]
-    gotoBottom: ['>', <end>]
+    gotoBottom: [">", <end>]
     toggleRangeSelect: v
     rangeSelectDown: <shift+down>
     rangeSelectUp: <shift+up>
@@ -603,7 +603,7 @@ keybinding:
 
     # <alt+delete> on Mac
     forwardDeleteWord: <ctrl+delete>
-    optionMenu: '?'
+    optionMenu: "?"
     select: <space>
     goInto: <enter>
     confirm: <enter>
@@ -618,7 +618,7 @@ keybinding:
     openFile: o
     scrollUpMain: [<pgup>, K, <ctrl+u>]
     scrollDownMain: [<pgdown>, J, <ctrl+d>]
-    executeShellCommand: ':'
+    executeShellCommand: ":"
     createRebaseOptionsMenu: m
 
     # 'Files' appended for legacy reasons
@@ -628,11 +628,11 @@ keybinding:
     pullFiles: p
     refresh: R
     createPatchOptionsMenu: <ctrl+p>
-    nextTab: ']'
-    prevTab: '['
+    nextTab: "]"
+    prevTab: "["
     nextScreenMode: +
     prevScreenMode: _
-    cyclePagers: '|'
+    cyclePagers: "|"
     undo: z
     redo: Z
     filteringMenu: <ctrl+s>
@@ -640,10 +640,10 @@ keybinding:
     copyToClipboard: <ctrl+o>
     openRecentRepos: <ctrl+r>
     submitEditorText: <enter>
-    extrasMenu: '@'
+    extrasMenu: "@"
     toggleWhitespaceInDiffView: <ctrl+w>
-    increaseContextInDiffView: '}'
-    decreaseContextInDiffView: '{'
+    increaseContextInDiffView: "}"
+    decreaseContextInDiffView: "{"
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
     openDiffTool: <ctrl+t>
@@ -666,11 +666,11 @@ keybinding:
     toggleStagedAll: a
     viewResetOptions: D
     fetch: f
-    toggleTreeView: '`'
+    toggleTreeView: "`"
     openMergeOptions: M
     openStatusFilter: <ctrl+b>
     copyFileInfoToClipboard: "y"
-    collapseAll: '-'
+    collapseAll: "-"
     expandAll: =
   branches:
     createPullRequest: o
@@ -679,7 +679,7 @@ keybinding:
     copyPullRequestURL: <ctrl+y>
     checkoutBranchByName: c
     forceCheckoutBranch: F
-    checkoutPreviousBranch: '-'
+    checkoutPreviousBranch: "-"
     rebaseBranch: r
     renameBranch: R
     mergeIntoCurrentBranch: M
@@ -721,7 +721,7 @@ keybinding:
     openPullRequestInBrowser: G
     viewBisectOptions: b
     startInteractiveRebase: i
-    selectCommitsOfCurrentBranch: '*'
+    selectCommitsOfCurrentBranch: "*"
   amendAttribute:
     resetAuthor: a
     setAuthor: A

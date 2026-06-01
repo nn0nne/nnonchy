@@ -3,16 +3,16 @@ builtin emulate -L zsh -o ERR_RETURN -o PIPE_FAIL
 
 local opts=(-I)
 if [[ ${1} == -a ]]; then
-  opts=()
+    opts=()
 elif [[ -n ${1} ]]; then
-  print -u2 "usage: ${0} [-a]"
-  return 2
+    print -u2 "usage: ${0} [-a]"
+    return 2
 fi
 
 local hist_to_delete HISTORY_IGNORE
 fc -lrn ${opts} 1 | fzf --no-sort --multi | while IFS= read -r hist_to_delete; do
-  printf 'Removing history entry "%s"\n' ${hist_to_delete}
-  HISTORY_IGNORE="${(b)hist_to_delete}"
-  fc -W
-  fc -p ${HISTFILE} ${HISTSIZE} ${SAVEHIST}
+    printf 'Removing history entry "%s"\n' ${hist_to_delete}
+    HISTORY_IGNORE="${(b)hist_to_delete}"
+    fc -W
+    fc -p ${HISTFILE} ${HISTSIZE} ${SAVEHIST}
 done

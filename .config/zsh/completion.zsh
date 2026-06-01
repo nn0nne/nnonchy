@@ -1,50 +1,50 @@
 if [[ ${TERM} == dumb ]]; then
-  return 1
+    return 1
 fi
 
 if (( ${+_comps} )); then
-  print -u2 'warning: completion was already initialized before completion module. Will call compinit again. See https://github.com/zimfw/zimfw/wiki/Troubleshooting#completion-is-not-working'
+    print -u2 'warning: completion was already initialized before completion module. Will call compinit again. See https://github.com/zimfw/zimfw/wiki/Troubleshooting#completion-is-not-working'
 fi
 
 () {
-  builtin emulate -L zsh -o EXTENDED_GLOB
+    builtin emulate -L zsh -o EXTENDED_GLOB
 
-  # 1. Define the cache directory path, defaulting to ~/.cache/zsh if XDG_CACHE_HOME isn't set
-  local zcache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
-  
-  # Ensure the directory exists so Zsh doesn't throw an error when writing files
-  [[ -d "$zcache_dir" ]] || mkdir -p "$zcache_dir"
+    # 1. Define the cache directory path, defaulting to ~/.cache/zsh if XDG_CACHE_HOME isn't set
+    local zcache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
-  # 2. Check if dumpfile is up-to-date by comparing the full path and
-  # last modification time of all the completion functions in fpath.
-  local zdumpfile zold_dat LC_ALL=C
-  local -a zmtimes
-  local -i zdump_dat=1
-  
-  # Set the dumpfile path inside your XDG cache directory
-  zdumpfile="$zcache_dir/zcompdump"
+    # Ensure the directory exists so Zsh doesn't throw an error when writing files
+    [[ -d "$zcache_dir" ]] || mkdir -p "$zcache_dir"
 
-  local -r zcomps=(${^fpath}/^([^_]*|*~|*.zwc)(N))
-  if (( ${#zcomps} )); then
-    zmodload -F zsh/stat b:zstat && zstat -A zmtimes +mtime ${zcomps} || return 1
-  fi
-  local -r znew_dat=${ZSH_VERSION}$'\0'${(pj:\0:)zcomps}$'\0'${(pj:\0:)zmtimes}
-  if [[ -e ${zdumpfile}.dat ]]; then
-    zmodload -F zsh/system b:sysread && sysread -s ${#znew_dat} zold_dat <${zdumpfile}.dat || return 1
-    if [[ ${zold_dat} == ${znew_dat} ]] zdump_dat=0
-  fi
-  if (( zdump_dat )); then
-    command rm -f ${zdumpfile}(|.dat|.zwc(|.old))(N) || return 1
-  fi
+    # 2. Check if dumpfile is up-to-date by comparing the full path and
+    # last modification time of all the completion functions in fpath.
+    local zdumpfile zold_dat LC_ALL=C
+    local -a zmtimes
+    local -i zdump_dat=1
 
-  # Load and initialize the completion system using the new path
-  autoload -Uz compinit && compinit -C -d ${zdumpfile} && [[ -e ${zdumpfile} ]] || return 1
+    # Set the dumpfile path inside your XDG cache directory
+    zdumpfile="$zcache_dir/zcompdump"
 
-  if [[ ! ${zdumpfile}.dat -nt ${zdumpfile} ]]; then
-    >! ${zdumpfile}.dat <<<${znew_dat}
-  fi
-  # Compile the completion dumpfile; significant speedup
-  if [[ ! ${zdumpfile}.zwc -nt ${zdumpfile} ]] zcompile ${zdumpfile}
+    local -r zcomps=(${^fpath}/^([^_]*|*~|*.zwc)(N))
+    if (( ${#zcomps} )); then
+        zmodload -F zsh/stat b:zstat && zstat -A zmtimes +mtime ${zcomps} || return 1
+    fi
+    local -r znew_dat=${ZSH_VERSION}$'\0'${(pj:\0:)zcomps}$'\0'${(pj:\0:)zmtimes}
+    if [[ -e ${zdumpfile}.dat ]]; then
+        zmodload -F zsh/system b:sysread && sysread -s ${#znew_dat} zold_dat <${zdumpfile}.dat || return 1
+        if [[ ${zold_dat} == ${znew_dat} ]] zdump_dat=0
+    fi
+    if (( zdump_dat )); then
+        command rm -f ${zdumpfile}(|.dat|.zwc(|.old))(N) || return 1
+    fi
+
+    # Load and initialize the completion system using the new path
+    autoload -Uz compinit && compinit -C -d ${zdumpfile} && [[ -e ${zdumpfile} ]] || return 1
+
+    if [[ ! ${zdumpfile}.dat -nt ${zdumpfile} ]]; then
+        >! ${zdumpfile}.dat <<<${znew_dat}
+    fi
+    # Compile the completion dumpfile; significant speedup
+    if [[ ! ${zdumpfile}.zwc -nt ${zdumpfile} ]] zcompile ${zdumpfile}
 }
 
 functions[compinit]=$'print -u2 \'warning: compinit being called again after completion module at \'${funcfiletrace[1]}
@@ -62,9 +62,9 @@ setopt ALWAYS_TO_END
 setopt COMPLETE_IN_WORD
 
 if [[ ${glob_case_sensitivity} == sensitive ]]; then
-  setopt CASE_GLOB
+    setopt CASE_GLOB
 else
-  setopt NO_CASE_GLOB
+    setopt NO_CASE_GLOB
 fi
 
 # Don't beep on ambiguous completions.
@@ -85,11 +85,11 @@ zstyle ':completion:*:warnings' format '%F{red}-- no matches found --%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
 if [[ ${completion_case_sensitivity} == sensitive ]]; then
-  zstyle ':completion:*' matcher-list '' '+r:|[._-]=* r:|=*' '+l:|=*'
+    zstyle ':completion:*' matcher-list '' '+r:|[._-]=* r:|=*' '+l:|=*'
 else
-  # This is actually "smart" case sensitivity. Case insensitive is 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-  # which is broken in Zsh 5.9. See https://www.zsh.org/mla/workers/2022/msg01229.html
-  zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '+r:|[._-]=* r:|=*' '+l:|=*'
+    # This is actually "smart" case sensitivity. Case insensitive is 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+    # which is broken in Zsh 5.9. See https://www.zsh.org/mla/workers/2022/msg01229.html
+    zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '+r:|[._-]=* r:|=*' '+l:|=*'
 fi
 
 # Insert a TAB character instead of performing completion when left buffer is empty.
@@ -102,10 +102,10 @@ zstyle ':completion:*:*:-subscript-:*' tag-order 'indexes' 'parameters'
 
 # Directories
 if (( ${+LS_COLORS} )); then
-  zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 else
-  # Use same LS_COLORS definition from utility module, in case it was not set
-  zstyle ':completion:*:default' list-colors ${(s.:.):-di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43}
+    # Use same LS_COLORS definition from utility module, in case it was not set
+    zstyle ':completion:*:default' list-colors ${(s.:.):-di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43}
 fi
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 zstyle ':completion:*' squeeze-slashes true
@@ -125,12 +125,12 @@ zstyle -e ':completion:*:hosts' hosts 'reply=(
 
 # Don't complete uninteresting users...
 zstyle ':completion:*:*:*:users' ignored-patterns \
-  '_*' adm amanda apache avahi beaglidx bin cacti canna clamav daemon dbus \
-  distcache dovecot fax ftp games gdm gkrellmd gopher hacluster haldaemon \
-  halt hsqldb ident junkbust ldap lp mail mailman mailnull mldonkey mysql \
-  nagios named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
-  operator pcap postfix postgres privoxy pulse pvm quagga radvd rpc rpcuser \
-  rpm shutdown squid sshd sync uucp vcsa xfs
+    '_*' adm amanda apache avahi beaglidx bin cacti canna clamav daemon dbus \
+    distcache dovecot fax ftp games gdm gkrellmd gopher hacluster haldaemon \
+    halt hsqldb ident junkbust ldap lp mail mailman mailnull mldonkey mysql \
+    nagios named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
+    operator pcap postfix postgres privoxy pulse pvm quagga radvd rpc rpcuser \
+    rpm shutdown squid sshd sync uucp vcsa xfs
 
 # ... unless we really want to.
 zstyle ':completion:*' single-ignored show

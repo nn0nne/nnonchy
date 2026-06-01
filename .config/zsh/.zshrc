@@ -39,18 +39,18 @@ setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 bindkey -e
 
 # Prompt for spelling correction of commands.
-setopt CORRECT 
+setopt CORRECT
 SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? ' # Customize spelling correction prompt.
 
 # Remove path separator from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]} 
+WORDCHARS=${WORDCHARS//[\/]}
 
 # Make cd push the old directory to the directory stack.
 setopt AUTO_PUSHD
 
 autoload -Uz is-at-least && if is-at-least 5.8; then
-  # Don't print the working directory after a cd.
-  setopt CD_SILENT
+    # Don't print the working directory after a cd.
+    setopt CD_SILENT
 fi
 
 # Don't push multiple copies of the same directory to the stack.
@@ -95,8 +95,8 @@ fpath=(~$ZDOTDIR/plugins/zsh-completions/src $fpath)
 # =========================================================
 
 if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
-  source /usr/share/fzf/key-bindings.zsh
-  source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+    source /usr/share/fzf/completion.zsh
 fi
 
 # =========================================================
@@ -106,7 +106,7 @@ fi
 # Initialize
 source "$ZDOTDIR/init.zsh"
 
-# Git 
+# Git
 source "$ZDOTDIR/git.zsh"
 
 # Flutter
@@ -130,7 +130,7 @@ source "$ZDOTDIR/prompt.zsh"
 # pnpm
 export PNPM_HOME="/home/nnonne/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+    *":$PNPM_HOME/bin:"*) ;;
+    *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end

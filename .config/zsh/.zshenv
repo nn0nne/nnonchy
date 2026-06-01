@@ -12,7 +12,7 @@ export TERMINAL="foot"
 
 # Pager
 if command -v bat >/dev/null 2>&1; then
-  export PAGER="bat -l man -p"
+    export PAGER="bat -l man -p"
 fi
 
 # GPG
