@@ -39,28 +39,40 @@ local function is_installed(bin)
 end
 
 M.tools = {
+	{ kind = "lsp", lsp = "astro", mason = "astro-language-server" },
+	{ kind = "lsp", lsp = "pyright", mason = "pyright" },
 	{ kind = "lsp", lsp = "bashls", mason = "bash-language-server" },
 	{ kind = "lsp", lsp = "cssls", mason = "css-lsp" },
+	{ kind = "lsp", lsp = "eslint", mason = "eslint-lsp" },
 	{ kind = "lsp", lsp = "gradle_ls", mason = "gradle-language-server" },
 	{ kind = "lsp", lsp = "groovyls", mason = "groovy-language-server" },
+	{ kind = "lsp", lsp = "harper_ls", mason = "harper_ls" },
 	{ kind = "lsp", lsp = "html", mason = "html-lsp" },
+	{ kind = "lsp", lsp = "jsonls", mason = "json-lsp" },
 	{ kind = "lsp", lsp = "lua_ls", mason = "lua-language-server" },
 	{ kind = "lsp", lsp = "tailwindcss", mason = "tailwindcss-language-server" },
-	{ kind = "lsp", lsp = "vtsls", mason = "vtsls" },
-	{ kind = "lsp", lsp = "pyright", mason = "pyright" },
-	{ kind = "lsp", lsp = "astro", mason = "astro-language-server" },
-	{ kind = "lsp", lsp = "jsonls", mason = "json-lsp" },
 	{ kind = "lsp", lsp = "taplo", mason = "taplo" },
-	{ kind = "lsp", lsp = "eslint", mason = "eslint-lsp" },
+	{ kind = "lsp", lsp = "vtsls", mason = "vtsls" },
+	{ kind = "lsp", lsp = "yamlls", mason = "yaml-language-server" },
+
 	{ kind = "formatter", mason = "stylua", ft = { "lua" } },
-	{ kind = "formatter", mason = "shfmt", ft = { "sh", "bash" } },
 	{ kind = "formatter", mason = "dart_format", ft = { "dart" } },
 	{ kind = "formatter", mason = "ruff", ft = { "python" } },
 	{ kind = "formatter", mason = "taplo", ft = { "toml" } },
+	{ kind = "formatter", mason = "mdformat", ft = { "markdown" } },
+	{ kind = "formatter", mason = "doctoc", ft = { "markdown" } },
+	{ kind = "formatter", mason = "beautysh", ft = { "sh", "bash", "zsh" } },
+	{ kind = "formatter", mason = "jq", ft = { "json" } },
+
 	{ kind = "linter", mason = "stylelint", ft = { "css" } },
 	{ kind = "linter", mason = "shellcheck", ft = { "sh", "bash" } },
-	{ kind = "linter", mason = "htmllint", ft = { "html" } },
 	{ kind = "linter", mason = "ruff", ft = { "python" } },
+	{ kind = "linter", mason = "proselint", ft = { "markdown" } },
+	{ kind = "linter", mason = "jsonlint", ft = { "json" } },
+	{ kind = "linter", mason = "yamllint", ft = { "yaml" } },
+	{ kind = "linter", mason = "markuplint", ft = { "html", "astro" } },
+	{ kind = "linter", mason = "dotenv-linter", ft = { "sh", "bash" } },
+	{ kind = "linter", mason = "npm-groovy-lint", ft = { "groovy" } },
 }
 
 function M.lsp_names()
