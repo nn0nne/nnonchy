@@ -56,7 +56,8 @@ vim.api.nvim_create_autocmd("FileType", {
 		"mason",
 		"help",
 		"trouble",
-		"opencode",
+		"Opencode",
+		"toggleterm",
 	},
 	callback = function()
 		vim.b.miniindentscope_disable = true
@@ -88,8 +89,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 	end,
 })
--- LspReferenceText controls matches in ordinary prose code
 vim.api.nvim_set_hl(0, "LspReferenceText", { underline = true, bg = "#333738" })
--- LspReferenceRead and LspReferenceWrite control variable reading/assignments
 vim.api.nvim_set_hl(0, "LspReferenceRead", { underline = true, bg = "#333738" })
 vim.api.nvim_set_hl(0, "LspReferenceWrite", { bold = true, underline = true, bg = "#333738" })

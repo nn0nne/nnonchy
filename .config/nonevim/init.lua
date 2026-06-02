@@ -1,7 +1,7 @@
 -- TODO:
 -- - add and configure keymaps
 --
--- Shout out  https://github.com/kokopi-dev/dotfiles/blob/master/nvim/init.lua
+-- Shout out https://github.com/kokopi-dev/dotfiles/blob/master/nvim/init.lua
 vim.loader.enable()
 
 require("nnonne.commands.pack").setup()
@@ -25,7 +25,6 @@ require("nnonne.plugins.mini.starter").setup()
 require("nnonne.plugins.oil").setup()
 require("nnonne.plugins.lualine").setup()
 require("nnonne.plugins.bufferline").setup()
--- require("nnonne.plugins.yazi").setup()
 require("nnonne.plugins.fff").setup()
 
 require("nnonne.plugins.comments").setup()

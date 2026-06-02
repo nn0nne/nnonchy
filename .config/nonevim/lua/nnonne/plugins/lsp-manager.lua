@@ -59,15 +59,12 @@ M.tools = {
 	{ kind = "formatter", mason = "dart_format", ft = { "dart" } },
 	{ kind = "formatter", mason = "ruff", ft = { "python" } },
 	{ kind = "formatter", mason = "taplo", ft = { "toml" } },
-	{ kind = "formatter", mason = "mdformat", ft = { "markdown" } },
-	{ kind = "formatter", mason = "doctoc", ft = { "markdown" } },
 	{ kind = "formatter", mason = "beautysh", ft = { "sh", "bash", "zsh" } },
-	{ kind = "formatter", mason = "jq", ft = { "json" } },
+	{ kind = "formatter", mason = "prettier", ft = { "markdown", "yaml", "json", "jsonc", "html", "css" } },
 
 	{ kind = "linter", mason = "stylelint", ft = { "css" } },
 	{ kind = "linter", mason = "shellcheck", ft = { "sh", "bash" } },
 	{ kind = "linter", mason = "ruff", ft = { "python" } },
-	{ kind = "linter", mason = "proselint", ft = { "markdown" } },
 	{ kind = "linter", mason = "jsonlint", ft = { "json" } },
 	{ kind = "linter", mason = "yamllint", ft = { "yaml" } },
 	{ kind = "linter", mason = "markuplint", ft = { "html", "astro" } },
@@ -97,15 +94,29 @@ function M.formatters_by_ft()
 		end
 	end
 
-	local web_fts = { "javascript", "typescript", "html", "css", "json", "jsonc", "astro" }
+	local web_fts = { "javascript", "typescript", "javascriptreact", "typescriptreact", "astro" }
 	for _, ft in ipairs(web_fts) do
 		by_ft[ft] = function()
 			if find_file("biome.json") and is_installed("biome") then
 				return { "biome" }
 			end
 
-			if has_dependency("prettier") or has_dependency("prettierd") then
-				if has_dependency("prettierd") and is_installed("prettierd") then
+			local has_prettier_config = find_file({
+				".prettierrc",
+				".prettierrc.json",
+				".prettierrc.yml",
+				".prettierrc.yaml",
+				".prettierrc.json5",
+				".prettierrc.js",
+				".prettierrc.cjs",
+				"prettier.config.js",
+				"prettier.config.cjs",
+			})
+
+			local is_prettier_project = has_prettier_config or has_dependency("prettier") or has_dependency("prettierd")
+
+			if is_prettier_project or not find_file("package.json") then
+				if is_installed("prettierd") then
 					return { "prettierd" }
 				elseif is_installed("prettier") then
 					return { "prettier" }
@@ -130,7 +141,7 @@ function M.linters_by_ft()
 		end
 	end
 
-	local web_fts = { "javascript", "typescript", "astro" }
+	local web_fts = { "javascript", "typescript", "astro", "javascriptreact", "typescriptreact" }
 	for _, ft in ipairs(web_fts) do
 		by_ft[ft] = function()
 			if find_file("biome.json") and is_installed("biome") then

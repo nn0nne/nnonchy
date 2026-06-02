@@ -64,3 +64,33 @@ vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window He
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+
+vim.keymap.set("n", "<leader>gt", function()
+	local term = os.getenv("TERM") or ""
+	local cwd = vim.fn.getcwd()
+
+	if term == "foot" or os.getenv("FOOT_SERVER_PID") ~= nil then
+		local xdg_runtime = os.getenv("XDG_RUNTIME_DIR") or "/run/user/1000"
+		local wayland_disp = os.getenv("WAYLAND_DISPLAY") or "wayland-0"
+		local socket_path = xdg_runtime .. "/foot-" .. wayland_disp .. ".sock"
+
+		local socket_exists = vim.uv.fs_stat(socket_path)
+
+		if not socket_exists then
+			vim.fn.jobstart({ "foot", "--server" }, { detach = true })
+
+			vim.fn.system("sleep 0.2")
+		end
+
+		local cmd = "footclient -N -a lazygit_popup -D " .. vim.fn.shellescape(cwd) .. " lazygit"
+		vim.fn.system(cmd)
+	elseif os.getenv("KITTY_PID") ~= nil then
+		local cmd = "kitty --class=lazygit_popup -o remember_window_size=no -o initial_window_width=85c -o initial_window_height=28c -d "
+			.. vim.fn.shellescape(cwd)
+			.. " lazygit &"
+		vim.fn.system(cmd)
+	else
+		print("Not inside Kitty or Foot. Launching basic fallback...")
+		vim.cmd("split | terminal lazygit")
+	end
+end, { desc = "Toggle Lazygit (Context Aware Terminal Popup)" })
