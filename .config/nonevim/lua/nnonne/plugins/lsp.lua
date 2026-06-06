@@ -6,10 +6,32 @@ local mason_utils = require("nnonne.commands.mason")
 local lsp_tools = require("nnonne.plugins.lsp-manager")
 
 function M.setup()
-	pack.add({ "mason.nvim", "conform.nvim", "nvim-lint", "nvim-lspconfig", "mason-lspconfig.nvim" })
+	pack.add({
+		"mason.nvim",
+		"conform.nvim",
+		"nvim-lint",
+		"nvim-lspconfig",
+		"mason-lspconfig.nvim",
+		"import.nvim",
+		"telescope.nvim",
+		"workspace-diagnostics.nvim",
+	})
 
 	require("mason").setup({})
 	require("mason-lspconfig").setup({})
+
+	-- require("workspace-diagnostics").setup({})
+
+	vim.lsp.config("*", {
+		on_attach = function(client, bufnr)
+			-- some clients support workspace diagnostics natively
+			if client:supports_method("workspace/diagnostic", bufnr) then
+				vim.lsp.buf.workspace_diagnostics({ client_id = client.id })
+			else
+				require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+			end
+		end,
+	})
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	pcall(function()
@@ -19,6 +41,9 @@ function M.setup()
 
 	-- Shout out https://www.lazyvim.org/extras/lang/typescript/vtsls
 	vim.lsp.config("vtsls", {
+		on_attch = function(client, bufnr)
+			require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+		end,
 		filetypes = {
 			"javascript",
 			"javascriptreact",
@@ -51,6 +76,18 @@ function M.setup()
 					parameterTypes = { enabled = true },
 					propertyDeclarationTypes = { enabled = true },
 					variableTypes = { enabled = false },
+				},
+				tsserver = {
+					experimental = {
+						enableProjectDiagnostics = true,
+					},
+				},
+			},
+			javascript = {
+				tsserver = {
+					experimental = {
+						enableProjectDiagnostics = true,
+					},
 				},
 			},
 		},
@@ -137,6 +174,14 @@ function M.setup()
 	})
 
 	vim.lsp.enable(lsp_tools.lsp_names())
+
+	require("import").setup({
+		picker = "telescope",
+	})
+
+	vim.keymap.set("n", "<leader>i", function()
+		require("import").pick()
+	end, { desc = "Import" })
 
 	require("conform").setup({
 		format_on_save = {

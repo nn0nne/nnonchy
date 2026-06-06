@@ -16,6 +16,7 @@ function M.setup()
 	require("mini.notify").setup()
 	require("mini.extra").setup()
 	require("mini.jump").setup()
+	require("mini.bufremove").setup()
 
 	require("mini.cmdline").setup({
 		autocorrect = { enable = false },

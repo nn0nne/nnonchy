@@ -41,18 +41,22 @@ vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buff
 vim.keymap.set("n", "<S-M-h>", "<cmd>BufferLineMovePrev<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<S-M-l>", "<cmd>BufferLineMoveNext<cr>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<leader>bd", function()
-	local current_buf = vim.api.nvim_get_current_buf()
-	local valid_buffers = vim.fn.getbufinfo({ buflisted = 1 })
-
-	if #valid_buffers <= 1 then
-		local scratch = vim.api.nvim_create_buf(true, false)
-		vim.api.nvim_set_current_buf(scratch)
-		pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
-	else
-		vim.cmd("bnext")
-		pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
-	end
+	MiniBufremove.delete()
 end, { desc = "Close Buffer" })
+
+-- vim.keymap.set("n", "<leader>bd", function()
+-- 	local current_buf = vim.api.nvim_get_current_buf()
+-- 	local valid_buffers = vim.fn.getbufinfo({ buflisted = 1 })
+--
+-- 	if #valid_buffers <= 1 then
+-- 		local scratch = vim.api.nvim_create_buf(true, false)
+-- 		vim.api.nvim_set_current_buf(scratch)
+-- 		pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
+-- 	else
+-- 		vim.cmd("bnext")
+-- 		pcall(vim.api.nvim_buf_delete, current_buf, { force = true })
+-- 	end
+-- end, { desc = "Close Buffer" })
 
 -- Windows
 vim.keymap.set("n", "<leader>wh", "<C-W>s", { remap = true, desc = "Split Window Below" })

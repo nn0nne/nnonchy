@@ -15,6 +15,7 @@ function M.setup()
 			-- "permissions",
 			-- "size",
 			-- { "mtime", format = "%u%d%m%H%M" },
+			"diagnostics",
 			"icon",
 		},
 		-- Buffer-local options to use for oil buffers
@@ -304,6 +305,8 @@ function M.setup()
 		show_ignored_directories = true,
 		show_branch = true,
 	})
+
+	require("oil-lsp-diagnostics").setup()
 
 	vim.keymap.set("n", "<leader>e", function()
 		require("oil").toggle_float()

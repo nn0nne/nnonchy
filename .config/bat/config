@@ -1,2 +1,3 @@
 --theme="Vague"
 --style="rule,snip"
+--paging="never"

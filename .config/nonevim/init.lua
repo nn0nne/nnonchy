@@ -39,6 +39,7 @@ require("nnonne.plugins.toggle-term").setup()
 require("nnonne.plugins.opencode").setup()
 require("nnonne.plugins.git-blame").setup()
 require("nnonne.plugins.nvim-dap").setup()
+require("nnonne.plugins.ansi").setup()
 
 require("nnonne.plugins.which-key").setup()
 require("nnonne.plugins.vim-kitty-nav").setup()

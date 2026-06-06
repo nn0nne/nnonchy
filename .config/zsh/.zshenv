@@ -12,7 +12,11 @@ export TERMINAL="foot"
 
 # Pager
 if command -v bat >/dev/null 2>&1; then
-    export PAGER="bat -l man -p"
+    # export PAGER="bat -l man -p"
+    export PAGER="bat -l"
+    # export PAGER="nvim -R -c 'set buftype=nofile bufhidden=hide noswapfile' -"
+    # export PAGER='nvim -R +set\ noai\ nocin\ nosmartindent\ scrollback=1000000'
+    export MANPAGER="nvim +Man!"
 fi
 
 # GPG

@@ -50,6 +50,10 @@ local plugins = {
 	{ src = "https://github.com/refractalize/oil-git-status.nvim" },
 	{ src = "https://github.com/malewicz1337/oil-git.nvim" },
 	{ src = "https://github.com/hmdfrds/focal.nvim" },
+	{ src = "https://github.com/piersolenski/import.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/artemave/workspace-diagnostics.nvim" },
+	{ src = "https://github.com/0xferrous/ansi.nvim" },
 }
 
 M.map = {}

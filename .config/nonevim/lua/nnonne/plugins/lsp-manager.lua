@@ -40,7 +40,8 @@ end
 
 M.tools = {
 	{ kind = "lsp", lsp = "astro", mason = "astro-language-server" },
-	{ kind = "lsp", lsp = "pyright", mason = "pyright" },
+	{ kind = "lsp", lsp = "pylsp", mason = "python-lsp-server" },
+	{ kind = "lsp", lsp = "ruff", mason = "ruff" },
 	{ kind = "lsp", lsp = "bashls", mason = "bash-language-server" },
 	{ kind = "lsp", lsp = "cssls", mason = "css-lsp" },
 	{ kind = "lsp", lsp = "eslint", mason = "eslint-lsp" },
@@ -54,6 +55,7 @@ M.tools = {
 	{ kind = "lsp", lsp = "taplo", mason = "taplo" },
 	{ kind = "lsp", lsp = "vtsls", mason = "vtsls" },
 	{ kind = "lsp", lsp = "yamlls", mason = "yaml-language-server" },
+	{ kind = "lsp", lsp = "clangd", mason = "clangd" },
 
 	{ kind = "formatter", mason = "stylua", ft = { "lua" } },
 	{ kind = "formatter", mason = "dart_format", ft = { "dart" } },
@@ -61,6 +63,7 @@ M.tools = {
 	{ kind = "formatter", mason = "taplo", ft = { "toml" } },
 	{ kind = "formatter", mason = "beautysh", ft = { "sh", "bash", "zsh" } },
 	{ kind = "formatter", mason = "prettier", ft = { "markdown", "yaml", "json", "jsonc", "html", "css" } },
+	{ kind = "formatter", mason = "clang-format", ft = { "c" } },
 
 	{ kind = "linter", mason = "stylelint", ft = { "css" } },
 	{ kind = "linter", mason = "shellcheck", ft = { "sh", "bash" } },

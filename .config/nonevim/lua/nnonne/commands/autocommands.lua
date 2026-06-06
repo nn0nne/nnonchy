@@ -92,3 +92,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_set_hl(0, "LspReferenceText", { underline = true, bg = "#333738" })
 vim.api.nvim_set_hl(0, "LspReferenceRead", { underline = true, bg = "#333738" })
 vim.api.nvim_set_hl(0, "LspReferenceWrite", { bold = true, underline = true, bg = "#333738" })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.defer_fn(function()
+			vim.cmd("silent !kitty @ set-spacing padding=0")
+		end, 100)
+	end,
+})
+
+vim.api.nvim_create_autocmd("VimLeave", {
+	callback = function()
+		vim.cmd("silent !kitty @ set-spacing padding=default")
+	end,
+})

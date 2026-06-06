@@ -74,7 +74,6 @@ tag_disabled = true                    # disable tags for simplicity
 style = 'bold green'
 
 [git_state]
-# format = '\([$state( $progress_current/$progress_total)]($style)\) '
 format = '\[[$state ($progress_current/$progress_total)]($style)\]'
 style = 'bold yellow'
 merge = '[🔀 MERGING]'
@@ -126,13 +125,9 @@ disabled = false
 
 # shows the hostname on new lines
 [hostname]
-# disabled = false
 ssh_only = true
 ssh_symbol = " "
 format = '\[[$ssh_symbol($hostname)]($style)\] '
-# format = "[$hostname]($style) in "
-#style = "bold dimmed yellow"
-# style = "bold blue"
 
 # configure directory
 [directory]
@@ -141,7 +136,7 @@ format = "[$path](bold blue)[$read_only]($read_only_style) "
 home_symbol = "~ "
 
 [cmd_duration]
-format = "took [$duration]($style) "
+format = " took [$duration]($style)"
 style = "bold cyan"
 disabled = false
 
@@ -238,9 +233,9 @@ show_always = false
 [status]
 style = "bg:background"
 symbol = " "
-format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
-map_symbol = true
-disabled = false
+format = '[\[$symbol\]]($style) '
+map_symbol = false
+disabled = true
 
 [aws]
 symbol = " "
