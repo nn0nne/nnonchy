@@ -47,7 +47,7 @@ M.tools = {
 	{ kind = "lsp", lsp = "eslint", mason = "eslint-lsp" },
 	{ kind = "lsp", lsp = "gradle_ls", mason = "gradle-language-server" },
 	{ kind = "lsp", lsp = "groovyls", mason = "groovy-language-server" },
-	{ kind = "lsp", lsp = "harper_ls", mason = "harper_ls" },
+	{ kind = "lsp", lsp = "harper_ls", mason = "harper-ls" },
 	{ kind = "lsp", lsp = "html", mason = "html-lsp" },
 	{ kind = "lsp", lsp = "jsonls", mason = "json-lsp" },
 	{ kind = "lsp", lsp = "lua_ls", mason = "lua-language-server" },
@@ -57,7 +57,7 @@ M.tools = {
 	{ kind = "lsp", lsp = "yamlls", mason = "yaml-language-server" },
 	{ kind = "lsp", lsp = "clangd", mason = "clangd" },
 
-	{ kind = "formatter", mason = "stylua", ft = { "lua" } },
+	{ kind = "formatter", mason = "lua-format", ft = { "lua" } },
 	{ kind = "formatter", mason = "dart_format", ft = { "dart" } },
 	{ kind = "formatter", mason = "ruff", ft = { "python" } },
 	{ kind = "formatter", mason = "taplo", ft = { "toml" } },
