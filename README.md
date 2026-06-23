@@ -1,7 +1,6 @@
 # My Dotfiles
 
 Welcome to my dotfiles repository! These configuration files are designed to
-asdfasl dkfjasdlfk jasldfk jasdlfk ajsdlfk asjdfl aksdjf a
 help me quickly set up and customize my Linux development environment and
 maintain what I already configured from time to time, which what is dotfiles
 repo tend to be used for. This repo can be used for any distro (as I configs
