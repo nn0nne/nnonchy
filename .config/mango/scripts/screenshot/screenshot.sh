@@ -49,7 +49,7 @@ else
 
   GEOMETRY=""
   if [ "$MODE" = "window" ]; then
-    GEOMETRY=$(mmsg get focusing-client | awk '/x / {x=$3} /y / {y=$3} /width / {w=$3} /height / {h=$3} END {print x","y" "w"x"h}')
+    GEOMETRY=$(mmsg get focusing-client | jq -r '"\(.x),\(.y) \(.width)x\(.height)"')
     if [ -z "$GEOMETRY" ]; then
       kill "$WAYFREEZE_PID" 2>/dev/null
       exit 1

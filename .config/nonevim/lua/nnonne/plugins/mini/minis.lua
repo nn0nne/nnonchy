@@ -13,15 +13,32 @@ function M.setup()
     return package.loaded["nvim-web-devicons"]
   end
 
-  require("mini.notify").setup()
+  require("mini.notify").setup({
+    content = {
+      format = function(notif)
+        return notif.msg
+      end,
+    },
+    window = {
+      config = function()
+        return {
+          title = "",
+          anchor = "SE",
+          row = vim.o.lines - 2,
+          col = vim.o.columns,
+          border = "none",
+        }
+      end,
+    },
+  })
   require("mini.extra").setup()
   require("mini.jump").setup()
   require("mini.bufremove").setup()
 
-  require("mini.cmdline").setup({
-    autocorrect = { enable = false },
-    autocomplete = { enable = false },
-  })
+  -- require("mini.cmdline").setup({
+  --   autocorrect = { enable = false },
+  --   autocomplete = { enable = false },
+  -- })
 
   require("mini.snippets").setup({
     snippets = {
@@ -108,7 +125,6 @@ function M.setup()
       suffix_next = "<leader>n",
     },
   })
-  require("mini.extra").setup()
   require("mini.pick").setup()
 
   vim.api.nvim_create_autocmd("LspAttach", {

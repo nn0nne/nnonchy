@@ -1,5 +1,14 @@
 import os
 
+_theme_real_path = None
+
+def _get_theme_path():
+    global _theme_real_path
+    if _theme_real_path is None:
+        config_path = os.path.expanduser("~/.config/kitty/colorscheme/current-theme.conf")
+        _theme_real_path = os.path.realpath(config_path)
+    return _theme_real_path
+
 def draw_title(data):
     fmt = data["fmt"]
 
@@ -24,31 +33,25 @@ def draw_title(data):
 
     parts = []
 
-    is_light = False
-    config_path = os.path.expanduser("~/.config/kitty/colorscheme/current-theme.conf")
-    
-    if os.path.exists(config_path):
-        # Resolve where the symlink points
-        real_path = os.path.realpath(config_path)
-        if "gruvbox" in real_path.lower():
-            is_light = True
+    real_path = _get_theme_path()
+    is_light = "gruvbox" in real_path.lower()
 
     if is_light:
-        bg_style   = fmt.bg._f9f5d7
+        bg_style = fmt.bg._f9f5d7
         c_session = fmt.fg.color15
-        c_sep     = fmt.fg.color7
-        c_bell    = fmt.fg.color1
-        c_prog    = fmt.fg.color9
-        c_title   = fmt.fg.color4
-        c_layout  = fmt.fg.color13
+        c_sep = fmt.fg.color7
+        c_bell = fmt.fg.color1
+        c_prog = fmt.fg.color9
+        c_title = fmt.fg.color4
+        c_layout = fmt.fg.color13
     else:
-        bg_style   = fmt.bg._141415
+        bg_style = fmt.bg._141415
         c_session = fmt.fg.color3
-        c_sep     = fmt.fg.color3
-        c_bell    = fmt.fg.color1
-        c_prog    = fmt.fg.color3
-        c_title   = fmt.fg.color4
-        c_layout  = fmt.fg.color4
+        c_sep = fmt.fg.color3
+        c_bell = fmt.fg.color1
+        c_prog = fmt.fg.color3
+        c_title = fmt.fg.color4
+        c_layout = fmt.fg.color4
 
     if session:
         parts.append(bg_style)

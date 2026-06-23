@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "ansi.nvim": {
-      "rev": "95de464c315ecbe9d7ca3d9a203ef85def0cf6aa",
-      "src": "https://github.com/0xferrous/ansi.nvim"
-    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/Saghen/blink.cmp",
@@ -61,6 +57,10 @@
       "rev": "7f6116ce53a9176f8e7aaf3e41cc60be11c7d8ee",
       "src": "https://github.com/piersolenski/import.nvim"
     },
+    "kulala.nvim": {
+      "rev": "b069eb9cad3e19f2d477ba7e8a8e3c2cf543ea88",
+      "src": "https://github.com/mistweaverco/kulala.nvim"
+    },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
@@ -81,10 +81,6 @@
       "rev": "44657837c7338e52727facc85c1d95bec1f6bd7c",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
-    "nui.nvim": {
-      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
-      "src": "https://github.com/MunifTanjim/nui.nvim"
-    },
     "nvim-dap": {
       "rev": "531771530d4f82ad2d21e436e3cc052d68d7aebb",
       "src": "https://github.com/mfussenegger/nvim-dap"
@@ -100,6 +96,11 @@
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
     "nvim-ts-autotag": {
@@ -129,10 +130,6 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
-    "pymple.nvim": {
-      "rev": "b8f25a18b7a4e7095d08bfdb933087f1aa913797",
-      "src": "https://github.com/alexpasmantier/pymple.nvim"
     },
     "render-markdown.nvim": {
       "rev": "629eb9533ec989d9d5c6cab8f3ad5372422c24e0",
@@ -169,6 +166,10 @@
     "workspace-diagnostics.nvim": {
       "rev": "a35321d8401878cc9558e357acfd0da58b582739",
       "src": "https://github.com/artemave/workspace-diagnostics.nvim"
+    },
+    "zen-mode.nvim": {
+      "rev": "8564ce6d29ec7554eb9df578efa882d33b3c23a7",
+      "src": "https://github.com/folke/zen-mode.nvim"
     }
   }
 }

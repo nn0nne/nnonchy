@@ -1,6 +1,5 @@
 {
-    "completion.autoRequire": false,
-    "diagnostics.disable": [
-        "deprecated"
-    ]
+  "completion.autoRequire": false,
+  "diagnostics.disable": []
 }
+

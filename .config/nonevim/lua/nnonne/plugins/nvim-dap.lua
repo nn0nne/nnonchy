@@ -1,21 +1,37 @@
 local M = {}
 
+local lazy = require("nnonne.utils.lazy")
 local pack = require("nnonne.commands.pack")
 
+local function with_dap(fn)
+  lazy.load_once('dap', pack.pluglist({ 'nvim-dap' }), function() end)
+  fn()
+end
+
 function M.setup()
-	pack.add({ "nvim-dap" })
+  vim.keymap.set("n", "<leader>Dc", function()
+    with_dap(require("dap").continue)
+  end, { desc = "DAP: Start/Continue Session" })
 
-	vim.keymap.set("n", "<leader>Dc", require("dap").continue, { desc = "DAP: Start/Continue Session" })
+  vim.keymap.set("n", "<leader>Db", function()
+    with_dap(require("dap").toggle_breakpoint)
+  end, { desc = "DAP: Toggle Breakpoint" })
 
-	vim.keymap.set("n", "<leader>Db", require("dap").toggle_breakpoint, { desc = "DAP: Toggle Breakpoint" })
+  vim.keymap.set("n", "<leader>Di", function()
+    with_dap(require("dap").step_into)
+  end, { desc = "DAP: Step Into" })
 
-	vim.keymap.set("n", "<leader>Di", require("dap").step_into, { desc = "DAP: Step Into" })
+  vim.keymap.set("n", "<leader>Do", function()
+    with_dap(require("dap").step_over)
+  end, { desc = "DAP: Step Over" })
 
-	vim.keymap.set("n", "<leader>Do", require("dap").step_over, { desc = "DAP: Step Over" })
+  vim.keymap.set("n", "<leader>Dx", function()
+    with_dap(require("dap").step_out)
+  end, { desc = "DAP: Step Out" })
 
-	vim.keymap.set("n", "<leader>Dx", require("dap").step_out, { desc = "DAP: Step Out" })
-
-	vim.keymap.set("n", "<leader>Dq", require("dap").terminate, { desc = "DAP: Stop Debugging" })
+  vim.keymap.set("n", "<leader>Dq", function()
+    with_dap(require("dap").terminate)
+  end, { desc = "DAP: Stop Debugging" })
 end
 
 return M

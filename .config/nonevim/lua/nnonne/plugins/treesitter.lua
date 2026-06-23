@@ -4,109 +4,134 @@ local M = {}
 local pack = require("nnonne.commands.pack")
 
 local ensure_installed = {
-	"astro",
-	"bash",
-	-- "c",
-	-- "caddy",
-	"comment",
-	-- "cpp",
-	"css",
-	"dart",
-	"diff",
-	-- "dockerfile",
-	"ecma",
-	"git_config",
-	"gitattributes",
-	"gitignore",
-	-- "go",
-	-- "goctl",
-	-- "gomod",
-	-- "gosum",
-	"groovy",
-	"html",
-	"html_tags",
-	"http",
-	-- "java",
-	-- "javadoc",
-	"javascript",
-	"jsdoc",
-	"json",
-	"json5",
-	"jsx",
-	-- "kitty",
-	"lua",
-	"luadoc",
-	"markdown",
-	"markdown_inline",
-	-- "nginx",
-	-- "php",
-	-- "phpdoc",
-	"printf",
-	"prisma",
-	"python",
-	"query",
-	-- "rasi",
-	"regex",
-	"requirements",
-	-- "ron",
-	-- "rust",
-	-- "sql",
-	-- "ssh_config",
-	-- "tmux",
-	-- "toml",
-	"tsx",
-	"typescript",
-	"typespec",
-	-- "udev",
-	"vim",
-	"vimdoc",
-	"xml",
-	"yaml",
-	-- "zig",
-	-- "zsh",
+  "astro",
+  "bash",
+  -- "c",
+  -- "caddy",
+  "comment",
+  -- "cpp",
+  "css",
+  "dart",
+  "diff",
+  -- "dockerfile",
+  "ecma",
+  "git_config",
+  "gitattributes",
+  "gitignore",
+  -- "go",
+  -- "goctl",
+  -- "gomod",
+  -- "gosum",
+  "groovy",
+  "html",
+  "html_tags",
+  "http",
+  -- "java",
+  -- "javadoc",
+  "javascript",
+  "jsdoc",
+  "json",
+  "json5",
+  "jsx",
+  -- "kitty",
+  "lua",
+  "luadoc",
+  "markdown",
+  "markdown_inline",
+  -- "nginx",
+  -- "php",
+  -- "phpdoc",
+  "printf",
+  "prisma",
+  "python",
+  "query",
+  -- "rasi",
+  "regex",
+  "requirements",
+  -- "ron",
+  -- "rust",
+  -- "sql",
+  -- "ssh_config",
+  -- "tmux",
+  -- "toml",
+  "tsx",
+  "typescript",
+  "typespec",
+  -- "udev",
+  "vim",
+  "vimdoc",
+  "xml",
+  "yaml",
+  -- "zig",
+  -- "zsh",
 }
 
 function M.setup()
-	-- pack.add({ "nvim-treesitter", "nvim-treesitter-textobjects" })
-	pack.add({ "nvim-treesitter" })
+  pack.add({ "nvim-treesitter", "nvim-treesitter-textobjects" })
 
-	require("nvim-treesitter").setup({
-		install_dir = vim.fn.stdpath("data") .. "/site",
-	})
+  require("nvim-treesitter").setup({
+    install_dir = vim.fn.stdpath("data") .. "/site",
+  })
 
-	require("nvim-treesitter").install(ensure_installed)
+  require("nvim-treesitter").install(ensure_installed)
 
-	-- Shout out https://github.com/Sin-cy/dotfiles/blob/main/nvim-nightly/.config/nvim-nightly/lua/sethy/plugins/treesitter.lua
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "*",
-		callback = function(args)
-			local buf = args.buf
-			local ft = vim.bo[buf].filetype
-			local lang = vim.treesitter.language.get_lang(ft)
+  require("nvim-treesitter-textobjects").setup({
+    select = {
+      lookahead = true,
+      selection_modes = {
+        ['@parameter.outer'] = 'v',
+        ['@function.outer'] = 'V',
+        ['@class.outer'] = '<c-v>',
+      },
+      include_surrounding_whitespace = false,
+    },
+  })
 
-			if not lang then
-				return
-			end
+  vim.keymap.set({ "x", "o" }, "af", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "if", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ac", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ic", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "as", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
+  end)
 
-			-- load parser safely
-			local ok_add = pcall(vim.treesitter.language.add, lang)
-			if not ok_add then
-				return
-			end
+  -- Shout out https://github.com/Sin-cy/dotfiles/blob/main/nvim-nightly/.config/nvim-nightly/lua/sethy/plugins/treesitter.lua
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function(args)
+      local buf = args.buf
+      local ft = vim.bo[buf].filetype
+      local lang = vim.treesitter.language.get_lang(ft)
 
-			-- start treesitter safely
-			pcall(vim.treesitter.start, buf, lang)
+      if not lang then
+        return
+      end
 
-			-- enable indentation only for real languages
-			if ft ~= "yaml" and ft ~= "markdown" then
-				vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-				vim.bo[buf].smartindent = false
-				vim.bo[buf].cindent = false
-			end
-		end,
-	})
+      -- load parser safely
+      local ok_add = pcall(vim.treesitter.language.add, lang)
+      if not ok_add then
+        return
+      end
 
-	-- require("nvim-treesitter-textobjects").setup({})
+      -- start treesitter safely
+      pcall(vim.treesitter.start, buf, lang)
+
+      -- enable indentation only for real languages
+      if ft ~= "yaml" and ft ~= "markdown" then
+        vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        vim.bo[buf].smartindent = false
+        vim.bo[buf].cindent = false
+      end
+    end,
+  })
 end
 
 return M
