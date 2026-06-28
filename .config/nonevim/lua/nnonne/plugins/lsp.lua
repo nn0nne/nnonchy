@@ -146,6 +146,8 @@ function M.setup()
 
 
   mason_utils.setup_install_defaults_command(lsp_tools.tools)
+
+  vim.lsp.inlay_hint.is_enabled()
 end
 
 return M
