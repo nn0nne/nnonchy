@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if pgrep -x "gammastep" >/dev/null; then
     # It's running → kill it

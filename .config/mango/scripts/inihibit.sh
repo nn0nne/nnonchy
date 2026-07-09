@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if pgrep -f "Yambar-Inhibit" > /dev/null; then
     pkill -f "Yambar-Inhibit"

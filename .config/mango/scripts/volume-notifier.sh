@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Change volume or mute based on the argument passed to the script
 case "$1" in
