@@ -58,6 +58,9 @@ function M.setup()
 		local ignored_plugins = {
 			["trouble.nvim"] = true,
 			["nvim-ts-autotag"] = true,
+			["kulala.nvim"] = true,
+			["nvim-dap"] = true,
+			["git-blame.nvim"] = true,
 		}
 
 		local stale = vim.iter(vim.pack.get())

@@ -4,7 +4,6 @@ local M = {}
 
 local plugins = {
   { src = "https://github.com/vague-theme/vague.nvim" },
-  { src = "https://github.com/sainnhe/gruvbox-material" },
   {
     src = "https://github.com/nvim-treesitter/nvim-treesitter",
     version = "main",
@@ -20,8 +19,6 @@ local plugins = {
   },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/mfussenegger/nvim-lint" },
-  { src = "https://github.com/mason-org/mason.nvim" },
-  { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
   { src = "https://github.com/folke/ts-comments.nvim" },
   { src = "https://github.com/knubie/vim-kitty-navigator" },
   { src = "https://github.com/nvim-mini/mini.nvim" },
@@ -32,7 +29,6 @@ local plugins = {
   { src = "https://github.com/folke/trouble.nvim" },
   { src = "https://github.com/bullets-vim/bullets.vim" },
   { src = "https://github.com/windwp/nvim-ts-autotag" },
-  -- { src = "https://github.com/MagicDuck/grug-far.nvim" },
   { src = "https://github.com/nvim-flutter/flutter-tools.nvim" },
   { src = "https://github.com/stevearc/dressing.nvim" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -54,7 +50,7 @@ local plugins = {
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/artemave/workspace-diagnostics.nvim" },
   { src = "https://github.com/mistweaverco/kulala.nvim" },
-  { src = "https://github.com/folke/zen-mode.nvim" },
+  { src = "https://github.com/carldaws/miser.nvim" },
 }
 
 M.map = {}
