@@ -2,5 +2,5 @@
 eval "$(zoxide init zsh --cmd cd)"
 
 # Initialize mise
-eval "$(/usr/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
 
