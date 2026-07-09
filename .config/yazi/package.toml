@@ -88,10 +88,5 @@ use = "yazi-rs/plugins:chmod"
 rev = "1db18bb"
 hash = "f0c8c378184d5f8abd1b095a443d336d"
 
-[[plugin.deps]]
-use = "XYenon/clipboard"
-rev = "bda3e09"
-hash = "3c3e40d869946b5548815db7444e2a23"
-
 [flavor]
 deps = []
