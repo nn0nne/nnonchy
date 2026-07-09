@@ -109,8 +109,8 @@ source "$ZDOTDIR/init.zsh"
 # Git
 source "$ZDOTDIR/git.zsh"
 
-# Flutter
-source "$ZDOTDIR/flutter.zsh"
+# Flutter (might not needed, currently using mise )
+# source "$ZDOTDIR/flutter.zsh"
 
 # fzf configuration
 source "$ZDOTDIR/fzf.zsh"
@@ -127,10 +127,5 @@ source "$ZDOTDIR/plugins.zsh"
 # Prompt/theme
 source "$ZDOTDIR/prompt.zsh"
 
-# pnpm
-export PNPM_HOME="/home/nnonne/.local/share/pnpm"
-case ":$PATH:" in
-    *":$PNPM_HOME/bin:"*) ;;
-    *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
+# Functions
+source "$ZDOTDIR/functions.zsh"
