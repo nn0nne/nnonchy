@@ -102,7 +102,7 @@ function M.formatters_by_ft()
   local by_ft = {}
   for _, tool in ipairs(M.tools) do
     if tool.kind == "formatter" and tool.ft then
-      local formatter = tool.conform or tool.mason
+      local formatter = tool.conform or tool.bin or tool.mason
       for _, ft in ipairs(tool.ft) do
         by_ft[ft] = by_ft[ft] or {}
         table.insert(by_ft[ft], formatter)

@@ -2,16 +2,16 @@
 local M = {}
 
 local pack = require("nnonne.commands.pack")
-local mason_utils = require("nnonne.commands.mason")
+-- local mason_utils = require("nnonne.commands.mason")
 local lsp_tools = require("nnonne.plugins.lsp-manager")
 
 function M.setup()
   pack.add({
-    "mason.nvim",
+    -- "mason.nvim",
     "conform.nvim",
     "nvim-lint",
     "nvim-lspconfig",
-    "mason-lspconfig.nvim",
+    -- "mason-lspconfig.nvim",
     "import.nvim",
     "telescope.nvim",
     "workspace-diagnostics.nvim",
@@ -19,8 +19,8 @@ function M.setup()
     "blink.cmp"
   })
 
-  require("mason").setup({})
-  require("mason-lspconfig").setup({})
+  -- require("mason").setup({})
+  -- require("mason-lspconfig").setup({})
 
   vim.lsp.config("*", {
     on_attach = function(client, bufnr)
@@ -48,6 +48,27 @@ function M.setup()
 
   vim.lsp.config("*", { capabilities = capabilities })
 
+  -- Dynamically find the path to the typescript library installed by mise
+  local function get_typescript_server_path()
+    -- Look into mise's standard installations directory
+    local global_ts_path = vim.fn.expand("~/.local/share/mise/installs/npm-typescript")
+    local match = vim.fn.glob(global_ts_path .. "/*/lib/node_modules/typescript/lib")
+    if match ~= "" then
+      return match
+    end
+    return nil
+  end
+
+  -- Override ts_ls explicitly to inject the initialization option
+  vim.lsp.config("ts_ls", {
+    init_options = {
+      hostInfo = "neovim",
+      tsserver = {
+        path = get_typescript_server_path()
+      }
+    }
+  })
+
   vim.lsp.config("lua_ls", {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
@@ -57,6 +78,13 @@ function M.setup()
         runtime = { version = 'LuaJIT' },
         diagnostics = {
           globals = { "vim" },
+        },
+        format = {
+          enable = true, -- This is default, but ensures lua_ls formatting is awake!
+          defaultConfig = {
+            indent_style = "space",
+            indent_size = "2",
+          }
         },
         completion = {
           callSnippet = "Replace",
@@ -91,6 +119,7 @@ function M.setup()
     biome       = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
     marksman    = { "markdown" },
     tombi       = { "toml" },
+    lua_ls      = { "lua" },
   }
 
   for server, fts in pairs(ft_scope) do
@@ -112,7 +141,7 @@ function M.setup()
       timeout_ms = 500,
       lsp_format = "fallback",
     },
-    formatters_by_ft = lsp_tools.formatters_by_ft(),
+    formatters_by_ft = vim.tbl_extend("force", lsp_tools.formatters_by_ft(), { lua = {} }),
     formatters = {
       ["markdownlint-cli2"] = {
         condition = function(_, ctx)
@@ -145,7 +174,7 @@ function M.setup()
   })
 
 
-  mason_utils.setup_install_defaults_command(lsp_tools.tools)
+  -- mason_utils.setup_install_defaults_command(lsp_tools.tools)
 
   vim.lsp.inlay_hint.is_enabled()
 end
