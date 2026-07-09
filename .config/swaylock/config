@@ -1,9 +1,9 @@
 # Vague Theme – Borderless Look
 
 color=141415
-image=~/dotfiles/wallpapers/radio-tower-night.png
+image=~/.config/mango/wallpaper.png
 
-font=JetBrainsMono Nerd Font
+font=monospace
 font-size=14
 
 indicator-radius=95
