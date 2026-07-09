@@ -1,8 +1,9 @@
 format = """
-$fill${custom.time_day}${custom.time_date}${custom.time_clock}$battery${custom.inhibit}| ${custom.bluetooth}${custom.wifi}${custom.profile}\
+${custom.cat}$fill${custom.time_day}${custom.time_date}${custom.time_clock}$battery${custom.inhibit}| ${custom.bluetooth}${custom.wifi}${custom.profile}\
 $line_break\
 $username\
 $hostname\
+$mise\
 $shlvl\
 $kubernetes\
 $directory\
@@ -134,10 +135,10 @@ format = '\[[$ssh_symbol($hostname)]($style)\] '
 [directory]
 read_only = " 󰌾"
 format = "[$path](bold blue)[$read_only]($read_only_style) "
-home_symbol = "~ "
+home_symbol = "~"
 
 [cmd_duration]
-format = " took [$duration]($style)"
+format = "took [$duration]($style)"
 style = "bold cyan"
 disabled = false
 
@@ -184,6 +185,13 @@ when = true
 style = "blue"
 format = "[$output]($style)"
 shell = ["zsh"]
+
+[custom.cat]
+command = 'echo "ᓚ₍⑅^- .-^₎ -ᶻ 𝗓 𐰁"'
+when = true
+shell = ["zsh"]
+style = "bold white"
+format = "[$output]($style)"
 
 [custom.time_date]
 command = "printf $(date +%d%m)"
@@ -400,7 +408,11 @@ symbol = "󰔷 "
 format = '\[[$symbol$project]($style)\]'
 
 [mise]
-format = '\[[$symbol$health]($style)\]'
+disabled = false
+format = '\[[$symbol$health]($style)\] '
+healthy_symbol = '󰄬 '    # nf-md-check_bold (A clean checkmark)
+unhealthy_symbol = '󰅙 '  # nf-md-close_box (A clean X mark)
+style = 'bold purple'     # Keeps the default color, or change to whatever you like
 
 [mojo]
 symbol = "󰈸 "
