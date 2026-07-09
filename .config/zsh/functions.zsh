@@ -10,3 +10,13 @@ function chpwd-osc7-pwd() {
 }
 add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 
+
+update_wallpaper() {
+    if [ -z "$1" ]; then
+        echo "Usage: update_wallpaper /path/to/image.png"
+        return 1
+    fi
+    cp "$1" ~/.config/mango/wallpaper.png
+    pkill swaybg; swaybg -i ~/.config/mango/wallpaper.png -m fit >/dev/null 2>&1 &
+    sudo cp "$1" /boot/wallpaper.png
+}
