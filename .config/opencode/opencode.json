@@ -4,25 +4,15 @@
     "@franlol/opencode-md-table-formatter@0.0.3",
     "@tarquinen/opencode-dcp@latest",
     "opencode-pty",
-    "opencode-vibeguard"
+    "opencode-vibeguard",
+    "@mohak34/opencode-notifier@latest"
   ],
   "default_agent": "plan",
   "mcp": {
-    "grepai": {
-      "type": "local",
-      "command": [
-        "grepai",
-        "mcp-serve"
-      ],
-      "enabled": true
-    },
-    "mgrep": {
-      "type": "local",
-      "command": [
-        "mgrep",
-        "mcp"
-      ],
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp/oauth",
       "enabled": true
     }
-  },
+  }
 }
