@@ -301,11 +301,11 @@ keymap = [
   { on = [
     "g",
     "f",
-  ], run = "cd ~/dotfiles/.config/", desc = "Go ~/dotfiles/.config/" },
+  ], run = "cd ~/dots/.config/", desc = "Go ~/dots/.config/" },
   { on = [
     "g",
     "C",
-  ], run = "cd ~/codingan", desc = "Go ~/codingan" },
+  ], run = "cd ~/Projects", desc = "Go ~/Projects" },
   { on = [
     "g",
     "d",
