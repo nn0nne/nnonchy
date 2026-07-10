@@ -138,8 +138,8 @@ function M.setup()
 
   require("conform").setup({
     format_on_save = {
-      timeout_ms = 500,
-      lsp_format = "fallback",
+      timeout_ms = 2500,
+      lsp_fallback = true,
     },
     formatters_by_ft = vim.tbl_extend("force", lsp_tools.formatters_by_ft(), { lua = {} }),
     formatters = {
@@ -153,6 +153,7 @@ function M.setup()
       },
     }
   })
+
 
   -- Trigger nvim-lint automatically on save, read, and leaving insert mode
   vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
