@@ -22,13 +22,14 @@ function M.setup()
     }
   })
 
-  vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle floating terminal" })
+  vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>1ToggleTerm<cr>", { desc = "Toggle floating terminal" })
 
   local opencode_cmd = "opencode --port"
 
   -- Create a single, persistent Terminal instance for OpenCode
   local Terminal = require("toggleterm.terminal").Terminal
   local opencode_term = Terminal:new({
+    count = 2,
     cmd = opencode_cmd,
     hidden = true,
     direction = "vertical", -- Replicating snacks position='right'
