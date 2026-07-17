@@ -2,10 +2,17 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'  # strip-cw
 # Ctrl-T uses fd
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+## Vague
+# export FZF_DEFAULT_OPTS="--height 80% --layout reverse --border --info inline --cycle --scroll-off 3 --prompt '❯ ' --pointer '▶' --marker '✓' --ansi --bind 'ctrl-j:down,ctrl-k:up,ctrl-u:preview-page-up,ctrl-d:preview-page-down,?:toggle-preview' \
+# --color='bg+:#252530,bg:#141415,spinner:#f5cb96,hl:#d8647e' \
+# --color='fg:#cdcdcd,header:#d8647e,info:#aeaed1,pointer:#8ba9c1' \
+# --color='marker:#7fa563,fg+:#d7d7d7,prompt:#bb9dbd,hl+:#e08398'"
+
+# Darker-Zenwritten
 export FZF_DEFAULT_OPTS="--height 80% --layout reverse --border --info inline --cycle --scroll-off 3 --prompt '❯ ' --pointer '▶' --marker '✓' --ansi --bind 'ctrl-j:down,ctrl-k:up,ctrl-u:preview-page-up,ctrl-d:preview-page-down,?:toggle-preview' \
---color='bg+:#252530,bg:#141415,spinner:#f5cb96,hl:#d8647e' \
---color='fg:#cdcdcd,header:#d8647e,info:#aeaed1,pointer:#8ba9c1' \
---color='marker:#7fa563,fg+:#d7d7d7,prompt:#bb9dbd,hl+:#e08398'"
+--color='bg+:#232325,bg:#000000,spinner:#84848a,hl:#84848a' \
+--color='fg:#e8e8ee,header:#84848a,info:#84848a,pointer:#e8e8ee' \
+--color='marker:#e8e8ee,fg+:#ffffff,prompt:#84848a,hl+:#ffffff'"
 
 export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
 

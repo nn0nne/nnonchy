@@ -1,0 +1,220 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "zenBg": "#000000",
+    "zenPanel": "#191919",
+    "zenBorder": "#3D3839",
+    "zenMuted": "#8E8E8E",
+    "zenText": "#BBBBBB",
+    "zenWhite": "#FFFFFF",
+    "zenBlue": "#61ABDA",
+    "zenRed": "#DE6E7C",
+    "zenGreen": "#819B69",
+    "zenSand": "#B77E64",
+    "zenPurple": "#B279A7",
+    "zenDiffAddBg": "#111A24",
+    "zenDiffDelBg": "#251214"
+  },
+  "theme": {
+    "primary": {
+      "dark": "zenText",
+      "light": "zenText"
+    },
+    "secondary": {
+      "dark": "zenMuted",
+      "light": "zenMuted"
+    },
+    "accent": {
+      "dark": "zenWhite",
+      "light": "zenWhite"
+    },
+    "error": {
+      "dark": "zenRed",
+      "light": "zenRed"
+    },
+    "warning": {
+      "dark": "zenSand",
+      "light": "zenSand"
+    },
+    "success": {
+      "dark": "zenGreen",
+      "light": "zenGreen"
+    },
+    "info": {
+      "dark": "zenBlue",
+      "light": "zenBlue"
+    },
+    "text": {
+      "dark": "zenText",
+      "light": "zenBg"
+    },
+    "textMuted": {
+      "dark": "zenMuted",
+      "light": "zenBorder"
+    },
+    "background": {
+      "dark": "zenBg",
+      "light": "zenText"
+    },
+    "backgroundPanel": {
+      "dark": "zenPanel",
+      "light": "zenMuted"
+    },
+    "backgroundElement": {
+      "dark": "zenPanel",
+      "light": "zenText"
+    },
+    "border": {
+      "dark": "zenBorder",
+      "light": "zenMuted"
+    },
+    "borderActive": {
+      "dark": "zenMuted",
+      "light": "zenBorder"
+    },
+    "borderSubtle": {
+      "dark": "zenBorder",
+      "light": "zenMuted"
+    },
+    "diffAdded": {
+      "dark": "zenGreen",
+      "light": "zenGreen"
+    },
+    "diffRemoved": {
+      "dark": "zenRed",
+      "light": "zenRed"
+    },
+    "diffContext": {
+      "dark": "zenMuted",
+      "light": "zenMuted"
+    },
+    "diffHunkHeader": {
+      "dark": "zenMuted",
+      "light": "zenMuted"
+    },
+    "diffHighlightAdded": {
+      "dark": "zenGreen",
+      "light": "zenGreen"
+    },
+    "diffHighlightRemoved": {
+      "dark": "zenRed",
+      "light": "zenRed"
+    },
+    "diffAddedBg": {
+      "dark": "zenDiffAddBg",
+      "light": "zenText"
+    },
+    "diffRemovedBg": {
+      "dark": "zenDiffDelBg",
+      "light": "zenText"
+    },
+    "diffContextBg": {
+      "dark": "zenBg",
+      "light": "zenMuted"
+    },
+    "diffLineNumber": {
+      "dark": "zenBorder",
+      "light": "zenMuted"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "zenDiffAddBg",
+      "light": "zenText"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "zenDiffDelBg",
+      "light": "zenText"
+    },
+    "markdownText": {
+      "dark": "zenText",
+      "light": "zenBg"
+    },
+    "markdownHeading": {
+      "dark": "zenWhite",
+      "light": "zenBg"
+    },
+    "markdownLink": {
+      "dark": "zenBlue",
+      "light": "zenBlue"
+    },
+    "markdownLinkText": {
+      "dark": "zenText",
+      "light": "zenBg"
+    },
+    "markdownCode": {
+      "dark": "zenMuted",
+      "light": "zenMuted"
+    },
+    "markdownBlockQuote": {
+      "dark": "zenMuted",
+      "light": "zenMuted"
+    },
+    "markdownEmph": {
+      "dark": "zenText",
+      "light": "zenBg"
+    },
+    "markdownStrong": {
+      "dark": "zenWhite",
+      "light": "zenBg"
+    },
+    "markdownHorizontalRule": {
+      "dark": "zenBorder",
+      "light": "zenMuted"
+    },
+    "markdownListItem": {
+      "dark": "zenBlue",
+      "light": "zenBlue"
+    },
+    "markdownListEnumeration": {
+      "dark": "zenBlue",
+      "light": "zenBlue"
+    },
+    "markdownImage": {
+      "dark": "zenMuted",
+      "light": "zenMuted"
+    },
+    "markdownImageText": {
+      "dark": "zenText",
+      "light": "zenBg"
+    },
+    "markdownCodeBlock": {
+      "dark": "zenText",
+      "light": "zenBg"
+    },
+    "syntaxComment": {
+      "dark": "zenMuted",
+      "light": "zenMuted"
+    },
+    "syntaxKeyword": {
+      "dark": "zenText",
+      "light": "zenBg"
+    },
+    "syntaxFunction": {
+      "dark": "zenWhite",
+      "light": "zenBg"
+    },
+    "syntaxVariable": {
+      "dark": "zenText",
+      "light": "zenBg"
+    },
+    "syntaxString": {
+      "dark": "zenSand",
+      "light": "zenSand"
+    },
+    "syntaxNumber": {
+      "dark": "zenPurple",
+      "light": "zenPurple"
+    },
+    "syntaxType": {
+      "dark": "zenText",
+      "light": "zenBg"
+    },
+    "syntaxOperator": {
+      "dark": "zenMuted",
+      "light": "zenMuted"
+    },
+    "syntaxPunctuation": {
+      "dark": "zenMuted",
+      "light": "zenMuted"
+    }
+  }
+}

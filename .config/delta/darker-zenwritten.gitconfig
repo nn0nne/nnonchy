@@ -1,0 +1,42 @@
+[delta "darker-zenwritten"]
+    dark = true
+    
+    # Structural Text & Labels
+    commit-style = "#BBBBBB" bold
+    commit-decoration-style = "#3D3839" box
+    file-style = "#BBBBBB" bold
+    file-decoration-style = "#3D3839" ul
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    
+    # Hunk Headers & Outer Grid/Table Rules (Forced to structural gray)
+    hunk-header-style = file line-number syntax
+    hunk-header-file-style = "#8E8E8E"
+    hunk-header-line-number-style = bold "#8E8E8E"
+    hunk-header-decoration-style = "#3D3839" box ul
+    
+    # Line Numbers Layout (Ensures vertical table lines stay muted gray)
+    line-numbers = true
+    line-numbers-left-format = " {nm:^4} │"
+    line-numbers-right-format = " {np:^4} │"
+    line-numbers-left-style = "#3D3839"
+    line-numbers-right-style = "#3D3839"
+    line-numbers-zero-style = "#8E8E8E" italic
+    line-numbers-minus-style = "#E88E8F" bold
+    line-numbers-plus-style = "#6099C0" bold
+    
+    # Diff Highlighting (Pure black background + soft color signatures)
+    minus-style = syntax "#251214"
+    minus-emph-style = syntax bold "#40181C"
+    plus-style = syntax "#111A24"
+    plus-emph-style = syntax bold "#192E42"
+    zero-style = syntax
+    whitespace-error-style = "#DE6E7C" reverse
+    
+    # Git Blame Screen
+    blame-code-style = syntax
+    blame-format = "{author:<18} ({commit:>7}) ┊{timestamp:^16}┊ "
+    blame-palette = "#000000" "#191919" "#252525" "#3D3839"

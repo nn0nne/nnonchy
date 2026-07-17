@@ -1,0 +1,44 @@
+# Zenwritten Theme – Borderless Look
+
+color=000000
+# image=~/.config/mango/wallpaper.png
+
+font=monospace
+font-size=14
+
+indicator-radius=95
+indicator-thickness=6
+
+# Base indicator (Clean dark panels + light gray text)
+inside-color=191919
+ring-color=191919
+line-uses-inside
+text-color=bbbbbb
+
+# Cleared
+inside-clear-color=191919
+ring-clear-color=191919
+line-clear-color=191919
+text-clear-color=bbbbbb
+
+# Verifying (Zenwritten Blue/Cyan processing spin)
+inside-ver-color=191919
+ring-ver-color=BBBBBB
+line-ver-color=BBBBBB
+text-ver-color=bbbbbb
+
+# Wrong (Zenwritten Soft Coral warning ring)
+inside-wrong-color=191919
+ring-wrong-color=de6e7c
+line-wrong-color=de6e7c
+text-wrong-color=bbbbbb
+
+# Highlights
+key-hl-color=BBBBBB
+bs-hl-color=BBBBBB
+separator-color=191919
+
+# Layout box (Stays entirely flat and borderless)
+layout-bg-color=191919
+layout-text-color=bbbbbb
+layout-border-color=191919

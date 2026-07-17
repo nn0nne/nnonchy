@@ -45,13 +45,13 @@ def draw_title(data):
         c_title = fmt.fg.color4
         c_layout = fmt.fg.color13
     else:
-        bg_style = fmt.bg._141415
-        c_session = fmt.fg.color3
-        c_sep = fmt.fg.color3
+        bg_style = fmt.bg._000000
+        c_session = fmt.fg.color7
+        c_sep = fmt.fg.color8
         c_bell = fmt.fg.color1
         c_prog = fmt.fg.color3
-        c_title = fmt.fg.color4
-        c_layout = fmt.fg.color4
+        c_title = fmt.fg.color15
+        c_layout = fmt.fg.color15
 
     if session:
         parts.append(bg_style)

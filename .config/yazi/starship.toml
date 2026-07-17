@@ -2,7 +2,7 @@ format = """
 $username\
 $hostname\
 $shlvl\
-$kubernetes\
+$mise\
 $directory\
 $git_branch\
 $git_commit\
@@ -12,40 +12,13 @@ $git_metrics\
 $hg_branch\
 $docker_context\
 $package\
-$cmake\
 $dart\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
 $java\
-$julia\
 $kotlin\
-$nim\
 $nodejs\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$ruby\
-$rust\
-$swift\
-$terraform\
-$vagrant\
-$zig\
-$nix_shell\
-$conda\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
 $lua\
 $jobs\
 $env_var\
-$crystal\
 $cmd_duration\
 $fill${custom.time_day}${custom.time_date}${custom.time_clock}$battery${custom.inhibit}| ${custom.bluetooth}${custom.wifi}${custom.profile}\
 $line_break\
@@ -58,10 +31,15 @@ scan_timeout = 5000
 # Don't print a new line at the start of the prompt
 add_newline = true
 
+[profiles]
+transient="""
+$character\
+"""
+
 [git_branch]
 symbol = " "
 format = '\[[$symbol$branch]($style)\]'
-style = 'bold iris'
+style = 'bold grey'
 truncation_length = 12                  # shorten long branch names
 truncation_symbol = '…'
 always_show_remote = false
@@ -71,11 +49,11 @@ format = '\[[\($hash$tag\)]($style)\]'
 tag_symbol = '  '
 commit_hash_length = 7                 # show first 7 chars
 tag_disabled = true                    # disable tags for simplicity
-style = 'bold green'
+style = 'bold grey'
 
 [git_state]
 format = '\[[$state ($progress_current/$progress_total)]($style)\]'
-style = 'bold yellow'
+style = 'bold grey'
 merge = '[🔀 MERGING]'
 rebase = '[🛠 REBASING]'
 cherry_pick = '[🍒 PICKING]'
@@ -101,7 +79,7 @@ up_to_date = '✓'
 [git_metrics]
 disabled = false
 format = '\[[+$added]($added_style)/[-$deleted]($deleted_style)\]'
-added_style = 'bold green'
+added_style = 'bold grey'
 deleted_style = 'bold red'
 only_nonzero_diffs = true
 ignore_submodules = true
@@ -114,7 +92,7 @@ symbol = ' '
 disabled = false
 
 [character]
-success_symbol = "[➜](bold blue)"
+success_symbol = "[➜](bold grey)"
 error_symbol = "[➜](bold red)"
 
 # Disable the package module, hiding it from the prompt completely
@@ -132,32 +110,32 @@ format = '\[[$ssh_symbol($hostname)]($style)\] '
 # configure directory
 [directory]
 read_only = " 󰌾"
-format = "[$path](bold blue)[$read_only]($read_only_style) "
-home_symbol = "~ "
+format = "[$path](bold grey)[$read_only]($read_only_style) "
+home_symbol = "~"
 
 [cmd_duration]
-format = " took [$duration]($style)"
-style = "bold cyan"
+format = "took [$duration]($style)"
+style = "bold grey"
 disabled = false
 
 [custom.inhibit]
 when = 'pgrep -f "Yambar-Inhibit"'
 command = 'echo "(ᴗ_ ᴗ。)"'
-style = "bold cyan"
+style = "bold grey"
 format = "[$output]($style) "
 shell = ["zsh"]
 
 [custom.wifi]
 command = 'echo "󰖩"'
 when = 'iwctl station list | grep -q "connected"'
-style = "bold green"
+style = "bold grey"
 format = "[$output]($style) "
 shell = ["zsh"]
 
 [custom.bluetooth]
 command = 'echo ""'
 when = 'bluetoothctl info | grep -q "Connected: yes"'
-style = "bold green"
+style = "bold grey"
 format = "[$output]($style) "
 shell = ["zsh"]
 
@@ -173,28 +151,35 @@ else
 fi
 '''
 when = "command -v tlpctl"
-style = "bold green"
+style = "bold grey"
 format = "[$output]($style) "
 shell = ["zsh"]
 
 [custom.time_day]
 command = "printf $(date +%u)"
 when = true
-style = "blue"
+style = "grey"
 format = "[$output]($style)"
 shell = ["zsh"]
+
+[custom.cat]
+command = 'echo "ᓚ₍⑅^- .-^₎ -ᶻ 𝗓 𐰁"'
+when = true
+shell = ["zsh"]
+style = "bold grey"
+format = "[$output]($style)"
 
 [custom.time_date]
 command = "printf $(date +%d%m)"
 when = true
-style = "bold blue"
+style = "bold grey"
 format = "[$output]($style)"
 shell = ["zsh"]
 
 [custom.time_clock]
 command = "printf $(date +%H%M)"
 when = true
-style = "bold bright-blue"
+style = "bold white"
 format = "[$output]($style) "    # Exactly one trailing space to separate it from the battery component
 shell = ["zsh"]
 
@@ -224,8 +209,8 @@ threshold = 30
 style = "bold yellow"
 
 [username]
-style_user = "bold blue"
-style_root = "bold green"
+style_user = "bold grey"
+style_root = "bold red"
 format = "[$user]($style) on "
 disabled = true
 show_always = false
@@ -237,130 +222,16 @@ format = '[\[$symbol\]]($style) '
 map_symbol = false
 disabled = true
 
-[aws]
-symbol = " "
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-
-[azure]
-symbol = " "
-format = '\[[$symbol($subscription)]($style)\]'
-
-[buf]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[bun]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[c]
-symbol = " "
-format = '\[[$symbol($version(-$name))]($style)\]'
-
-[cmake]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[cobol]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[conda]
-symbol = " "
-format = '\[[$symbol$environment]($style)\]'
-
-[container]
-symbol = " "
-format = '\[[$symbol \[$name\]]($style)\]'
-
-[cpp]
-symbol = " "
-format = '\[[$symbol($version(-$name))]($style)\]'
-
-[crystal]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[daml]
-format = '\[[$symbol($version)]($style)\]'
-
 [dart]
 symbol = " "
 format = '\[[$symbol($version)]($style)\]'
-
-[deno]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[direnv]
-symbol = " "
-format = '\[[$symbol$loaded/$allowed]($style)\]'
 
 [docker_context]
 symbol = " "
 format = '\[[$symbol$context]($style)\]'
 
-[dotnet]
-symbol = " "
-format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
-
-[elixir]
-symbol = " "
-format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
-
-[elm]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[erlang]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[fennel]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[fortran]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[fossil_branch]
-symbol = " "
-format = '\[[$symbol$branch]($style)\]'
-
-[fossil_metrics]
-format = '\[[+$added]($added_style)\]\[[-$deleted]($deleted_style)\]'
-
-[gcloud]
-symbol = "󱇶 "
-format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
-
-[gleam]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[golang]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
 [gradle]
 symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[guix_shell]
-symbol = " "
-format = '\[[$symbol]($style)\]'
-
-[haskell]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[haxe]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[helm]
-symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [hg_branch]
@@ -371,243 +242,27 @@ format = '\[[$symbol$branch]($style)\]'
 symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
-[julia]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[kotlin]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[kubernetes]
-symbol = "󱃾 "
-format = '\[[$symbol$context( \($namespace\))]($style)\]'
-
-[localip]
-format = '\[[$localipv4]($style)\]'
-
 [lua]
 symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
-[maven]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[meson]
-symbol = "󰔷 "
-format = '\[[$symbol$project]($style)\]'
-
 [mise]
-format = '\[[$symbol$health]($style)\]'
-
-[mojo]
-symbol = "󰈸 "
-format = '\[[$symbol($version)]($style)\]'
-
-[nats]
-symbol = " "
-format = '\[[$symbol$name]($style)\]'
-
-[netns]
-symbol = "󰛳 "
-format = '\[[$symbol \[$name\]]($style)\]'
-
-[nim]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[nix_shell]
-symbol = " "
-format = '\[[$symbol$state( \($name\))]($style)\]'
+disabled = false
+format = '\[[$symbol$health]($style)\] '
+healthy_symbol = '󰄬 '    # nf-md-check_bold (A clean checkmark)
+unhealthy_symbol = '󰅙 '  # nf-md-close_box (A clean X mark)
+style = 'bold grey'     # Keeps the default color, or change to whatever you like
 
 [nodejs]
 symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
-[ocaml]
-symbol = " "
-format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
-
-[odin]
-symbol = "󰟢 "
-format = '\[[$symbol($version )]($style)\]'
-
-[opa]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[openstack]
-symbol = " "
-format = '\[[$symbol$cloud(\($project\))]($style)\]'
-
-[os]
-format = '\[[$symbol]($style)\]'
-
-[os.symbols]
-AIX = "  "
-AlmaLinux = "  "
-Alpaquita = "  "
-Alpine = "  "
-ALTLinux = "  "
-Amazon = "  "
-Android = "  "
-AOSC = "  "
-Arch = "  "
-Artix = "  "
-Bluefin = "  "
-CachyOS = "  "
-CentOS = "  "
-Debian = "  "
-DragonFly = "  "
-Elementary = "  "
-Emscripten = "  "
-EndeavourOS = "  "
-Fedora = "  "
-FreeBSD = "  "
-Garuda = "  "
-Gentoo = "  "
-HardenedBSD = "󰞌  "
-Illumos = "  "
-InstantOS = "  "
-Ios = "󰀷  "
-Kali = "  "
-Linux = "  "
-Mabox = "  "
-Macos = "  "
-Manjaro = "  "
-Mariner = "  "
-MidnightBSD = "  "
-Mint = "  "
-NetBSD = "  "
-NixOS = "  "
-Nobara = "  "
-OpenBSD = "  "
-OpenCloudOS = "  "
-openEuler = "  "
-openSUSE = "  "
-OracleLinux = "󰺡  "
-PikaOS = "  "
-Pop = "  "
-Raspbian = "  "
-Redhat = "󱄛  "
-RedHatEnterprise = "󱄛  "
-Redox = "󰀘  "
-RockyLinux = "  "
-Solus = "  "
-SUSE = "  "
-Ubuntu = "  "
-Ultramarine = "  "
-Unknown = "  "
-Uos = "  "
-Void = "  "
-Windows = "󰍲  "
-Zorin = "  "
-
-[perl]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[php]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[pijul_channel]
-symbol = " "
-format = '\[[$symbol$channel]($style)\]'
-
-[pixi]
-symbol = "󰏗 "
-format = '\[[$symbol$version( $environment)]($style)\]'
-
-[pulumi]
-symbol = " "
-format = '\[[$symbol$stack]($style)\]'
-
-[purescript]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[python]
-symbol = " "
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-
-[quarto]
-format = '\[[$symbol($version)]($style)\]'
-
-[raku]
-symbol = "󱖊 "
-format = '\[[$symbol($version-$vm_version)]($style)\]'
-
-[red]
-symbol = "󱍼 "
-format = '\[[$symbol($version)]($style)\]'
-
-[rlang]
-symbol = "󰟔 "
-format = '\[[$symbol($version)]($style)\]'
-
-[ruby]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[rust]
-symbol = "󱘗 "
-format = '\[[$symbol($version)]($style)\]'
-
-[scala]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
 [shell]
 format = '\[[$indicator]($style)\]'
-
-[singularity]
-symbol = " "
-format = '\[[$symbol\[$env\]]($style)\]'
-
-[solidity]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[spack]
-symbol = " "
-format = '\[[$symbol$environment]($style)\]'
 
 [sudo]
 symbol = " "
 format = '\[[as $symbol]($style)\]'
-
-[swift]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[terraform]
-symbol = " "
-format = '\[[$symbol$workspace]($style)\]'
-
-[typst]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[vagrant]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[vcsh]
-format = '\[vcsh [$symbol$repo]($style)\]'
-
-[vlang]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[xmake]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[zig]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
 
 [palettes.vague]
 background = "#141415"
@@ -647,4 +302,14 @@ cyan = "#6cbfbf"
 light_gray = "#b3b9b8"
 foreground = "#dadada"
 
-palette = "vague"
+[palettes.darker-zenwritten]
+grey = "#3D3839"
+white = "#8E8E8E"
+red = "#DE6E7C"
+green = "#65B8C1"
+yellow = "#D68C67"
+cyan = "#61ABDA"
+magenta = "#CF86C1"
+blue = "#6099C0"
+
+palette = "darker-zenwritten"

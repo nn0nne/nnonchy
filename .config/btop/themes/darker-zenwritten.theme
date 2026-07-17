@@ -1,0 +1,57 @@
+# Zenwritten monochrome btop theme
+# https://github.com/aristocratos/btop
+
+theme[main_bg]="#000000"
+theme[main_fg]="#bbbbbb"
+theme[title]="#bbbbbb"
+theme[hi_fg]="#6099c0"
+theme[selected_bg]="#3D3839"
+theme[selected_fg]="#bbbbbb"
+theme[inactive_fg]="#3D3839"
+theme[graph_text]="#8e8e8e"
+theme[meter_bg]="#191919"
+theme[proc_misc]="#8e8e8e"
+
+# Box outlines (Clean structural gray)
+theme[cpu_box]="#3D3839"
+theme[mem_box]="#3D3839"
+theme[net_box]="#3D3839"
+theme[proc_box]="#3D3839"
+theme[div_line]="#3D3839"
+
+# Temperature (Transitions smoothly from muted gray up to soft coral warning)
+theme[temp_start]="#8e8e8e"
+theme[temp_mid]="#b77e64"
+theme[temp_end]="#de6e7c"
+
+# CPU (Clean Zenwritten monochrome light gray)
+theme[cpu_start]="#8e8e8e"
+theme[cpu_mid]="#bbbbbb"
+theme[cpu_end]="#bbbbbb"
+
+# Memory/Disk bars (Clean grays with Zenwritten blue accents)
+theme[free_start]="#3D3839"
+theme[free_mid]="#8e8e8e"
+theme[free_end]="#bbbbbb"
+theme[cached_start]="#6099c0"
+theme[cached_mid]="#6099c0"
+theme[cached_end]="#6099c0"
+theme[available_start]="#bbbbbb"
+theme[available_mid]="#bbbbbb"
+theme[available_end]="#bbbbbb"
+theme[used_start]="#3D3839"
+theme[used_mid]="#8e8e8e"
+theme[used_end]="#bbbbbb"
+
+# Network (Differentiated with blue for uploads and light gray for downloads)
+theme[upload_start]="#6099c0"
+theme[upload_mid]="#6099c0"
+theme[upload_end]="#6099c0"
+theme[download_start]="#bbbbbb"
+theme[download_mid]="#bbbbbb"
+theme[download_end]="#bbbbbb"
+
+# Process list
+theme[process_start]="#8e8e8e"
+theme[process_mid]="#bbbbbb"
+theme[process_end]="#bbbbbb"

@@ -3,16 +3,17 @@ local M = {}
 local pack = require("nnonne.commands.pack")
 
 function M.setup()
-  pack.add({ "vague.nvim" })
+  -- pack.add({ "vague.nvim" })
+  -- require("vague").setup({
+  --   transparent = true,
+  -- })
+  -- vim.cmd.colorscheme("vague")
 
-  require("vague").setup({
-    transparent = true,
-  })
+  vim.o.background = "dark"
 
-        vim.o.background = "dark"
-      vim.cmd.colorscheme("vague")
-
-
+  pack.add({ "zenbones.nvim", "lush.nvim" })
+  vim.g.zenwritten_compat = 1
+  vim.cmd.colorscheme("darker-zenwritten")
 end
 
 return M

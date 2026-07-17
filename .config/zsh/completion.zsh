@@ -101,12 +101,12 @@ zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec)|prompt_*)'
 zstyle ':completion:*:*:-subscript-:*' tag-order 'indexes' 'parameters'
 
 # Directories
-if (( ${+LS_COLORS} )); then
-    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-else
-    # Use same LS_COLORS definition from utility module, in case it was not set
-    zstyle ':completion:*:default' list-colors ${(s.:.):-di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43}
-fi
+# if (( ${+LS_COLORS} )); then
+#     zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# else
+#     # Use same LS_COLORS definition from utility module, in case it was not set
+#     zstyle ':completion:*:default' list-colors ${(s.:.):-di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43}
+# fi
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 zstyle ':completion:*' squeeze-slashes true
 
