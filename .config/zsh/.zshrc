@@ -39,8 +39,8 @@ setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 bindkey -e
 
 # Prompt for spelling correction of commands.
-setopt CORRECT
-SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? ' # Customize spelling correction prompt.
+# setopt CORRECT
+# SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? ' # Customize spelling correction prompt.
 
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
