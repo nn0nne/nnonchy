@@ -29,7 +29,7 @@ require("nnonne.plugins.fff").setup()
 
 require("nnonne.plugins.comments").setup()
 require("nnonne.plugins.auto-tag").setup()
--- require("nnonne.plugins.search-replace").setup()
+require("nnonne.plugins.search-replace").setup()
 require("nnonne.plugins.bullets").setup()
 require("nnonne.plugins.undotree").setup()
 require("nnonne.plugins.flutter-tools").setup()

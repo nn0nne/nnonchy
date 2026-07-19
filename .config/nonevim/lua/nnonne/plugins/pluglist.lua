@@ -53,6 +53,7 @@ local plugins = {
   { src = "https://github.com/artemave/workspace-diagnostics.nvim" },
   { src = "https://github.com/mistweaverco/kulala.nvim" },
   { src = "https://github.com/carldaws/miser.nvim" },
+  { src = "https://github.com/MagicDuck/grug-far.nvim" },
 }
 
 M.map = {}
