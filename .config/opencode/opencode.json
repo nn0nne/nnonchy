@@ -2,7 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
     "@franlol/opencode-md-table-formatter@0.0.3",
-    "@tarquinen/opencode-dcp@latest",
     "opencode-pty",
     "opencode-vibeguard",
     "@mohak34/opencode-notifier@latest"
