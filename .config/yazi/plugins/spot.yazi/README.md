@@ -42,20 +42,30 @@ require('spot'):setup {
     hash_filesize_limit = 150, -- in MB, set 0 to disable
     relative_time = true, -- 2026-01-01 or n days ago
     time_format = '%Y-%m-%d %H:%M', -- https://www.man7.org/linux/man-pages/man3/strftime.3.html
-    show_compression = 'size', ---@type false|"size"|"percentage"
+    show_compression = true, ---@type boolean
   },
   plugins_section = {
     enable = true,
   },
   style = {
-    section = 'green',
-    key = 'reset',
-    value = 'blue',
-    selected = 'blue',
-    colorize_metadata = true,
-    height = 20,
-    width = 60,
-    key_length = 15,
+    color = {
+      metadata = true,
+      title = 'green',
+      key = 'reset',
+      value = 'blue',
+      selected = 'blue',
+    },
+    size = {
+      height = 20, -- unused when auto_resize is set to true
+      width = 60, -- unused when auto_resize is set to true
+      auto_resize = true,
+      min_width = 60,
+      max_width = 80,
+      min_height = 20,
+      max_height = 40,
+    },
+    max_key_length = 25,
+    key_indent_size = 2,
   },
 }
 ```
@@ -68,6 +78,7 @@ list of plugins using spot.yazi as a base
 
 - [spot-audio.yazi](/spot-audio.yazi)
 - [spot-video.yazi](/spot-video.yazi)
+- [spot-image.yazi](/spot-image.yazi)
 - [spot-cbz.yazi](/spot-cbz.yazi)
 
 if you are building something on top of spot.yazi feel free to add it here

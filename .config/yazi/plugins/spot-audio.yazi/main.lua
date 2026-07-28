@@ -1,176 +1,114 @@
 local M = {}
 
----@param file File
----@return boolean
----@return Sections|Error
-local audio_ffprobe = function(file)
-  -- stylua: ignore
-  local cmd = Command('ffprobe'):arg {
-    '-v', 'quiet',
-    '-show_entries', 'stream_tags:format:stream',
-    '-of', 'json=c=1',
-    file.name
-  }
-
-  local output, err = cmd:output()
-  if not output then
-    return false, Err('Failed to start `ffprobe`, error: %s', err)
+---@param section Section
+---@param key string
+---@param value nil|string|table
+local function add_field(section, key, value)
+  if value == nil or value == '' or value == 'None' or value == 'Unknown' then
+    return
   end
 
-  local json = ya.json_decode(output.stdout)
-  if not json then
-    return false, Err('Failed to decode `ffprobe` output: %s', output.stdout)
-  elseif type(json) ~= 'table' then
-    return false, Err('Invalid `ffprobe` output: %s', output.stdout)
-  end
-  -- ya.dbg(json)
-
-  local audio_stream = json.streams[1]
-  local tags = json.format.tags or audio_stream.tags or audio_stream
-  local duration = json.format.duration
-  if duration then
-    duration = tonumber(duration)
-    duration = string.format('%d:%02d', math.floor(duration / 60), math.floor(duration % 60))
+  if type(value) == 'table' then
+    value = table.concat(value, ', ')
   end
 
-  local data = {} ---@type Sections
-  local title, album, aar, ar =
-    tags.TITLE or tags.title or '',
-    tags.ALBUM or tags.album or '',
-    tags.ALBUM_ARTIST or tags.album_artist or '',
-    tags.ARTIST or tags.artist or ''
+  table.insert(section, { key, tostring(value) })
+end
 
-  if title .. album .. ar .. aar ~= '' then
-    local img_stream = json.streams[2]
-    local date = tags.DATE or tags.date or 'No date'
-    local c = ''
-    local artist = ar
+-- sep
 
-    if tags.ORIGINALDATE and tags.ORIGINALDATE ~= '' then
-      date = date .. ' / ' .. tags.ORIGINALDATE
+---@param data Sections
+---@param section Section
+local function add_section(data, section)
+  if #section > 0 then
+    table.insert(data, section)
+  end
+end
+
+---@param items table
+---@return string?
+local function first(items)
+  for _, item in pairs(items) do
+    if item ~= nil and item ~= '' then
+      return item
     end
-    if (aar ~= '') and (aar ~= ar) then
-      artist = artist .. ' / ' .. aar
-    end
-    if img_stream then
-      c = img_stream.codec_name .. ' ' .. img_stream.width .. 'x' .. img_stream.height
-    end
-
-    data[#data + 1] = {
-      title = 'General',
-      { 'Title', title },
-      { 'Album', album },
-      { 'Artist', artist },
-      { 'Genre', tags.GENRE or tags.genre or 'No genre' },
-      { 'Date', date },
-      { 'Duration', duration },
-      c ~= '' and { 'Cover art', c } or nil,
-    }
   end
-
-  local sr = audio_stream.sample_rate
-  if sr then
-    sr = string.format('%.1fkhz', sr / 1000)
-  end
-  local bd = audio_stream.bits_per_raw_sample or '1'
-  data[#data + 1] = {
-    title = 'Audio',
-    { 'Format', json.format.format_name },
-    { 'Quality', bd .. 'bit / ' .. sr },
-    {
-      'BitRate',
-      tonumber((audio_stream.bit_rate or json.format.bit_rate or 0) // 1000) .. ' kb/s',
-    },
-    { 'Channels', tostring(audio_stream.channels or '?') },
-  }
-
-  -- ya.dbg(data)
-  return true, data
 end
 
 ---@param file File
----@return boolean
----@return Sections|Error
-local audio_mediainfo = function(file)
-  local cmd = Command('mediainfo'):arg { '--Output=JSON', file.name }
+---@return Sections
+---@return Error?
+local audio_exiftool = function(file)
+  local output, err = Command('exiftool'):arg({
+    '-j',
+    '-a',
+    '-s',
+    file.name,
+  }):output()
 
-  local output, err = cmd:output()
-  if not output then
-    return false, Err('Failed to start `mediainfo`, error: %s', err)
+  if not output or err then
+    return {}, Err('Failed to start `exiftool`, error: %s', err)
   end
 
   local json = ya.json_decode(output.stdout)
   if not json then
-    return false, Err('Failed to decode `mediainfo` output: %s', output.stdout)
+    return {}, Err('Failed to decode `exiftool` output: %s', output.stdout)
   elseif type(json) ~= 'table' then
-    return false, Err('Invalid `mediainfo` output: %s', output.stdout)
+    return {}, Err('Invalid `exiftool` output: %s', output.stdout)
   end
+
   -- ya.dbg(json)
 
-  local data = {}
-  local general = json.media.track[1]
-  local audio = json.media.track[2]
-  local image = json.media.track[3]
-  local title, album, aar, ar =
-    general.Title or '', general.Album or '', general.Album_Performer or '', general.Performer or ''
-
-  if title .. album .. ar .. aar ~= '' then
-    local csize = ''
-    local date = general.Recorded_Date
-    local artist = ar
-
-    if general.extra and general.extra.ORIGINALDATE then
-      date = date .. ' / ' .. general.extra.ORIGINALDATE
-    end
-    if (aar ~= '') and (aar ~= ar) then
-      artist = artist .. ' / ' .. aar
-    end
-    if image then
-      csize = image.Format .. ' ' .. image.Height .. 'x' .. image.Width
-    end
-
-    data[#data + 1] = {
-      title = 'General',
-      { 'Title', title },
-      { 'Album', album },
-      { 'Artist', ar .. (aar ~= ar and (' / ' .. aar) or '') },
-      { 'Genre', general.Genre },
-      { 'Date', date },
-      { 'Duration', general.Duration },
-      csize ~= '' and { 'Cover art', csize } or nil,
-    }
+  local tags = json[1] or {}
+  local gen_sec = { title = 'General' } ---@type Section
+  local artist = tags.Artist
+  if type(artist) == 'table' then
+    artist = table.concat(artist, ', ')
+  end
+  -- TODO: uniq instead of first
+  local date = first({ tags.Originaldate, tags.Date, tags.DateTimeOriginal })
+  local cover = tags.PictureType or ''
+  if tags.PictureWidth and tags.PictureHeight then
+    cover = string.format('%s %sx%s', cover, tags.PictureWidth, tags.PictureHeight)
   end
 
-  local br = tonumber((audio.BitRate or 0) // 1000) .. ' kb/s'
-  local sr = tonumber((audio.SamplingRate or 0) / 1000)
-  data[#data + 1] = {
-    title = 'Audio',
-    { 'Format', audio.Format .. ' ' .. audio.Compression_Mode },
-    { 'Quality', (audio.BitDepth or '1') .. '/' .. sr },
-    { 'BitRate', br },
-    { 'Channels', audio.Channels .. ' ' .. (audio.ChannelLayout or '') },
-    { 'Duration', audio.Duration },
-  }
+  add_field(gen_sec, 'Title', tags.Title)
+  add_field(gen_sec, 'Artist', artist)
+  add_field(gen_sec, 'Album', tags.Album)
+  add_field(gen_sec, 'Genre', tags.Genre)
+  add_field(gen_sec, 'Date', date)
+  add_field(gen_sec, 'Cover', cover)
+
+  local audio_sec = { title = 'Audio' } ---@type Section
+  local sr = first({ tags.AudioSampleRate, tags.SampleRate })
+  local bd = first({ tags.AudioBitsPerSample, tags.BitsPerSample })
+  if sr then
+    sr = string.format('%.1f kHz', tonumber(sr) / 1000)
+  end
+
+  add_field(audio_sec, 'Duration', tags.Duration)
+  add_field(audio_sec, 'Format', first({ tags.AudioFormat, tags.FileType }))
+  add_field(audio_sec, 'Sample Rate', sr)
+  add_field(audio_sec, 'Bit Depth', (bd and (bd .. ' bit')))
+  add_field(audio_sec, 'BitRate', first({ tags.AvgBitrate, tags.AudioBitrate }))
+  add_field(audio_sec, 'Channels', first({ tags.AudioChannels, tags.ChannelMode, tags.Channels }))
+
+  local data = {} ---@type Sections
+  add_section(data, gen_sec)
+  add_section(data, audio_sec)
 
   -- ya.dbg(data)
-
-  return true, data
+  return data
 end
 
 ---@param job Job
 function M:spot(job)
-  local ok, info = audio_ffprobe(job.file)
-  if not ok then
-    ya.dbg(info)
-    ok, info = audio_mediainfo(job.file)
-    if not ok then
-      ya.dbg(info)
-    end
+  local sections, err = audio_exiftool(job.file)
+  if not sections or err then
+    ya.dbg(err)
   end
 
-  if ok then
-    require('spot'):spot(job, info)
-  end
+  require('spot'):spot(job, sections)
 end
 
 return M

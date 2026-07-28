@@ -17,20 +17,30 @@ local get_config = ya.sync(function(st)
         hash_filesize_limit = 150, -- in MB, set 0 to disable
         relative_time = true, -- 2026-01-01 or n days ago
         time_format = '%Y-%m-%d %H:%M', -- https://www.man7.org/linux/man-pages/man3/strftime.3.html
-        show_compression = 'size', ---@type false|"size"|"percentage"
+        show_compression = true, ---@type boolean
       },
       plugins_section = {
         enable = true,
       },
       style = {
-        section = 'green',
-        key = 'reset',
-        value = 'blue',
-        selected = 'blue',
-        colorize_metadata = true,
-        height = 20,
-        width = 60,
-        key_length = 15,
+        color = {
+          metadata = true,
+          title = 'green',
+          key = 'reset',
+          value = 'blue',
+          selected = 'blue',
+        },
+        size = {
+          height = 20, -- unused when auto_resize is set to true
+          width = 60, -- unused when auto_resize is set to true
+          auto_resize = true,
+          min_width = 60,
+          max_width = 80,
+          min_height = 20,
+          max_height = 40,
+        },
+        max_key_length = 25,
+        key_indent_size = 2,
       },
     }
 end)
@@ -48,7 +58,7 @@ local permission = function(file, config)
     return ui.Text('couldnt get permissions')
   end
 
-  if not config.style.colorize_metadata then
+  if not config.style.color.metadata then
     return perm
   end
 
@@ -87,7 +97,7 @@ local hash = function(file, config)
     ui.Style():fg('yellow'),
   }
 
-  local cmd = Command(config.metadata_section.hash_cmd):arg { file.name }
+  local cmd = Command(config.metadata_section.hash_cmd):arg({ file.name })
 
   local output, err = cmd:output()
   if not output then
@@ -96,7 +106,7 @@ local hash = function(file, config)
 
   local sum = output.stdout:sub(1, -#file.name - 3)
 
-  if not config.style.colorize_metadata then
+  if not config.style.color.metadata then
     return ui.Text(sum)
   end
   local spans = {}
@@ -204,30 +214,52 @@ end
 ---@return Renderable
 function M:render_table(job, extra, config)
   local rows = {}
+  local key_pad = config.style.key_indent_size
+  local key_width = 0
+  local val_width = 0
+
+  ---@param cell string|Renderable
+  ---@param cell_style AsColor
+  ---@param prefix string?
+  ---@return Renderable
+  local function styled_cell(cell, cell_style, prefix)
+    if type(cell) == 'string' then
+      return ui.Line((prefix or '') .. cell):style(ui.Style():fg(cell_style))
+    end
+    return cell
+  end
 
   -- TODO: render multiline if '\n' is present
+  -- TODO: break lines if it exceeds window width
   ---@param section Section
   local add_section = function(section)
     if #rows ~= 0 then
       rows[#rows + 1] = ui.Row({}) ---@diagnostic disable-line: undefined-field
     end
 
-    rows[#rows + 1] = ui.Row({ section.title or 'No title' })
-      :style(ui.Style():fg(config.style.section))
+    rows[#rows + 1] = ui.Row({
+      ui.Line(section.title or 'No title'):style(ui.Style():fg(config.style.color.title)),
+    })
+
     for _, row in ipairs(section) do
-      -- label_max_length = math.max(#row[2], label_max_length)
-
-      local key = row[1]
-      if type(row[1]) == 'string' then
-        key = ui.Line('  ' .. row[1]):style(ui.Style():fg(config.style.key))
+      if not row then
+        goto continue
       end
-
-      local val = row[2]
-      if type(row[2]) == 'string' then
-        val = ui.Line(row[2]):style(ui.Style():fg(config.style.value))
+      local key, val = row[1], row[2]
+      if not key or not val then
+        goto continue
       end
+      rows[#rows + 1] = ui.Row({
+        styled_cell(key, config.style.color.key, (' '):rep(key_pad)),
+        styled_cell(val, config.style.color.value),
+      })
 
-      rows[#rows + 1] = ui.Row({ key, val })
+      key_width = math.max(key_width, type(key) == 'string' and #key or 0)
+      val_width = math.max(val_width, type(val) == 'string' and #val or 0)
+
+      -- ya.dbg(key, val, #key, key_width)
+
+      ::continue::
     end
   end
 
@@ -242,18 +274,19 @@ function M:render_table(job, extra, config)
   local size = format_size(get_total_size({ job.file.url })) ---@diagnostic disable-line: missing-fields
 
   if config.metadata_section.show_compression and job.mime == 'application/zip' then
-    local comp_size = '??'
     local output, err = Command('zipinfo'):arg({ '-t', tostring(job.file.url) }):output()
 
     if not output or err then
       return Err('Error: %s', err)
-    elseif config.metadata_section.show_compression == 'percentage' then
-      comp_size = output.stdout:gsub('.* (%d+%.%d+%%)', '%1')
-    elseif config.metadata_section.show_compression == 'size' then
-      comp_size =
-        format_size(tonumber(output.stdout:gsub('.* (%d+) bytes uncompressed.*', '%1'), 10))
     end
-    size = size .. ' (' .. comp_size .. ')'
+    if config.metadata_section.show_compression == true then
+      size = size
+        .. ' ('
+        .. format_size(tonumber(output.stdout:gsub('.* (%d+) bytes uncompressed.*', '%1'), 10))
+        .. ', '
+        .. output.stdout:gsub('.* (%d+%.%d+%%)', '%1')
+        .. ')'
+    end
   end
 
   -- Metadata
@@ -282,7 +315,7 @@ function M:render_table(job, extra, config)
       for _, plugin in pairs(rt.plugin[type]:match({ mime = job.mime, file = job.file })) do
         text = text .. plugin.name .. ', '
       end
-      ya.dbg(text)
+      -- ya.dbg(text)
       return text:sub(1, -3)
     end
     add_section {
@@ -294,17 +327,26 @@ function M:render_table(job, extra, config)
     }
   end
 
+  key_width = math.min(config.style.max_key_length, key_pad + key_width)
+  local conf_size = config.style.size
+
   return ui
     .Table(rows) ---@diagnostic disable-line: undefined-field
-    :area(job.area) ---@diagnostic disable-line: undefined-field
+    :area(ui.Pos {
+      'center',
+      w = conf_size.auto_resize
+          and ya.clamp(conf_size.min_width, key_width + val_width + 4, conf_size.max_width)
+        or conf_size.width,
+      h = conf_size.auto_resize and ya.clamp(conf_size.min_height, #rows + 2, conf_size.max_height)
+        or conf_size.height,
+    })
     :row(1)
-    :col(1)
+    :col(2)
     :widths({
-      ui.Constraint.Length(config.style.key_length),
+      ui.Constraint.Length(key_width + 1),
       ui.Constraint.Fill(1),
     })
-    :cell_style(ui.Style():fg(config.style.selected):reverse())
-  -- :col_style(styles.row_value)
+    :cell_style(ui.Style():fg(config.style.color.selected):reverse())
 end
 
 ---@param job Job
@@ -312,7 +354,6 @@ end
 ---@param config SpotConf
 function M:spot(job, extra, config)
   config = tbl_strict_extend(get_config(), config) ---@type SpotConf
-  job.area = ui.Pos({ 'center', w = config.style.width, h = config.style.height }) ---@diagnostic disable-line: assign-type-mismatch
   ya.spot_table(job, self:render_table(job, extra, config)) ---@diagnostic disable-line: undefined-field
 end
 
