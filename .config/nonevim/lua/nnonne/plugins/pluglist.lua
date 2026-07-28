@@ -54,6 +54,7 @@ local plugins = {
   { src = "https://github.com/mistweaverco/kulala.nvim" },
   { src = "https://github.com/carldaws/miser.nvim" },
   { src = "https://github.com/MagicDuck/grug-far.nvim" },
+  { src = "https://github.com/laytan/cloak.nvim" },
 }
 
 M.map = {}

@@ -40,6 +40,7 @@ require("nnonne.plugins.opencode").setup()
 require("nnonne.plugins.git-blame").setup()
 require("nnonne.plugins.nvim-dap").setup()
 require("nnonne.plugins.kulala").setup()
+require("nnonne.plugins.cloak").setup()
 
 require("nnonne.plugins.which-key").setup()
 require("nnonne.plugins.vim-kitty-nav").setup()

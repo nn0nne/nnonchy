@@ -48,25 +48,66 @@ function M.setup()
 
   vim.lsp.config("*", { capabilities = capabilities })
 
-  -- Dynamically find the path to the typescript library installed by mise
-  local function get_typescript_server_path()
-    -- Look into mise's standard installations directory
-    local global_ts_path = vim.fn.expand("~/.local/share/mise/installs/npm-typescript")
-    local match = vim.fn.glob(global_ts_path .. "/*/lib/node_modules/typescript/lib")
-    if match ~= "" then
-      return match
-    end
-    return nil
-  end
+  -- local function get_typescript_server_path()
+  --   -- Look into mise's standard installations directory
+  --   local global_ts_path = vim.fn.expand("~/.local/share/mise/installs/npm-typescript")
+  --   local match = vim.fn.glob(global_ts_path .. "/*/lib/node_modules/typescript/lib")
+  --   if match ~= "" then
+  --     return match
+  --   end
+  --   return nil
+  -- end
+  -- local function get_typescript_server_path()
+  --   -- 1. Check local project workspace first
+  --   local root = vim.fs.dirname(vim.fs.find({ "package.json", ".git" }, { upward = true })[1] or "")
+  --   local local_ts = root .. "/node_modules/typescript/lib"
+  --   if vim.fn.isdirectory(local_ts) == 1 then
+  --     return local_ts
+  --   end
+  --
+  --   -- 2. Mise aube store path for npm:typescript
+  --   local mise_ts = vim.fn.expand(
+  --     "~/.local/share/mise/installs/npm-typescript/latest/node_modules/.aube/typescript@7.0.2/node_modules/typescript/lib")
+  --   if vim.fn.isdirectory(mise_ts) == 1 then
+  --     return mise_ts
+  --   end
+  --
+  --   -- 3. Dynamic search in mise as a fallback if the version changes (e.g. not 7.0.2)
+  --   local matches = vim.fn.glob(
+  --     vim.fn.expand("~/.local/share/mise/installs/npm-typescript/**/node_modules/typescript/lib"), false, true)
+  --   if #matches > 0 then
+  --     return matches[1]
+  --   end
+  --
+  --   return nil
+  -- end
+  -- local ts_path = get_typescript_server_path()
+  -- -- Override ts_ls explicitly
+  -- vim.lsp.config("ts_ls", {
+  --   init_options = {
+  --     hostInfo = "neovim",
+  --     tsserver = {
+  --       path = ts_path,
+  --       fallbackPath = ts_path,
+  --     }
+  --   }
+  -- })
+  -- -- Override ts_ls explicitly to inject the initialization option
+  -- vim.lsp.config("ts_ls", {
+  --   init_options = {
+  --     hostInfo = "neovim",
+  --     tsserver = {
+  --       path = get_typescript_server_path()
+  --     }
+  --   }
+  -- })
 
-  -- Override ts_ls explicitly to inject the initialization option
-  vim.lsp.config("ts_ls", {
-    init_options = {
-      hostInfo = "neovim",
-      tsserver = {
-        path = get_typescript_server_path()
-      }
-    }
+  vim.lsp.config("vtsls", {
+    settings = {
+      vtsls = {
+        autoUseWorkspaceTsdk = true,
+      },
+    },
   })
 
   vim.lsp.config("lua_ls", {
@@ -113,7 +154,8 @@ function M.setup()
     html        = { "html" },
     jsonls      = { "json", "jsonc" },
     tailwindcss = { "html", "css", "scss", "javascript", "typescript", "javascriptreact", "typescriptreact", "astro" },
-    ts_ls       = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    -- ts_ls       = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    vtsls       = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
     yamlls      = { "yaml" },
     clangd      = { "c", "cpp" },
     biome       = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
