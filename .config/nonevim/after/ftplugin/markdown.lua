@@ -5,13 +5,21 @@ set.wrap = false
 set.textwidth = 80
 set.colorcolumn = "80"
 
-local color1_bg = "#d8647e"
-local color2_bg = "#7fa563"
-local color3_bg = "#b4d4cf"
-local color4_bg = "#e0a363"
-local color5_bg = "#7e98e8"
-local color6_bg = "#c3c3d5"
-local color_fg = "#141415"
+-- local color1_bg = "#d8647e"
+-- local color2_bg = "#7fa563"
+-- local color3_bg = "#b4d4cf"
+-- local color4_bg = "#e0a363"
+-- local color5_bg = "#7e98e8"
+-- local color6_bg = "#c3c3d5"
+-- local color_fg = "#141415"
+
+local color1_bg = "#3D3839"
+local color2_bg = "#585253"
+local color3_bg = "#757071"
+local color4_bg = "#8E8E8E"
+local color5_bg = "#A6A6A6"
+local color6_bg = "#BBBBBB"
+local color_fg = "#191919"
 
 local highlights = {
   Headline1Bg = { fg = color_fg, bg = color1_bg },
