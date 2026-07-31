@@ -52,29 +52,40 @@ function M.setup()
               opencode        = "オープンコード",
             }
 
+            local mode_str = ""
             local current_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
+
             if ft_map[current_ft] then
-              return ft_map[current_ft]
+              mode_str = ft_map[current_ft]
+            else
+              local buf_name = vim.api.nvim_buf_get_name(0)
+              if buf_name:match("opencode") then
+                mode_str = "オープンコード"
+              else
+                local mode_map = {
+                  n = "ノーマル",
+                  i = "インサート",
+                  v = "ビジュアル",
+                  V = "ビジュアルライン",
+                  ["\22"] = "ビジュアルブロック",
+                  c = "コマンド",
+                  R = "リプレイス",
+                  s = "セレクト",
+                  S = "セレクトライン",
+                  t = "ターミナル",
+                }
+                mode_str = mode_map[vim.api.nvim_get_mode().mode] or ""
+              end
             end
 
-            local buf_name = vim.api.nvim_buf_get_name(0)
-            if buf_name:match("opencode") then
-              return "オープンコード" -- Renders "オープンコード" (Opencode in Katakana)
+            -- Safe UID check for root/sudo
+            local is_sudo = ((vim.uv or vim.loop).getuid() == 0)
+            if is_sudo then
+              -- Adds a red lock icon to the left of the mode text
+              return "%#DiagnosticError#%* " .. mode_str
             end
 
-            local mode_map = {
-              n = "ノーマル",
-              i = "インサート",
-              v = "ビジュアル",
-              V = "ビジュアルライン",
-              ["\22"] = "ビジュアルブロック",
-              c = "コマンド",
-              R = "リプレイス",
-              s = "セレクト",
-              S = "セレクトライン",
-              t = "ターミナル",
-            }
-            return mode_map[vim.api.nvim_get_mode().mode] or ""
+            return mode_str
           end,
           refresh = {
             statusline = { "ModeChanged", "BufEnter", "FileType" }

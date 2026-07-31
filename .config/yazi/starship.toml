@@ -183,6 +183,13 @@ style = "bold white"
 format = "[$output]($style) "    # Exactly one trailing space to separate it from the battery component
 shell = ["zsh"]
 
+[custom.sudo]
+command = 'echo ""'
+when = '[ "$EUID" -eq 0 ] || [ "$USER" = "root" ]'
+style = "bold grey"
+shell = ["zsh"]
+format = "[$output]($style)"
+
 [time]
 disabled = true
 
@@ -211,9 +218,10 @@ style = "bold yellow"
 [username]
 style_user = "bold grey"
 style_root = "bold red"
-format = "[$user]($style) on "
-disabled = true
+format = "[$user]($style) "
+disabled = false
 show_always = false
+aliases = { "root" = "" }
 
 [status]
 style = "bg:background"
