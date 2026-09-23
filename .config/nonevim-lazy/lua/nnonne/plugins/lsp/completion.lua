@@ -66,10 +66,13 @@ return {
       snippets = { preset = "mini_snippets" },
       sources = {
         default = { "lsp", "path", "buffer", "snippets" },
+        per_filetype = {
+          opencode_ask = { 'lsp', 'buffer' },
+        },
         providers = {
-          -- lsp = {
-          --   fallbacks = { "buffer", "path" },
-          -- },
+          lsp = {
+            fallbacks = {},
+          },
           -- snippets = {
           --   name = "Snippets",
           --   module = "blink.cmp.sources.snippets",

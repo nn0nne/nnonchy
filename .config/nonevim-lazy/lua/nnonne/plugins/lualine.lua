@@ -9,6 +9,7 @@ return {
     end
   end,
   config = function()
+    local git_blame = require('gitblame')
     require("lualine").setup({
       options = {
         icons_enabled = true,
@@ -115,8 +116,11 @@ return {
             },
           },
         },
-        lualine_x = {},
-        lualine_y = { { "datetime", style = "%u%d%m%H%M" } },
+        lualine_x = {
+          { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available }
+
+        },
+        lualine_y = { { "datetime", style = "0%u%d%m%H%M" } },
         lualine_z = { { "searchcount", maxcount = 999, timeout = 500 }, "selectioncount", "location", "progress" },
       },
       inactive_sections = {

@@ -1,10 +1,7 @@
 return {
-  "zenbones-theme/zenbones.nvim",
-  dependencies = "rktjmp/lush.nvim",
-  lazy = false,
-  priority = 1000,
+  "rose-pine/neovim",
+  name = "rose-pine",
   config = function()
-    vim.g.zenwritten_compat = 1
-    vim.cmd.colorscheme('darker-zenwritten')
+    vim.cmd("colorscheme rose-pine-moon")
   end
 }

@@ -19,30 +19,30 @@ return {
         },
       },
       debugger = {
-        enabled = true, -- enable nvim-dap integration -- idk have nvim-dap so disabled
-        register_configurations = function(paths)
-          local dap = require("dap")
-
-          -- Prompt for the device ID before launching
-          local device_id = vim.fn.input("Device ID (e.g., emulator-5554): ")
-          local extra_args = {}
-          if device_id ~= "" then
-            extra_args = { "-d", device_id }
-          end
-
-          dap.configurations.dart = {
-            {
-              type = "dart",
-              request = "launch",
-              name = "Launch Flutter",
-              dartSdkPath = paths.dartSdk,
-              flutterSdkPath = paths.flutterSdk,
-              program = "${workspaceFolder}/lib/main.dart",
-              cwd = "${workspaceFolder}",
-              args = extra_args, -- Must be a table, not a function
-            }
-          }
-        end,
+        -- enabled = true, -- enable nvim-dap integration -- idk have nvim-dap so disabled
+        -- register_configurations = function(paths)
+        --   local dap = require("dap")
+        --
+        --   -- Prompt for the device ID before launching
+        --   local device_id = vim.fn.input("Device ID (e.g., emulator-5554): ")
+        --   local extra_args = {}
+        --   if device_id ~= "" then
+        --     extra_args = { "-d", device_id }
+        --   end
+        --
+        --   dap.configurations.dart = {
+        --     {
+        --       type = "dart",
+        --       request = "launch",
+        --       name = "Launch Flutter",
+        --       dartSdkPath = paths.dartSdk,
+        --       flutterSdkPath = paths.flutterSdk,
+        --       program = "${workspaceFolder}/lib/main.dart",
+        --       cwd = "${workspaceFolder}",
+        --       args = extra_args, -- Must be a table, not a function
+        --     }
+        --   }
+        -- end,
       },
       root_patterns = { ".git", "pubspec.yaml" },
       widget_guides = { enabled = true },

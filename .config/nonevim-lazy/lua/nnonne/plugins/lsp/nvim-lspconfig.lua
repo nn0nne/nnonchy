@@ -14,7 +14,7 @@ return {
       severity_sort = true,
     },
     inlay_hints = {
-      enabled = true,
+      enabled = false,
       exclude = { "vue" },
     },
     servers = {
@@ -162,10 +162,10 @@ return {
         vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, map_opts)
         vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, map_opts)
 
-        if opts.inlay_hints.enabled and client and client.server_capabilities.inlayHintProvider then
+        if client and client.server_capabilities.inlayHintProvider then
           local ft = vim.bo[ev.buf].filetype
           if not vim.tbl_contains(opts.inlay_hints.exclude or {}, ft) then
-            vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+            vim.lsp.inlay_hint.enable(false, { bufnr = ev.buf })
           end
         end
       end,
