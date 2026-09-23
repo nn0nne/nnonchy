@@ -1,5 +1,7 @@
-alias n="~/.config/kitty/scripts/kitty_nvim.sh"
-alias v="~/.config/kitty/scripts/kitty_nvim.sh"
+# alias n="~/.config/kitty/scripts/kitty_nvim.sh"
+# alias v="~/.config/kitty/scripts/kitty_nvim.sh"
+alias n="nvim"
+alias v="nvim"
 
 alias nzsh="n $ZDOTDIR/.zshrc"
 alias szsh="source $ZDOTDIR/.zshrc"
