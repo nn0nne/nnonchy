@@ -1,0 +1,44 @@
+# Rosé Pine Moon Theme – Borderless Look
+
+color=232136
+# image=~/.config/mango/wallpaper.png
+
+font=monospace
+font-size=14
+
+indicator-radius=95
+indicator-thickness=6
+
+# Base indicator (Rosé Pine Moon Base #232136 + Text #e0def4)
+inside-color=232136
+ring-color=232136
+line-uses-inside
+text-color=e0def4
+
+# Cleared
+inside-clear-color=232136
+ring-clear-color=232136
+line-clear-color=232136
+text-clear-color=e0def4
+
+# Verifying (Rosé Pine Moon Pine #3e8fb0 processing spin)
+inside-ver-color=232136
+ring-ver-color=3e8fb0
+line-ver-color=3e8fb0
+text-ver-color=e0def4
+
+# Wrong (Rosé Pine Moon Love #eb6f92 warning ring)
+inside-wrong-color=232136
+ring-wrong-color=eb6f92
+line-wrong-color=eb6f92
+text-wrong-color=e0def4
+
+# Highlights
+key-hl-color=9ccfd8
+bs-hl-color=ea9a97
+separator-color=232136
+
+# Layout box (Stays entirely flat and borderless)
+layout-bg-color=232136
+layout-text-color=e0def4
+layout-border-color=232136
