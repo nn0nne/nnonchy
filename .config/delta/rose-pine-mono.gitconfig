@@ -1,0 +1,178 @@
+[delta "rose-pine-mono"]
+
+# =========================================================================
+# PALETTE
+# =========================================================================
+
+base = "#232136"
+surface = "#2a273f"
+overlay = "#393552"
+muted = "#6e6a86"
+subtle = "#908caa"
+text = "#e0def4"
+
+love = "#eb6f92"
+gold = "#f6c177"
+rose = "#ea9a97"
+pine = "#3e8fb0"
+foam = "#9ccfd8"
+iris = "#c4a7e7"
+
+highlight-low = "#2a283e"
+highlight-med = "#44415a"
+highlight-high = "#56526e"
+
+# =========================================================================
+# GENERAL
+# =========================================================================
+
+dark = true
+true-color = always
+line-numbers = true
+side-by-side = true
+keep-plus-minus-markers = true
+hyperlinks = true
+
+# =========================================================================
+# FILE
+# =========================================================================
+
+file-style = rose-pine-mono.text bold
+file-decoration-style = rose-pine-mono.iris ul
+
+file-added-label = [+]
+file-copied-label = [C]
+file-modified-label = [M]
+file-removed-label = [-]
+file-renamed-label = [R]
+
+# =========================================================================
+# COMMIT
+# =========================================================================
+
+commit-style = rose-pine-mono.text bold
+commit-decoration-style = rose-pine-mono.iris box
+
+# =========================================================================
+# HUNK HEADER
+# =========================================================================
+
+hunk-header-style = file line-number syntax bold
+hunk-header-decoration-style = rose-pine-mono.highlight-med box ul
+hunk-header-file-style = rose-pine-mono.rose
+hunk-header-line-number-style = rose-pine-mono.gold
+
+# =========================================================================
+# LINE NUMBERS
+# =========================================================================
+
+line-numbers-left-format = "{nm:>3} │"
+line-numbers-right-format = " {np:>3} │"
+
+line-numbers-left-style = rose-pine-mono.muted
+line-numbers-right-style = rose-pine-mono.muted
+line-numbers-minus-style = rose-pine-mono.love
+line-numbers-plus-style = rose-pine-mono.foam
+line-numbers-zero-style = rose-pine-mono.muted italic
+
+# =========================================================================
+# ADDED LINES
+# =========================================================================
+
+plus-style = syntax rose-pine-mono.highlight-low
+plus-emph-style = syntax bold rose-pine-mono.foam
+plus-non-emph-style = syntax rose-pine-mono.pine
+plus-empty-line-marker-style = syntax rose-pine-mono.highlight-low
+
+# =========================================================================
+# REMOVED LINES
+# =========================================================================
+
+minus-style = syntax rose-pine-mono.highlight-low
+minus-emph-style = syntax bold rose-pine-mono.love
+minus-non-emph-style = syntax rose-pine-mono.rose
+minus-empty-line-marker-style = syntax rose-pine-mono.highlight-low
+
+# =========================================================================
+# CONTEXT / UNCHANGED
+# =========================================================================
+
+zero-style = syntax
+
+# =========================================================================
+# WHITESPACE
+# =========================================================================
+
+whitespace-error-style = rose-pine-mono.love reverse
+
+# =========================================================================
+# SYNTAX
+# =========================================================================
+
+syntax-theme = none
+
+# =========================================================================
+# INLINE HINTS
+# =========================================================================
+
+inline-hint-style = syntax rose-pine-mono.muted
+
+# =========================================================================
+# BLAME
+# =========================================================================
+
+blame-code-style = syntax
+blame-format = "{author:<18} ({commit:>8}) {timestamp:^16}"
+
+blame-palette = \
+    rose-pine-mono.base \
+    rose-pine-mono.surface \
+    rose-pine-mono.overlay \
+    rose-pine-mono.highlight-med \
+    rose-pine-mono.highlight-high \
+    rose-pine-mono.iris \
+    rose-pine-mono.pine \
+    rose-pine-mono.foam
+
+# =========================================================================
+# GREP
+# =========================================================================
+
+grep-file-style = rose-pine-mono.iris
+grep-line-number-style = rose-pine-mono.muted
+
+# =========================================================================
+# ARROWS / SYMBOLS
+# =========================================================================
+
+right-arrow = >
+
+# =========================================================================
+# MERGE CONFLICTS
+# =========================================================================
+
+merge-conflict-begin-symbol = ~
+merge-conflict-end-symbol = ~
+
+merge-conflict-ours-diff-header-style = rose-pine-mono.gold bold
+merge-conflict-theirs-diff-header-style = rose-pine-mono.gold bold
+
+merge-conflict-ours-diff-header-decoration-style = \
+    rose-pine-mono.highlight-med box
+
+merge-conflict-theirs-diff-header-decoration-style = \
+    rose-pine-mono.highlight-med box
+
+# =========================================================================
+# WRAPPING
+# =========================================================================
+
+wrap-max-lines = unlimited
+wrap-right-percent = 1
+
+# =========================================================================
+# DIFF STAT
+# =========================================================================
+
+diff-stat-align-width = 10
+
