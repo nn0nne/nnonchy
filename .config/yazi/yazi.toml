@@ -70,9 +70,6 @@ trash = [
 	{ run = "ya pub trash-restore --list %S", desc = "Restore selected files" },
 	{ run = "ya pub trash-empty --list %S",   desc = "Empty trash bin" },
 ]
-mpv-image = [
-  { run = 'mpv "%s"', desc = "View with MPV", for = "linux", orphan = true },
-]
 gthumb = [
   { run = 'gthumb "%s"', desc = "Edit with gThumb", for = "linux", orphan = true },
 ]
@@ -85,7 +82,9 @@ trash-empty = [
 
 [open]
 prepend_rules = [
-  { mime = "trash/**", use = ["open", "trash","trash-empty"] },
+  { mime = "trash/**", use = ["open", "trash", "trash-empty"] },
+  { mime = "image/*", use = [ "open", "gthumb", "reveal" ] },
+  { mime = "{audio,video}/*", use = [ "play", "vlc", "reveal" ] },
 ]
 rules = [
 	# Folder
