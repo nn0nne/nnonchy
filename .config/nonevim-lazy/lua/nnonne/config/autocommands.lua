@@ -32,6 +32,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "trouble",
     "opencode",
     "toggleterm",
+    "snacks"
   },
   callback = function()
     vim.b.miniindentscope_disable = true
