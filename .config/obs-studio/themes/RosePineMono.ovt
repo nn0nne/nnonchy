@@ -1,0 +1,40 @@
+@OBSThemeMeta {
+
+name: 'Rosé Pine Moon';
+id: 'com.obsproject.Yami.RosePineMoon';
+extends: 'com.obsproject.Yami';
+author: 'Custom';
+dark: 'true';
+
+}
+
+@OBSThemeVars {
+
+--grey1: #56526e;
+--grey2: #44415a;
+--grey3: #393552;
+--grey4: #2a273f;
+--grey5: #232136;
+--grey6: #232136;
+--grey7: #1f1d30;
+--grey8: #191724;
+
+--white1: #e0def4;
+
+--primary_lighter: #9ccfd8;
+--primary_light: #56949f;
+--primary: #3e8fb0;
+--primary_dark: #286983;
+--primary_darker: #232136;
+
+--palette_link: #9ccfd8;
+--palette_linkVisited: #9ccfd8;
+
+--text: #e0def4;
+--text_light: #e0def4;
+--text_muted: #908caa;
+--text_disabled: #6e6a86;
+--text_inactive: #908caa;
+
+}
+
