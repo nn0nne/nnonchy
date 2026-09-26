@@ -1,5 +1,5 @@
 format = """
-${custom.cat}$cmd_duration$fill${custom.docker}${custom.time_day}${custom.time_date}${custom.time_clock}$battery${custom.inhibit}| ${custom.bluetooth}${custom.wifi}${custom.profile}\
+${custom.cat}$cmd_duration$fill${custom.docker}${custom.time_day}${custom.time_date}${custom.time_clock}$battery${custom.inhibit}| ${custom.bluetooth}${custom.wifi}${custom.profile}${custom.vesktop}\
 $line_break\
 $username\
 $hostname\
@@ -219,6 +219,13 @@ when = "systemctl is-active --quiet docker.service"
 style = "bold pine"
 format = "[$output]($style) | "
 shell = ["zsh"]
+
+[custom.vesktop]
+command = "pgrep -x vesktop >/dev/null && echo '󰙯' || true"
+when = "pgrep -x vesktop >/dev/null"
+format = "| [$output]($style) "
+style = "bold"
+shell = ["sh"]
 
 [time]
 disabled = true
