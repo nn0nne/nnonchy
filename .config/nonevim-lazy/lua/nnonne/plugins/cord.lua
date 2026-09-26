@@ -80,14 +80,7 @@ return {
         end,
         dashboard = "Using Neovim",
       },
-      buttons = nil,
-      assets = nil,
-      variables = nil,
       hooks = {
-        ready = nil,
-        shutdown = nil,
-        pre_activity = nil,
-        post_activity = nil,
         idle_enter = function(opts)
           opts.manager:set_activity({
             details = "眠いよね、みんな？",
@@ -122,27 +115,6 @@ return {
             },
           })
         end,
-      },
-      plugins = nil,
-      advanced = {
-        plugin = {
-          autocmds = true,
-          cursor_update = "on_hold",
-          match_in_mappings = true,
-        },
-        server = {
-          update = "fetch",
-          pipe_path = nil,
-          executable_path = nil,
-          timeout = 300000,
-        },
-        discord = {
-          reconnect = {
-            enabled = false,
-            interval = 5000,
-            initial = true,
-          },
-        },
       },
     })
   end
