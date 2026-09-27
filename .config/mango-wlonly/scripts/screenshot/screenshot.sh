@@ -3,71 +3,71 @@ set -euo pipefail
 
 TARGET_DIR="$HOME/Pictures/Screenshots"
 mkdir -p "$TARGET_DIR"
+
 FILEPATH="$TARGET_DIR/$(date +%Y-%m-%d_%H-%M-%S).png"
 
-MODE="${1:-fullscreen}" # fullscreen, region, window
-COPY_CLIP="${3:-false}" # true, false
+MODE="${1:-fullscreen}"   # fullscreen, region, window
+COPY_CLIP="${2:-false}"   # true, false
 
-if [ "$MODE" = "region" ]; then
-  # 1. Coordinate wayfreeze
-  PIPE=$(mktemp -u).fifo
-  mkfifo "$PIPE"
+WAYFREEZE_PID=""
 
-  # wayfreeze --hide-cursor --after-freeze-timeout 100 --after-freeze-cmd "echo > $PIPE" &
-  wayfreeze --hide-cursor --after-freeze-cmd "echo > $PIPE" &
-  WAYFREEZE_PID=$!
-  read -r <"$PIPE"
-  rm -f "$PIPE"
-
-  # 2. Capture the full frozen frame to memory immediately
-  TEMP_SNAP=$(mktemp -t frozen-XXXXXX.png)
-  grim "$TEMP_SNAP"
-
-  # 3. Drop wayfreeze right away so user has input controls back
-  kill "$WAYFREEZE_PID" 2>/dev/null
-
-  # 4. Use slurp to get the geometry region
-  GEOMETRY=$(slurp -d)
-  if [ -z "$GEOMETRY" ]; then
-    rm -f "$TEMP_SNAP"
-    exit 1
-  fi
-
-  # 5. FIX: Have grim crop the frozen image using standard input.
-  # Grim perfectly scales logical coordinates (-g) over a physical image source (-)
-  grim -g "$GEOMETRY" - <"$TEMP_SNAP" >"$FILEPATH"
-  rm -f "$TEMP_SNAP"
-
-else
-  # Standard flow for Fullscreen and Window modes
-  PIPE=$(mktemp -u).fifo
-  mkfifo "$PIPE"
-
-  # wayfreeze --hide-cursor --after-freeze-timeout 100 --after-freeze-cmd "echo > $PIPE" &
-  wayfreeze --hide-cursor --after-freeze-cmd "echo > $PIPE" &
-  WAYFREEZE_PID=$!
-  read -r <"$PIPE"
-  rm -f "$PIPE"
-
-  GEOMETRY=""
-  if [ "$MODE" = "window" ]; then
-    GEOMETRY=$(mmsg get focusing-client | jq -r '"\(.x),\(.y) \(.width)x\(.height)"')
-    if [ -z "$GEOMETRY" ]; then
-      kill "$WAYFREEZE_PID" 2>/dev/null
-      exit 1
+cleanup() {
+    if [[ -n "$WAYFREEZE_PID" ]]; then
+        kill "$WAYFREEZE_PID" 2>/dev/null || true
+        wait "$WAYFREEZE_PID" 2>/dev/null || true
     fi
-  fi
+}
 
-  if [ -n "$GEOMETRY" ]; then
-    grim -g "$GEOMETRY" "$FILEPATH"
-  else
-    grim "$FILEPATH"
-  fi
+trap cleanup EXIT INT TERM HUP
 
-  kill "$WAYFREEZE_PID" 2>/dev/null
-fi
+case "$MODE" in
+    fullscreen)
+        grim "$FILEPATH"
+        ;;
 
-# 7. Copy to clipboard if requested
-if [ "$COPY_CLIP" = "true" ] && [ -f "$FILEPATH" ]; then
-  wl-copy <"$FILEPATH"
+    window)
+        GEOMETRY="$(
+            mmsg get focusing-client |
+                jq -r '"\(.x),\(.y) \(.width)x\(.height)"'
+        )"
+
+        if [[ -z "$GEOMETRY" || "$GEOMETRY" == "null,null nullxnull" ]]; then
+            echo "Could not determine focused window geometry." >&2
+            exit 1
+        fi
+
+        grim -g "$GEOMETRY" "$FILEPATH"
+        ;;
+
+    region)
+        # Freeze the current frame.
+        wayfreeze --hide-cursor &
+        WAYFREEZE_PID=$!
+
+        # Give wayfreeze a moment to establish the frozen frame.
+        sleep 0.1
+
+        # Select directly on the frozen frame.
+        if ! GEOMETRY="$(slurp -d)"; then
+            echo "selection cancelled" >&2
+            exit 1
+        fi
+
+        if [[ -z "$GEOMETRY" ]]; then
+            echo "selection cancelled" >&2
+            exit 1
+        fi
+
+        # Capture the selected region while the frame is still frozen.
+        grim -g "$GEOMETRY" "$FILEPATH"
+        ;;
+
+    *)
+        echo "Usage: $0 [fullscreen|region|window] [true|false]" >&2
+        exit 2
+        ;;
+esac
+
+if [[ "$COPY_CLIP" == "true" && -f "$FILEPATH" ]]; then
+    wl-copy <"$FILEPATH"
 fi
