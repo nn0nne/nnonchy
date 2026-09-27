@@ -1,0 +1,111 @@
+# Rosé Pine Moon for eza — Linux console (16-colour) variant
+#
+# Used only when TERM=linux (see ~/.config/zsh/tty-theme.zsh, which sets
+# EZA_CONFIG_DIR). eza's theme parser only understands the 8 basic ANSI colour
+# names, so the muted/subtle greys are approximated by "white" here and
+# brightened to bright-black via EZA_COLORS in the shell config.
+#
+# Derived from ~/.config/eza/rose-pine-moon.yml by mapping:
+#   #e0def4 white   #c4a7e7 purple   #9ccfd8 green    #6e6a86 white
+#   #eb6f92 red     #3e8fb0 blue     #f6c177 yellow   #ea9a97 cyan
+#   #908caa white
+
+filekinds:
+  normal: { foreground: "white" }
+  directory: { foreground: "purple", is_bold: true }
+  symlink: { foreground: "green" }
+  pipe: { foreground: "white" }
+  block_device: { foreground: "red" }
+  char_device: { foreground: "red" }
+  socket: { foreground: "white" }
+  special: { foreground: "purple" }
+  executable: { foreground: "blue", is_bold: true }
+  mount_point: { foreground: "green" }
+
+perms:
+  user_read: { foreground: "white" }
+  user_write: { foreground: "yellow" }
+  user_execute_file: { foreground: "blue" }
+  user_execute_other: { foreground: "blue" }
+  group_read: { foreground: "white" }
+  group_write: { foreground: "yellow" }
+  group_execute: { foreground: "blue" }
+  other_read: { foreground: "white" }
+  other_write: { foreground: "yellow" }
+  other_execute: { foreground: "blue" }
+  special_user_file: { foreground: "purple" }
+  special_other: { foreground: "white" }
+  attribute: { foreground: "white" }
+
+size:
+  major: { foreground: "green" }
+  minor: { foreground: "blue" }
+  number_byte: { foreground: "white" }
+  number_kilo: { foreground: "white" }
+  number_mega: { foreground: "green" }
+  number_giga: { foreground: "purple" }
+  number_huge: { foreground: "red" }
+  unit_byte: { foreground: "white" }
+  unit_kilo: { foreground: "white" }
+  unit_mega: { foreground: "green" }
+  unit_giga: { foreground: "purple" }
+  unit_huge: { foreground: "red" }
+
+users:
+  user_you: { foreground: "white" }
+  user_root: { foreground: "red" }
+  user_other: { foreground: "white" }
+  group_yours: { foreground: "white" }
+  group_root: { foreground: "red" }
+  group_other: { foreground: "white" }
+
+links:
+  normal: { foreground: "green" }
+  multi_link_file: { foreground: "yellow" }
+
+git:
+  new: { foreground: "green" }
+  modified: { foreground: "yellow" }
+  deleted: { foreground: "red" }
+  renamed: { foreground: "purple" }
+  typechange: { foreground: "cyan" }
+  ignored: { foreground: "white" }
+  conflicted: { foreground: "red" }
+
+git_repo:
+  branch_main: { foreground: "white" }
+  branch_other: { foreground: "purple" }
+  git_clean: { foreground: "green" }
+  git_dirty: { foreground: "yellow" }
+
+file_type:
+  image: { foreground: "yellow" }
+  video: { foreground: "red" }
+  music: { foreground: "green" }
+  lossless: { foreground: "blue" }
+  crypto: { foreground: "red" }
+  document: { foreground: "white" }
+  compressed: { foreground: "purple" }
+  temp: { foreground: "white" }
+  compiled: { foreground: "white" }
+  build: { foreground: "cyan" }
+  source: { foreground: "green" }
+
+security_context:
+  colon: { foreground: "white" }
+  user: { foreground: "white" }
+  role: { foreground: "purple" }
+  typ: { foreground: "white" }
+  range: { foreground: "purple" }
+
+punctuation: { foreground: "white" }
+date: { foreground: "yellow" }
+inode: { foreground: "white" }
+blocks: { foreground: "white" }
+header: { foreground: "white", is_bold: true }
+octal: { foreground: "green" }
+flags: { foreground: "purple" }
+symlink_path: { foreground: "green" }
+control_char: { foreground: "blue" }
+broken_symlink: { foreground: "red" }
+broken_path_overlay: { foreground: "white" }
