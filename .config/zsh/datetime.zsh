@@ -25,12 +25,20 @@ function _transient_precmd() {
   # Render character module and cache the snapshot for the transient prompt
   local char_str=$(starship module character)
   
-  # Format date components with ANSI truecolor escape sequences
-  local c_overlay=$'%{\e[38;2;57;53;82m%}'
-  local c_iris=$'%{\e[38;2;196;167;231m%}'
-  local c_foam=$'%{\e[38;2;156;207;216m%}'
-  local c_rose=$'%{\e[38;2;234;154;151m%}'
-  local c_reset=$'%{\e[0m%}'
+  # Date components. Truecolor for GUI terminals; 16-colour palette for the
+  # Linux console, which ignores 24-bit escapes.
+  local c_overlay c_iris c_foam c_rose c_reset=$'%{\e[0m%}'
+  if [[ $TERM == linux* ]]; then
+    c_overlay=$'%{\e[90m%}'   # overlay -> bright black
+    c_iris=$'%{\e[35m%}'      # iris    -> magenta
+    c_foam=$'%{\e[32m%}'      # foam    -> green
+    c_rose=$'%{\e[36m%}'      # rose    -> cyan
+  else
+    c_overlay=$'%{\e[38;2;57;53;82m%}'
+    c_iris=$'%{\e[38;2;196;167;231m%}'
+    c_foam=$'%{\e[38;2;156;207;216m%}'
+    c_rose=$'%{\e[38;2;234;154;151m%}'
+  fi
 
   local day_str="${c_foam}0$(date +"%u")${c_reset}"
   local date_str="${c_iris}$(date +"%d%m")${c_reset}"

@@ -136,4 +136,7 @@ source "$ZDOTDIR/docker.zsh"
 # Docker
 source "$ZDOTDIR/datetime.zsh"
 
+# TTY (Linux console) theme overrides
+source "$ZDOTDIR/tty-theme.zsh"
+
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
