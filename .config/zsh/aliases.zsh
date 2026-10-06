@@ -18,6 +18,8 @@ alias celluloid="env DRI_PRIME=0 celluloid"
 alias lg="lazygit"
 alias cal="cal -y -m"
 
+alias batt='~/.config/mango/scripts/batt'
+
 ### zim-utility ###
 
 if (( ${+commands[aria2c]} )); then
