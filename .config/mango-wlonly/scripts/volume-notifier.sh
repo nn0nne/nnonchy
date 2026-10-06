@@ -2,8 +2,8 @@
 
 # Change volume or mute based on the argument passed to the script
 case "$1" in
-up) pactl set-sink-volume @DEFAULT_SINK@ +1% ;;
-down) pactl set-sink-volume @DEFAULT_SINK@ -1% ;;
+up) pactl set-sink-volume @DEFAULT_SINK@ +2% ;;
+down) pactl set-sink-volume @DEFAULT_SINK@ -2% ;;
 mute) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
 esac
 

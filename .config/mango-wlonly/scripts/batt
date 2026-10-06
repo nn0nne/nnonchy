@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -u
+BAT=/sys/class/power_supply/BAT1
+cap=$(cat "$BAT/capacity" 2>/dev/null || echo '?')
+st=$(cat "$BAT/status" 2>/dev/null || echo '?')
+cur=$(cat "$BAT/current_now" 2>/dev/null || echo 0)
+volt=$(cat "$BAT/voltage_now" 2>/dev/null || echo 0)
+w=$(awk -v c="$cur" -v v="$volt" 'BEGIN{printf "%.2f", c*v/1e12}')
+health=$(awk -v a="$(cat "$BAT/charge_full")" -v b="$(cat "$BAT/charge_full_design")" 'BEGIN{printf "%.1f", a*100/b}')
+printf 'Battery : %s%% (%s)\n' "$cap" "$st"
+printf 'Draw    : %s W\n' "$w"
+printf 'Health  : %s%%\n' "$health"
+upower -i "$(upower -e | grep -i bat | head -1)" 2>/dev/null \
+  | awk -F: '/time to (empty|full)/{gsub(/^ +/,"",$2); print "ETA     : " $2}'
+t=$(sensors 2>/dev/null | awk -F'[+°C]' '/Package id 0/{print $2; exit}')
+[ -n "$t" ] && printf 'CPU     : %s°C\n' "$t"
