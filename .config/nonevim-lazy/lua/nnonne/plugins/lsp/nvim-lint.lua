@@ -1,40 +1,59 @@
 return {
   "mfussenegger/nvim-lint",
-  event = { "BufReadPost", "BufWritePost" },
+  event = { "BufWritePost" },
   config = function()
     local lint = require("lint")
 
-    -- Helper to safely get the binary name/string from a linter spec
-    local function get_linter_cmd(name)
-      local linter = lint.linters[name]
-      if not linter then
-        return name
-      end
-      if type(linter) == "function" then
-        linter = linter()
-      end
-      if type(linter) == "table" then
-        if type(linter.cmd) == "function" then
-          return linter.cmd()
-        end
-        return linter.cmd or name
-      end
-      return name
+    -- ESLint is a per-project devDependency, not a global/mise tool, so resolve
+    -- it from the buffer's project root instead of relying on `eslint` being on
+    -- PATH. Only lint where an eslint config actually exists.
+    local eslint_configs = {
+      "eslint.config.js",
+      "eslint.config.mjs",
+      "eslint.config.cjs",
+      "eslint.config.ts",
+      ".eslintrc",
+      ".eslintrc.js",
+      ".eslintrc.cjs",
+      ".eslintrc.json",
+      ".eslintrc.yaml",
+      ".eslintrc.yml",
+    }
+
+    ---@return string|nil root
+    local function eslint_root()
+      return vim.fs.root(0, eslint_configs)
     end
 
-    -- Helper to select the first available executable linter
-    local function first_available(linters)
-      for _, name in ipairs(linters) do
-        local cmd = get_linter_cmd(name)
-        if type(cmd) == "string" and vim.fn.executable(cmd) == 1 then
-          return { name }
+    ---@return string|nil executable
+    local function resolve_eslint()
+      local root = eslint_root()
+      if not root then
+        return nil
+      end
+
+      -- Prefer eslint_d (warm daemon) when present: type-checked eslint configs
+      -- can take ~20s cold per invocation.
+      for _, candidate in ipairs({
+        root .. "/node_modules/.bin/eslint_d",
+        "eslint_d",
+        root .. "/node_modules/.bin/eslint",
+        "eslint",
+      }) do
+        if vim.fn.executable(candidate) == 1 then
+          return candidate
         end
       end
-      return {}
+
+      return nil
     end
+
+    -- Point the built-in eslint linter at the project-local binary.
+    lint.linters.eslint.cmd = resolve_eslint
+
     lint.linters_by_ft = {
-      javascript = first_available({ "eslint", "eslint_d", }),
-      typescript = first_available({ "eslint", "eslint_d", }),
+      javascript = { "eslint" },
+      typescript = { "eslint" },
     }
 
     -- Sandboxing state (default: false / bare execution)
@@ -44,6 +63,10 @@ return {
     ---@return lint.Linter
     local function systemd_run(linter)
       local cwd = vim.fn.getcwd()
+      local cmd = linter.cmd
+      if type(cmd) == "function" then
+        cmd = cmd()
+      end
       local args = {
         "--user",
         "--collect",
@@ -55,7 +78,7 @@ return {
         "-p", "PrivateNetwork=true",
         "-p", string.format("BindReadOnlyPaths='%s':'%s'", cwd, cwd),
         "-E", "PATH=" .. (vim.env.PATH or os.getenv("PATH") or ""),
-        linter.cmd,
+        cmd,
       }
       linter.cmd = "systemd-run"
       vim.list_extend(args, linter.args or {})
@@ -64,6 +87,15 @@ return {
     end
 
     local function run_linter()
+      -- Skip huge buffers; running eslint over a multi-thousand-line file is
+      -- wasteful and competes with the LSP.
+      if require("nnonne.util.bigfile").is_big(0) then
+        return
+      end
+      -- Nothing to lint (no config / no binary) -> stay quiet.
+      if not resolve_eslint() then
+        return
+      end
       if use_sandbox then
         lint.try_lint(nil, { wrap_linter = systemd_run })
       else
@@ -83,7 +115,7 @@ return {
 
     -- Autocommands
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+    vim.api.nvim_create_autocmd("BufWritePost", {
       group = lint_augroup,
       callback = run_linter,
     })

@@ -96,9 +96,10 @@ vim.keymap.set("n", "<leader>gt", function()
   end
 end, { desc = "Toggle Lazygit (Context Aware Terminal Popup)" })
 
--- Toggle Inlay Hints dengan tombol <leader>th
-vim.keymap.set('n', '<leader>th', function()
-  local current_state = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
-  vim.lsp.inlay_hint.enable(not current_state, { bufnr = 0 })
-  print("Inlay hints: " .. (not current_state and "ON" or "OFF"))
-end, { desc = "Toggle LSP Inlay Hints" })
+vim.keymap.set("n", "<leader>wl", function()
+  vim.wo.wrap = not vim.wo.wrap
+  vim.wo.linebreak = vim.wo.wrap
+end, {
+  silent = true,
+  desc = "Toggle line wrap",
+})

@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "trouble",
     "opencode",
     "toggleterm",
-    "snacks"
+    "snacks.terminal"
   },
   callback = function()
     vim.b.miniindentscope_disable = true
@@ -44,12 +44,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local client_id = tonumber(event.data.client_id)
     local client = client_id and vim.lsp.get_client_by_id(client_id)
 
-    -- Check if the active LSP server supports text document highlighting
-    if client and client:supports_method("textDocument/documentHighlight") then
+    -- Check if the active LSP server supports text document highlighting.
+    -- Skip big buffers: the extra round-trip on CursorHold(I) is costly there.
+    if client
+      and client:supports_method("textDocument/documentHighlight")
+      and not require("nnonne.util.bigfile").is_big(event.buf)
+    then
       -- group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
 
-      -- Highlight word references when holding the cursor still
-      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      -- Highlight word references when holding the cursor still.
+      -- Normal mode only: `CursorHoldI` would fire a server round-trip on every
+      -- idle moment while typing.
+      vim.api.nvim_create_autocmd("CursorHold", {
         buffer = event.buf,
         group = lsp_doc_highlight,
         callback = vim.lsp.buf.document_highlight,

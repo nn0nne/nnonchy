@@ -50,7 +50,9 @@ return {
           },
         },
         documentation = {
-          auto_show = true,
+          -- Manual on <C-space> (blink's `show_documentation`). Auto-show fetches
+          -- docs per selected item, which is chatty on large files.
+          auto_show = false,
           auto_show_delay_ms = 200,
           window = {
             -- border = "none",

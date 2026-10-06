@@ -86,17 +86,16 @@ return {
           return
         end
 
-        -- load parser safely
-        local ok_add = pcall(vim.treesitter.language.add, lang)
-        if not ok_add then
+        -- Huge buffers stay on regex highlighting to avoid a full re-parse on
+        -- every edit/scroll. See lua/nnonne/util/bigfile.lua.
+        if require("nnonne.util.bigfile").is_huge(buf) then
           return
         end
 
-        -- start treesitter safely
-        pcall(vim.treesitter.start, buf, lang)
+        -- Start treesitter safely. vim.treesitter.start() also loads the parser.
+        local ok_start = pcall(vim.treesitter.start, buf, lang)
 
         -- enable indentation only for real languages
-        local ok_start = pcall(vim.treesitter.start, buf, lang)
         if ok_start and ft ~= "yaml" and ft ~= "markdown" then
           vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
           vim.bo[buf].smartindent = false

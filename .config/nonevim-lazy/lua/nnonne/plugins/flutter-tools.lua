@@ -74,6 +74,12 @@ return {
     })
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(ev)
+        -- Only Dart provides document colors here; without this guard the
+        -- request also fires for every other server/filetype (e.g. tailwind on
+        -- large TSX files), which is needlessly expensive.
+        if vim.bo[ev.buf].filetype ~= "dart" then
+          return
+        end
         vim.lsp.document_color.enable(true, { bufnr = ev.buf })
       end,
     })

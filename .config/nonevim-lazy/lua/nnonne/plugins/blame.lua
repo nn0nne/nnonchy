@@ -3,7 +3,9 @@ return {
   event = "VeryLazy",
   config = function()
     require("gitblame").setup({
-      enabled = true,
+      -- Off by default: it shells out to `git blame` on every CursorHold across
+      -- every buffer. Toggle on demand with <leader>gb (:GitBlameToggle).
+      enabled = false,
       message_template = " <summary> • <date> • <author>",
       date_format = "%d%m%y%H%M",
       max_commit_summary_length = 50,

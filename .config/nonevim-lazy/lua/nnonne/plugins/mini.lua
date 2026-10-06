@@ -24,7 +24,7 @@ return {
         end,
       },
     })
-    require("mini.extra").setup()
+    -- require("mini.extra").setup()
     require("mini.jump").setup()
     require("mini.bufremove").setup()
 
@@ -180,35 +180,35 @@ return {
       silent = true,
     })
 
-    vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-      callback = function(ev)
-        local opts = { buffer = ev.buf, silent = true }
-        local extra = require("mini.extra")
-
-        opts.desc = "Show LSP references"
-        vim.keymap.set("n", "gR", function()
-          extra.pickers.lsp({ scope = "references" })
-        end, opts)
-
-        opts.desc = "Go to declaration"
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-
-        opts.desc = "Show LSP definitions"
-        vim.keymap.set("n", "gd", function()
-          extra.pickers.lsp({ scope = "definition" })
-        end, opts)
-
-        opts.desc = "Show LSP implementations"
-        vim.keymap.set("n", "gi", function()
-          extra.pickers.lsp({ scope = "implementation" })
-        end, opts)
-
-        opts.desc = "Show LSP type definitions"
-        vim.keymap.set("n", "gt", function()
-          extra.pickers.lsp({ scope = "type_definition" })
-        end, opts)
-      end,
-    })
+    -- vim.api.nvim_create_autocmd("LspAttach", {
+    --   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+    --   callback = function(ev)
+    --     local opts = { buffer = ev.buf, silent = true }
+    --     local extra = require("mini.extra")
+    --
+    --     opts.desc = "Show LSP references"
+    --     vim.keymap.set("n", "gR", function()
+    --       extra.pickers.lsp({ scope = "references" })
+    --     end, opts)
+    --
+    --     opts.desc = "Go to declaration"
+    --     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    --
+    --     opts.desc = "Show LSP definitions"
+    --     vim.keymap.set("n", "gd", function()
+    --       extra.pickers.lsp({ scope = "definition" })
+    --     end, opts)
+    --
+    --     opts.desc = "Show LSP implementations"
+    --     vim.keymap.set("n", "gi", function()
+    --       extra.pickers.lsp({ scope = "implementation" })
+    --     end, opts)
+    --
+    --     opts.desc = "Show LSP type definitions"
+    --     vim.keymap.set("n", "gt", function()
+    --       extra.pickers.lsp({ scope = "type_definition" })
+    --     end, opts)
+    --   end,
+    -- })
   end
 }
