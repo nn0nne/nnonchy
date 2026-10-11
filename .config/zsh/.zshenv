@@ -3,14 +3,14 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_DATA_DIRS="~/.local/share:/usr/share"
+export XDG_DATA_DIRS="${XDG_DATA_HOME:-$HOME/.local/share}:/usr/local/share:/usr/share"
 
 [[ -d "$XDG_STATE_HOME/zsh" ]] || mkdir -p "$XDG_STATE_HOME/zsh"
 
 # Default editor used by git, crontab, etc.
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="foot"
+if [[ -n ${KITTY_WINDOW_ID:-} ]]; then export TERMINAL=kitty; else export TERMINAL=foot; fi
 
 # Pager
 if command -v bat >/dev/null 2>&1; then

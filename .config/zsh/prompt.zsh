@@ -1,7 +1,7 @@
 # Prevent Python virtualenv from polluting the prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-source "$ZDOTDIR/plugins/zsh-transient-prompt/transient-prompt.zsh-theme"
+# source "$ZDOTDIR/plugins/zsh-transient-prompt/transient-prompt.zsh-theme"
 # Initiazlie starhship
 eval "$(starship init zsh)"
 

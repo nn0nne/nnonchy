@@ -87,8 +87,8 @@ setopt NO_HUP
 # Completion
 # =========================================================
 
+fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
 source "$ZDOTDIR/completion.zsh"
-fpath=(~$ZDOTDIR/plugins/zsh-completions/src $fpath)
 
 # =========================================================
 # Fuzzy finder
