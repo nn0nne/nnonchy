@@ -7,7 +7,7 @@ return {
   ft = { "markdown", "vimwiki" },
   config = function()
     require("render-markdown").setup({
-      debounce = 500,
+      debounce = 250,
       heading = {
         enabled = true,
         render_modes = true,
