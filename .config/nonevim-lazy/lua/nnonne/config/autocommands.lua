@@ -47,8 +47,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Check if the active LSP server supports text document highlighting.
     -- Skip big buffers: the extra round-trip on CursorHold(I) is costly there.
     if client
-      and client:supports_method("textDocument/documentHighlight")
-      and not require("nnonne.util.bigfile").is_big(event.buf)
+        and client:supports_method("textDocument/documentHighlight")
+        and not require("nnonne.util.bigfile").is_big(event.buf)
     then
       -- group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
 
@@ -73,6 +73,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_set_hl(0, "LspReferenceText", { underline = true, bg = "#333738" })
 vim.api.nvim_set_hl(0, "LspReferenceRead", { underline = true, bg = "#333738" })
 vim.api.nvim_set_hl(0, "LspReferenceWrite", { bold = true, underline = true, bg = "#333738" })
+
+-- Highlight when yanking (copying) text
+vim.api.nvim_set_hl(0, 'YankHighlight', {
+  fg = '#e0def4', -- rose pine moon text
+  bg = '#6e6a86', -- muted rose-gray
+  bold = true,
+})
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.hl.on_yank({
+      higroup = 'YankHighlight',
+      -- timeout = 200,
+    })
+  end,
+})
 
 -- vim.api.nvim_create_autocmd("VimEnter", {
 --   callback = function()
