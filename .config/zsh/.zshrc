@@ -1,4 +1,19 @@
 # =========================================================
+# kitty shell integration
+# =========================================================
+# /etc/zsh/zshenv unconditionally points ZDOTDIR at ~/.config/zsh, which
+# overrides the ZDOTDIR kitty uses to inject its own integration wrapper.
+# Load it explicitly here. This is required for prompt marks, scroll_to_prompt,
+# notify_on_cmd_finish, and for `save_as_session --use-foreground-process` to
+# capture running commands so sessions can be resurrected.
+if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
+    export KITTY_SHELL_INTEGRATION="${KITTY_SHELL_INTEGRATION:-enabled}"
+    autoload -Uz -- "$KITTY_INSTALLATION_DIR/shell-integration/zsh/kitty-integration"
+    kitty-integration
+    unfunction kitty-integration 2>/dev/null
+fi
+
+# =========================================================
 # History
 # =========================================================
 
@@ -129,6 +144,9 @@ source "$ZDOTDIR/prompt.zsh"
 
 # Functions
 source "$ZDOTDIR/functions.zsh"
+
+# kitty session auto-save
+source "$ZDOTDIR/kitty.zsh"
 
 # Docker
 source "$ZDOTDIR/docker.zsh"
