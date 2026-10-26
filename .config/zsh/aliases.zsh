@@ -18,6 +18,7 @@ alias celluloid="env DRI_PRIME=0 celluloid"
 alias lg="lazygit"
 alias cal="cal -y -m"
 
+alias syscheck='watch -n 2 "echo \"=== SYSTEM STATUS ===\" && free -h | awk '\''NR==2{print \"RAM Used/Total: \" \$3 \" / \" \$2 \" (Available: \" \$7 \")\"} NR==3{print \"Swap Used/Total: \" \$3 \" / \" \$2}'\'' && echo \"--- TEMPERATURES ---\" && sensors 2>/dev/null | grep -E '\''Core|Tctl|edge|junction'\''"'
 alias batt='~/.config/mango/scripts/batt'
 
 ### zim-utility ###
