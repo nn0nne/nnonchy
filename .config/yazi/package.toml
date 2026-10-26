@@ -63,5 +63,10 @@ use = "grappas/wl-clipboard"
 rev = "8cc5524"
 hash = "5c587834c274dca9059092714ece1f18"
 
+[[plugin.deps]]
+use = "ryanda/video-grid"
+rev = "9274cba"
+hash = "74a763c400ba68e2affb23e5cfbfedcf"
+
 [flavor]
 deps = []
