@@ -105,3 +105,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --     vim.cmd("silent !kitty @ set-spacing padding=default")
 --   end,
 -- })
+
+-- Automatically change working directory to project root based on .git
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    local root_pattern = { ".git", "package.json", "Cargo.toml" }
+    local found_root = vim.fs.root(0, root_pattern)
+    if found_root then
+      vim.cmd("cd " .. found_root)
+    end
+  end,
+})

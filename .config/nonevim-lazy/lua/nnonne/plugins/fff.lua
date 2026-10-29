@@ -13,6 +13,7 @@ return {
       },
       lazy_sync = true,
       debug = { enabled = false, show_scores = false },
+      ignore_file = { ".ignore", ".gitignore" },
     })
 
     vim.keymap.set("n", "<leader>ff", function()
