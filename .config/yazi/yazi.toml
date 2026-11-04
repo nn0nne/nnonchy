@@ -73,6 +73,9 @@ trash = [
 gthumb = [
   { run = 'gthumb "%s"', desc = "Edit with gThumb", for = "linux", orphan = true },
 ]
+readest = [
+  { run = 'readest "$@"', desc = "Open with Readest", for = "linux", orphan = true },
+]
 vlc = [
   { run = 'vlc "%s"', desc = "Open with vlc", for = "linux", orphan = true },
 ]
@@ -84,6 +87,7 @@ trash-empty = [
 prepend_rules = [
   { mime = "trash/**", use = ["open", "trash", "trash-empty"] },
   { mime = "image/*", use = [ "open", "gthumb", "reveal" ] },
+  { url = "*.cbz", use = [ "open", "readest", "reveal" ] },
   { mime = "{audio,video}/*", use = [ "play", "vlc", "reveal" ] },
 ]
 rules = [
@@ -121,9 +125,6 @@ image_bound      = [ 10000, 10000 ]
 suppress_preload = false
 
 [plugin]
-prepend_preloaders = [
-  { mime = "video/*", run = "video-grid" },
-]
 prepend_spotters = [
   # ignore .m3u files
   { mime = 'audio/mpegurl', run = 'code' },
@@ -147,11 +148,8 @@ prepend_previewers = [
 
   { url = '**/.git/', run = 'preview-git' },
 
-  { mime = "video/*", run = "video-grid" },
-
   # Replace magick, image, video with mediainfo
-  # { mime = "{audio,video,image}/*", run = "mediainfo"},
-  { mime = "{audio,image}/*", run = "mediainfo"},
+  { mime = "{audio,video,image}/*", run = "mediainfo"},
   # .srt subtitle, adobe illustrator, adobe photoshop file
   { mime = "application/{subrip,postscript,illustrator,dvb.ait,vnd.adobe.illustrator,eps}", run = "mediainfo" },
   # Sometimes AI file is recognized as "application/pdf". Lmao.
