@@ -47,63 +47,72 @@ return {
           },
         },
       },
-      vtsls = {
-        filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+      -- vtsls = {
+      --   filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+      --   settings = {
+      --     javascript = {
+      --       checkJs = true,
+      --       suggest = {
+      --         autoImports = true,
+      --         completeFunctionCalls = true,
+      --       },
+      --       updateImportsOnFileMove = { enabled = "always" },
+      --       inlayHints = {
+      --         parameterNames = { enabled = "all" },
+      --         parameterTypes = { enabled = true },
+      --         variableTypes = { enabled = true },
+      --         propertyDeclarationTypes = { enabled = true },
+      --         functionLikeReturnTypes = { enabled = true },
+      --         enumMemberValues = { enabled = true },
+      --       },
+      --       preferences = {
+      --         importModuleSpecifier = "non-relative",
+      --         includePackageJsonAutoImports = "off",
+      --       },
+      --     },
+      --     typescript = {
+      --       -- avoid npm @types fetching and reduce completion work on big repos
+      --       disableAutomaticTypeAcquisition = true,
+      --       tsserver = {
+      --         -- VSCode defaults to 3072; raise it so tsserver doesn't GC-thrash
+      --         -- on large projects (see vtsls README "large repo" section).
+      --         maxTsServerMemory = 4096,
+      --       },
+      --       suggest = {
+      --         autoImports = true,
+      --         completeFunctionCalls = true,
+      --       },
+      --       preferences = {
+      --         importModuleSpecifier = "non-relative",
+      --         includePackageJsonAutoImports = "off",
+      --       },
+      --       updateImportsOnFileMove = { enabled = "always" },
+      --       inlayHints = {
+      --         parameterNames = { enabled = "all" },
+      --         parameterTypes = { enabled = true },
+      --         variableTypes = { enabled = true },
+      --         propertyDeclarationTypes = { enabled = true },
+      --         functionLikeReturnTypes = { enabled = true },
+      --         enumMemberValues = { enabled = true },
+      --       },
+      --     },
+      --     vtsls = {
+      --       autoUseWorkspaceTsdk = true,
+      --       enableMoveToFileCodeAction = true,
+      --       experimental = {
+      --         completion = {
+      --           enableServerSideFuzzyMatch = true,
+      --         },
+      --       },
+      --     },
+      --   },
+      -- },
+      tsc = {
         settings = {
-          javascript = {
-            checkJs = true,
-            suggest = {
-              autoImports = true,
-              completeFunctionCalls = true,
-            },
-            updateImportsOnFileMove = { enabled = "always" },
-            inlayHints = {
-              parameterNames = { enabled = "all" },
-              parameterTypes = { enabled = true },
-              variableTypes = { enabled = true },
-              propertyDeclarationTypes = { enabled = true },
-              functionLikeReturnTypes = { enabled = true },
-              enumMemberValues = { enabled = true },
-            },
-            preferences = {
-              importModuleSpecifier = "non-relative",
-              includePackageJsonAutoImports = "off",
-            },
-          },
-          typescript = {
-            -- avoid npm @types fetching and reduce completion work on big repos
+          ["js/ts"] = {
             disableAutomaticTypeAcquisition = true,
-            tsserver = {
-              -- VSCode defaults to 3072; raise it so tsserver doesn't GC-thrash
-              -- on large projects (see vtsls README "large repo" section).
-              maxTsServerMemory = 4096,
-            },
-            suggest = {
-              autoImports = true,
-              completeFunctionCalls = true,
-            },
-            preferences = {
-              importModuleSpecifier = "non-relative",
-              includePackageJsonAutoImports = "off",
-            },
-            updateImportsOnFileMove = { enabled = "always" },
-            inlayHints = {
-              parameterNames = { enabled = "all" },
-              parameterTypes = { enabled = true },
-              variableTypes = { enabled = true },
-              propertyDeclarationTypes = { enabled = true },
-              functionLikeReturnTypes = { enabled = true },
-              enumMemberValues = { enabled = true },
-            },
-          },
-          vtsls = {
-            autoUseWorkspaceTsdk = true,
-            enableMoveToFileCodeAction = true,
-            experimental = {
-              completion = {
-                enableServerSideFuzzyMatch = true,
-              },
-            },
+            suggest = { autoImports = true },
+            preferences = { importModuleSpecifier = "non-relative" },
           },
         },
       },
@@ -189,7 +198,8 @@ return {
     --- servers whose binaries are provided by mise / node and are affected by
     --- shim resolution. { tool, args, prefer_project_local_binary }
     local mise_servers = {
-      vtsls = { "vtsls", { "--stdio" } },
+      -- vtsls = { "vtsls", { "--stdio" } },
+      tsc = { "tsc", { "--lsp", "--stdio" } },
       tailwindcss = { "tailwindcss-language-server", { "--stdio" }, true },
       html = { "vscode-html-language-server", { "--stdio" }, true },
       cssls = { "vscode-css-language-server", { "--stdio" }, true },

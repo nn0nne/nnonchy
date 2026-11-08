@@ -109,10 +109,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Automatically change working directory to project root based on .git
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
+    -- Keep the launch dir when no real file was opened.
+    local name = vim.api.nvim_buf_get_name(0)
+    if name == "" or vim.fn.isdirectory(name) == 1 or vim.bo.buftype ~= "" then return end
+
     local root_pattern = { ".git", "package.json", "Cargo.toml" }
     local found_root = vim.fs.root(0, root_pattern)
-    if found_root then
-      vim.cmd("cd " .. found_root)
-    end
+    if found_root then vim.cmd("cd " .. found_root) end
   end,
 })

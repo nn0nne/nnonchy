@@ -62,7 +62,7 @@ return {
     ---@param linter lint.Linter
     ---@return lint.Linter
     local function systemd_run(linter)
-      local cwd = vim.fn.getcwd()
+      local cwd = eslint_root() or vim.fn.getcwd()
       local cmd = linter.cmd
       if type(cmd) == "function" then
         cmd = cmd()
@@ -92,14 +92,12 @@ return {
       if require("nnonne.util.bigfile").is_big(0) then
         return
       end
-      -- Nothing to lint (no config / no binary) -> stay quiet.
-      if not resolve_eslint() then
-        return
-      end
+      local root = eslint_root()
+      if not root or not resolve_eslint() then return end
       if use_sandbox then
-        lint.try_lint(nil, { wrap_linter = systemd_run })
+        lint.try_lint(nil, { cwd = root, wrap_linter = systemd_run })
       else
-        lint.try_lint()
+        lint.try_lint(nil, { cwd = root })
       end
     end
 

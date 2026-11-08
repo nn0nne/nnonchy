@@ -6,6 +6,8 @@ return {
   end,
   lazy = false, -- the plugin lazy-initialises itself
   config = function()
+    local root = vim.uv.cwd()
+
     require("fff").setup({
       prompt = "(づ｡◕‿‿◕｡)づ ",
       layout = {
@@ -13,17 +15,20 @@ return {
       },
       lazy_sync = true,
       debug = { enabled = false, show_scores = false },
-      ignore_file = { ".ignore", ".gitignore" },
     })
 
+    local function with_root(extra)
+      return vim.tbl_extend("force", { cwd = root }, extra or {})
+    end
+
     vim.keymap.set("n", "<leader>ff", function()
-      require("fff").find_files()
+      require("fff").find_files(with_root())
     end, { desc = "Find files - FFF" })
     vim.keymap.set("n", "<leader>fg", function()
-      require("fff").live_grep()
+      require("fff").live_grep(with_root())
     end, { desc = "Grep files - FFF" })
     vim.keymap.set("n", "<leader>fz", function()
-      require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
+      require("fff").live_grep(with_root({ grep = { modes = { "fuzzy", "plain" } } }))
     end, { desc = "Grep files - FFF" })
   end
 }

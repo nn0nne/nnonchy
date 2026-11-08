@@ -22,6 +22,41 @@ return {
       end
     end,
     config = function()
+      local function project_root(buf)
+        local name = vim.api.nvim_buf_get_name(buf)
+        local root
+        for _, client in ipairs(vim.lsp.get_clients({ bufnr = buf })) do
+          local r = client.config and client.config.root_dir
+          if r and r ~= "" and name:sub(1, #r + 1) == r .. "/" and (not root or #r > #root) then
+            root = r
+          end
+        end
+        return root or vim.uv.cwd()
+      end
+
+      local function project_filename()
+        local buf = vim.api.nvim_get_current_buf()
+        local name = vim.api.nvim_buf_get_name(buf)
+        local path
+
+        if name == "" or name:match("^%a+://") then
+          path = vim.fn.expand("%:t")
+        else
+          local root = project_root(buf):gsub("/+$", "")
+          path = name:sub(1, #root + 1) == root .. "/" and name:sub(#root + 2)
+              or vim.fn.fnamemodify(name, ":~")
+
+          local parts = vim.split(path, "/")
+          if #parts > 3 then -- more than 2 directories
+            path = parts[1] .. "/.../" .. parts[#parts]
+          end
+        end
+
+        if vim.bo[buf].modified then path = path .. " [+]" end
+        if not vim.bo[buf].modifiable or vim.bo[buf].readonly then path = path .. " [-]" end
+        return path
+      end
+
       require("lualine").setup({
         options = {
           icons_enabled = true,
@@ -115,18 +150,19 @@ return {
             "diagnostics",
           },
           lualine_c = {
-            {
-              "filename",
-              file_status = true,
-              newfile_status = false,
-              path = 4,
-              symbols = {
-                modified = "[+]",
-                readonly = "[-]",
-                unnamed = "",
-                newfile = "[New]",
-              },
-            },
+            project_filename
+            -- {
+            --   "filename",
+            --   file_status = true,
+            --   newfile_status = false,
+            --   path = 4,
+            --   symbols = {
+            --     modified = "[+]",
+            --     readonly = "[-]",
+            --     unnamed = "",
+            --     newfile = "[New]",
+            --   },
+            -- },
           },
           lualine_x = {},
           lualine_y = {
@@ -145,7 +181,7 @@ return {
             "diagnostics",
             "lsp_status",
           },
-          lualine_c = { "filename" },
+          lualine_c = { project_filename },
           lualine_x = { "filetype" },
           lualine_y = { "datetype" },
           lualine_z = { "searchcount", "selectioncount", "location", "progress" },
