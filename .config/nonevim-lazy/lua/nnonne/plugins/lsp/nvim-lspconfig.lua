@@ -151,7 +151,28 @@ return {
     local blink = require("blink.cmp")
 
     -- 1. Setup Diagnostics
-    vim.diagnostic.config(opts.diagnostics)
+    -- vim.diagnostic.config(opts.diagnostics)
+    vim.diagnostic.config({
+      underline = true,
+      update_in_insert = false,
+      virtual_text = {
+        spacing = 4,
+        source = "if_many",
+        prefix = "●",
+        format = function(diagnostic)
+          return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+        end,
+      },
+      severity_sort = true,
+      -- signs = {
+      --   text = {
+      --     [vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
+      --     [vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
+      --     [vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
+      --     [vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
+      --   },
+      -- },
+    })
 
     -- 2. Base Capabilities via blink.cmp
     local capabilities = blink.get_lsp_capabilities({

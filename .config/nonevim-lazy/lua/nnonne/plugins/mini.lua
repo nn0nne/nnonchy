@@ -33,26 +33,26 @@ return {
     --   autocomplete = { enable = false },
     -- })
 
-    require("mini.snippets").setup({
-      snippets = {
-        require("mini.snippets").gen_loader.from_lang(),
-      },
-      expand = {
-        insert = function(snippet)
-          require("mini.snippets").default_insert(snippet, { empty_tabstop = "" })
-        end,
-      },
-    })
-    require("mini.snippets").start_lsp_server({ match = false })
-    vim.api.nvim_create_autocmd("ColorScheme", {
-      callback = function()
-        vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
-        vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
-        vim.api.nvim_set_hl(0, "MiniSnippetsFinal", {})
-        vim.api.nvim_set_hl(0, "MiniSnippetsUnvisited", {})
-        vim.api.nvim_set_hl(0, "MiniSnippetsVisited", {})
-      end,
-    })
+    -- require("mini.snippets").setup({
+    --   snippets = {
+    --     require("mini.snippets").gen_loader.from_lang(),
+    --   },
+    --   expand = {
+    --     insert = function(snippet)
+    --       require("mini.snippets").default_insert(snippet, { empty_tabstop = "" })
+    --     end,
+    --   },
+    -- })
+    -- require("mini.snippets").start_lsp_server({ match = false })
+    -- vim.api.nvim_create_autocmd("ColorScheme", {
+    --   callback = function()
+    --     vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
+    --     vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
+    --     vim.api.nvim_set_hl(0, "MiniSnippetsFinal", {})
+    --     vim.api.nvim_set_hl(0, "MiniSnippetsUnvisited", {})
+    --     vim.api.nvim_set_hl(0, "MiniSnippetsVisited", {})
+    --   end,
+    -- })
 
     require("mini.diff").setup({
       view = {
@@ -65,30 +65,30 @@ return {
         hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
         todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
         note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-        hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+        -- hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
       },
     })
-    require("mini.indentscope").setup({
-      draw = {
-        animation = function()
-          return 0
-        end,
-      },
-    })
-    require("mini.ai").setup({
-      mappings = {
-        around = "a",
-        inside = "i",
-
-        around_next = "an",
-        inside_next = "in",
-        around_last = "al",
-        inside_last = "il",
-
-        goto_left = "g[",
-        goto_right = "g]",
-      },
-    })
+    -- require("mini.indentscope").setup({
+    --   draw = {
+    --     animation = function()
+    --       return 0
+    --     end,
+    --   },
+    -- })
+    -- require("mini.ai").setup({
+    --   mappings = {
+    --     around = "a",
+    --     inside = "i",
+    --
+    --     around_next = "an",
+    --     inside_next = "in",
+    --     around_last = "al",
+    --     inside_last = "il",
+    --
+    --     goto_left = "g[",
+    --     goto_right = "g]",
+    --   },
+    -- })
     require("mini.bracketed").setup({
       buffer = { suffix = "b", options = {} },
       comment = { suffix = "c", options = {} },
@@ -118,7 +118,7 @@ return {
         suffix_next = "<leader>n",
       },
     })
-    require("mini.pick").setup()
+    -- require("mini.pick").setup()
 
     require("mini.starter").setup({
       autoopen = true,

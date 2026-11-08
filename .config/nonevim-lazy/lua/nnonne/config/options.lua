@@ -21,7 +21,7 @@ vim.g.cord_defer_startup = true
 local opt = vim.opt
 
 -- source https://www.reddit.com/r/neovim/comments/1sa95g4/no_more_press_enter_with_ui2_with_example/
--- opt.cmdheight = 0
+opt.cmdheight = 0
 
 -- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
@@ -44,7 +44,7 @@ vim.g.clipboard = {
 }
 
 opt.winborder = "single"
-opt.completeopt = "menu,menuone,noselect"
+opt.completeopt = "menuone,noinsert,noselect"
 opt.conceallevel = 2  -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = true    -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
@@ -63,7 +63,7 @@ opt.fillchars = {
 vim.opt.linebreak = false
 vim.opt.wrap = false
 opt.foldlevel = 99
-opt.foldmethod = "indent"
+opt.foldmethod = "expr"
 opt.foldtext = ""
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
@@ -79,7 +79,7 @@ opt.pumblend = 10         -- Popup blend
 opt.pumheight = 10        -- Maximum number of entries in a popup
 opt.relativenumber = true -- Relative line numbers
 opt.ruler = false         -- Disable the default ruler
-opt.scrolloff = 8         -- Lines of context
+opt.scrolloff = 10        -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true     -- Round indent
 opt.shiftwidth = 2        -- Size of an indent
@@ -134,3 +134,23 @@ vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, conf
   }
   return vim.lsp.handlers.signatureHelp(err, result, ctx, vim.tbl_extend("force", default_config, config or {}))
 end
+
+vim.opt.title = true                              -- Use titlestring for window
+vim.opt.showmatch = true                          -- Highlight matching brackets
+vim.opt.matchtime = 2                             -- How long to show matching bracket
+
+vim.opt.writebackup = false                       -- Don't create backup before writing
+vim.opt.timeoutlen = 500                          -- Key timeout duration
+vim.opt.ttimeoutlen = 0                           -- Key code timeout
+
+vim.opt.iskeyword:append("-")                     -- Treat dash as part of word
+vim.opt.path:append("**")                         -- Include subdirectories in search
+vim.opt.wildignore:append({ "*/node_modules/*" }) -- Ignore node_modules
+
+vim.opt.guicursor =
+"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter for folding
+
+vim.opt.wildmode = "longest:full,full"
+vim.opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })

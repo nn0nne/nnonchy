@@ -118,3 +118,16 @@ vim.api.nvim_create_autocmd("VimEnter", {
     if found_root then vim.cmd("cd " .. found_root) end
   end,
 })
+
+-- Highlight the current line on only the active buffer
+local cursorline_group = vim.api.nvim_create_augroup("CursorLine", { clear = true })
+vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
+  group = cursorline_group,
+  pattern = "*",
+  command = "setlocal cursorline",
+})
+vim.api.nvim_create_autocmd("WinLeave", {
+  group = cursorline_group,
+  pattern = "*",
+  command = "setlocal nocursorline",
+})
