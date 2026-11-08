@@ -1,3 +1,9 @@
 [tools]
+claude-code = "latest"
+node = "lts"
+"npm:@caveman-ai/cli" = "latest"
+"npm:@dietrichgebert/ponytail" = "latest"
+opencode = { version = "latest", allow_builds = ["@opencode/cli"] }
 pi = "latest"
+pnpm = "latest"
 rtk = "latest"
