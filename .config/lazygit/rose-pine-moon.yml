@@ -42,7 +42,7 @@ gui:
   # want to pick a small number (e.g. 0.2) if you're using a narrow screen, so
   # that you can see more of the main section.
   # Number from 0 to 1.0.
-  sidePanelWidth: 0.3333
+  sidePanelWidth: 0.2
   # If true, increase the height of the focused side window; creating an accordion
   # effect.
   expandFocusedSidePanel: false
@@ -245,6 +245,8 @@ git:
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
   # for more information.
   diffRenderers:
+    - command: delta --dark --paging=never --syntax-theme base16-256
+      colorArg: "always"
     - command: delta --dark --paging=never --syntax-theme base16-256 -s
       colorArg: "always"
   # Config relating to committing
@@ -303,7 +305,7 @@ git:
   ignoreWhitespaceInDiffView: false
   # The number of lines of context to show around each diff hunk. Can be changed
   # from within Lazygit with the `{` and `}` keys.
-  diffContextSize: 3
+  diffContextSize: 1
   # The threshold for considering a file to be renamed, in percent. Can be changed
   # from within Lazygit with the `(` and `)` keys.
   renameSimilarityThreshold: 50
