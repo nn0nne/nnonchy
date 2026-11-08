@@ -1,5 +1,6 @@
 [tools]
 claude-code = "latest"
+lua-language-server = "latest"
 node = "lts"
 "npm:@caveman-ai/cli" = "latest"
 "npm:@dietrichgebert/ponytail" = "latest"
