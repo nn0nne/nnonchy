@@ -1,10 +1,11 @@
 [tools]
+android-sdk = "21.0"
 claude-code = "latest"
 lua-language-server = "latest"
 node = "lts"
-"npm:@caveman-ai/cli" = "latest"
 "npm:@dietrichgebert/ponytail" = "latest"
+"npm:prettier" = "latest"
+"npm:vscode-json-languageserver" = "latest"
 opencode = { version = "latest", allow_builds = ["@opencode/cli"] }
 pi = "latest"
 pnpm = "latest"
-rtk = "latest"
