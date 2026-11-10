@@ -20,8 +20,6 @@ alias cal="cal -y -m"
 
 alias syscheck='watch -n 2 "echo \"=== SYSTEM STATUS ===\" && free -h | awk '\''NR==2{print \"RAM Used/Total: \" \$3 \" / \" \$2 \" (Available: \" \$7 \")\"} NR==3{print \"Swap Used/Total: \" \$3 \" / \" \$2}'\'' && echo \"--- TEMPERATURES ---\" && sensors 2>/dev/null | grep -E '\''Core|Tctl|edge|junction'\''"'
 alias batt='~/.config/mango/scripts/batt'
-alias coc='caveman opencode'
-alias cpi='caveman pi'
 
 ### zim-utility ###
 
