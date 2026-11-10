@@ -103,3 +103,6 @@ end, {
   silent = true,
   desc = "Toggle line wrap",
 })
+
+vim.keymap.set("n", "<leader>mds", "<cmd>MdKite start<cr>", { desc = "Start MdKite" })
+vim.keymap.set("n", "<leader>mdr", "<cmd>MdKite refresh<cr>", { desc = "Refresh MdKite" })

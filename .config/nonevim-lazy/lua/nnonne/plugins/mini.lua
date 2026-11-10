@@ -68,27 +68,27 @@ return {
         -- hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
       },
     })
-    -- require("mini.indentscope").setup({
-    --   draw = {
-    --     animation = function()
-    --       return 0
-    --     end,
-    --   },
-    -- })
-    -- require("mini.ai").setup({
-    --   mappings = {
-    --     around = "a",
-    --     inside = "i",
-    --
-    --     around_next = "an",
-    --     inside_next = "in",
-    --     around_last = "al",
-    --     inside_last = "il",
-    --
-    --     goto_left = "g[",
-    --     goto_right = "g]",
-    --   },
-    -- })
+    require("mini.indentscope").setup({
+      draw = {
+        animation = function()
+          return 0
+        end,
+      },
+    })
+    require("mini.ai").setup({
+      mappings = {
+        around = "a",
+        inside = "i",
+
+        around_next = "an",
+        inside_next = "in",
+        around_last = "al",
+        inside_last = "il",
+
+        goto_left = "g[",
+        goto_right = "g]",
+      },
+    })
     require("mini.bracketed").setup({
       buffer = { suffix = "b", options = {} },
       comment = { suffix = "c", options = {} },
