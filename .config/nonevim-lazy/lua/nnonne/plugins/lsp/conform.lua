@@ -19,6 +19,14 @@ return {
       jsonc = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
+      ["yaml.docker-compose"] = { "prettierd", "prettier", stop_after_first = true },
+      bash = { "shfmt" },
+      sh = { "shfmt" },
+      zsh = { "shfmt" },
+      toml = { "taplo" },
+      sql = { "sql_formatter" },
+      lua = { "stylua" },
+      dockerfile = { "dockerfmt" },
       dart = { "dart_format" },
       groovy = { "npm-groovy-lint" },
     },
@@ -29,11 +37,7 @@ return {
     -- Set up format-after-save
     format_after_save = { lsp_format = "fallback" },
     -- Customize formatters
-    formatters = {
-      shfmt = {
-        append_args = { "-i", "2" },
-      },
-    },
+    formatters = {},
   },
   init = function()
     -- If you want the formatexpr, here is the place to set it

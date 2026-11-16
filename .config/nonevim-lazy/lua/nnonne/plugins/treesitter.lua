@@ -57,7 +57,7 @@ return {
       "sql",
       -- "ssh_config",
       -- "tmux",
-      -- "toml",
+      "toml",
       "tsx",
       "typescript",
       "typespec",

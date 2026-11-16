@@ -137,6 +137,14 @@ return {
       eslint = {
         filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
       },
+      bashls = {},
+      yamlls = {},
+      taplo = {},
+      dockerls = {},
+      docker_compose_language_service = {},
+      -- Connections live in ~/.config/sqls/config.yml (sqls does not read
+      -- project files); without it the server only offers basic completion.
+      sqls = {},
       groovyls = {
         filetypes = { "groovy" },
         enabled = vim.fn.executable("groovy-language-server") == 1,
@@ -222,11 +230,17 @@ return {
       -- vtsls = { "vtsls", { "--stdio" } },
       tsc = { "tsc", { "--lsp", "--stdio" } },
       tailwindcss = { "tailwindcss-language-server", { "--stdio" }, true },
-      html = { "vscode-html-languageserver", { "--stdio" }, true },
-      cssls = { "vscode-css-languageserver", { "--stdio" }, true },
-      jsonls = { "vscode-json-languageserver", { "--stdio" }, true },
-      eslint = { "vscode-eslint-languageserver", { "--stdio" }, true },
+      html = { "vscode-html-language-server", { "--stdio" }, true },
+      cssls = { "vscode-css-language-server", { "--stdio" }, true },
+      jsonls = { "vscode-json-language-server", { "--stdio" }, true },
+      eslint = { "vscode-eslint-language-server", { "--stdio" }, true },
       prismals = { "prisma-language-server", { "--stdio" } },
+      bashls = { "bash-language-server", { "start" } },
+      yamlls = { "yaml-language-server", { "--stdio" } },
+      taplo = { "taplo", { "lsp", "stdio" } },
+      dockerls = { "docker-langserver", { "--stdio" } },
+      docker_compose_language_service = { "docker-compose-langserver", { "--stdio" } },
+      sqls = { "sqls" },
       lua_ls = { "lua-language-server", {} },
     }
 

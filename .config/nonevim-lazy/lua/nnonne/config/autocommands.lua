@@ -1,3 +1,11 @@
+-- Docker Compose files need a yaml sub-filetype for the compose LSP to attach.
+vim.filetype.add({
+  pattern = {
+    ["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
+    ["compose.*%.ya?ml"] = "yaml.docker-compose",
+  },
+})
+
 -- Shout out https://oneofone.dev/post/neovim-diagnostics-float/
 -- Floating diagnostic
 local group = vim.api.nvim_create_augroup("OoO", { clear = true })

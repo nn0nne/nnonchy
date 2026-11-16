@@ -53,7 +53,19 @@ return {
 
     lint.linters_by_ft = {
       javascript = { "eslint" },
+      javascriptreact = { "eslint" },
       typescript = { "eslint" },
+      typescriptreact = { "eslint" },
+      bash = { "shellcheck" },
+      sh = { "shellcheck" },
+      dockerfile = { "hadolint" },
+    }
+
+    local eslint_fts = {
+      javascript = true,
+      javascriptreact = true,
+      typescript = true,
+      typescriptreact = true,
     }
 
     -- Sandboxing state (default: false / bare execution)
@@ -90,6 +102,12 @@ return {
       -- Skip huge buffers; running eslint over a multi-thousand-line file is
       -- wasteful and competes with the LSP.
       if require("nnonne.util.bigfile").is_big(0) then
+        return
+      end
+      -- Only eslint needs project-root resolution; the other linters come
+      -- from the global mise tools and read the buffer directly.
+      if not eslint_fts[vim.bo.filetype] then
+        lint.try_lint()
         return
       end
       local root = eslint_root()
