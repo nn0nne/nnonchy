@@ -27,6 +27,7 @@ return {
       sql = { "sql_formatter" },
       lua = { "stylua" },
       dockerfile = { "dockerfmt" },
+      python = { "ruff_format" },
       dart = { "dart_format" },
       groovy = { "npm-groovy-lint" },
     },

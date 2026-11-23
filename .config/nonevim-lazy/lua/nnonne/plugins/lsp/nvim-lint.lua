@@ -50,6 +50,9 @@ return {
 
     -- Point the built-in eslint linter at the project-local binary.
     lint.linters.eslint.cmd = resolve_eslint
+    -- Python linting is not listed here on purpose: the ruff LSP (see
+    -- nvim-lspconfig.lua) already reports the same rules live while you type,
+    -- and running both only duplicates every diagnostic in the quickfix list.
 
     lint.linters_by_ft = {
       javascript = { "eslint" },

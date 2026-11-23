@@ -137,6 +137,55 @@ return {
       eslint = {
         filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
       },
+      pyright = {
+        -- CP snippets often sit in /tmp with no project marker; without this
+        -- pyright never attaches and the buffer has no LSP at all.
+        single_file_support = true,
+        -- pyright auto-detects `.venv`/`venv` in the workspace root, so uv,
+        -- poetry and plain venv ML projects need nothing here.
+        settings = {
+          pyright = {
+            disableTaggedHints = true,
+            -- the ruff server owns import organizing; two servers offering the
+            -- same code action is how imports silently disappear.
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              -- keeps big ML/torch repos responsive: no workspace sweep
+              diagnosticMode = "openFilesOnly",
+              useLibraryCodeForTypes = true,
+              autoSearchPaths = true,
+              autoImportCompletions = true,
+              -- torch/tf ship no stubs; this only adds noise, types still work
+              -- through useLibraryCodeForTypes.
+              diagnosticSeverityOverrides = {
+                reportMissingModuleSource = "none",
+              },
+            },
+          },
+        },
+      },
+      ruff = {
+        -- ruff >= 0.5 ships its own LSP (cmd/filetypes/root_markers come from
+        -- nvim-lspconfig): live linting, quickfixes, import organizing.
+        -- `ruff server` reads pyproject.toml / ruff.toml per project root, so
+        -- whatever the project selects wins; with no config at all ruff 0.17
+        -- defaults to a broad set (E/F plus isort I, etc.).
+        -- NOTE: the native `ruff server` reads its settings from
+        -- `init_options.settings`, not `settings` (verified against ruff
+        -- 0.17: puts under `settings` are silently ignored by the server).
+        init_options = {
+          settings = {
+            codeAction = {
+              fixViolation = { enable = true },
+              fixAll = { enable = true },
+            },
+            organizeImports = true,
+          },
+        },
+      },
       bashls = {},
       yamlls = {},
       taplo = {},
@@ -235,6 +284,8 @@ return {
       jsonls = { "vscode-json-language-server", { "--stdio" }, true },
       eslint = { "vscode-eslint-language-server", { "--stdio" }, true },
       prismals = { "prisma-language-server", { "--stdio" } },
+      pyright = { "pyright-langserver", { "--stdio" } },
+      ruff = { "ruff", { "server" } },
       bashls = { "bash-language-server", { "start" } },
       yamlls = { "yaml-language-server", { "--stdio" } },
       taplo = { "taplo", { "lsp", "stdio" } },
