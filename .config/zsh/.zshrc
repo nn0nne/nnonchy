@@ -7,11 +7,16 @@
 # notify_on_cmd_finish, and for `save_as_session --use-foreground-process` to
 # capture running commands so sessions can be resurrected.
 if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
-    export KITTY_SHELL_INTEGRATION="${KITTY_SHELL_INTEGRATION:-enabled}"
-    autoload -Uz -- "$KITTY_INSTALLATION_DIR/shell-integration/zsh/kitty-integration"
-    kitty-integration
-    unfunction kitty-integration 2>/dev/null
+  export KITTY_SHELL_INTEGRATION="${KITTY_SHELL_INTEGRATION:-enabled}"
+  autoload -Uz -- "$KITTY_INSTALLATION_DIR/shell-integration/zsh/kitty-integration"
+  kitty-integration
+  unfunction kitty-integration 2>/dev/null
 fi
+
+# =========================================================
+# pi-notify (extra sound on agent settle; visual notifications use OSC 777/99)
+# =========================================================
+export PI_NOTIFY_SOUND_CMD='paplay --volume=65536 /home/nnonne/Music/alarm_asset/sound_garage-cat-meow-8-fx-306184.mp3'
 
 # =========================================================
 # History
@@ -48,7 +53,7 @@ setopt SHARE_HISTORY
 
 setopt AUTOCD
 setopt NOBEEP
-setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
+setopt NUMERIC_GLOB_SORT # sort file10 after file9, not after file1
 
 # set to emacs for yazi shell drop to not be vi-mode
 bindkey -e
@@ -58,14 +63,14 @@ bindkey -e
 # SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? ' # Customize spelling correction prompt.
 
 # Remove path separator from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]}
+WORDCHARS=${WORDCHARS//[\/]/}
 
 # Make cd push the old directory to the directory stack.
 setopt AUTO_PUSHD
 
 autoload -Uz is-at-least && if is-at-least 5.8; then
-    # Don't print the working directory after a cd.
-    setopt CD_SILENT
+  # Don't print the working directory after a cd.
+  setopt CD_SILENT
 fi
 
 # Don't push multiple copies of the same directory to the stack.
@@ -110,8 +115,8 @@ source "$ZDOTDIR/completion.zsh"
 # =========================================================
 
 if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
-    source /usr/share/fzf/key-bindings.zsh
-    source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
 fi
 
 # =========================================================
