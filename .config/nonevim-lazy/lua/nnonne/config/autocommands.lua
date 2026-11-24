@@ -18,7 +18,12 @@ local function au(typ, pattern, cmdOrFn)
   end
 end
 
-au({ "CursorHold" }, nil, function()
+au({ "CursorHold" }, nil, function(ev)
+  -- Idle work (diagnostic float) should not fire in non-code/big buffers.
+  if vim.bo[ev.buf].buftype ~= "" or vim.bo[ev.buf].filetype == "markdown"
+      or require("nnonne.util.bigfile").is_big(ev.buf) then
+    return
+  end
   local opts = {
     focusable = false,
     scope = "cursor",
@@ -56,6 +61,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Skip big buffers: the extra round-trip on CursorHold(I) is costly there.
     if client
         and client:supports_method("textDocument/documentHighlight")
+        and vim.bo[event.buf].filetype ~= "markdown"
         and not require("nnonne.util.bigfile").is_big(event.buf)
     then
       -- group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
@@ -70,7 +76,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
 
       -- Clear highlights immediately when the cursor moves
-      vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+      vim.api.nvim_create_autocmd("CursorMoved", {
         buffer = event.buf,
         group = lsp_doc_highlight,
         callback = vim.lsp.buf.clear_references,

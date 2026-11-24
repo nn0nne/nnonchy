@@ -54,6 +54,35 @@ function M.is_huge(buf)
   return M.level(buf) >= 2
 end
 
+-- Neovim 0.12 builtin ftplugins (markdown/lua/help/query) call
+-- vim.treesitter.start() directly on FileType, which bypasses the BufReadPost
+-- guard below. Wrap the entry point so every caller follows the same policy.
+local ts_start = vim.treesitter.start
+M.raw_start = ts_start -- escape hatch: deliberately start TS on a huge buffer
+
+function M.start(buf, lang, opts)
+  buf = buf or 0
+  if M.is_huge(buf) then
+    return false
+  end
+  return ts_start(buf, lang, opts)
+end
+
+vim.treesitter.start = M.start
+
+-- One enormous line (e.g. an unformatted markdown table) makes regex syntax
+-- matching dominate redraw/scroll even after treesitter is stopped.
+local HUGE_LINE_BYTES = 100 * 1024
+
+local function has_huge_line(buf)
+  for _, line in ipairs(vim.api.nvim_buf_get_lines(buf, 0, -1, false)) do
+    if #line > HUGE_LINE_BYTES then
+      return true
+    end
+  end
+  return false
+end
+
 local function apply(buf)
   local level = M.level(buf)
   if level == 0 then
@@ -64,8 +93,15 @@ local function apply(buf)
   vim.b[buf].miniindentscope_disable = true
   vim.b[buf].minihipatterns_disable = true
 
+  -- blink.cmp respects b:completion = false; fuzzy matching on every
+  -- keystroke is expensive on big buffers.
+  vim.b[buf].completion = false
+
   if level >= 2 then
     pcall(vim.treesitter.stop, buf)
+    if has_huge_line(buf) then
+      vim.bo[buf].syntax = ""
+    end
   end
 
   -- Semantic tokens are enabled automatically on attach; turn them off for

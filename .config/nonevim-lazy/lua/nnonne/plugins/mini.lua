@@ -25,7 +25,6 @@ return {
       },
     })
     -- require("mini.extra").setup()
-    require("mini.jump").setup()
     require("mini.bufremove").setup()
 
     -- require("mini.cmdline").setup({
@@ -54,69 +53,79 @@ return {
     --   end,
     -- })
 
-    require("mini.diff").setup({
-      view = {
-        style = "sign",
-      },
-    })
-    require("mini.hipatterns").setup({
-      highlighters = {
-        fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
-        hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
-        todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
-        note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-        -- hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
-      },
-    })
-    require("mini.indentscope").setup({
-      draw = {
-        animation = function()
-          return 0
-        end,
-      },
-    })
-    require("mini.ai").setup({
-      mappings = {
-        around = "a",
-        inside = "i",
+    -- Defer editor-only mini modules to the VeryLazy event (same idea as
+    -- LazyVim's "LazyFile"/"VeryLazy" loading). mini.icons/pairs/notify/starter
+    -- stay eager: lualine's mock_nvim_web_devicons needs icons during startup.
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "VeryLazy",
+      once = true,
+      callback = function()
+        require("mini.diff").setup({
+          view = {
+            style = "sign",
+          },
+        })
+        require("mini.hipatterns").setup({
+          highlighters = {
+            fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+            hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
+            todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+            note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+            -- hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+          },
+        })
+        require("mini.indentscope").setup({
+          draw = {
+            animation = function()
+              return 0
+            end,
+          },
+        })
+        require("mini.ai").setup({
+          mappings = {
+            around = "a",
+            inside = "i",
 
-        around_next = "an",
-        inside_next = "in",
-        around_last = "al",
-        inside_last = "il",
+            around_next = "an",
+            inside_next = "in",
+            around_last = "al",
+            inside_last = "il",
 
-        goto_left = "g[",
-        goto_right = "g]",
-      },
-    })
-    require("mini.bracketed").setup({
-      buffer = { suffix = "b", options = {} },
-      comment = { suffix = "c", options = {} },
-      conflict = { suffix = "x", options = {} },
-      diagnostic = { suffix = "d", options = {} },
-      file = { suffix = "f", options = {} },
-      indent = { suffix = "i", options = {} },
-      jump = { suffix = "j", options = {} },
-      location = { suffix = "l", options = {} },
-      oldfile = { suffix = "o", options = {} },
-      quickfix = { suffix = "q", options = {} },
-      treesitter = { suffix = "t", options = {} },
-      undo = { suffix = "u", options = {} },
-      window = { suffix = "w", options = {} },
-      yank = { suffix = "y", options = {} },
-    })
-    require("mini.surround").setup({
-      mappings = {
-        add = "<leader>sa",
-        delete = "<leader>sd",
-        find = "<leader>sf",
-        find_left = "<leader>sF",
-        highlight = "<leader>sh",
-        replace = "<leader>sr",
+            goto_left = "g[",
+            goto_right = "g]",
+          },
+        })
+        require("mini.bracketed").setup({
+          buffer = { suffix = "b", options = {} },
+          comment = { suffix = "c", options = {} },
+          conflict = { suffix = "x", options = {} },
+          diagnostic = { suffix = "d", options = {} },
+          file = { suffix = "f", options = {} },
+          indent = { suffix = "i", options = {} },
+          jump = { suffix = "j", options = {} },
+          location = { suffix = "l", options = {} },
+          oldfile = { suffix = "o", options = {} },
+          quickfix = { suffix = "q", options = {} },
+          treesitter = { suffix = "t", options = {} },
+          undo = { suffix = "u", options = {} },
+          window = { suffix = "w", options = {} },
+          yank = { suffix = "y", options = {} },
+        })
+        require("mini.surround").setup({
+          mappings = {
+            add = "<leader>sa",
+            delete = "<leader>sd",
+            find = "<leader>sf",
+            find_left = "<leader>sF",
+            highlight = "<leader>sh",
+            replace = "<leader>sr",
 
-        suffix_last = "<leader>l",
-        suffix_next = "<leader>n",
-      },
+            suffix_last = "<leader>l",
+            suffix_next = "<leader>n",
+          },
+        })
+        require("mini.jump").setup()
+      end,
     })
     -- require("mini.pick").setup()
 

@@ -70,7 +70,14 @@ return {
       -- "zsh",
     }
 
-    require("nvim-treesitter").install(ensure_installed)
+    -- Only fetch parsers that are actually missing; install() scans the parser
+    -- dir and can spawn downloads on every startup otherwise.
+    local ts = require("nvim-treesitter")
+    local installed = require("nvim-treesitter.config").get_installed()
+    local missing = vim.tbl_filter(function(lang)
+      return not vim.list_contains(installed, lang)
+    end, ensure_installed)
+    if #missing > 0 then ts.install(missing) end
 
     -- Shout out https://github.com/Sin-cy/dotfiles/blob/main/nvim-nightly/.config/nvim-nightly/lua/sethy/plugins/treesitter.lua
     local ts_group = vim.api.nvim_create_augroup("TreesitterNativeStart", { clear = true })
@@ -79,16 +86,17 @@ return {
       pattern = "*",
       callback = function(args)
         local buf = args.buf
-        local ft = vim.bo[buf].filetype
-        local lang = vim.treesitter.language.get_lang(ft)
 
-        if not lang then
+        -- Big buffers stay on regex highlighting: get_lang() alone loads parser
+        -- metadata/queries, so check size BEFORE resolving the language.
+        -- See lua/nnonne/util/bigfile.lua.
+        if require("nnonne.util.bigfile").is_big(buf) then
           return
         end
 
-        -- Huge buffers stay on regex highlighting to avoid a full re-parse on
-        -- every edit/scroll. See lua/nnonne/util/bigfile.lua.
-        if require("nnonne.util.bigfile").is_huge(buf) then
+        local ft = vim.bo[buf].filetype
+        local lang = vim.treesitter.language.get_lang(ft)
+        if not lang then
           return
         end
 
