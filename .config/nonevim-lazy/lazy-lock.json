@@ -47,5 +47,7 @@
   "undotree": { "branch": "master", "commit": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d" },
   "vim-kitty-navigator": { "branch": "master", "commit": "c40c7d6181fa44fade771980952c60c1d89c28ea" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
+  "workspace-diagnostics.nvim": { "branch": "main", "commit": "ea93521c0344fa2530c6f6da8b059d1b944ca550" },
+  "yazi-lsp-info.nvim": { "branch": "main", "commit": "560ce9094a6f599ecf673ab8862396bc411c7891" },
   "yazi.nvim": { "branch": "main", "commit": "d8bd4cc258fdbe2bad71a383d390a96c80ecb628" }
 }

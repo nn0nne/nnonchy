@@ -5,7 +5,20 @@ return {
   keys = {
     {
       "<leader>xd",
-      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      function()
+        require("trouble").toggle({
+          mode = "diagnostics",
+          filter = {
+            {
+              severity = {
+                vim.diagnostic.severity.ERROR,
+                vim.diagnostic.severity.WARN,
+              },
+              buf = 0,
+            },
+          },
+        })
+      end,
       desc = "Buffer Diagnostics",
     },
     {
@@ -15,7 +28,10 @@ return {
           mode = "diagnostics",
           filter = {
             {
-              severity = vim.diagnostic.severity.ERROR,
+              severity = {
+                vim.diagnostic.severity.ERROR,
+                vim.diagnostic.severity.WARN,
+              },
               function(item)
                 return item.filename:find((vim.uv or vim.loop).cwd(), 1, true)
               end,
