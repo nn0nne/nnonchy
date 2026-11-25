@@ -9,6 +9,7 @@
   "cord.nvim": { "branch": "master", "commit": "85f295e43550bc968b66d95d8bfd6e12bb17df08" },
   "csvview.nvim": { "branch": "main", "commit": "f190de76d2eca0380ddcb2425cd582d740699b55" },
   "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
+  "faster.nvim": { "branch": "main", "commit": "6b7cb8b1a9628d4b87009c4849d510d1a3a14319" },
   "fff": { "branch": "main", "commit": "eb584015bb6bb77a3f93e84520a8e47379ab8435" },
   "flutter-tools.nvim": { "branch": "main", "commit": "0ff50ae646599788c71779ffa47ce46350a35724" },
   "focal.nvim": { "branch": "main", "commit": "25c946b9ba57c394fbb8644f084a4cd6d0004e54" },
