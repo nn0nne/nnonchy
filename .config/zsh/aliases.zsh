@@ -2,8 +2,6 @@
 # alias v="~/.config/kitty/scripts/kitty_nvim.sh"
 alias n="nvim"
 
-# plugin-free Neovim profile for huge markdown/code files
-alias nm='NVIM_APPNAME=nvim-min nvim'
 alias v="nvim"
 
 alias nzsh="n $ZDOTDIR/.zshrc"
