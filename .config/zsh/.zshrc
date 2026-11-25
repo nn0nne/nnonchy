@@ -135,6 +135,9 @@ source "$ZDOTDIR/git.zsh"
 # fzf configuration
 source "$ZDOTDIR/fzf.zsh"
 
+# dotnet configuration
+source "$ZDOTDIR/dotnet.zsh"
+
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
 
