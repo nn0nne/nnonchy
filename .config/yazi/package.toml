@@ -68,5 +68,10 @@ use = "ryanda/video-grid"
 rev = "9274cba"
 hash = "74a763c400ba68e2affb23e5cfbfedcf"
 
+[[plugin.deps]]
+use = "durelius/yazi-lsp-info"
+rev = "a6a8589"
+hash = "d64b82faaaece1e955748cc0f7f98e81"
+
 [flavor]
 deps = []
