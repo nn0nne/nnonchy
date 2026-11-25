@@ -23,6 +23,12 @@ return {
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
+    -- Handover-required function keys (alongside existing <leader>D* maps)
+    vim.keymap.set("n", "<F5>", function() dap.continue() end, { desc = "DAP: Continue" })
+    vim.keymap.set("n", "<F10>", function() dap.step_over() end, { desc = "DAP: Step over" })
+    vim.keymap.set("n", "<F11>", function() dap.step_into() end, { desc = "DAP: Step into" })
+    vim.keymap.set("n", "<F12>", function() dap.step_out() end, { desc = "DAP: Step out" })
+    vim.keymap.set("n", "<leader>bb", function() dap.toggle_breakpoint() end, { desc = "DAP: Toggle breakpoint" })
 
     dapui.setup()
 

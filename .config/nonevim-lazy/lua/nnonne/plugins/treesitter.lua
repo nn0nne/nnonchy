@@ -13,6 +13,8 @@ return {
       -- "c",
       -- "caddy",
       "comment",
+      "c_sharp",
+      "razor",
       -- "cpp",
       "css",
       "dart",

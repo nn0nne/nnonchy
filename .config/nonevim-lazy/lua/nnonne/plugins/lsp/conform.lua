@@ -26,6 +26,8 @@ return {
       toml = { "taplo" },
       sql = { "sql_formatter" },
       lua = { "stylua" },
+      csharp = { "csharpier" },
+      cs = { "csharpier" },
       dockerfile = { "dockerfmt" },
       python = { "ruff_format" },
       dart = { "dart_format" },
