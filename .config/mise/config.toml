@@ -28,3 +28,6 @@ pi = "latest"
 pnpm = "latest"
 uv = "latest"
 worktrunk = { version = "latest", workflow = "release.yaml" }
+
+[env]
+DOTNET_ROLL_FORWARD = "Major"
