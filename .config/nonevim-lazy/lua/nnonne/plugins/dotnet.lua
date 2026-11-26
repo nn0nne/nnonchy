@@ -39,7 +39,7 @@ return {
 			debugger = {
 				bin_path = nil,
 				engine = "netcoredbg",
-				console = "integratedTerminal",
+				console = "externalTerminal",
 				apply_value_converters = true,
 				auto_register_dap = true,
 				mem_cpu_usage = true,
@@ -109,11 +109,12 @@ return {
 				end,
 			},
 			diagnostics = { default_severity = "error", setqflist = false },
-			managed_terminal = { auto_hide = true, auto_hide_delay = 1000 },
-			external_terminal = {
-				command = "kitty",
-				args = { "--hold" },
-			},
+			-- managed_terminal = { auto_hide = true, auto_hide_delay = 1000 },
+			managed_terminal = { auto_hide = false },
+			-- external_terminal = {
+			-- 	command = "foot",
+			-- 	args = { "--hold" },
+			-- },
 		})
 
 		-- Keymaps (handover suggested)
